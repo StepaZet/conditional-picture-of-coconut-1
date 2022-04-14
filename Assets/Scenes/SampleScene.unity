@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 559352050}
   - component: {fileID: 559352049}
   - component: {fileID: 559352054}
+  - component: {fileID: 559352055}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -338,7 +339,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 719354bfe739eb640a3d254970711d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  dashLayerMask:
+    serializedVersion: 2
+    m_Bits: 72
+  moveSpeed: 8
+  rollSpeed: 0
   rb: {fileID: 559352050}
   weapon: {fileID: 339627600}
 --- !u!50 &559352050
@@ -456,6 +461,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb02efb7ec7cb32458f69dcf70979799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &559352055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559352048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301d838f20644101b9975f5b7839c2f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &948689500
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,8 +484,8 @@ GameObject:
   - component: {fileID: 948689503}
   - component: {fileID: 948689502}
   - component: {fileID: 948689501}
-  m_Layer: 0
-  m_Name: Square
+  m_Layer: 3
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -76,10 +76,10 @@ public class PlayerController : MonoBehaviour
 		if (!playerInput.IsDash)
 			return;
 		
-		var dashAmount = 4f;
+		var dashAmount = 3f;
 		var position = transform.position;
 		var dashPosition = position + (Vector3) lastDirection.normalized * dashAmount;
-		var raycastHit = Physics2D.Raycast(position, moveDirection, dashAmount, dashLayerMask);
+		var raycastHit = Physics2D.Raycast(position, lastDirection.normalized, dashAmount, dashLayerMask);
 		if (raycastHit.collider != null)
 			dashPosition = raycastHit.point;
 		rb.MovePosition(dashPosition);
@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
 		playerLogic.State = PlayerState.Rolling;
 		
 
-		rollSpeed = 10f;
+		rollSpeed = 20f;
 
 	}
 	
