@@ -1,4 +1,5 @@
 using UnityEngine;
+using Unity.Mathematics;
 
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
@@ -6,10 +7,18 @@ public class PlayerController : MonoBehaviour
 	public float moveSpeed = 5f;
 	public Rigidbody2D rb;
 	public Weapon weapon;
+    private Grid grid;
 
 	private PlayerInput playerInput;
 	private Vector2 cursorPosition;
 	private Vector2 moveDirection;
+    private int2 gridPosition;
+	
+    private void Start()
+    {
+        grid = new Grid(5, 5, 1);
+        gridPosition = grid.GetGridPosition(transform.position);
+    }
 
 	private void Awake()
 	{
@@ -22,11 +31,12 @@ public class PlayerController : MonoBehaviour
 		CheckForFire();
 	}
 
-	private void FixedUpdate()
+    private void FixedUpdate()
 	{
 		Move();
 		Aim();
-	}
+        UpdateGridPosition();
+    }
 
 	private void Move()
 	{
@@ -40,7 +50,19 @@ public class PlayerController : MonoBehaviour
 		rb.rotation = aimAngle;
 	}
 
-	private void CheckForFire()
+    private void UpdateGridPosition()
+    {
+        var newGridPosition = grid.GetGridPosition(transform.position);
+        if (newGridPosition.x != gridPosition.x || newGridPosition.y != gridPosition.y)
+        {
+			grid.UnFillCell(new Vector3(gridPosition.x, gridPosition.y));
+			grid.FillCell(new Vector3(newGridPosition.x, newGridPosition.y));
+		}
+
+        gridPosition = newGridPosition;
+    }
+
+    private void CheckForFire()
 	{
 		if (playerInput.IsFireInput)
 			weapon.Fire();

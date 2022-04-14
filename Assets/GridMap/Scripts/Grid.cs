@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Grid
 {
     private int width;
     private int height;
-    private float cellSize;
-    private GridCell[,] gridArray;
+    private readonly float cellSize;
+    private readonly GridCell[,] gridArray;
 
     enum GridCell{
         empty,
@@ -22,63 +23,39 @@ public class Grid
         gridArray = new GridCell[width, height];
 
         for (var x = 0; x < gridArray.GetLength(0); x++)
-        {
             for (var y = 0; y < gridArray.GetLength(1); y++)
-            {
-                Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 100f);
-                Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, 100f);
-            }
-        }
-        Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.white, 100f);
-        Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, 100f);
+                DrawCell(new int2(x, y), Color.white);
     }
 
     private Vector3 GetWorldPosition(int x, int y)
-    {
-        return new Vector3(x, y) * cellSize;
-    }
-
-    private void GetXY(Vector3 worldPosition, out int x, out int y)
-    {
-        x = Mathf.FloorToInt(worldPosition.x / cellSize);
-        y = Mathf.FloorToInt(worldPosition.y / cellSize);
-    }
+        => new Vector3(x, y) * cellSize;
 
     private bool IsInGrid(int x, int y)
+        => x >= 0 && y >= 0 && x < gridArray.GetLength(0) && y < gridArray.GetLength(1);
+
+    public int2 GetGridPosition(Vector3 position)
+        => new int2(Mathf.FloorToInt(position.x / cellSize), Mathf.FloorToInt(position.y / cellSize));
+
+    private void DrawCell(int2 position, Color color)
     {
-        return x >= 0 && y >= 0 && x < gridArray.GetLength(0) && y < gridArray.GetLength(1);
+        Debug.DrawLine(new Vector3(position.x, position.y), new Vector3(position.x + cellSize, position.y), color, 100f);
+        Debug.DrawLine(new Vector3(position.x, position.y), new Vector3(position.x, position.y + cellSize), color, 100f);
+        Debug.DrawLine(new Vector3(position.x + cellSize, position.y + cellSize), new Vector3(position.x + cellSize, position.y), color, 100f);
+        Debug.DrawLine(new Vector3(position.x + cellSize, position.y + cellSize), new Vector3(position.x, position.y + cellSize), color, 100f);
     }
 
     public void FillCell(Vector3 worldPosition)
     {
-        var x = 0;
-        var y = 0;
-        GetXY(worldPosition, out x, out y);
+        var cellPosition = GetGridPosition(worldPosition);
 
-        if (IsInGrid(x, y))
-        {
-            gridArray[x, y] = GridCell.player;
-            var rect = new Rect(x, y, cellSize, cellSize);
-            Debug.DrawLine(new Vector3(rect.x, rect.y), new Vector3(rect.x + rect.width, rect.y), Color.green, 100f);
-            Debug.DrawLine(new Vector3(rect.x, rect.y), new Vector3(rect.x, rect.y + rect.height), Color.green, 100f);
-            Debug.DrawLine(new Vector3(rect.x + rect.width, rect.y + rect.height), new Vector3(rect.x + rect.width, rect.y), Color.green, 100f);
-            Debug.DrawLine(new Vector3(rect.x + rect.width, rect.y + rect.height), new Vector3(rect.x, rect.y + rect.height), Color.green, 100f);
-        }      
+        if (IsInGrid(cellPosition.x, cellPosition.y))
+            DrawCell(cellPosition, Color.green);
     }
 
     public void UnFillCell(Vector3 worldPosition)
     {
-        var x = 0;
-        var y = 0;
-        GetXY(worldPosition, out x, out y);
-        if (IsInGrid(x, y))
-        {
-            gridArray[x, y] = GridCell.player;
-            var rect = new Rect(x, y, cellSize, cellSize);
-            Debug.DrawLine(new Vector3(rect.x, rect.y), new Vector3(rect.x + rect.width, rect.y), Color.white, 100f);
-            Debug.DrawLine(new Vector3(rect.x, rect.y), new Vector3(rect.x, rect.y + rect.height), Color.white, 100f);
-            Debug.DrawLine(new Vector3(rect.x + rect.width, rect.y + rect.height), new Vector3(rect.x + rect.width, rect.y), Color.white, 100f);
-            Debug.DrawLine(new Vector3(rect.x + rect.width, rect.y + rect.height), new Vector3(rect.x, rect.y + rect.height), Color.white, 100f);
-        }
+        var cellPosition = GetGridPosition(worldPosition);
+        if (IsInGrid(cellPosition.x, cellPosition.y))
+            DrawCell(cellPosition, Color.white);
     }
 }

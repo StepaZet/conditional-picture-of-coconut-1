@@ -8,7 +8,7 @@ namespace GridTools
     {
         public static Vector3 GetMouseWordPosition()
         {
-            Vector3 vec = GetMouseWordPositionWithZ(Input.mousePosition, Camera.main);
+            var vec = GetMouseWordPositionWithZ(Input.mousePosition, Camera.main);
             vec.z = 0f;
             return vec;
         }
