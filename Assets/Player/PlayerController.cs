@@ -1,3 +1,4 @@
+using GridTools;
 using UnityEngine;
 using Unity.Mathematics;
 
@@ -16,7 +17,7 @@ public class PlayerController : MonoBehaviour
 	
     private void Start()
     {
-        grid = new Grid(5, 5, 1);
+        grid = new Grid(20, 20, 1);
         gridPosition = grid.GetGridPosition(transform.position);
     }
 
@@ -26,6 +27,11 @@ public class PlayerController : MonoBehaviour
 	}
 	private void Update()
 	{
+        if (Input.GetMouseButtonDown(0))
+        {
+            grid.DrawPath(new Vector3(gridPosition.x, gridPosition.y), Tools.GetMouseWordPosition());
+        }
+
 		moveDirection = playerInput.MovementInput.normalized;
 		cursorPosition = Camera.main.ScreenToWorldPoint(playerInput.AimingInput);
 		CheckForFire();
@@ -47,7 +53,7 @@ public class PlayerController : MonoBehaviour
 	{
 		var aimDirection = cursorPosition - rb.position;
 		var aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
-		rb.rotation = aimAngle;
+		//rb.rotation = aimAngle;
 	}
 
     private void UpdateGridPosition()
