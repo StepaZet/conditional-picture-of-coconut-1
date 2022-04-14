@@ -61,8 +61,16 @@ public class Grid
     public void UnFillCell(Vector3 worldPosition)
     {
         var cellPosition = GetGridPosition(worldPosition);
-        //if (IsInGrid(cellPosition.x, cellPosition.y))
-        //    DrawCell(cellPosition, Color.white);
+        if (IsInGrid(cellPosition.x, cellPosition.y))
+            DrawCell(cellPosition, Color.white);
+    }
+
+    public void CreateWall(Vector3 worldPosition)
+    {
+        var cellPosition = GetGridPosition(worldPosition);
+        if (!IsInGrid(cellPosition.x, cellPosition.y)) return;
+        gridArray[cellPosition.x, cellPosition.y] = GridCell.Wall;
+        DrawCell(cellPosition, Color.red);
     }
 
     public void DrawPath(Vector3 start, Vector3 end)

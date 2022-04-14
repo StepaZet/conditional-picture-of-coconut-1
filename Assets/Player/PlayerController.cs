@@ -32,6 +32,11 @@ public class PlayerController : MonoBehaviour
             grid.DrawPath(new Vector3(gridPosition.x, gridPosition.y), Tools.GetMouseWordPosition());
         }
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            grid.CreateWall(Tools.GetMouseWordPosition());
+        }
+
 		moveDirection = playerInput.MovementInput.normalized;
 		cursorPosition = Camera.main.ScreenToWorldPoint(playerInput.AimingInput);
 		CheckForFire();
