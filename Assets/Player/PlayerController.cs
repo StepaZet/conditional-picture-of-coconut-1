@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 	public float moveSpeed = 8f;
 	public float rollSpeed;
 	public Rigidbody2D rb;
-	public Weapon weapon;
+	public Weapon.Weapon weapon;
 
 	private PlayerLogic playerLogic;
 	private PlayerInput playerInput;
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 		{
 			case PlayerState.Idle:
 				Aim();
-				CheckForFire();
+				Fire();
 				Dash();
 				Roll();
 				break;
@@ -117,9 +117,8 @@ public class PlayerController : MonoBehaviour
 		latestAimAngle = aimAngle;
 	}
 
-	private void CheckForFire()
+	private void Fire()
 	{
-		if (playerInput.IsFireInput)
-			weapon.Fire();
+		weapon.Fire(playerInput.IsFireInput);
 	}
 }

@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Weapon/Shotgun.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapon/Shotgun.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapon/WeaponState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapon/WeaponState.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/Bullet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/IWeapon.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/IWeapon.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Weapon/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Weapon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +34,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/HealthSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerLogic.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="27EnJZhJ0yvWQwNVuM4aAeiyGSK" />
   <component name="ProjectViewState">
