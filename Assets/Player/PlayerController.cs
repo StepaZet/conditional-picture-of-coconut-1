@@ -17,7 +17,8 @@ public class PlayerController : MonoBehaviour
 	private PlayerInput playerInput;
 	private Vector2 cursorPosition;
 	private Vector2 moveDirection;
-	private Vector2 lastDirection;
+	private Vector2 latestMoveDirection;
+	private float latestAimAngle;
 
 	private void Awake()
 	{
@@ -30,7 +31,7 @@ public class PlayerController : MonoBehaviour
 		moveDirection = playerInput.MovementInput.normalized;
 		cursorPosition = Camera.main.ScreenToWorldPoint(playerInput.AimingInput);
 		if (moveDirection != Vector2.zero) 
-			lastDirection = moveDirection.normalized;
+			latestMoveDirection = moveDirection.normalized;
 		switch (playerLogic.State)
 		{
 			case PlayerState.Idle:
@@ -78,8 +79,8 @@ public class PlayerController : MonoBehaviour
 		
 		var dashAmount = 3f;
 		var position = transform.position;
-		var dashPosition = position + (Vector3) lastDirection.normalized * dashAmount;
-		var raycastHit = Physics2D.Raycast(position, lastDirection.normalized, dashAmount, dashLayerMask);
+		var dashPosition = position + (Vector3) latestMoveDirection.normalized * dashAmount;
+		var raycastHit = Physics2D.Raycast(position, latestMoveDirection.normalized, dashAmount, dashLayerMask);
 		if (raycastHit.collider != null)
 			dashPosition = raycastHit.point;
 		rb.MovePosition(dashPosition);
@@ -94,7 +95,7 @@ public class PlayerController : MonoBehaviour
 		if (rollSpeed < minimumRollSpeed) 
 			playerLogic.State = PlayerState.Idle;
 
-		rb.velocity = lastDirection * rollSpeed;
+		rb.velocity = latestMoveDirection * rollSpeed;
 	}
 
 	private void Roll()
@@ -112,7 +113,8 @@ public class PlayerController : MonoBehaviour
 	{
 		var aimDirection = cursorPosition - rb.position;
 		var aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
-		rb.rotation = aimAngle;
+		weapon.weaponPrefab.transform.RotateAround(rb.position, Vector3.forward, aimAngle - latestAimAngle);
+		latestAimAngle = aimAngle;
 	}
 
 	private void CheckForFire()
