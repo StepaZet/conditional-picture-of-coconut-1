@@ -62,7 +62,7 @@ public class Grid
     {
         var cellPosition = GetGridPosition(worldPosition);
         if (IsInGrid(cellPosition.x, cellPosition.y))
-            DrawCell(cellPosition, Color.white);
+            DrawCell(cellPosition, gridArray[cellPosition.x, cellPosition.y] == GridCell.Walkable ? Color.white : Color.red);
     }
 
     public void CreateWall(Vector3 worldPosition)
