@@ -1,12 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
-using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 namespace GridTools
 {
-    public class PathFinding : MonoBehaviour
+    public class PathFinding
     {
         private const int MoveStraightCost = 10;
         private const int MoveDiagonalCost = 14;

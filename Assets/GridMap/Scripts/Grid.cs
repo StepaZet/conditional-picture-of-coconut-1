@@ -1,91 +1,126 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
+using Assets;
 using GridTools;
 using Unity.Mathematics;
-using UnityEditor.UI;
 using UnityEngine;
 
 public class Grid
 {
-    public int Width { get; }
-    public int Height { get; }
-    private readonly float cellSize;
+    public readonly int Width;
+    public readonly int Height;
+    public readonly float CellSize;
+    private readonly float2 position;
     private readonly GridCell[,] gridArray;
 
-    private enum GridCell{
+    public enum GridCell{
         Walkable,
         Wall
     }
 
-    public Grid(int width, int height, float cellSize)
+    public Grid(float2 position, int width, int height, float cellSize)
     {
         this.Width = width;
         this.Height = height;
-        this.cellSize = cellSize;
+        this.CellSize = cellSize;
+        this.position = position;
         gridArray = new GridCell[width, height];
+    }
+    public bool isWalkable(int x, int y)
+        => gridArray[x, y] == GridCell.Walkable;
 
-        for (var i = 0; i < height - 10; i++)
-            gridArray[10, i] = GridCell.Wall;
+    public float2 GridToWorldPosition(float2 gridPosition)
+        => gridPosition * CellSize + position;
 
-        for (var x = 0; x < gridArray.GetLength(0); x++)
-            for (var y = 0; y < gridArray.GetLength(1); y++)
-                DrawCell(new int2(x, y), gridArray[x,y] == GridCell.Walkable ? Color.white : Color.red);
+    public bool IsInGrid(int2 gridPosition)
+        => gridPosition.x >= 0 && gridPosition.y >= 0 && 
+           gridPosition.x < gridArray.GetLength(0) && 
+           gridPosition.y < gridArray.GetLength(1);
+
+    public int2 WorldToGridPosition(Vector3 worldPosition)
+        => new int2(Mathf.FloorToInt((worldPosition.x - position.x) / CellSize), 
+            Mathf.FloorToInt((worldPosition.y - position.y) / CellSize));
+
+    public void CreateWall(Vector3 startWorldWall, Vector3 endWorldWall)
+    {
+        var startGridWall = WorldToGridPosition(startWorldWall);
+        var endGridWall = WorldToGridPosition(endWorldWall);
+        for (var x = startGridWall.x; x <= endGridWall.x; x++)
+        {
+            CreateWall(new int2(x, startGridWall.y));
+            CreateWall(new int2(x, endGridWall.y));
+        }
+        for (var y = startGridWall.y; y <= endGridWall.y; y++)
+        {
+            CreateWall(new int2(startGridWall.x, y));
+            CreateWall(new int2(endGridWall.x, y));
+        }
+
     }
 
-    private Vector3 GetWorldPosition(int x, int y)
-        => new Vector3(x, y) * cellSize;
-
-    private bool IsInGrid(int x, int y)
-        => x >= 0 && y >= 0 && x < gridArray.GetLength(0) && y < gridArray.GetLength(1);
-
-    public int2 GetGridPosition(Vector3 position)
-        => new int2(Mathf.FloorToInt(position.x / cellSize), Mathf.FloorToInt(position.y / cellSize));
-
-    private void DrawCell(int2 position, Color color, float duration=100f)
+    public void CreateWall(int2 gridPosition)
     {
-        Debug.DrawLine(new Vector3(position.x, position.y), new Vector3(position.x + cellSize, position.y), color, duration);
-        Debug.DrawLine(new Vector3(position.x, position.y), new Vector3(position.x, position.y + cellSize), color, duration);
-        Debug.DrawLine(new Vector3(position.x + cellSize, position.y + cellSize), new Vector3(position.x + cellSize, position.y), color, duration);
-        Debug.DrawLine(new Vector3(position.x + cellSize, position.y + cellSize), new Vector3(position.x, position.y + cellSize), color, duration);
-    }
-
-    public void FillCell(Vector3 worldPosition)
-    {
-        var cellPosition = GetGridPosition(worldPosition);
-
-        if (IsInGrid(cellPosition.x, cellPosition.y))
-            DrawCell(cellPosition, Color.green, 1);
-    }
-
-    public void UnFillCell(Vector3 worldPosition)
-    {
-        var cellPosition = GetGridPosition(worldPosition);
-        if (IsInGrid(cellPosition.x, cellPosition.y))
-            DrawCell(cellPosition, gridArray[cellPosition.x, cellPosition.y] == GridCell.Walkable ? Color.white : Color.red);
+        if (!IsInGrid(gridPosition)) return;
+        gridArray[gridPosition.x, gridPosition.y] = Grid.GridCell.Wall;
+        DrawCell(gridPosition, Color.red);
     }
 
     public void CreateWall(Vector3 worldPosition)
     {
-        var cellPosition = GetGridPosition(worldPosition);
-        if (!IsInGrid(cellPosition.x, cellPosition.y)) return;
-        gridArray[cellPosition.x, cellPosition.y] = GridCell.Wall;
-        DrawCell(cellPosition, Color.red);
+        var gridPosition = WorldToGridPosition(worldPosition);
+        if (!IsInGrid(gridPosition)) return;
+        gridArray[gridPosition.x, gridPosition.y] = Grid.GridCell.Wall;
+        DrawCell(gridPosition, Color.red);
     }
 
-    public void DrawPath(Vector3 start, Vector3 end)
+    // visualization 
+
+    public void DrawGrid()
     {
-        var startPosition = GetGridPosition(start);
-        var endPosition = GetGridPosition(end);
+        for (var x = 0; x < Width; x++)
+            for (var y = 0; y < Height; y++)
+                DrawCell(new float2(x, y), gridArray[x, y] == GridCell.Walkable
+                    ? Color.white : Color.red);
+    }
+
+    public void DrawCell(float2 gridPosition, Color color, float duration = 100f)
+    {
+        var worldPosition = GridToWorldPosition(gridPosition);
+        Debug.DrawLine(worldPosition.ToVector3(),
+            worldPosition.ToVector3() + new Vector3(CellSize, 0), color, duration);
+        Debug.DrawLine(worldPosition.ToVector3(),
+            worldPosition.ToVector3() + new Vector3(0, CellSize), color, duration);
+        Debug.DrawLine(worldPosition.ToVector3() + new Vector3(CellSize, CellSize),
+            worldPosition.ToVector3() + new Vector3(CellSize, 0), color, duration);
+        Debug.DrawLine(worldPosition.ToVector3() + new Vector3(CellSize, CellSize),
+            worldPosition.ToVector3() + new Vector3(0, CellSize), color, duration);
+    }
+
+    public void DrawPath(Vector3 startWorldPosition, Vector3 endWorldPosition)
+    {
+        var startGridPosition = WorldToGridPosition(startWorldPosition);
+        var endGridPosition = WorldToGridPosition(endWorldPosition);
 
         var pathFinder = new PathFinding();
-        var path = pathFinder.FindPathAStar(this, startPosition, endPosition);
+        var path = pathFinder.FindPathAStar(this, startGridPosition, endGridPosition);
 
         if (path == null) return;
-        for (var i = 0; i < path.Count - 1; i++) 
-            Debug.DrawLine(new Vector3(path[i].x, path[i].y) + new Vector3(cellSize / 2, cellSize / 2), new Vector3(path[i+1].x, path[i+1].y) + new Vector3(cellSize / 2, cellSize / 2), Color.green, 2f);
+        for (var i = 0; i < path.Count - 1; i++)
+        {
+            Debug.DrawLine(
+                GridToWorldPosition(path[i]).ToVector3() + new Vector3(CellSize / 2, CellSize / 2), 
+                GridToWorldPosition(path[i+1]).ToVector3() + new Vector3(CellSize / 2, CellSize / 2), Color.green, 2f);
+        }
+            
+    }
+    public void FillCell(int2 gridPosition)
+    {
+        if (IsInGrid(gridPosition))
+            DrawCell(gridPosition, Color.green, 100f);
     }
 
-    public bool isWalkable(int x, int y)
-        => gridArray[x, y] == GridCell.Walkable;
+    public void UnFillCell(int2 gridPosition)
+    {
+        if (IsInGrid(gridPosition))
+            DrawCell(gridPosition, gridArray[gridPosition.x, gridPosition.y] == GridCell.Walkable
+                ? Color.white : Color.red);
+    }
 }
