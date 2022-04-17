@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 namespace Weapon
@@ -8,17 +10,27 @@ namespace Weapon
 	{
 		public LineRenderer lineRenderer;
 		private float maxDistance = 100;
+		public PlayerLogic playerLogic;
+
+		public void Update()
+		{
+			if (playerLogic.State != PlayerState.Idle)
+				TurnLaserOff();
+		}
+
 		protected override void CreateBullets()
 		{
 			lineRenderer.enabled = true;
-			if (Physics2D.Raycast(firePoint.position, firePoint.up))
+			var position = firePoint.position;
+			if (Physics2D.Raycast(position, firePoint.up))
 			{
-				var hit = Physics2D.Raycast(firePoint.position, transform.up);
-				DrawRay(firePoint.position, hit.point);
+				
+				var hit = Physics2D.Raycast(position, transform.up);
+				DrawRay(position, hit.point);
 			}
 			else
 			{
-				DrawRay(firePoint.position, firePoint.transform.up * maxDistance);
+				DrawRay(position, firePoint.transform.up * maxDistance);
 			}
 		}
 
@@ -32,7 +44,12 @@ namespace Weapon
 		public override void FireReleased(bool isButtonReleased)
 		{
 			if (isButtonReleased)
-				lineRenderer.enabled = false;
+				TurnLaserOff();
+		}
+		
+		private void TurnLaserOff()
+		{
+			lineRenderer.enabled = false;
 		}
 	}
 }
