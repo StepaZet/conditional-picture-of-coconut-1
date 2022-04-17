@@ -18,7 +18,7 @@ namespace Weapon
 		{
 			reloadingTime = 0;
 		}
-		public void Fire(bool isButtonPressed)
+		public virtual void Fire(bool isButtonPressed)
 		{
 			switch (state)
 			{
@@ -33,6 +33,16 @@ namespace Weapon
 						state = WeaponState.Ready;
 					break;
 			}
+		}
+		
+		public virtual void FireHeld(bool isButtonPushed)
+		{
+			Fire(isButtonPushed);
+		}
+
+		public virtual void FireReleased(bool isButtonReleased)
+		{
+			
 		}
 
 		protected virtual void CreateBullets()

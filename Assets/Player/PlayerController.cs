@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
 			case PlayerState.Idle:
 				Aim();
 				Fire();
+				FireHeld();
+				FireReleased();
 				Dash();
 				Roll();
 				break;
@@ -142,5 +144,15 @@ public class PlayerController : MonoBehaviour
 	private void Fire()
 	{
 		weapon.Fire(playerInput.IsFireInput);
+	}
+	
+	private void FireHeld()
+	{
+		weapon.FireHeld(playerInput.IsFireInputHeld);
+	}
+
+	private void FireReleased()
+	{
+		weapon.FireReleased(playerInput.IsFireInputReleased);
 	}
 }
