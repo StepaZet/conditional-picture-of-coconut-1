@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using System.Threading.Tasks;
-using Assets;
+using Extensions;
 using GridTools;
 using Unity.Mathematics;
 using UnityEditor.U2D.Path.GUIFramework;
@@ -120,6 +120,14 @@ public class Grid
         });
     }
 
+    public void AddPathsToDraw(List<int2> pathToDraw)
+    {
+        lock (pathsToDraw)
+        {
+            pathsToDraw.Add(pathToDraw);
+        }
+    }
+
     public void DrawPaths()
     {
         lock (pathsToDraw)
@@ -129,7 +137,7 @@ public class Grid
                 {
                     Debug.DrawLine(
                         GridToWorldPosition(path[i]).ToVector3() + new Vector3(CellSize / 2, CellSize / 2),
-                        GridToWorldPosition(path[i+1]).ToVector3() + new Vector3(CellSize / 2, CellSize / 2), Color.green, 2f);
+                        GridToWorldPosition(path[i+1]).ToVector3() + new Vector3(CellSize / 2, CellSize / 2), Color.green, 10f);
                 }
             pathsToDraw.Clear();
         }

@@ -2,7 +2,7 @@ using GridTools;
 using UnityEngine;
 using Unity.Mathematics;
 using System;
-using Assets;
+using Extensions;
 using Player;
 
 [RequireComponent(typeof(PlayerInput))]
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         //grid = GetComponent<GridObj>();	
-        gridPosition = grid.GetGridPosition(transform.position);
+        gridPosition = grid.WorldToGridPosition(transform.position);
     }
 
 	private void Awake()
@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateGridPosition()
     {
-        var newGridPosition = grid.GetGridPosition(transform.position);
+        var newGridPosition = grid.WorldToGridPosition(transform.position);
         if (newGridPosition.x == gridPosition.x && newGridPosition.y == gridPosition.y) return;
         grid.UnFillCell(gridPosition);
         grid.FillCell(newGridPosition);

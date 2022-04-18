@@ -7,6 +7,9 @@ namespace GridTools
 {
     public static class Tools
     {
+        public static Vector3 GetRandomDir()
+            => new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
+
         public static Vector3 GetMouseWordPosition()
         {
             var vec = GetMouseWordPositionWithZ(Input.mousePosition, Camera.main);
