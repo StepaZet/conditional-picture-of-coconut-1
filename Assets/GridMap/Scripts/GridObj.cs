@@ -24,8 +24,11 @@ public class GridObj : MonoBehaviour
     {
         Debug.Log(PlayerPosition);
 
+        if (Grid.pathsToDraw.Count > 0)
+            Grid.DrawPaths();
+
         if (Input.GetMouseButtonDown(0))
-            DrawPath(PlayerPosition, Tools.GetMouseWordPosition());
+            FindPath(PlayerPosition, Tools.GetMouseWordPosition());
 
         if (Input.GetMouseButtonDown(1))
             CreateWall(Tools.GetMouseWordPosition());
@@ -34,8 +37,8 @@ public class GridObj : MonoBehaviour
     public int2 GetGridPosition(Vector3 worldPosition)
         => Grid.WorldToGridPosition(worldPosition);
 
-    public void DrawPath(Vector3 startWorldPosition, Vector3 endWorldPosition)
-        => Grid.DrawPath(startWorldPosition, endWorldPosition);
+    public void FindPath(Vector3 startWorldPosition, Vector3 endWorldPosition)
+        => Grid.FindPath(startWorldPosition, endWorldPosition);
 
     public void CreateWall(Vector3 worldPosition)
         => Grid.CreateWall(worldPosition);

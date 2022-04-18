@@ -1,6 +1,12 @@
+using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
+using System.Threading.Tasks;
 using Assets;
 using GridTools;
 using Unity.Mathematics;
+using UnityEditor.U2D.Path.GUIFramework;
 using UnityEngine;
 
 public class Grid
@@ -10,6 +16,7 @@ public class Grid
     public readonly float CellSize;
     private readonly float2 position;
     private readonly GridCell[,] gridArray;
+    public readonly List<List<int2>> pathsToDraw;
 
     public enum GridCell{
         Walkable,
@@ -22,6 +29,7 @@ public class Grid
         this.Height = height;
         this.CellSize = cellSize;
         this.position = position;
+        pathsToDraw = new List<List<int2>>();
         gridArray = new GridCell[width, height];
     }
     public bool isWalkable(int x, int y)
@@ -94,23 +102,39 @@ public class Grid
             worldPosition.ToVector3() + new Vector3(0, CellSize), color, duration);
     }
 
-    public void DrawPath(Vector3 startWorldPosition, Vector3 endWorldPosition)
+    public void FindPath(Vector3 startWorldPosition, Vector3 endWorldPosition)
     {
         var startGridPosition = WorldToGridPosition(startWorldPosition);
         var endGridPosition = WorldToGridPosition(endWorldPosition);
 
         var pathFinder = new PathFinding();
-        var path = pathFinder.FindPathAStar(this, startGridPosition, endGridPosition);
-
-        if (path == null) return;
-        for (var i = 0; i < path.Count - 1; i++)
+        var taskFinding =
+            new Task<List<int2>>(() => pathFinder.FindPathAStar(this, startGridPosition, endGridPosition));
+        taskFinding.Start();
+        taskFinding.ContinueWith(task =>
         {
-            Debug.DrawLine(
-                GridToWorldPosition(path[i]).ToVector3() + new Vector3(CellSize / 2, CellSize / 2), 
-                GridToWorldPosition(path[i+1]).ToVector3() + new Vector3(CellSize / 2, CellSize / 2), Color.green, 2f);
-        }
-            
+            lock (pathsToDraw)
+            {
+                pathsToDraw.Add(task.Result);
+            }
+        });
     }
+
+    public void DrawPaths()
+    {
+        lock (pathsToDraw)
+        {
+            foreach (var path in pathsToDraw)
+                for (var i = 0; i < path.Count - 1; i++)
+                {
+                    Debug.DrawLine(
+                        GridToWorldPosition(path[i]).ToVector3() + new Vector3(CellSize / 2, CellSize / 2),
+                        GridToWorldPosition(path[i+1]).ToVector3() + new Vector3(CellSize / 2, CellSize / 2), Color.green, 2f);
+                }
+            pathsToDraw.Clear();
+        }
+    }
+
     public void FillCell(int2 gridPosition)
     {
         if (IsInGrid(gridPosition))
