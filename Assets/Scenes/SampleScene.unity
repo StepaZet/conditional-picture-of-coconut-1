@@ -441,17 +441,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8414892088589647013, guid: 7839be5c88cb9fc409b9eb1eaf638df4, type: 3}
   m_PrefabInstance: {fileID: 1756801085}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &828316209 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -1620504770865997987, guid: 7839be5c88cb9fc409b9eb1eaf638df4, type: 3}
-  m_PrefabInstance: {fileID: 1756801085}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828316208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eb4c31dc66a8fc42828b3a1b5757acb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!120 &828316210 stripped
 LineRenderer:
   m_CorrespondingSourceObject: {fileID: 5447051838895928327, guid: 7839be5c88cb9fc409b9eb1eaf638df4, type: 3}
@@ -938,9 +927,6 @@ GameObject:
   - component: {fileID: 1595273152}
   - component: {fileID: 1595273151}
   - component: {fileID: 1595273150}
-  - component: {fileID: 1595273149}
-  - component: {fileID: 1595273148}
-  - component: {fileID: 1595273147}
   - component: {fileID: 1595273146}
   m_Layer: 0
   m_Name: Enemy
@@ -964,53 +950,10 @@ MonoBehaviour:
   Grid: {fileID: 1911322400}
   rb: {fileID: 1595273150}
   weapon: {fileID: 816865573}
---- !u!114 &1595273147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1595273145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 301d838f20644101b9975f5b7839c2f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1595273148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1595273145}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb02efb7ec7cb32458f69dcf70979799, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1595273149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1595273145}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 719354bfe739eb640a3d254970711d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashLayerMask:
-    serializedVersion: 2
-    m_Bits: 72
-  moveSpeed: 8
-  rollSpeed: 0
-  rb: {fileID: 1595273150}
-  grid: {fileID: 1911322400}
-  weapon: {fileID: 828316209}
-  gridPosition:
-    x: 0
-    y: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  roamPosition: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 0}
+  nextTarget: {x: 0, y: 0, z: 0}
 --- !u!50 &1595273150
 Rigidbody2D:
   serializedVersion: 4
@@ -1028,7 +971,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -1214,7 +1157,7 @@ PrefabInstance:
     - target: {fileID: -1620504770865997987, guid: 7839be5c88cb9fc409b9eb1eaf638df4, type: 3}
       propertyPath: playerLogic
       value: 
-      objectReference: {fileID: 1595273147}
+      objectReference: {fileID: 0}
     - target: {fileID: -1620504770865997987, guid: 7839be5c88cb9fc409b9eb1eaf638df4, type: 3}
       propertyPath: lineRenderer
       value: 
