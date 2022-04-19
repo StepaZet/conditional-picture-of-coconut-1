@@ -139,6 +139,10 @@ namespace GridTools
         public List<int2> FindPathAStar(Grid grid, int2 startPosition, int2 endPosition)
         {
             var gridSize = new int2(grid.Width, grid.Height);
+
+            if (!IsInsideGrid(startPosition, gridSize) || !IsInsideGrid(endPosition, gridSize))
+                return null;
+
             var pathNodeArray = GetPathNodeArray(grid, gridSize, endPosition);
             var neighboringPosition = GetNeighboringPositions();
             var endNodeIndex = GetIndex(endPosition.x, endPosition.y, gridSize.x);

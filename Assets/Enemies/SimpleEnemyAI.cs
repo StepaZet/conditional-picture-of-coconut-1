@@ -23,15 +23,16 @@ public class SimpleEnemyAI : MonoBehaviour
     public Rigidbody2D rb;
     public Weapon.Weapon weapon;
     private PathFinding pathFinder;
+    private float latestAimAngle;
 
-    private Vector3 startingPosition;
-    private Vector3 roamPosition;
-    private Vector3 direction;
+    [SerializeField] private Vector3 startingPosition;
+    [SerializeField] private Vector3 roamPosition;
+    [SerializeField] private Vector3 direction;
 
-    private Vector3 nextTarget;
+    [SerializeField] private Vector3 nextTarget;
     private int nextTargetIndex;
-
-    private readonly float moveSpeed = 5f;
+    
+    private const float MoveSpeed = 1f;
 
     private List<int2> path;
     private Stage currentStage;
@@ -42,7 +43,7 @@ public class SimpleEnemyAI : MonoBehaviour
         currentStage = Stage.None;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         switch (currentStage)
         {
@@ -84,47 +85,33 @@ public class SimpleEnemyAI : MonoBehaviour
                 break;
 
             case Stage.Moving:
-                var distance = transform.position.DistanceTo(nextTarget);
-                if (distance > moveSpeed)
-                    rb.velocity = direction * moveSpeed;
-                else
-                {
-                    rb.velocity = direction * distance;
-                    nextTargetIndex++;
-                    if (nextTargetIndex == path.Count)
-                        currentStage = Stage.None;
-                    else
-                    {
-                        nextTarget = Grid.GridToWorldPosition(path[nextTargetIndex]).ToVector3();
-                        direction = (nextTarget - transform.position).normalized;
-                    }
-                }
+                MoveToNextTarget();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
     }
 
-    private Stage FollowThePath(Rigidbody2D rb)
+    private void MoveToNextTarget()
     {
-        foreach (var positionTo in path.Select(position => Grid.GridToWorldPosition(position).ToVector3()))
+        var distance = transform.position.DistanceTo(nextTarget);
+        direction = (nextTarget - transform.position).normalized;
+        var aimAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+        weapon.weaponPrefab.transform.RotateAround(rb.position, Vector3.forward, aimAngle - latestAimAngle);
+        latestAimAngle = aimAngle;
+        if (distance > transform.position.DistanceTo(direction * MoveSpeed * Time.fixedDeltaTime))
+            rb.velocity = direction * MoveSpeed * Time.fixedDeltaTime;
+        else
         {
-            direction = (positionTo - rb.position.ToVector3()).normalized;
-            weapon.weaponPrefab.transform.RotateAround(rb.position, direction, 0f);
-            while (true)
+            transform.position = nextTarget;
+            nextTargetIndex++;
+            if (nextTargetIndex == path.Count)
+                currentStage = Stage.None;
+            else
             {
-                var distance = rb.position.ToVector3().DistanceTo(positionTo);
-                if (distance > moveSpeed)
-                    rb.velocity = direction * moveSpeed;
-                else
-                {
-                    rb.velocity = direction * distance;
-                    break;
-                }
+                nextTarget = Grid.GridToWorldPosition(path[nextTargetIndex]).ToVector3();
             }
         }
-
-        return Stage.None;
     }
 
     private void UpdateTarget()

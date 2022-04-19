@@ -17,7 +17,7 @@ public class GridObj : MonoBehaviour
         const float cellSize = 0.5f;
 
         Grid = new Grid(startPosition, width, height, cellSize);
-        Grid.DrawGrid();
+        //Grid.DrawGrid();
     }
 
     private void Update()
