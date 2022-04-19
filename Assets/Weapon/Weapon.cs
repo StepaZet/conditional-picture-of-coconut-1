@@ -16,7 +16,7 @@ namespace Weapon
 
 		public virtual void Awake()
 		{
-			reloadingTime = 0;
+			reloadingTime = 0.5f;
 		}
 		public virtual void Fire(bool isButtonPressed)
 		{

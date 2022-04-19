@@ -18,6 +18,7 @@ public class SimpleEnemyAI : MonoBehaviour
        Moving,
        None,
     }
+    public HealthObj health;
     
     public GridObj Grid;
     public Rigidbody2D rb;
@@ -41,6 +42,14 @@ public class SimpleEnemyAI : MonoBehaviour
     {
         pathFinder = new PathFinding();
         currentStage = Stage.None;
+        
+        health = gameObject.AddComponent<HealthObj>();
+    }
+
+    private void Update()
+    {
+        if (health.Health.CurrentHealthPoints <= 0)
+            Die();
     }
 
     private void FixedUpdate()
@@ -124,4 +133,9 @@ public class SimpleEnemyAI : MonoBehaviour
 
     private Vector3 GetRandomPosition()
         => startingPosition + Tools.GetRandomDir() * Random.Range(10f, 70f);
+    
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
 }
