@@ -11,21 +11,47 @@ namespace Weapon
 		public LineRenderer lineRenderer;
 		private float maxDistance = 100;
 		public PlayerLogic playerLogic;
+		private int damageAmount = 1;
+		private RaycastHit2D hit;
+
+		public override void Awake()
+		{
+			reloadingTime = 0.2f;
+		}
 
 		public void Update()
 		{
 			if (playerLogic.State != PlayerState.Idle)
 				TurnLaserOff();
 		}
+		
+		public override void Fire(bool isButtonPressed)
+		{
+			if (!isButtonPressed)
+				return;
+			CastRay();
+			switch (state)
+			{
+				case WeaponState.Ready when isButtonPressed:
+					Damage();
+					reloadStart = Time.time;
+					state = WeaponState.Reloading;
+					break;
+				case WeaponState.Reloading:
+					d = Time.time - reloadStart;
+					if (Time.time - reloadStart >= reloadingTime)
+						state = WeaponState.Ready;
+					break;
+			}
+		}
 
-		protected override void CreateBullets()
+		private void CastRay()
 		{
 			lineRenderer.enabled = true;
 			var position = firePoint.position;
 			if (Physics2D.Raycast(position, firePoint.up))
 			{
-				
-				var hit = Physics2D.Raycast(position, transform.up);
+				hit = Physics2D.Raycast(position, transform.up);
 				DrawRay(position, hit.point);
 			}
 			else
@@ -50,6 +76,14 @@ namespace Weapon
 		private void TurnLaserOff()
 		{
 			lineRenderer.enabled = false;
+		}
+
+		private void Damage()
+		{
+			if (hit.collider == null)
+				return;
+			if (hit.collider.GetComponent<HealthObj>())
+				hit.collider.GetComponent<HealthObj>().Health.Damage(damageAmount);
 		}
 	}
 }
