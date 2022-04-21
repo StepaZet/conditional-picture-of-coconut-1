@@ -5,6 +5,8 @@ public class PlayerInput : MonoBehaviour
 {
 	public Vector2 MovementInput { get; private set; }
 	public Vector2 AimingInput { get; private set; }
+	
+	public float ChangeWeaponInput { get; private set; }
 	public bool IsFireInput { get; private set; }
 	public bool IsFireInputHeld { get; private set; }
 	public bool IsFireInputReleased { get; private set; }
@@ -15,6 +17,7 @@ public class PlayerInput : MonoBehaviour
 	private void Update()
 	{
 		MovementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+		ChangeWeaponInput = Input.GetAxis("Mouse ScrollWheel");
 		AimingInput = Input.mousePosition;
 		IsFireInput = Input.GetMouseButtonDown(0);
 		IsFireInputHeld = Input.GetMouseButton(0);

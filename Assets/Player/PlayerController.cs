@@ -2,6 +2,8 @@ using GridTools;
 using UnityEngine;
 using Unity.Mathematics;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Extensions;
 using Player;
 
@@ -15,7 +17,8 @@ public class PlayerController : MonoBehaviour
 	public float rollSpeed;
 	public Rigidbody2D rb;
     [SerializeField] public GridObj grid;
-	public Weapon.Weapon weapon;
+    [SerializeField] private List<Weapon.Weapon> weapons;
+    [SerializeField] private int selectedWeaponId;
 
 	private PlayerLogic playerLogic;
 	private PlayerInput playerInput;
@@ -36,6 +39,11 @@ public class PlayerController : MonoBehaviour
 		playerInput = GetComponent<PlayerInput>();
 		playerLogic = GetComponent<PlayerLogic>();
 		playerLogic.State = PlayerState.Idle;
+		foreach (var weapon in weapons.Skip(1))
+		{
+			weapon.enabled = false;
+			weapon.GetComponent<Renderer>().enabled = false;
+		}
 	}
 	private void Update()
 	{
@@ -52,9 +60,11 @@ public class PlayerController : MonoBehaviour
 				FireReleased();
 				Dash();
 				Roll();
+				ChangeWeapon();
 				break;
 			case PlayerState.Rolling:
 				Aim();
+				ChangeWeapon();
 				break;
 			case PlayerState.Dead:
 				break;
@@ -127,7 +137,7 @@ public class PlayerController : MonoBehaviour
 	{
 		var aimDirection = cursorPosition - rb.position;
         var aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
-        weapon.weaponPrefab.transform.RotateAround(rb.position, Vector3.forward, aimAngle - latestAimAngle);
+        weapons[selectedWeaponId].weaponPrefab.transform.RotateAround(rb.position, Vector3.forward, aimAngle - latestAimAngle);
         latestAimAngle = aimAngle;
 	}
 
@@ -143,16 +153,30 @@ public class PlayerController : MonoBehaviour
 
 	private void Fire()
 	{
-		weapon.Fire(playerInput.IsFireInput);
+		weapons[selectedWeaponId].Fire(playerInput.IsFireInput);
 	}
 	
 	private void FireHeld()
 	{
-		weapon.FireHeld(playerInput.IsFireInputHeld);
+		weapons[selectedWeaponId].FireHeld(playerInput.IsFireInputHeld);
 	}
 
 	private void FireReleased()
 	{
-		weapon.FireReleased(playerInput.IsFireInputReleased);
+		weapons[selectedWeaponId].FireReleased(playerInput.IsFireInputReleased);
+	}
+
+	private void ChangeWeapon()
+	{
+		if (playerInput.ChangeWeaponInput == 0)
+			return;
+		weapons[selectedWeaponId].enabled = false;
+		weapons[selectedWeaponId].GetComponent<Renderer>().enabled = false;
+		
+		selectedWeaponId = Math.Abs(((int) (playerInput.ChangeWeaponInput*10) + selectedWeaponId) % weapons.Count);
+		//latestAimAngle = 0;
+
+		weapons[selectedWeaponId].enabled = true;
+		weapons[selectedWeaponId].GetComponent<Renderer>().enabled = true;
 	}
 }
