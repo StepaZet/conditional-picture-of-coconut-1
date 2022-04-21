@@ -12,7 +12,7 @@ namespace Weapon
 		public WeaponState state;
 		public float reloadingTime;
 		public float reloadStart;
-		public float d;
+		public float timeDifference;
 
 		public virtual void Awake()
 		{
@@ -28,11 +28,11 @@ namespace Weapon
 					state = WeaponState.Reloading;
 					break;
 				case WeaponState.Reloading:
-					d = Time.time - reloadStart;
-					if (Time.time - reloadStart >= reloadingTime)
+					timeDifference = Time.time - reloadStart;
+					if (timeDifference >= reloadingTime)
 						state = WeaponState.Ready;
-					break;
-			}
+                    break;
+            }
 		}
 		
 		public virtual void FireHeld(bool isButtonPushed)

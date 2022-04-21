@@ -51,12 +51,12 @@ public class Grid
     {
         var startGridWall = WorldToGridPosition(startWorldWall);
         var endGridWall = WorldToGridPosition(endWorldWall);
-        for (var x = startGridWall.x; x <= endGridWall.x; x++)
+        for (var x = startGridWall.x - 2; x <= endGridWall.x + 2; x++)
         {
             CreateWall(new int2(x, startGridWall.y));
             CreateWall(new int2(x, endGridWall.y));
         }
-        for (var y = startGridWall.y; y <= endGridWall.y; y++)
+        for (var y = startGridWall.y - 2; y <= endGridWall.y + 2; y++)
         {
             CreateWall(new int2(startGridWall.x, y));
             CreateWall(new int2(endGridWall.x, y));
@@ -137,7 +137,7 @@ public class Grid
                 {
                     Debug.DrawLine(
                         GridToWorldPosition(path[i]).ToVector3() + new Vector3(CellSize / 2, CellSize / 2),
-                        GridToWorldPosition(path[i+1]).ToVector3() + new Vector3(CellSize / 2, CellSize / 2), Color.green, 10f);
+                        GridToWorldPosition(path[i+1]).ToVector3() + new Vector3(CellSize / 2, CellSize / 2), Color.green, 100f);
                 }
             pathsToDraw.Clear();
         }

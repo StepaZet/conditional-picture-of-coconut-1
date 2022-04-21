@@ -11,10 +11,10 @@ public class GridObj : MonoBehaviour
 
     public void OnEnable()
     {
-        var startPosition = new float2(-20, -20);
-        const int width = 100;
-        const int height = 100;
-        const float cellSize = 0.5f;
+        var startPosition = new float2(-50, -50);
+        const int width = 1000;
+        const int height = 1000;
+        const float cellSize = 0.4f;
 
         Grid = new Grid(startPosition, width, height, cellSize);
         //Grid.DrawGrid();
@@ -27,8 +27,8 @@ public class GridObj : MonoBehaviour
         if (Grid.pathsToDraw.Count > 0)
             Grid.DrawPaths();
 
-        if (Input.GetMouseButtonDown(0))
-            FindPath(PlayerPosition, Tools.GetMouseWordPosition());
+        //if (Input.GetMouseButtonDown(0))
+        //    FindPath(PlayerPosition, Tools.GetMouseWordPosition());
 
         if (Input.GetMouseButtonDown(1))
             CreateWall(Tools.GetMouseWordPosition());
@@ -40,8 +40,8 @@ public class GridObj : MonoBehaviour
     public int2 WorldToGridPosition(Vector3 worldPosition)
         => Grid.WorldToGridPosition(worldPosition);
 
-    public void FindPath(Vector3 startWorldPosition, Vector3 endWorldPosition)
-        => Grid.FindPath(startWorldPosition, endWorldPosition);
+    //public void FindPath(Vector3 startWorldPosition, Vector3 endWorldPosition)
+    //    => Grid.FindPath(startWorldPosition, endWorldPosition);
 
     public void CreateWall(Vector3 worldPosition)
         => Grid.CreateWall(worldPosition);

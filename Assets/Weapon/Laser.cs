@@ -38,7 +38,7 @@ namespace Weapon
 					state = WeaponState.Reloading;
 					break;
 				case WeaponState.Reloading:
-					d = Time.time - reloadStart;
+					timeDifference = Time.time - reloadStart;
 					if (Time.time - reloadStart >= reloadingTime)
 						state = WeaponState.Ready;
 					break;

@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
+using Extensions;
 using Unity.Mathematics;
+using UnityEngine.Networking;
+using UnityEngine.PlayerLoop;
 
 namespace GridTools
 {
@@ -136,6 +139,23 @@ namespace GridTools
 
         }
 
+        public static List<int2> GetClearPath(List<int2> path)
+        {
+            var result = new List<int2> {path[0]};
+            var lastDirection = path[1] - path[0];
+            for (var i = 1; i < path.Count; i++)
+            {
+                if (lastDirection.IsEqual(path[i] - path[i - 1])) continue;
+                lastDirection = path[i] - path[i - 1];
+                result.Add(path[i-1]);
+            }
+
+            if (lastDirection.IsEqual(path[path.Count - 1] - path[path.Count - 2]))
+                result.Add(path.Last());
+
+            return result;
+        }
+
         public List<int2> FindPathAStar(Grid grid, int2 startPosition, int2 endPosition)
         {
             var gridSize = new int2(grid.Width, grid.Height);
@@ -174,6 +194,7 @@ namespace GridTools
             var resultPath = GetFullPath(pathNodeArray, endNode);
             //if (resultPath is null)
             //    Debug.Log("Не нашел путь :(");
+            resultPath.Reverse();
 
             return resultPath;
         }
