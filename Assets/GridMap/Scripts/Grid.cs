@@ -1,12 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading;
 using System.Threading.Tasks;
 using Extensions;
 using GridTools;
 using Unity.Mathematics;
-using UnityEditor.U2D.Path.GUIFramework;
 using UnityEngine;
 
 public class Grid

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Numerics;
 using System.Threading.Tasks;
 using Extensions;
 using GridTools;
@@ -33,7 +32,12 @@ public class SimpleEnemyAI : MonoBehaviour
     private const float pauseTime = 1f;
     private float pauseStart;
 
+    private const float followingTime = 0.5f;
+    private float followingStartTime;
+
     private float moveSpeed;
+
+    //private Task<List<int2>> task;
 
     private enum Stage
     {
@@ -56,6 +60,7 @@ public class SimpleEnemyAI : MonoBehaviour
        
         currentStage = Stage.None;
         moveSpeed = 5f;
+        followingStartTime = Time.time;
     }
 
     private void FixedUpdate()
@@ -68,13 +73,13 @@ public class SimpleEnemyAI : MonoBehaviour
         switch (state)
         {
             case State.Roaming:
-                Move(GetRandomPosition());
+                Move(roamPosition);
                 break;
             case State.ChasingPlayer:
-               if (Vector3.Distance(latestPlayerPosition, PlayerController.Instance.GetPosition()) < 30)
-                    currentStage = Stage.None;
+                //if (Vector3.Distance(latestPlayerPosition, PlayerController.Instance.GetPosition()) < 30)
+                //    currentStage = Stage.None;
                 latestPlayerPosition = PlayerController.Instance.GetPosition();
-                Move(latestPlayerPosition);
+                MoveWithTimer(latestPlayerPosition, followingTime);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -97,11 +102,31 @@ public class SimpleEnemyAI : MonoBehaviour
             case Stage.Pause:
                 var difference = Time.time - pauseStart;
                 if (difference >= pauseTime)
+                {
+                    UpdateTarget(GetRandomPosition());
                     currentStage = Stage.None;
+                }
+                    
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
+    }
+
+    private void MoveWithTimer(Vector3 target, float timeFollow)
+    {
+        var timeFollowing = Time.time - followingStartTime;
+        if (timeFollowing >= timeFollow)
+        {
+            //if (currentStage == Stage.SearchingPath)
+            //    task.Dispose();
+
+            currentStage = Stage.None;
+            followingStartTime = Time.time;
+            return;
+        }
+
+        Move(target);
     }
 
     private Task<List<int2>> FindPath(int2 startGridPosition, int2 endGridPosition)
@@ -198,7 +223,7 @@ public class SimpleEnemyAI : MonoBehaviour
 
     private void ChooseBehaviour()
     {
-        var targetRange = 50f;
+        var targetRange = 5f;
         state = Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < targetRange
             ? State.ChasingPlayer
             : State.Roaming;

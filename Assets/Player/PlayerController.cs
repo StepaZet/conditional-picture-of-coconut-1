@@ -11,7 +11,7 @@ using Player;
 public class PlayerController : MonoBehaviour
 {
 	[SerializeField] private LayerMask dashLayerMask;
-	public float moveSpeed = 8f;
+	public float moveSpeed = 5f;
 	public float rollSpeed;
 	public Rigidbody2D rb;
     [SerializeField] public GridObj grid;

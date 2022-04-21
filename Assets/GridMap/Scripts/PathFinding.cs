@@ -192,9 +192,7 @@ namespace GridTools
 
             var endNode = pathNodeArray[endNodeIndex];
             var resultPath = GetFullPath(pathNodeArray, endNode);
-            //if (resultPath is null)
-            //    Debug.Log("Не нашел путь :(");
-            resultPath.Reverse();
+            resultPath?.Reverse();
 
             return resultPath;
         }
