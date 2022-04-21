@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 	public Rigidbody2D rb;
     [SerializeField] public GridObj grid;
 	public Weapon.Weapon weapon;
+	public static PlayerController Instance { get; private set; }
 
 	private PlayerLogic playerLogic;
 	private PlayerInput playerInput;
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
 	
     private void Start()
     {
+	    Instance = this;
         //grid = GetComponent<GridObj>();	
         gridPosition = grid.WorldToGridPosition(transform.position);
     }
@@ -154,5 +156,9 @@ public class PlayerController : MonoBehaviour
 	private void FireReleased()
 	{
 		weapon.FireReleased(playerInput.IsFireInputReleased);
+	}
+	public Vector3 GetPosition()
+	{
+		return transform.position;
 	}
 }

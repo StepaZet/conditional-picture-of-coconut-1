@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Threading.Tasks;
 using Extensions;
 using GridTools;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class SimpleEnemyAI : MonoBehaviour
 {
@@ -14,6 +17,7 @@ public class SimpleEnemyAI : MonoBehaviour
     public Weapon.Weapon Weapon;
     private float latestAimAngle;
     private Stage currentStage;
+    private State state;
 
     public GridObj Grid;
     private PathFinding pathFinder;
@@ -22,6 +26,7 @@ public class SimpleEnemyAI : MonoBehaviour
     private Vector3 nextTarget;
     private int nextTargetIndex;
     private Vector3 direction;
+    private Vector3 latestPlayerPosition;
 
     private List<int2> path;
 
@@ -38,6 +43,12 @@ public class SimpleEnemyAI : MonoBehaviour
         Pause
     }
 
+    private enum State
+    {
+        Roaming,
+        ChasingPlayer
+    }
+
     private void Start()
     {
         pathFinder = new PathFinding();
@@ -51,11 +62,32 @@ public class SimpleEnemyAI : MonoBehaviour
     {
         if (Health.Health.CurrentHealthPoints <= 0)
             Die();
+
+        ChooseBehaviour();
+
+        switch (state)
+        {
+            case State.Roaming:
+                Move(GetRandomPosition());
+                break;
+            case State.ChasingPlayer:
+               if (Vector3.Distance(latestPlayerPosition, PlayerController.Instance.GetPosition()) < 30)
+                    currentStage = Stage.None;
+                latestPlayerPosition = PlayerController.Instance.GetPosition();
+                Move(latestPlayerPosition);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    private void Move(Vector3 target)
+    {
         switch (currentStage)
         {
             case Stage.None:
                 currentStage = Stage.SearchingPath;
-                StartSearchNextTarget();
+                StartSearchNextTarget(target);
                 break;
             case Stage.SearchingPath:
                 break;
@@ -81,9 +113,9 @@ public class SimpleEnemyAI : MonoBehaviour
         return task;
     }
 
-    private async void StartSearchNextTarget()
+    private async void StartSearchNextTarget(Vector3 target)
     {
-        UpdateTarget();
+        UpdateTarget(target);
 
         var startGridPosition = Grid.WorldToGridPosition(startingPosition);
         var endGridPosition = Grid.WorldToGridPosition(roamPosition);
@@ -127,10 +159,11 @@ public class SimpleEnemyAI : MonoBehaviour
         for (var i = path.Count - 1; i > nextTargetIndex; i--)
         {
             var target = Grid.GridToWorldPosition(path[i]).ToVector3();
-            var distance = transform.position.DistanceTo(target);
-            var currentDirection = (target - transform.position).normalized;
+            var currentPosition = transform.position;
+            var distance = currentPosition.DistanceTo(target);
+            var currentDirection = (target - currentPosition).normalized;
 
-            var ray = Physics2D.Raycast(transform.position.ToVector2(), currentDirection.ToVector2(), distance, LayerMask.GetMask("Walls"));
+            var ray = Physics2D.Raycast(currentPosition.ToVector2(), currentDirection.ToVector2(), distance, LayerMask.GetMask("Walls"));
 
             if (ray.collider != null)
                 continue;
@@ -142,10 +175,10 @@ public class SimpleEnemyAI : MonoBehaviour
         }
     }
 
-    private void UpdateTarget()
+    private void UpdateTarget(Vector3 target)
     {
         startingPosition = transform.position;
-        roamPosition = GetRandomPosition();
+        roamPosition = target;
         direction = (roamPosition - startingPosition).normalized;
     }
 
@@ -162,4 +195,12 @@ public class SimpleEnemyAI : MonoBehaviour
     
     private void Die()
         => Destroy(gameObject);
+
+    private void ChooseBehaviour()
+    {
+        var targetRange = 50f;
+        state = Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < targetRange
+            ? State.ChasingPlayer
+            : State.Roaming;
+    }
 }
