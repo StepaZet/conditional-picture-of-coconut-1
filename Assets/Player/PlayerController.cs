@@ -136,6 +136,7 @@ public class PlayerController : MonoBehaviour
 	private void Aim()
 	{
 		var aimDirection = cursorPosition - rb.position;
+		//weapons[selectedWeaponId].weaponPrefab.transform.eulerAngles = aimDirection;
         var aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         weapons[selectedWeaponId].weaponPrefab.transform.RotateAround(rb.position, Vector3.forward, aimAngle - latestAimAngle);
         latestAimAngle = aimAngle;
@@ -172,10 +173,11 @@ public class PlayerController : MonoBehaviour
 			return;
 		weapons[selectedWeaponId].enabled = false;
 		weapons[selectedWeaponId].GetComponent<Renderer>().enabled = false;
+		var rotation = weapons[selectedWeaponId].transform.rotation;
+		var position = weapons[selectedWeaponId].transform.position;
 		
 		selectedWeaponId = Math.Abs(((int) (playerInput.ChangeWeaponInput*10) + selectedWeaponId) % weapons.Count);
-		//latestAimAngle = 0;
-
+		weapons[selectedWeaponId].transform.SetPositionAndRotation(position, rotation);
 		weapons[selectedWeaponId].enabled = true;
 		weapons[selectedWeaponId].GetComponent<Renderer>().enabled = true;
 	}
