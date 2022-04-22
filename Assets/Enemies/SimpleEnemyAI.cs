@@ -223,7 +223,7 @@ public class SimpleEnemyAI : MonoBehaviour
 
     private void ChooseBehaviour()
     {
-        var targetRange = 5f;
+        var targetRange = 20f;
         state = Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < targetRange
             ? State.ChasingPlayer
             : State.Roaming;
