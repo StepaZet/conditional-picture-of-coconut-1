@@ -12,9 +12,9 @@ public class GridObj : MonoBehaviour
     public void OnEnable()
     {
         var startPosition = new float2(-50, -50);
-        const int width = 1000;
-        const int height = 1000;
-        const float cellSize = 0.4f;
+        const int width = 100;
+        const int height = 100;
+        const float cellSize = 2f;
 
         Grid = new Grid(startPosition, width, height, cellSize);
         //Grid.DrawGrid();
