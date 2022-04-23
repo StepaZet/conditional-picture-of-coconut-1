@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="" />
+    <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/SimpleEnemyAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/SimpleEnemyAI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Health/HealthObj.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cafb29d5233847fbb4edcf8d7c32b1e3299c90/93/b519fe6a/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/81/706e3a9d/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerLogic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/17/4cf72f64/Transform.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="27EnJZhJ0yvWQwNVuM4aAeiyGSK" />
   <component name="ProjectViewState">
@@ -13,10 +38,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.23607177" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -50,6 +78,15 @@
       <option name="presentableId" value="Default" />
       <updated>1648894046064</updated>
       <workItem from="1648894052466" duration="54000" />
+      <workItem from="1649147723519" duration="1818000" />
+      <workItem from="1649271898472" duration="3348000" />
+      <workItem from="1649396311132" duration="1891000" />
+      <workItem from="1649489424693" duration="953000" />
+      <workItem from="1649953322263" duration="4000" />
+      <workItem from="1649954900302" duration="13724000" />
+      <workItem from="1649970749500" duration="596000" />
+      <workItem from="1650479467206" duration="1813000" />
+      <workItem from="1650536176156" duration="2689000" />
     </task>
     <servers />
   </component>
@@ -58,7 +95,38 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Weapon/Laser.cs</url>
+          <line>28</line>
+          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Weapon\Laser.cs" initialLine="28" containingFunctionPresentation="method 'Fire'">
+            <startOffsets>
+              <option value="542" />
+            </startOffsets>
+            <endOffsets>
+              <option value="543" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
