@@ -9,6 +9,6 @@ public class HealthObj : MonoBehaviour
     public HealthSystem Health { get; set; }
     public void OnEnable()
     {
-        Health = new HealthSystem(2);
+        Health = new HealthSystem(10);
     }
 }

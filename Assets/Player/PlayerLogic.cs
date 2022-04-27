@@ -7,13 +7,14 @@ namespace Player
 	
 	public class PlayerLogic : MonoBehaviour
 	{
-		private HealthObj health;
+		public HealthObj health;
 
 		public PlayerState State { get; set; }
 
 		private void OnEnable()
 		{
 			health = gameObject.AddComponent<HealthObj>();
+			State = PlayerState.Idle;
 		}
 
 		private void Update()

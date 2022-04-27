@@ -5,22 +5,22 @@ namespace Bullet
 {
     public class Bullet : MonoBehaviour
     {
-        private int damageAmount = 1;
+        private int damageAmount = 2;
         private void Update()
         {
             Destroy(gameObject, 5);
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (collision.collider.GetComponent<Bullet>())
+            if (other.GetComponent<Bullet>())
             {
-                Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+                Physics2D.IgnoreCollision(other, GetComponent<Collider2D>());
                 return;
             }
 
-            if (collision.collider.GetComponent<HealthObj>())
-                collision.collider.GetComponent<HealthObj>().Health.Damage(damageAmount);
+            if (other.GetComponent<HealthObj>())
+                other.GetComponent<HealthObj>().Health.Damage(damageAmount);
 
             Destroy(gameObject);
         }
