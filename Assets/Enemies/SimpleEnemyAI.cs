@@ -5,6 +5,7 @@ using Extensions;
 using GridTools;
 using Unity.Mathematics;
 using UnityEngine;
+using Weapon;
 using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
@@ -15,26 +16,40 @@ public class SimpleEnemyAI : MonoBehaviour
     public Rigidbody2D Rb;
     public CircleCollider2D Collider;
     public Weapon.Weapon Weapon;
-    private float latestAimAngle;
+
     private Stage currentStage;
     private State state;
 
     public GridObj Grid;
     private PathFinding pathFinder;
+    
+    private Vector3 homePosition;
+    private float homeRadius;
+
     private Vector3 startingPosition;
     private Vector3 roamPosition;
     private Vector3 nextTarget;
     private int nextTargetIndex;
+
+    private int countFailSearch;
+    private const int countFailSearchLimit = 5;
+
+    private float latestAimAngle;
     private Vector3 direction;
+    private Vector3 directionFire;
+
     private Vector3 latestPlayerPosition;
+    
 
     private List<int2> path;
 
     private const float pauseTime = 1f;
-    private float pauseStart;
-
     private const float followingTime = 0.5f;
+    private float pauseStart;
     private float followingStartTime;
+
+    private float targetRange = 20f;
+    private float fireRange = 15f;
 
     private float moveSpeed;
 
@@ -58,9 +73,15 @@ public class SimpleEnemyAI : MonoBehaviour
     {
         pathFinder = new PathFinding();
         Health = gameObject.AddComponent<HealthObj>();
-       
+        
+        homePosition = transform.position;
+        startingPosition = transform.position;
+        UpdateTarget(GetRandomPosition());
+
+        homeRadius = 20;
+
         currentStage = Stage.None;
-        moveSpeed = 5f;
+        moveSpeed = 3f;
         followingStartTime = Time.time;
     }
 
@@ -69,18 +90,27 @@ public class SimpleEnemyAI : MonoBehaviour
         if (Health.Health.CurrentHealthPoints <= 0)
             Die();
 
+
+        if (IsNearToPlayer(targetRange))
+            UpdateAimFire(PlayerController.Instance.transform.position);
+        else
+            UpdateAimFire(nextTarget);
+
+        if (IsNearToPlayer(fireRange))
+            Fire();
+
         ChooseBehaviour();
 
         switch (state)
         {
             case State.Roaming:
+                if (countFailSearch > 0)
+                    UpdateTarget(GetRandomPosition());
                 Move(roamPosition);
                 break;
             case State.ChasingPlayer:
-                //if (Vector3.Distance(latestPlayerPosition, PlayerController.Instance.GetPosition()) < 30)
-                //    currentStage = Stage.None;
-                latestPlayerPosition = PlayerController.Instance.GetPosition();
-                MoveWithTimer(latestPlayerPosition, followingTime);
+                UpdateTarget(PlayerController.Instance.GetPosition());
+                MoveWithTimer(roamPosition, followingTime);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -107,7 +137,6 @@ public class SimpleEnemyAI : MonoBehaviour
                     UpdateTarget(GetRandomPosition());
                     currentStage = Stage.None;
                 }
-                    
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -119,9 +148,6 @@ public class SimpleEnemyAI : MonoBehaviour
         var timeFollowing = Time.time - followingStartTime;
         if (timeFollowing >= timeFollow && currentStage != Stage.SearchingPath)
         {
-            //if (currentStage == Stage.SearchingPath)
-            //    task.Dispose();
-
             currentStage = Stage.None;
             followingStartTime = Time.time;
             return;
@@ -130,10 +156,10 @@ public class SimpleEnemyAI : MonoBehaviour
         Move(target);
     }
 
-    private Task<List<int2>> FindPath(int2 startGridPosition, int2 endGridPosition)
+    private Task<List<int2>> FindPath(int2 startGridPosition, int2 endGridPosition, int maxDeep)
     {
         var task = new Task<List<int2>>(() => 
-            pathFinder.FindPathAStar(Grid.Grid, startGridPosition, endGridPosition));
+            pathFinder.FindPathAStar(Grid.Grid, startGridPosition, endGridPosition, maxDeep));
 
         task.Start();
         return task;
@@ -146,12 +172,17 @@ public class SimpleEnemyAI : MonoBehaviour
         var startGridPosition = Grid.WorldToGridPosition(startingPosition);
         var endGridPosition = Grid.WorldToGridPosition(roamPosition);
 
-        var originalPath = await FindPath(startGridPosition, endGridPosition);
+        var maxDeep = (int) (homeRadius * 2);
+        var originalPath = await FindPath(startGridPosition, endGridPosition, maxDeep);
 
         if (originalPath is null)
+        {
             currentStage = Stage.None;
+            countFailSearch++;
+        }
         else
         {
+            countFailSearch = 0;
             path = PathFinding.GetClearPath(originalPath);
             Grid.AddPathsToDraw(path);
 
@@ -162,7 +193,7 @@ public class SimpleEnemyAI : MonoBehaviour
 
     private void MoveToNextTarget()
     {
-        UpdateAim();
+        UpdateDirection(nextTarget);
         var distanceToNextTarget = transform.position.DistanceTo(nextTarget);
 
         Rb.velocity = direction * moveSpeed;
@@ -175,6 +206,7 @@ public class SimpleEnemyAI : MonoBehaviour
             Rb.velocity = Vector2.zero;
             currentStage = Stage.Pause;
             pauseStart = Time.time;
+            return;
         }
 
         UpdateNextTarget();
@@ -208,28 +240,55 @@ public class SimpleEnemyAI : MonoBehaviour
     private void UpdateTarget(Vector3 target)
     {
         startingPosition = transform.position;
-        roamPosition = target;
-        direction = (roamPosition - startingPosition).normalized;
+        roamPosition = homePosition.DistanceTo(target) > homeRadius 
+            ? homePosition 
+            : target;
     }
 
-    private void UpdateAim()
+    private void UpdateDirection(Vector3 target)
     {
         direction = (nextTarget - transform.position).normalized;
-        var aimAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+    }
+
+    private void UpdateAimFire(Vector3 target)
+    {
+        directionFire = (target - transform.position).normalized;
+        var aimAngle = Mathf.Atan2(directionFire.y, directionFire.x) * Mathf.Rad2Deg - 90f;
         Weapon.weaponPrefab.transform.RotateAround(Rb.position, Vector3.forward, aimAngle - latestAimAngle);
         latestAimAngle = aimAngle;
     }
 
     private Vector3 GetRandomPosition()
-        => startingPosition + Tools.GetRandomDir() * Random.Range(10f, 70f);
-    
+        => homePosition + Tools.GetRandomDir() * Random.Range(10f, 15f);
+
+    private void Fire()
+    {
+        Weapon.Fire(true);
+    }
+
     private void Die()
-        => Destroy(gameObject);
+    {
+        Destroy(gameObject);
+    }
+
+    private bool IsNearToPlayer(float distance)
+    {
+        try
+        {
+            return Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < distance;
+        }
+        catch
+        {
+            return false;
+        }
+    }
 
     private void ChooseBehaviour()
     {
-        var targetRange = 20f;
-        state = Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < targetRange
+        if (homePosition.DistanceTo(transform.position) > homeRadius)
+            UpdateTarget(homePosition);
+
+        state = IsNearToPlayer(targetRange)
             ? State.ChasingPlayer
             : State.Roaming;
     }

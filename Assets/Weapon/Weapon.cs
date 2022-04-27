@@ -19,12 +19,7 @@ namespace Weapon
 			reloadingTime = 0.5f;
 		}
 
-		public void OnEnable()
-		{
-			
-		}
-
-		public virtual void Fire(bool isButtonPressed)
+        public virtual void Fire(bool isButtonPressed)
 		{
 			switch (state)
 			{

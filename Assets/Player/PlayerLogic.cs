@@ -14,17 +14,20 @@ namespace Player
 		private void OnEnable()
 		{
 			health = gameObject.AddComponent<HealthObj>();
-		}
+            //health.Health.CurrentHealthPoints = int.MaxValue;
+        }
 
 		private void Update()
 		{
-			if (health.Health.CurrentHealthPoints <= 0)
-				Die();
-		}
+            if (health.Health.CurrentHealthPoints <= 0)
+            {
+                Die();
+			}
+        }
 
 		private void Die()
 		{
-			Destroy(gameObject);
+            //Destroy(gameObject);
 		}
 	}
 }

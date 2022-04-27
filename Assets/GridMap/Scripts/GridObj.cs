@@ -56,9 +56,6 @@ public class GridObj : MonoBehaviour
     public int2 WorldToGridPosition(Vector3 worldPosition)
         => Grid.WorldToGridPosition(worldPosition);
 
-    //public void FindPath(Vector3 startWorldPosition, Vector3 endWorldPosition)
-    //    => Grid.FindPath(startWorldPosition, endWorldPosition);
-
     public void CreateWall(Vector3 worldPosition)
         => Grid.CreateWall(worldPosition);
 
