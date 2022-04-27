@@ -13,6 +13,7 @@ public class SimpleEnemyAI : MonoBehaviour
 {
     public HealthObj Health;
     public Rigidbody2D Rb;
+    public CircleCollider2D Collider;
     public Weapon.Weapon Weapon;
     private float latestAimAngle;
     private Stage currentStage;
@@ -116,7 +117,7 @@ public class SimpleEnemyAI : MonoBehaviour
     private void MoveWithTimer(Vector3 target, float timeFollow)
     {
         var timeFollowing = Time.time - followingStartTime;
-        if (timeFollowing >= timeFollow)
+        if (timeFollowing >= timeFollow && currentStage != Stage.SearchingPath)
         {
             //if (currentStage == Stage.SearchingPath)
             //    task.Dispose();
@@ -183,12 +184,12 @@ public class SimpleEnemyAI : MonoBehaviour
     {
         for (var i = path.Count - 1; i > nextTargetIndex; i--)
         {
-            var target = Grid.GridToWorldPosition(path[i]).ToVector3();
+            var target = Grid.GridToWorldPosition(path[i]).ToVector3() + new Vector3(Grid.Grid.CellSize, Grid.Grid.CellSize) / 2;
             var currentPosition = transform.position;
             var distance = currentPosition.DistanceTo(target);
             var currentDirection = (target - currentPosition).normalized;
 
-            var ray = Physics2D.Raycast(currentPosition.ToVector2(), currentDirection.ToVector2(), distance, LayerMask.GetMask("Walls"));
+            var ray = Physics2D.CircleCast(currentPosition.ToVector2(), Collider.radius, currentDirection.ToVector2(), distance, Grid.WallsLayerMask);
 
             if (ray.collider != null)
                 continue;
@@ -196,8 +197,12 @@ public class SimpleEnemyAI : MonoBehaviour
             nextTargetIndex = i;
             nextTarget = target;
             currentStage = Stage.Moving;
-            break;
+            return;
         }
+
+        nextTargetIndex++;
+        nextTarget = Grid.GridToWorldPosition(path[nextTargetIndex]).ToVector3() + new Vector3(Grid.Grid.CellSize, Grid.Grid.CellSize) / 2;
+        currentStage = Stage.Moving;
     }
 
     private void UpdateTarget(Vector3 target)

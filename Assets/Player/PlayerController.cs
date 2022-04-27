@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 	public float rollSpeed;
 	public Rigidbody2D rb;
     [SerializeField] public GridObj grid;
-	public static PlayerController Instance { get; private set; }
+    public static PlayerController Instance { get; private set; }
     [SerializeField] private List<Weapon.Weapon> weapons;
     [SerializeField] private int selectedWeaponId;
 
