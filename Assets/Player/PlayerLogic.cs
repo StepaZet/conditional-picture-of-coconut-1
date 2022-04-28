@@ -7,7 +7,7 @@ namespace Player
 	
 	public class PlayerLogic : MonoBehaviour
 	{
-		private HealthObj health;
+		public HealthObj health;
 
 		public PlayerState State { get; set; }
 
@@ -15,7 +15,9 @@ namespace Player
 		{
 			health = gameObject.AddComponent<HealthObj>();
             //health.Health.CurrentHealthPoints = int.MaxValue;
-        }
+        
+			State = PlayerState.Idle;
+		}
 
 		private void Update()
 		{
