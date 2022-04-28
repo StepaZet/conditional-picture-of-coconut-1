@@ -1,17 +1,16 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Extensions;
 using GridTools;
 using Unity.Mathematics;
 using UnityEngine;
-using Weapon;
 using Random = UnityEngine.Random;
-using Vector2 = UnityEngine.Vector2;
-using Vector3 = UnityEngine.Vector3;
 
-public class SimpleEnemyAI : MonoBehaviour
+public class Fly : MonoBehaviour
 {
+    // Start is called before the first frame update
     public HealthObj Health;
     public Rigidbody2D Rb;
     public CircleCollider2D Collider;
@@ -22,8 +21,8 @@ public class SimpleEnemyAI : MonoBehaviour
 
     public GridObj Grid;
     private PathFinding pathFinder;
-    
-    private Vector3 homePosition;
+
+    public Vector3 homePosition;
     private float homeRadius;
 
     private Vector3 startingPosition;
@@ -38,22 +37,17 @@ public class SimpleEnemyAI : MonoBehaviour
     private Vector3 direction;
     private Vector3 directionFire;
 
-    private Vector3 latestPlayerPosition;
-    
-
     private List<int2> path;
 
-    private const float pauseTime = 1f;
+    private const float pauseTime = 0.4f;
     private const float followingTime = 0.5f;
     private float pauseStart;
     private float followingStartTime;
 
     private float targetRange = 20f;
-    private float fireRange = 15f;
+    private float fireRange = 10f;
 
     private float moveSpeed;
-
-    //private Task<List<int2>> task;
 
     private enum Stage
     {
@@ -73,15 +67,15 @@ public class SimpleEnemyAI : MonoBehaviour
     {
         pathFinder = new PathFinding();
         Health = gameObject.AddComponent<HealthObj>();
-        
+
         homePosition = transform.position;
         startingPosition = transform.position;
         UpdateTarget(GetRandomPosition());
 
-        homeRadius = 20;
+        homeRadius = 10;
 
         currentStage = Stage.None;
-        moveSpeed = 3f;
+        moveSpeed = 5f;
         followingStartTime = Time.time;
     }
 
@@ -105,8 +99,8 @@ public class SimpleEnemyAI : MonoBehaviour
         {
             case State.Roaming:
                 if (countFailSearch > 0)
-                    UpdateTarget(countFailSearch >= countFailSearchLimit 
-                        ? homePosition 
+                    UpdateTarget(countFailSearch >= countFailSearchLimit
+                        ? homePosition
                         : GetRandomPosition());
                 Move(roamPosition);
                 break;
@@ -160,7 +154,7 @@ public class SimpleEnemyAI : MonoBehaviour
 
     private Task<List<int2>> FindPath(int2 startGridPosition, int2 endGridPosition, int maxDeep)
     {
-        var task = new Task<List<int2>>(() => 
+        var task = new Task<List<int2>>(() =>
             pathFinder.FindPathAStar(Grid.Grid, startGridPosition, endGridPosition, maxDeep));
 
         task.Start();
@@ -170,11 +164,11 @@ public class SimpleEnemyAI : MonoBehaviour
     private async void StartSearchNextTarget(Vector3 target)
     {
         UpdateTarget(target);
-
+        
         var startGridPosition = Grid.WorldToGridPosition(startingPosition);
         var endGridPosition = Grid.WorldToGridPosition(roamPosition);
 
-        var maxDeep = (int) (homeRadius * 2);
+        var maxDeep = (int)(homeRadius * 2);
         var originalPath = await FindPath(startGridPosition, endGridPosition, maxDeep);
 
         if (originalPath is null)
@@ -199,10 +193,10 @@ public class SimpleEnemyAI : MonoBehaviour
         var distanceToNextTarget = transform.position.DistanceTo(nextTarget);
 
         Rb.velocity = direction * moveSpeed;
-        
+
         if (distanceToNextTarget >= moveSpeed * Time.fixedDeltaTime)
             return;
-        
+
         if (nextTargetIndex == path.Count - 1)
         {
             Rb.velocity = Vector2.zero;
@@ -227,7 +221,7 @@ public class SimpleEnemyAI : MonoBehaviour
 
             if (ray.collider != null)
                 continue;
-            
+
             nextTargetIndex = i;
             nextTarget = target;
             currentStage = Stage.Moving;
@@ -242,8 +236,8 @@ public class SimpleEnemyAI : MonoBehaviour
     private void UpdateTarget(Vector3 target)
     {
         startingPosition = transform.position;
-        roamPosition = homePosition.DistanceTo(target) > homeRadius 
-            ? homePosition 
+        roamPosition = homePosition.DistanceTo(target) > homeRadius
+            ? homePosition
             : target;
     }
 
@@ -261,7 +255,7 @@ public class SimpleEnemyAI : MonoBehaviour
     }
 
     private Vector3 GetRandomPosition()
-        => homePosition + Tools.GetRandomDir() * Random.Range(1f, homeRadius);
+        => homePosition + Tools.GetRandomDir() * Random.Range(5f, homeRadius);
 
     private void Fire()
     {
