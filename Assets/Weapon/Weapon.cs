@@ -30,7 +30,7 @@ namespace Weapon
 
 		protected virtual void SetMaxBulletAmount()
 		{
-			maxAmmoAmount = 5;
+			maxAmmoAmount = int.MaxValue;
 		}
 
 		protected virtual void SetReloadingTime()
