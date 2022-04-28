@@ -2,9 +2,9 @@
 {
 	public class Pistol : Weapon
 	{
-		protected override void SetMaxBulletAmount()
+		protected override void SetMaxAmmoCapacity()
 		{
-			maxAmmoAmount = 20;
+			maxAmmoCapacity = 20;
 		}
 	}
 }

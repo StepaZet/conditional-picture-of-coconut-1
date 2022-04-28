@@ -1,8 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ShotgunBullet : Bullet.Bullet
+namespace Bullet
 {
-    private int damageAmount = 1;
+    public class ShotgunBullet : Bullet
+    {
+        protected override void SetDamageAmount()
+        {
+            damageAmount = 1;
+        }
+    }
 }

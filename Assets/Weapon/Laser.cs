@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Health;
 using Player;
 using UnityEngine;
 
@@ -8,15 +9,15 @@ namespace Weapon
 {
 	public class Laser : Weapon
 	{
-		public LineRenderer lineRenderer;
-		private float maxDistance = 100;
-		public PlayerLogic playerLogic;
-		private int damageAmount = 1;
+		[SerializeField] private LineRenderer lineRenderer;
+		[SerializeField] private float maxDistance = 100;
+		[SerializeField] private PlayerLogic playerLogic;
+		[SerializeField] private int damageAmount = 1;
 		private RaycastHit2D hit;
 
-		protected override void SetMaxBulletAmount()
+		protected override void SetMaxAmmoCapacity()
 		{
-			maxAmmoAmount = 10;
+			maxAmmoCapacity = 10;
 		}
 
 		protected override void SetReloadingTime()

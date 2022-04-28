@@ -1,11 +1,18 @@
 using System;
+using Health;
 using UnityEngine;
 
 namespace Bullet
 {
     public class Bullet : MonoBehaviour
     {
-        private int damageAmount = 2;
+        protected int damageAmount;
+
+        private void Awake()
+        {
+            SetDamageAmount();
+        }
+
         private void Update()
         {
             Destroy(gameObject, 5);
@@ -23,6 +30,11 @@ namespace Bullet
                 collision.collider.GetComponent<HealthObj>().Health.Damage(damageAmount);
 
             Destroy(gameObject);
+        }
+
+        protected virtual void SetDamageAmount()
+        {
+            damageAmount = 2;
         }
     }
 }

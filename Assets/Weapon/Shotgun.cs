@@ -4,9 +4,9 @@ namespace Weapon
 {
 	public class Shotgun : Weapon
 	{
-		protected override void SetMaxBulletAmount()
+		protected override void SetMaxAmmoCapacity()
 		{
-			maxAmmoAmount = 30;
+			maxAmmoCapacity = 30;
 		}
 
 		protected override void SetReloadingTime()

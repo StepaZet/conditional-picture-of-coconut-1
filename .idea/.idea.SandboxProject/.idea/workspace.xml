@@ -6,6 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet/ShotgunBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/ShotgunBullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Bomber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Bomber.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Fly.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Fly.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/SimpleEnemyAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/SimpleEnemyAI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Spawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Health/HealthObj.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/HealthObj.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Health/MedKit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/HealthPickUp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Health/MedKit.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/HealthPickUp.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Laser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Laser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Pistol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Pistol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Shotgun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Shotgun.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Weapon/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Weapon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

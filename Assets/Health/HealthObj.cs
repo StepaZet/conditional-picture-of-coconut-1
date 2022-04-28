@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using Health;
 using UnityEngine;
 
-[RequireComponent(typeof(HealthObj))]
-public class HealthObj : MonoBehaviour
+namespace Health
 {
-    public HealthSystem Health { get; set; }
-    public void OnEnable()
+    [RequireComponent(typeof(HealthObj))]
+    public class HealthObj : MonoBehaviour
     {
-        Health = new HealthSystem(10);
+        public HealthSystem Health { get; set; }
+        public void OnEnable()
+        {
+            Health = new HealthSystem(10);
+        }
     }
 }

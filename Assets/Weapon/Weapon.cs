@@ -1,45 +1,43 @@
 using System;
-using System.ComponentModel.Design;
-using Bullet;
 using UnityEngine;
 
 namespace Weapon
 {
 	public class Weapon : MonoBehaviour
 	{
-		[SerializeField]protected GameObject bulletPrefab;
+		[SerializeField] protected GameObject bulletPrefab;
 		public GameObject weaponPrefab;
-		[SerializeField]protected Transform firePoint;
-		[SerializeField]protected float fireForce = 20f;
-		[SerializeField]protected WeaponState state;
+		[SerializeField] protected Transform firePoint;
+		[SerializeField] protected float fireForce = 20f;
+		[SerializeField] protected WeaponState state;
 		public AmmoState ammoState;
-		[SerializeField]protected float reloadingTime;
-		[SerializeField]protected float reloadStart;
-		[SerializeField]protected float timeDifference;
-		[SerializeField] protected int maxAmmoAmount;
+		[SerializeField] protected float reloadingTime;
+		[SerializeField] protected float reloadStart;
+		[SerializeField] protected float timeDifference;
+		[SerializeField] protected int maxAmmoCapacity;
 		[SerializeField] protected int currentAmmoAmount;
-		
+
 
 		public void Awake()
 		{
 			SetReloadingTime();
-			SetMaxBulletAmount();
+			SetMaxAmmoCapacity();
 			ammoState = AmmoState.Full;
-			currentAmmoAmount = maxAmmoAmount;
+			currentAmmoAmount = maxAmmoCapacity;
 		}
 
-		protected virtual void SetMaxBulletAmount()
+		protected virtual void SetMaxAmmoCapacity()
 		{
-			maxAmmoAmount = int.MaxValue;
+			maxAmmoCapacity = int.MaxValue;
 		}
 
 		protected virtual void SetReloadingTime()
 		{
 			reloadingTime = 0.5f;
 		}
-		
 
-        public virtual void Fire(bool isButtonPressed)
+
+		public virtual void Fire(bool isButtonPressed)
 		{
 			switch (state)
 			{
@@ -60,15 +58,16 @@ namespace Weapon
 						default:
 							throw new ArgumentOutOfRangeException();
 					}
+
 					break;
 				case WeaponState.Reloading:
 					timeDifference = Time.time - reloadStart;
 					if (timeDifference >= reloadingTime)
 						state = WeaponState.Ready;
-                    break;
-            }
+					break;
+			}
 		}
-		
+
 		public virtual void FireHeld(bool isButtonPushed)
 		{
 			Fire(isButtonPushed);
@@ -76,7 +75,6 @@ namespace Weapon
 
 		public virtual void FireReleased(bool isButtonReleased)
 		{
-			
 		}
 
 		protected virtual void CreateBullets()
@@ -92,9 +90,9 @@ namespace Weapon
 		{
 			var temporary = currentAmmoAmount;
 			temporary += amount;
-			if (temporary > maxAmmoAmount)
+			if (temporary > maxAmmoCapacity)
 			{
-				currentAmmoAmount = maxAmmoAmount;
+				currentAmmoAmount = maxAmmoCapacity;
 				ammoState = AmmoState.Full;
 			}
 			else
