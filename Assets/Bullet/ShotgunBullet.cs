@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class ShotgunBullet : Bullet.Bullet
 {
-    private int damageAmount = 1;
+    //private int damageAmount = 1;
 }

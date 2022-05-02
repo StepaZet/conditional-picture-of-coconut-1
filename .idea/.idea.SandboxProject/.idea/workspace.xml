@@ -5,8 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/AmmoLaser.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/AmmoLaser.prefab.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Bullet/AmmoPickUp.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Bullet/AmmoPickUp.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/AmmoPistol.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/AmmoPistol.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/AmmoShotgun.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/AmmoShotgun.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/BulletShotgun.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/BulletShotgun.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/LaserAmmoPickUp.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/LaserAmmoPickUp.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/PistolAmmoPickUp.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/PistolAmmoPickUp.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/ShotgunAmmoPickUp.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/ShotgunAmmoPickUp.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/ShotgunBullet.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/ShotgunBullet.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Folder.DotSettings.user.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Health/MedKit.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Health/MedKit.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Health/Medkit.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Health/Medkit.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Player/Player.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Player/Player.prefab.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Weapon/AmmoState.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Weapon/AmmoState.cs.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Weapon/Pistol.cs" afterDir="false" />
@@ -16,6 +39,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/Health/HealthObj.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/HealthObj.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Weapon/Laser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Laser.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Weapon/Shotgun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Shotgun.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Weapon/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Weapon.cs" afterDir="false" />
@@ -37,14 +61,15 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Bullet/ShotgunBullet.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Bullet/PistolAmmoPickUp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Bullet/LaserAmmoPickUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Health/HealthObj.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Bullet/ShotgunBullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0d2eba3ab4724e709ab1d40ddbd9cb073800/9b/3e8e818c/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Bullet/PistolAmmoPickUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cafb29d5233847fbb4edcf8d7c32b1e3299c90/93/b519fe6a/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/76/d8bbeefb/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/81/706e3a9d/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerLogic.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Bullet/LaserAmmoPickUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/17/4cf72f64/Transform.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="27EnJZhJ0yvWQwNVuM4aAeiyGSK" />
@@ -73,10 +98,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="63184">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="63184" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
