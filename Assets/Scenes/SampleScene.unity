@@ -4851,6 +4851,7 @@ MonoBehaviour:
   - {fileID: 978762101}
   - {fileID: 1486264086}
   selectedWeaponId: 0
+  playerLogic: {fileID: 0}
   gridPosition:
     x: 0
     y: 0
@@ -4984,6 +4985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 301d838f20644101b9975f5b7839c2f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
 --- !u!114 &559352057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5001,9 +5003,12 @@ MonoBehaviour:
   firePoint: {fileID: 0}
   fireForce: 20
   state: 0
+  ammoState: 0
   reloadingTime: 0
   reloadStart: 0
   timeDifference: 0
+  maxAmmoAmount: 0
+  currentAmmoAmount: 0
 --- !u!1 &574196333
 GameObject:
   m_ObjectHideFlags: 0
@@ -56536,6 +56541,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2022886683801264595, guid: 70f367d1b66b1a84486df48c7c2929b5, type: 3}
+      propertyPath: playerLogic
+      value: 
+      objectReference: {fileID: 559352055}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70f367d1b66b1a84486df48c7c2929b5, type: 3}
 --- !u!1001 &2315394912380723734
