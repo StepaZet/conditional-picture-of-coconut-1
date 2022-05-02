@@ -14,7 +14,12 @@ namespace Weapon
 		private int damageAmount = 1;
 		private RaycastHit2D hit;
 
-		public override void Awake()
+		protected override void SetMaxBulletAmount()
+		{
+			maxAmmoAmount = 10;
+		}
+
+		protected override void SetReloadingTime()
 		{
 			reloadingTime = 0.2f;
 		}
@@ -29,15 +34,34 @@ namespace Weapon
 		{
 			if (!isButtonPressed)
 				return;
-			CastRay();
+			
 			switch (state)
 			{
-				case WeaponState.Ready when isButtonPressed:
-					Damage();
-					reloadStart = Time.time;
-					state = WeaponState.Reloading;
+				case WeaponState.Ready:
+					switch (ammoState)
+					{
+						case AmmoState.Empty:
+							TurnLaserOff();
+							break;
+						case AmmoState.Full:
+						case AmmoState.Normal:
+							ammoState = AmmoState.Normal;
+							CastRay();
+							Damage();
+							currentAmmoAmount--;
+
+							if (currentAmmoAmount <= 0)
+								ammoState = AmmoState.Empty;
+							
+							reloadStart = Time.time;
+							state = WeaponState.Reloading;
+							break;
+						default:
+							throw new ArgumentOutOfRangeException();
+					}
 					break;
 				case WeaponState.Reloading:
+					CastRay();
 					timeDifference = Time.time - reloadStart;
 					if (Time.time - reloadStart >= reloadingTime)
 						state = WeaponState.Ready;
