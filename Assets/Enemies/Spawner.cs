@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Extensions;
+using Game;
 using GridTools;
+using Player;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -100,7 +102,7 @@ public class Spawner : MonoBehaviour
                 Move(roamPosition);
                 break;
             case State.RunFromPlayer:
-                var playerPosition= PlayerController.Instance.GetPosition();
+                var playerPosition= GameData.player.GetPosition();
                 do
                 {
                     roamPosition = GetRandomPosition();
@@ -279,7 +281,7 @@ public class Spawner : MonoBehaviour
     {
         try
         {
-            return Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < distance;
+            return Vector3.Distance(transform.position, GameData.player.transform.position) < distance;
         }
         catch
         {

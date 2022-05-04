@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Extensions;
+using Game;
 using GridTools;
+using Player;
 using Unity.Mathematics;
 using UnityEngine;
 using Weapon;
@@ -92,7 +94,7 @@ public class SimpleEnemyAI : MonoBehaviour
 
 
         if (IsNearToPlayer(targetRange))
-            UpdateAimFire(PlayerController.Instance.transform.position);
+            UpdateAimFire(GameData.player.transform.position);
         else
             UpdateAimFire(nextTarget);
 
@@ -111,7 +113,7 @@ public class SimpleEnemyAI : MonoBehaviour
                 Move(roamPosition);
                 break;
             case State.ChasingPlayer:
-                UpdateTarget(PlayerController.Instance.GetPosition());
+                UpdateTarget(GameData.player.GetPosition());
                 MoveWithTimer(roamPosition, followingTime);
                 break;
             default:
@@ -277,7 +279,7 @@ public class SimpleEnemyAI : MonoBehaviour
     {
         try
         {
-            return Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < distance;
+            return Vector3.Distance(transform.position, GameData.player.transform.position) < distance;
         }
         catch
         {

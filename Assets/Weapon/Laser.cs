@@ -10,7 +10,7 @@ namespace Weapon
 	{
 		public LineRenderer lineRenderer;
 		private float maxDistance = 100;
-		public PlayerLogic playerLogic;
+		public Character character;
 		private int damageAmount = 1;
 		private RaycastHit2D hit;
 
@@ -26,7 +26,7 @@ namespace Weapon
 
 		public void Update()
 		{
-			if (playerLogic.State != PlayerState.Idle)
+			if (character.State != PlayerState.Normal)
 				TurnLaserOff();
 		}
 		

@@ -1,4 +1,5 @@
 ﻿using System;
+using Game;
 using Player;
 using UnityEngine;
 using Weapon;
@@ -9,11 +10,14 @@ namespace Bullet
 	{
 		public void PickUp(GameObject gameObject, Collider2D other, int bulletsAmount)
 		{
-			if (!other.GetComponent<PlayerLogic>())
+			if (!other.GetComponent<Character>())
 				return;
-        
-			var weapon = PlayerController.Instance.weapons.Find(x => x is T);
-			if (weapon is null || weapon.ammoState == AmmoState.Full)
+			var character = GameData.player.character;
+			if (!(character.weapon is T))
+				return;
+
+			var weapon = character.weapon;
+			if (weapon.ammoState == AmmoState.Full)
 				return;
 			
 			weapon.AddBullets(bulletsAmount);

@@ -1,3 +1,4 @@
+using Game;
 using Player;
 using UnityEngine;
 
@@ -10,15 +11,16 @@ namespace Health
 
 		public void OnTriggerEnter2D(Collider2D other)
 		{
-			if (!other.GetComponent<PlayerLogic>())
+			if (!other.GetComponent<PlayerObj>())
 				return;
 
-			if (!other.GetComponent<HealthObj>() ||
-			    PlayerController.Instance.playerLogic.health.Health.CurrentHealthPoints ==
-			    PlayerController.Instance.playerLogic.health.Health.MaxHealthPoints)
+			if (!other.GetComponent<HealthObj>())
 				return;
-			
-			PlayerController.Instance.playerLogic.health.Health.Heal(healthPoints);
+			var healthObj = other.GetComponent<HealthObj>(); 
+			if (healthObj.Health.CurrentHealthPoints == healthObj.Health.MaxHealthPoints)
+				return;
+
+			GameData.player.character.health.Health.Heal(healthPoints);
 				
 			Destroy(gameObject);
 		}

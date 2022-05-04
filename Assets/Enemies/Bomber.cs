@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Extensions;
+using Game;
 using GridTools;
+using Player;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -104,7 +106,7 @@ public class Bomber : MonoBehaviour
                 Move(roamPosition);
                 break;
             case State.ChasingPlayer:
-                UpdateTarget(PlayerController.Instance.GetPosition());
+                UpdateTarget(GameData.player.GetPosition());
                 MoveWithTimer(roamPosition, followingTime);
                 break;
             case State.PrepareToDie:
@@ -281,7 +283,7 @@ public class Bomber : MonoBehaviour
     {
         try
         {
-            return Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < distance;
+            return Vector3.Distance(transform.position, GameData.player.transform.position) < distance;
         }
         catch
         {

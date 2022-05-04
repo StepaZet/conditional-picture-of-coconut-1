@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Extensions;
+using Game;
 using GridTools;
+using Player;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -86,7 +88,7 @@ public class Fly : MonoBehaviour
 
 
         if (IsNearToPlayer(targetRange))
-            UpdateAimFire(PlayerController.Instance.transform.position);
+            UpdateAimFire(GameData.player.transform.position);
         else
             UpdateAimFire(nextTarget);
 
@@ -105,7 +107,7 @@ public class Fly : MonoBehaviour
                 Move(roamPosition);
                 break;
             case State.ChasingPlayer:
-                UpdateTarget(PlayerController.Instance.GetPosition());
+                UpdateTarget(GameData.player.GetPosition());
                 MoveWithTimer(roamPosition, followingTime);
                 break;
             default:
@@ -271,7 +273,7 @@ public class Fly : MonoBehaviour
     {
         try
         {
-            return Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < distance;
+            return Vector3.Distance(transform.position, GameData.player.transform.position) < distance;
         }
         catch
         {
