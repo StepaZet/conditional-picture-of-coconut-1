@@ -8,7 +8,7 @@ namespace Player
 	{
 		private readonly LayerMask dashLayerMask;
 		private float moveSpeed = 10f;
-		private float rollSpeed = 6f;
+		private float rollSpeed = 20f;
 
 		private Vector2 cursorPosition;
 		private Vector2 moveDirection;
@@ -126,6 +126,16 @@ namespace Player
 		private static void FireReleased(PlayerObj player)
 		{
 			player.character.weapon.FireReleased(player.input.IsFireInputReleased);
+		}
+
+		public void ChangeCharacter(PlayerObj player, Collider other)
+		{
+			if (!player.input.IsChangeCharacter)
+				return;
+			if (!other.GetComponent<Character>())
+				return;
+			var character = other.GetComponent<Character>();
+			player.character = character;
 		}
 	}
 }

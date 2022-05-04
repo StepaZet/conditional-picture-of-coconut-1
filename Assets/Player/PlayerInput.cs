@@ -13,6 +13,7 @@ namespace Player
 		public bool IsFireInputReleased { get; private set; }
 		public bool IsDash { get; private set; }
 		public bool IsRoll { get; private set; }
+		public bool IsChangeCharacter { get; private set; }
 	
 
 		public void Update()
@@ -25,6 +26,7 @@ namespace Player
 			IsFireInputReleased = Input.GetMouseButtonUp(0);
 			IsDash = Input.GetKeyDown(KeyCode.Space);
 			IsRoll = Input.GetKeyDown(KeyCode.LeftShift);
+			IsChangeCharacter = Input.GetKeyDown(KeyCode.Tab);
 		}
 
 	}

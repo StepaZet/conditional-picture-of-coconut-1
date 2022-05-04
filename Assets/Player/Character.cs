@@ -11,6 +11,7 @@ namespace Player
         public Rigidbody2D rb;
         private GridData gridData;
         [SerializeField] protected GameObject weaponPrefab;
+        [SerializeField] public Collider2D characterCollider;
         [SerializeField] private GridObj grid;
         public PlayerState State { get; set; }
         
