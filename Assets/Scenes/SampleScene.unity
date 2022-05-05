@@ -2196,6 +2196,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3163097871952830793, guid: 9242899af8287684e84a40bb22c77b39, type: 3}
   m_PrefabInstance: {fileID: 453349624}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &372789434 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3163097871952830797, guid: 9242899af8287684e84a40bb22c77b39, type: 3}
+  m_PrefabInstance: {fileID: 453349624}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &375651964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2260,6 +2265,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3163097871952830792, guid: 9242899af8287684e84a40bb22c77b39, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 372789434}
     - target: {fileID: 3163097871952830792, guid: 9242899af8287684e84a40bb22c77b39, type: 3}
       propertyPath: healthObjPrefab
       value: 
@@ -25661,6 +25670,11 @@ PrefabInstance:
 CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 3046669150959693414, guid: 99fd7a7698e79364a8dfcd6df1d57219, type: 3}
   m_PrefabInstance: {fileID: 3046669150214054365}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1421507727 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7605132891047785642, guid: a2af9bca671ce4c4797d59478a1dad70, type: 3}
+  m_PrefabInstance: {fileID: 7605132891606875230}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1530706415
 GameObject:
@@ -56614,6 +56628,10 @@ PrefabInstance:
       propertyPath: health
       value: 
       objectReference: {fileID: 1056415357}
+    - target: {fileID: 7605132891047785647, guid: a2af9bca671ce4c4797d59478a1dad70, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 1421507727}
     - target: {fileID: 7605132891047785647, guid: a2af9bca671ce4c4797d59478a1dad70, type: 3}
       propertyPath: healthObjPrefab
       value: 

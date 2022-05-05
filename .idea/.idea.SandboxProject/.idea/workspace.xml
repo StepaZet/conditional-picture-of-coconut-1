@@ -5,12 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Spawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Pistol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Pistol.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Shotgun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Shotgun.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerObj.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerObj.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,32 +158,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Player/Character.cs</url>
-          <line>30</line>
-          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\Character.cs" initialLine="30" containingFunctionPresentation="method 'Update'">
-            <startOffsets>
-              <option value="990" />
-            </startOffsets>
-            <endOffsets>
-              <option value="996" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Player/Character.cs</url>
-          <line>28</line>
-          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\Character.cs" initialLine="28" containingFunctionPresentation="method 'Update'">
-            <startOffsets>
-              <option value="915" />
-            </startOffsets>
-            <endOffsets>
-              <option value="916" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="55" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

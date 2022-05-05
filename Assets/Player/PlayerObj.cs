@@ -38,7 +38,7 @@ namespace Player
             {
                 unlockedCharacters.Remove(character);
                 if (unlockedCharacters.Count > 0)
-                    character = unlockedCharacters[0];
+                    ChangeCharacter(unlockedCharacters[0]);
             }
         }
 
@@ -60,19 +60,19 @@ namespace Player
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            ChangeCharacter(other);
-        }
-        public void ChangeCharacter(Collider2D other)
-        {
             if (!other.GetComponent<Character>() || other == collider)
                 return;
-
             if (!input.IsChangeCharacter)
                 return;
+            ChangeCharacter(other.GetComponent<Character>());
+        }
+
+        private void ChangeCharacter(Character other)
+        {
             var transform = character.weapon.transform;
             var weaponPosition = transform.localPosition;
             var weaponRotation = transform.localRotation;
-            character = other.GetComponent<Character>();
+            character = other;
             var transformWeapon = character.weapon.transform;
             transformWeapon.localPosition = weaponPosition;
             transformWeapon.localRotation = weaponRotation;
