@@ -17,6 +17,7 @@ public class Spawner : MonoBehaviour
     public Rigidbody2D Rb;
     public CircleCollider2D Collider;
     public Fly FlyBullet;
+    public SpriteRenderer sprite;
 
     private Stage currentStage;
     private State state;
@@ -43,6 +44,8 @@ public class Spawner : MonoBehaviour
 
     private const float pauseTime = 1f;
     private const float followingTime = 6f;
+    private const float reloadTime = 1f;
+    private float reloadStart;
     private float pauseStart;
     private float followingStartTime;
 
@@ -78,6 +81,7 @@ public class Spawner : MonoBehaviour
         currentStage = Stage.None;
         moveSpeed = 3f;
         followingStartTime = Time.time;
+        reloadStart = Time.time;
     }
 
     private void FixedUpdate()
@@ -86,6 +90,7 @@ public class Spawner : MonoBehaviour
             Die();
 
         UpdateFlies();
+        Fire();
 
         //if (flies.Length < maxCountFly)
         //    Fire();
@@ -254,22 +259,28 @@ public class Spawner : MonoBehaviour
 
     private void UpdateFlies()
     {
+        foreach (var fly in flies)
+            if (fly != null)
+                fly.homePosition = transform.position;
+    }
+
+    private void Fire()
+    {
+        var difference = Time.time - reloadStart;
+        if (difference < reloadTime)
+            return;
         for (var i = 0; i < flies.Length; i++)
         {
             if (flies[i] == null)
             {
                 flies[i] = Instantiate(FlyBullet, transform.position, transform.rotation);
                 flies[i].Grid = Grid;
+                flies[i].homePosition = transform.position;
+                reloadStart = Time.time;
+                break;
             }
-            flies[i].homePosition = transform.position;
+            
         }
-    }
-
-    private void Fire()
-    {
-        //var fly = 
-        //fly.Grid = Grid;
-        //flies.Add(fly);
     }
 
     private void Die()

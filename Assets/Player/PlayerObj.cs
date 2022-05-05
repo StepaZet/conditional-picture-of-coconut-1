@@ -8,6 +8,8 @@ namespace Player
     public class PlayerObj : MonoBehaviour
     {
         public Character character;
+        public Rigidbody2D rb;
+        public SpriteRenderer sprite;
         private PlayerController controller;
         public readonly PlayerInput input = new PlayerInput();
         public Collider2D collider;
@@ -19,10 +21,12 @@ namespace Player
             GameData.Players.Add(this);
             GameData.player = this; //Временно
             controller = new PlayerController(dashLayerMask);
+            sprite = rb.GetComponent<SpriteRenderer>();
         }
 
         private void Update()
         {
+            UpdateEyeDirection();
             transform.position = character.transform.position;
             input.Update();
             controller.Update(this);
@@ -53,6 +57,12 @@ namespace Player
                 character.weapon.transform.localRotation = weaponRotation;
             }
                 
+        }
+
+
+        private void UpdateEyeDirection()
+        {
+            sprite.flipX = (int) Mathf.Sign(-rb.velocity.x) == 1;
         }
     }
 }

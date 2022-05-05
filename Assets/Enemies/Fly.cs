@@ -16,6 +16,7 @@ public class Fly : MonoBehaviour
     public HealthObj Health;
     public Rigidbody2D Rb;
     public CircleCollider2D Collider;
+    public SpriteRenderer sprite;
     public Weapon.Weapon Weapon;
 
     private Stage currentStage;
@@ -69,6 +70,7 @@ public class Fly : MonoBehaviour
     {
         pathFinder = new PathFinding();
         Health = gameObject.AddComponent<HealthObj>();
+        Health.Health.CurrentHealthPoints = 1;
 
         homePosition = transform.position;
         startingPosition = transform.position;
@@ -86,6 +88,7 @@ public class Fly : MonoBehaviour
         if (Health.Health.CurrentHealthPoints <= 0)
             Die();
 
+        UpdateEyeDirection();
 
         if (IsNearToPlayer(targetRange))
             UpdateAimFire(GameData.player.transform.position);
@@ -279,6 +282,11 @@ public class Fly : MonoBehaviour
         {
             return false;
         }
+    }
+
+    private void UpdateEyeDirection()
+    {
+        sprite.flipX = (int) Mathf.Sign(Rb.velocity.x) == 1;
     }
 
     private void ChooseBehaviour()
