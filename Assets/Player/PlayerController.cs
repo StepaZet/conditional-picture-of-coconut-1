@@ -7,7 +7,7 @@ namespace Player
 	public class PlayerController
 	{
 		private readonly LayerMask dashLayerMask;
-		private float moveSpeed = 10f;
+        private float moveSpeed = 10f;
 		private float rollSpeed = 20f;
 
 		private Vector2 cursorPosition;
@@ -47,8 +47,9 @@ namespace Player
 		}
 
 		public void FixedUpdate(PlayerObj player)
-		{
-			switch (player.character.State)
+        {
+
+            switch (player.character.State)
 			{
 				case PlayerState.Normal:
 					Move(player);
@@ -148,5 +149,7 @@ namespace Player
 			
 			player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
 		}
+
+        
 	}
 }

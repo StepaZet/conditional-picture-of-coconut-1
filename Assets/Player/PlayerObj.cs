@@ -8,6 +8,8 @@ namespace Player
     public class PlayerObj : MonoBehaviour
     {
         public Character character;
+        public Rigidbody2D rb;
+        public SpriteRenderer sprite;
         private PlayerController controller;
         public PlayerUI ui;
         public readonly PlayerInput input = new PlayerInput();
@@ -20,10 +22,12 @@ namespace Player
             GameData.Players.Add(this);
             GameData.player = this; //Временно
             controller = new PlayerController(dashLayerMask);
+            sprite = rb.GetComponent<SpriteRenderer>();
         }
 
         private void Update()
         {
+            UpdateEyeDirection();
             transform.position = character.transform.position;
             input.Update();
             controller.Update(this);
@@ -48,6 +52,12 @@ namespace Player
         private void OnTriggerStay2D(Collider2D other)
         {
             controller.ChangeCharacter(this, other);
+        }
+
+
+        private void UpdateEyeDirection()
+        {
+            sprite.flipX = (int) Mathf.Sign(-rb.velocity.x) == 1;
         }
     }
 }

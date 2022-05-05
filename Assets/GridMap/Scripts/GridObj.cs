@@ -70,4 +70,5 @@ public class GridObj : MonoBehaviour
 
     public void CreateWall(Vector3 startWorldWall, Vector3 endWorldWall)
         => Grid.CreateWall(startWorldWall, endWorldWall);
+
 }
