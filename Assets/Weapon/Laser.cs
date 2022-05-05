@@ -106,8 +106,8 @@ namespace Weapon
 		{
 			if (hit.collider == null)
 				return;
-			if (hit.collider.GetComponent<HealthObj>())
-				hit.collider.GetComponent<HealthObj>().Health.Damage(damageAmount);
+			if (hit.collider.GetComponentInChildren<HealthObj>())
+				hit.collider.GetComponentInChildren<HealthObj>().Health.Damage(damageAmount);
 		}
 	}
 }
