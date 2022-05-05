@@ -4,10 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Shotgun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Shotgun.prefab" afterDir="false" />
-    </list>
+    <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +40,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.21986301" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.21780822" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -161,19 +158,6 @@
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Player/PlayerObj.cs</url>
-          <line>37</line>
-          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\PlayerObj.cs" initialLine="37" containingFunctionPresentation="method 'Update'">
-            <startOffsets>
-              <option value="1134" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1135" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="72" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Player/Character.cs</url>
           <line>42</line>
           <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\Character.cs" initialLine="40" containingFunctionPresentation="method 'Die'">
@@ -188,16 +172,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Weapon/Laser.cs</url>
-          <line>37</line>
-          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Weapon\Laser.cs" initialLine="37" containingFunctionPresentation="method 'Fire'">
+          <line>105</line>
+          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Weapon\Laser.cs" initialLine="105" containingFunctionPresentation="method 'Damage'">
             <startOffsets>
-              <option value="677" />
+              <option value="2176" />
             </startOffsets>
             <endOffsets>
-              <option value="691" />
+              <option value="2177" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="78" />
+          <option name="timeStamp" value="79" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

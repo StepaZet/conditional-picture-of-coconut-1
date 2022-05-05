@@ -11,7 +11,6 @@ namespace Player
     {
         public Character character;
         public readonly List<Character> unlockedCharacters = new List<Character>();
-        public SpriteRenderer sprite;
         private PlayerController controller;
         public PlayerUI ui;
         public readonly PlayerInput input = new PlayerInput();
@@ -89,7 +88,7 @@ namespace Player
 
         private void UpdateEyeDirection()
         {
-            sprite.flipX = (int) Mathf.Sign(-character.rb.velocity.x) == 1;
+            character.sprite.flipX = (int) Mathf.Sign(-character.rb.velocity.x) == 1;
         }
     }
 }

@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
+  m_Sprite: {fileID: -4211853202062188323, guid: 4a8f7b2ed9f66c84c9db5a7f33b123b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,4 +137,7 @@ MonoBehaviour:
   Health: {fileID: 0}
   Rb: {fileID: 2871010253409400420}
   Collider: {fileID: 2871010253409400419}
+  FlyBullet: {fileID: 0}
+  healthObjPrefab: {fileID: 0}
+  sprite: {fileID: 0}
   Grid: {fileID: 0}

@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2135585597343286014, guid: eed45a33cd08446c8b88325cf82fc52f, type: 3}
+  m_Sprite: {fileID: -8289430131306411874, guid: 4a8f7b2ed9f66c84c9db5a7f33b123b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -138,4 +138,5 @@ MonoBehaviour:
   Rb: {fileID: 2315394912359582403}
   RbSprite: {fileID: 2315394912359582401}
   Collider: {fileID: 2315394912359582400}
+  healthObjPrefab: {fileID: 0}
   Grid: {fileID: 0}
