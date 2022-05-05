@@ -16,6 +16,7 @@ public class Bomber : MonoBehaviour
     public Rigidbody2D Rb;
     public SpriteRenderer RbSprite;
     public CircleCollider2D Collider;
+    public GameObject healthObjPrefab;
 
     private Stage currentStage;
     private State state;
@@ -72,7 +73,7 @@ public class Bomber : MonoBehaviour
     private void Start()
     {
         pathFinder = new PathFinding();
-        Health = gameObject.AddComponent<HealthObj>();
+        Health = Instantiate(healthObjPrefab, transform).GetComponent<HealthObj>();
 
         homePosition = transform.position;
         startingPosition = transform.position;
@@ -272,7 +273,7 @@ public class Bomber : MonoBehaviour
 
         foreach (var obj in objectsToGetDamage)
         {
-            var healthObj = obj.GetComponent<HealthObj>();
+            var healthObj = obj.GetComponentInChildren<HealthObj>();
             if (healthObj != null && obj != Collider)
                 healthObj.Health.Damage(damage);
         }

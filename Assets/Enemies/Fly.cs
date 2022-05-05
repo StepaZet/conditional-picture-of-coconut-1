@@ -17,6 +17,7 @@ public class Fly : MonoBehaviour
     public Rigidbody2D Rb;
     public CircleCollider2D Collider;
     public Weapon.Weapon Weapon;
+    public GameObject healthObjPrefab;
 
     private Stage currentStage;
     private State state;
@@ -68,7 +69,7 @@ public class Fly : MonoBehaviour
     private void Start()
     {
         pathFinder = new PathFinding();
-        Health = gameObject.AddComponent<HealthObj>();
+        Health = Instantiate(healthObjPrefab, transform).GetComponent<HealthObj>();
 
         homePosition = transform.position;
         startingPosition = transform.position;

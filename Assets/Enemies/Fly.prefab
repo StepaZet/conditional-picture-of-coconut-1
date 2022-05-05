@@ -139,6 +139,7 @@ MonoBehaviour:
   Rb: {fileID: 2801450463643824593}
   Collider: {fileID: 2801450463643824594}
   Weapon: {fileID: 283079390750425876}
+  healthObjPrefab: {fileID: 4810428442765776644, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
   Grid: {fileID: 0}
   homePosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &2085180287517582281

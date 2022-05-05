@@ -17,6 +17,7 @@ public class Spawner : MonoBehaviour
     public Rigidbody2D Rb;
     public CircleCollider2D Collider;
     public Fly FlyBullet;
+    public GameObject healthObjPrefab;
 
     private Stage currentStage;
     private State state;
@@ -66,7 +67,7 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         pathFinder = new PathFinding();
-        Health = gameObject.AddComponent<HealthObj>();
+        Health = Instantiate(healthObjPrefab, transform).GetComponent<HealthObj>();
         flies = new Fly[maxCountFly];
 
         homePosition = transform.position;

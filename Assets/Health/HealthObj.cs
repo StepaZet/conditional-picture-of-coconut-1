@@ -8,10 +8,13 @@ using UnityEngine;
 public class HealthObj : MonoBehaviour
 {
     public HealthSystem Health;
-    public HealthBar healthBar;
+    private HealthBar healthBar;
+    public GameObject healthBarPrefab;
     public void OnEnable()
     {
         Health = new HealthSystem(10);
+        healthBar = Instantiate(healthBarPrefab, transform).GetComponent<HealthBar>();
+        healthBar.transform.position += Vector3.down;
         healthBar.SetUp(Health);
     }
 

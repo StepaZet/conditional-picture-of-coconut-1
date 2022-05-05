@@ -26,7 +26,6 @@ namespace Player
             transform.position = character.transform.position;
             input.Update();
             controller.Update(this);
-            character.UpdateForcefully();
         }
 
         private void FixedUpdate()
@@ -38,11 +37,17 @@ namespace Player
         {
             return transform.position;
         }
+        
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.GetComponent<Rigidbody2D>()) 
+                other.gameObject.GetComponent<Rigidbody2D>().WakeUp();
+        }
 
         private void OnTriggerStay2D(Collider2D other)
         {
             //Physics2D.IgnoreCollision(character.characterCollider, GetComponent<Collider2D>());
-            if (!other.GetComponent<Character>())
+            if (!other.GetComponent<Character>() || other == collider)
                 return;
 
             if (input.IsChangeCharacter)
