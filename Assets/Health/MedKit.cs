@@ -7,16 +7,15 @@ namespace Health
 	public class MedKit : MonoBehaviour
 	{
 		[SerializeField] private int healthPoints = 5;
-		public Rigidbody2D rb;
 
 		public void OnTriggerEnter2D(Collider2D other)
 		{
-			if (!other.GetComponent<PlayerObj>())
+			if (!other.GetComponentInChildren<Character>())
 				return;
 
-			if (!other.GetComponent<HealthObj>())
+			if (!other.GetComponentInChildren<HealthObj>())
 				return;
-			var healthObj = other.GetComponent<HealthObj>(); 
+			var healthObj = other.GetComponentInChildren<HealthObj>(); 
 			if (healthObj.Health.CurrentHealthPoints == healthObj.Health.MaxHealthPoints)
 				return;
 

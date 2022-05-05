@@ -4,7 +4,9 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="" />
+    <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Health/MedKit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/MedKit.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
