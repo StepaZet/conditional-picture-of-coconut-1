@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Linq;
 using UnityEngine;
 using Game;
 
@@ -8,8 +10,7 @@ namespace Player
     public class PlayerObj : MonoBehaviour
     {
         public Character character;
-        public Rigidbody2D rb;
-        public SpriteRenderer sprite;
+        public readonly List<Character> unlockedCharacters = new List<Character>();
         private PlayerController controller;
         public PlayerUI ui;
         public readonly PlayerInput input = new PlayerInput();
@@ -22,15 +23,23 @@ namespace Player
             GameData.Players.Add(this);
             GameData.player = this; //Временно
             controller = new PlayerController(dashLayerMask);
-            sprite = rb.GetComponent<SpriteRenderer>();
+            if (!unlockedCharacters.Contains(character))
+                unlockedCharacters.Add(character);
         }
 
         private void Update()
         {
-            UpdateEyeDirection();
             transform.position = character.transform.position;
             input.Update();
             controller.Update(this);
+            character.enabled = true;
+
+            if (character.State == PlayerState.Dead)
+            {
+                unlockedCharacters.Remove(character);
+                if (unlockedCharacters.Count > 0)
+                    character = unlockedCharacters[0];
+            }
         }
 
         private void FixedUpdate()
@@ -51,13 +60,28 @@ namespace Player
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            controller.ChangeCharacter(this, other);
+            ChangeCharacter(other);
         }
-
-
-        private void UpdateEyeDirection()
+        public void ChangeCharacter(Collider2D other)
         {
-            sprite.flipX = (int) Mathf.Sign(-rb.velocity.x) == 1;
+            if (!other.GetComponent<Character>() || other == collider)
+                return;
+
+            if (!input.IsChangeCharacter)
+                return;
+            var transform = character.weapon.transform;
+            var weaponPosition = transform.localPosition;
+            var weaponRotation = transform.localRotation;
+            character = other.GetComponent<Character>();
+            var transformWeapon = character.weapon.transform;
+            transformWeapon.localPosition = weaponPosition;
+            transformWeapon.localRotation = weaponRotation;
+			
+            if (!unlockedCharacters.Contains(character))
+                unlockedCharacters.Add(character);
+            
+			
+            ui.UpdateAmmoText(character.weapon.CurrentAmmoAmount, character.weapon.MaxAmmoAmount);
         }
     }
 }

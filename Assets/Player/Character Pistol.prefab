@@ -137,9 +137,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
+  healthObjPrefab: {fileID: 0}
   weapon: {fileID: 2599156437058345564}
   health: {fileID: 0}
   rb: {fileID: 7605132891047785644}
+  sprite: {fileID: 0}
   weaponPrefab: {fileID: 6229293765169583505}
   characterCollider: {fileID: 7605132891047785645}
   grid: {fileID: 0}

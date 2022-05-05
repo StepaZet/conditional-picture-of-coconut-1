@@ -286,7 +286,7 @@ public class Spawner : MonoBehaviour
 
     private void Die()
     {
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 
     private bool IsNearToPlayer(float distance)

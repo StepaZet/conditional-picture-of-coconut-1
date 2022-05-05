@@ -137,10 +137,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  healthObjPrefab: {fileID: 0}
+  healthObjPrefab: {fileID: 9144502404866815574}
   weapon: {fileID: 282731336328229842}
-  health: {fileID: 0}
+  health: {fileID: 2413824522924574538}
   rb: {fileID: 3163097871952830795}
+  sprite: {fileID: 0}
   weaponPrefab: {fileID: 4329172113836715944}
   characterCollider: {fileID: 3163097871952830794}
   grid: {fileID: 0}
@@ -201,11 +202,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
+--- !u!1 &9144502404866815574 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4810428442765776644, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
+  m_PrefabInstance: {fileID: 4334115760863961426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6307139207964866191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7755949400791767005, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
   m_PrefabInstance: {fileID: 4334115760863961426}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2413824522924574538 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2115143502353147416, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
+  m_PrefabInstance: {fileID: 4334115760863961426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9144502404866815574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4668464e0ff0e6e46b026290a1d469cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7187192384269899114
 PrefabInstance:
   m_ObjectHideFlags: 0

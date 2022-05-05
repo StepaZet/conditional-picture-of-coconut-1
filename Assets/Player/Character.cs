@@ -12,6 +12,7 @@ namespace Player
         public HealthObj health;
         public Rigidbody2D rb;
         private GridData gridData;
+        public SpriteRenderer sprite;
         [SerializeField] protected GameObject weaponPrefab;
         [SerializeField] public Collider2D characterCollider;
         [SerializeField] private GridObj grid;
@@ -22,23 +23,29 @@ namespace Player
             gridData = new GridData(this, grid);
             health = Instantiate(healthObjPrefab, transform).GetComponent<HealthObj>();
             State = PlayerState.Normal;
+            sprite = rb.GetComponent<SpriteRenderer>();
         }
-        private void Update()
+        public void Update()
         {
             if (health.Health.CurrentHealthPoints <= 0) 
                 Die();
             currentHealth = health.Health.CurrentHealthPoints;
+            UpdateEyeDirection();
         }
 
         private void FixedUpdate()
         {
             gridData.Update(this);
-            
         }
 
         private void Die()
         {
-            //Destroy(gameObject);
+            State = PlayerState.Dead;
+        }
+        
+        private void UpdateEyeDirection()
+        {
+            sprite.flipX = (int) Mathf.Sign(-rb.velocity.x) == 1;
         }
 
     }
