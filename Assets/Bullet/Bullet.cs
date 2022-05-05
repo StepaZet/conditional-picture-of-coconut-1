@@ -1,4 +1,5 @@
 using System;
+using Player;
 using UnityEngine;
 
 namespace Bullet
@@ -21,6 +22,8 @@ namespace Bullet
 
             if (collision.collider.GetComponent<HealthObj>())
                 collision.collider.GetComponent<HealthObj>().Health.Damage(damageAmount);
+            if (collision.collider.GetComponent<Character>())
+                collision.collider.GetComponent<Character>().health.Health.Damage(damageAmount);    //Костыль, ибо юнити не видит у персонажа хп по непонятным причинам
 
             Destroy(gameObject);
         }

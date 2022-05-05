@@ -26,6 +26,7 @@ namespace Player
             transform.position = character.transform.position;
             input.Update();
             controller.Update(this);
+            character.UpdateForcefully();
         }
 
         private void FixedUpdate()

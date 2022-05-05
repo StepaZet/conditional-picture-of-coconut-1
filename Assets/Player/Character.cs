@@ -6,6 +6,7 @@ namespace Player
 {
     public class Character : MonoBehaviour
     {
+        public int currentHealth = 0;
         public Weapon.Weapon weapon;
         public HealthObj health;
         public Rigidbody2D rb;
@@ -25,11 +26,20 @@ namespace Player
         {
             if (health.Health.CurrentHealthPoints <= 0) 
                 Die();
+            currentHealth = health.Health.CurrentHealthPoints;
+        }
+
+        public void UpdateForcefully()
+        {
+            if (health.Health.CurrentHealthPoints <= 0) 
+                Die();
+            currentHealth = health.Health.CurrentHealthPoints;
         }
 
         private void FixedUpdate()
         {
             gridData.Update(this);
+            
         }
 
         private void Die()
