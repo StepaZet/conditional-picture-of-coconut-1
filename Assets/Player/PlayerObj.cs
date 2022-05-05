@@ -9,6 +9,7 @@ namespace Player
     {
         public Character character;
         private PlayerController controller;
+        public PlayerUI ui;
         public readonly PlayerInput input = new PlayerInput();
         public Collider2D collider;
 
@@ -46,19 +47,7 @@ namespace Player
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            //Physics2D.IgnoreCollision(character.characterCollider, GetComponent<Collider2D>());
-            if (!other.GetComponent<Character>() || other == collider)
-                return;
-
-            if (input.IsChangeCharacter)
-            {
-                var weaponPosition = character.weapon.transform.localPosition;
-                var weaponRotation = character.weapon.transform.localRotation;
-                character = other.GetComponent<Character>();
-                character.weapon.transform.localPosition = weaponPosition;
-                character.weapon.transform.localRotation = weaponRotation;
-            }
-                
+            controller.ChangeCharacter(this, other);
         }
     }
 }

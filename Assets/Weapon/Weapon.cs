@@ -18,6 +18,8 @@ namespace Weapon
 		[SerializeField]protected float timeDifference;
 		[SerializeField] protected int maxAmmoAmount;
 		[SerializeField] protected int currentAmmoAmount;
+		public int MaxAmmoAmount => maxAmmoAmount;
+		public int CurrentAmmoAmount => currentAmmoAmount;
 		
 
 		public void Awake()

@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Player/PlayerUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Player/PlayerUI.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Bomber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Bomber.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Fly.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Fly.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Fly.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Fly.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Spawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Health/HealthBar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/HealthBar.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Health/HealthObj.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/HealthObj.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Pistol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Pistol.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Shotgun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Shotgun.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerObj.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerObj.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Pistol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Pistol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerObj.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerObj.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Weapon/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Weapon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

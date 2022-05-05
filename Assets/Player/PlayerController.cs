@@ -116,26 +116,37 @@ namespace Player
 		private static void Fire(PlayerObj player)
 		{
 			player.character.weapon.Fire(player.input.IsFireInput);
+			player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
 		}
 	
 		private static void FireHeld(PlayerObj player)
 		{
 			player.character.weapon.FireHeld(player.input.IsFireInputHeld);
+			player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
 		}
 
 		private static void FireReleased(PlayerObj player)
 		{
 			player.character.weapon.FireReleased(player.input.IsFireInputReleased);
+			player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
 		}
 
-		public void ChangeCharacter(PlayerObj player, Collider other)
+		public void ChangeCharacter(PlayerObj player, Collider2D other)
 		{
+			if (!other.GetComponent<Character>() || other == player.collider)
+				return;
+
 			if (!player.input.IsChangeCharacter)
 				return;
-			if (!other.GetComponent<Character>())
-				return;
-			var character = other.GetComponent<Character>();
-			player.character = character;
+			var transform = player.character.weapon.transform;
+			var weaponPosition = transform.localPosition;
+			var weaponRotation = transform.localRotation;
+			player.character = other.GetComponent<Character>();
+			var transformWeapon = player.character.weapon.transform;
+			transformWeapon.localPosition = weaponPosition;
+			transformWeapon.localRotation = weaponRotation;
+			
+			player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
 		}
 	}
 }
