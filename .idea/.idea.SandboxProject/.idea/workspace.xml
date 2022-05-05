@@ -8,6 +8,10 @@
       <change afterPath="$PROJECT_DIR$/Assets/Player/PlayerUI.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Player/PlayerUI.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Pistol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Pistol.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Shotgun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Shotgun.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/GridData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/GridData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerObj.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerObj.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerObj.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerObj.prefab" afterDir="false" />
@@ -30,15 +34,15 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Bullet/LaserAmmoPickUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Health/HealthObj.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cafb29d5233847fbb4edcf8d7c32b1e3299c90/93/b519fe6a/List`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/76/d8bbeefb/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Bullet/LaserAmmoPickUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Bullet/ShotgunBullet.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/81/706e3a9d/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0d2eba3ab4724e709ab1d40ddbd9cb073800/9b/3e8e818c/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Bullet/PistolAmmoPickUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerObj.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cafb29d5233847fbb4edcf8d7c32b1e3299c90/93/b519fe6a/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/76/d8bbeefb/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/81/706e3a9d/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Health/HealthBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/17/4cf72f64/Transform.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -68,10 +72,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="7188">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="31916">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="7188" />
+      <option name="pid" value="31916" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -166,43 +170,56 @@
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Player/PlayerObj.cs</url>
+          <line>37</line>
+          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\PlayerObj.cs" initialLine="37" containingFunctionPresentation="method 'Update'">
+            <startOffsets>
+              <option value="1134" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1135" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Player/Character.cs</url>
-          <line>26</line>
-          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\Character.cs" initialLine="24" containingFunctionPresentation="method 'Update'">
+          <line>42</line>
+          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\Character.cs" initialLine="40" containingFunctionPresentation="method 'Die'">
             <startOffsets>
-              <option value="822" />
+              <option value="1024" />
             </startOffsets>
             <endOffsets>
-              <option value="823" />
+              <option value="1025" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="40" />
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Health/HealthSystem.cs</url>
-          <line>25</line>
-          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Health\HealthSystem.cs" initialLine="25" containingFunctionPresentation="method 'Damage'">
+          <url>file://$PROJECT_DIR$/Assets/Player/Character.cs</url>
+          <line>31</line>
+          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\Character.cs" initialLine="29" containingFunctionPresentation="method 'Update'">
             <startOffsets>
-              <option value="615" />
+              <option value="855" />
             </startOffsets>
             <endOffsets>
-              <option value="616" />
+              <option value="861" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="43" />
+          <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Bullet/Bullet.cs</url>
-          <line>15</line>
-          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Bullet\Bullet.cs" initialLine="14" containingFunctionPresentation="method 'OnCollisionEnter2D'">
+          <url>file://$PROJECT_DIR$/Assets/Player/Character.cs</url>
+          <line>30</line>
+          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\Character.cs" initialLine="28" containingFunctionPresentation="method 'Update'">
             <startOffsets>
-              <option value="309" />
+              <option value="806" />
             </startOffsets>
             <endOffsets>
-              <option value="310" />
+              <option value="849" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="44" />
+          <option name="timeStamp" value="76" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

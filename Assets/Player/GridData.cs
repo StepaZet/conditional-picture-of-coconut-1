@@ -14,7 +14,7 @@ namespace Player
 			gridPosition = grid.WorldToGridPosition(character.rb.transform.position);
 		}
 
-		public void Update(Character character)
+		public void UpdateGrid(Character character)
 		{
 			var newGridPosition = grid.WorldToGridPosition(character.transform.position);
 			if (newGridPosition.x == gridPosition.x && newGridPosition.y == gridPosition.y) return;
