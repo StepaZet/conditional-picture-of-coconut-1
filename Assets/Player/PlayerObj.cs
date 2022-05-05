@@ -11,6 +11,7 @@ namespace Player
     {
         public Character character;
         public readonly List<Character> unlockedCharacters = new List<Character>();
+        public SpriteRenderer sprite;
         private PlayerController controller;
         public PlayerUI ui;
         public readonly PlayerInput input = new PlayerInput();
@@ -29,6 +30,7 @@ namespace Player
 
         private void Update()
         {
+            UpdateEyeDirection();
             transform.position = character.transform.position;
             input.Update();
             controller.Update(this);
@@ -82,6 +84,12 @@ namespace Player
             
 			
             ui.UpdateAmmoText(character.weapon.CurrentAmmoAmount, character.weapon.MaxAmmoAmount);
+        }
+
+
+        private void UpdateEyeDirection()
+        {
+            sprite.flipX = (int) Mathf.Sign(-character.rb.velocity.x) == 1;
         }
     }
 }
