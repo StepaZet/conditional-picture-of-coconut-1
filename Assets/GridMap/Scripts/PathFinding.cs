@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Extensions;
@@ -12,7 +13,7 @@ namespace GridTools
         private const int MoveStraightCost = 10;
         private const int MoveDiagonalCost = 14;
 
-        private struct PathNode
+        public struct PathNode
         {
             public int X;
             public int Y;
@@ -61,7 +62,7 @@ namespace GridTools
             return lowestCostNode.Index;
         }
 
-        private static PathNode[] GetPathNodeArray(Grid grid, int2 gridSize, int2 endPosition)
+        public static PathNode[] GetPathNodeArray(Grid grid, int2 gridSize, int2 leftDownSectorPosition, int2 endPosition)
         {
             var pathNodeArray = new PathNode[gridSize.x * gridSize.y];
 
@@ -77,7 +78,7 @@ namespace GridTools
                         GCost = int.MaxValue,
                         HCost = GetDistanceCost(new int2(x, y), endPosition),
                         FCost = int.MaxValue,
-                        IsWalkable = grid.isWalkable(x, y),
+                        IsWalkable = grid.isWalkable(leftDownSectorPosition.x + x, leftDownSectorPosition.y + y),
                         PreviousIndex = -1
                     };
                     pathNodeArray[pathNode.Index] = pathNode;
@@ -91,9 +92,9 @@ namespace GridTools
         {
             var neighboringPosition = new List<int2>();
             for (var dy = -1; dy <= 1; dy++)
-            for (var dx = -1; dx <= 1; dx++)
-                if (dx != 0 || dy != 0)
-                    neighboringPosition.Add(new int2(dx, dy));
+                for (var dx = -1; dx <= 1; dx++)
+                    if (dx != 0 || dy != 0)
+                        neighboringPosition.Add(new int2(dx, dy));
 
             return neighboringPosition;
         }
@@ -123,16 +124,16 @@ namespace GridTools
             openNodes.Add(nextToOpenNode.Index);
         }
 
-        private static List<int2> GetFullPath(IReadOnlyList<PathNode> pathNodeArray, PathNode endNode)
+        private static List<int2> GetFullPath(IReadOnlyList<PathNode> pathNodeArray, PathNode endNode, int2 leftDownSectorPosition)
         {
             if (endNode.PreviousIndex == -1)
                 return null;
-            var result = new List<int2> {new int2(endNode.X, endNode.Y)};
+            var result = new List<int2> { new int2(leftDownSectorPosition.x + endNode.X, leftDownSectorPosition.y + endNode.Y) };
             var currentNode = endNode;
             while (currentNode.PreviousIndex != -1)
             {
                 currentNode = pathNodeArray[currentNode.PreviousIndex];
-                result.Add(new int2(currentNode.X, currentNode.Y));
+                result.Add(new int2(leftDownSectorPosition.x + currentNode.X, leftDownSectorPosition.y + currentNode.Y));
             }
 
             return result;
@@ -141,13 +142,13 @@ namespace GridTools
 
         public static List<int2> GetClearPath(List<int2> path)
         {
-            var result = new List<int2> {path[0]};
+            var result = new List<int2> { path[0] };
             var lastDirection = path[1] - path[0];
             for (var i = 1; i < path.Count; i++)
             {
                 if (lastDirection.IsEqual(path[i] - path[i - 1])) continue;
                 lastDirection = path[i] - path[i - 1];
-                result.Add(path[i-1]);
+                result.Add(path[i - 1]);
             }
 
             if (lastDirection.IsEqual(path[path.Count - 1] - path[path.Count - 2]))
@@ -156,18 +157,25 @@ namespace GridTools
             return result;
         }
 
-        public List<int2> FindPathAStar(Grid grid, int2 startPosition, int2 endPosition, int maxDeep=15)
-        {
-            var gridSize = new int2(grid.Width, grid.Height);
+        private int2 GetSliceGridPosition(int2 leftDownSectorPosition, int2 position)
+            => position - leftDownSectorPosition;
 
-            if (!IsInsideGrid(startPosition, gridSize) || !IsInsideGrid(endPosition, gridSize))
+        public List<int2> FindPathAStar(Grid grid, int2 startPosition, int2 endPosition, int maxDeep = 15)
+        {
+            var gridSize = new int2(maxDeep * 2 + 1, maxDeep * 2 + 1);
+            var leftDownSectorPosition = startPosition - new int2(maxDeep, maxDeep);
+
+            var startSlicePosition = GetSliceGridPosition(leftDownSectorPosition, startPosition);
+            var endSlicePosition = GetSliceGridPosition(leftDownSectorPosition, endPosition);
+
+            if (!IsInsideGrid(startSlicePosition, gridSize) || !IsInsideGrid(endSlicePosition, gridSize))
                 return null;
 
-            var pathNodeArray = GetPathNodeArray(grid, gridSize, endPosition);
+            var pathNodeArray = GetPathNodeArray(grid, gridSize, leftDownSectorPosition, endSlicePosition);
             var neighboringPosition = GetNeighboringPositions();
-            var endNodeIndex = GetIndex(endPosition.x, endPosition.y, gridSize.x);
+            var endNodeIndex = GetIndex(endSlicePosition.x, endSlicePosition.y, gridSize.x);
 
-            var startNode = pathNodeArray[GetIndex(startPosition.x, startPosition.y, gridSize.x)];
+            var startNode = pathNodeArray[GetIndex(startSlicePosition.x, endSlicePosition.y, gridSize.x)];
             startNode.GCost = 0;
             startNode.UpdateFCost();
             pathNodeArray[startNode.Index] = startNode;
@@ -191,7 +199,7 @@ namespace GridTools
             }
 
             var endNode = pathNodeArray[endNodeIndex];
-            var resultPath = GetFullPath(pathNodeArray, endNode);
+            var resultPath = GetFullPath(pathNodeArray, endNode, leftDownSectorPosition);
             resultPath?.Reverse();
 
             return resultPath;
