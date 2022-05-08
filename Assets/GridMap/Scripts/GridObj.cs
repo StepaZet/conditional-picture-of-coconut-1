@@ -13,9 +13,9 @@ public class GridObj : MonoBehaviour
 
     public void OnEnable()
     {
-        var startPosition = new float2(0.64f * (-10), 0.64f * (-10));
-        const int width = 200;
-        const int height = 100;
+        var startPosition = new float2(0.64f * (-35), 0.64f * (-80));
+        const int width = 170;
+        const int height = 130;
         const float cellSize = 1.28f;
         WallsLayerMask = LayerMask.GetMask("Walls");
 
