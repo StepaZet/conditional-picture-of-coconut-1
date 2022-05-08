@@ -175,7 +175,7 @@ public class Bomber : MonoBehaviour
         var startGridPosition = Grid.WorldToGridPosition(startingPosition);
         var endGridPosition = Grid.WorldToGridPosition(roamPosition);
 
-        var maxDeep = (int)(homeRadius * 2);
+        var maxDeep = (int) homeRadius;
         var originalPath = await FindPath(startGridPosition, endGridPosition, maxDeep);
 
         if (originalPath is null)
