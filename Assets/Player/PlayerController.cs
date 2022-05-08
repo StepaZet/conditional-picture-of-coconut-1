@@ -1,12 +1,13 @@
 using System;
+using MainGameScripts;
 using Unity.Mathematics;
 using UnityEngine;
 
 namespace Player
 {
 	public class PlayerController
-	{
-		private readonly LayerMask dashLayerMask;
+    {
+        private readonly LayerMask dashLayerMask;
         private float moveSpeed = 10f;
 		private float rollSpeed = 20f;
 
@@ -18,7 +19,7 @@ namespace Player
 		public PlayerController(LayerMask dashLayerMask)
 		{
 			this.dashLayerMask = dashLayerMask;
-		}
+        }
     
 		public void Update(PlayerObj player)
 		{
@@ -143,7 +144,7 @@ namespace Player
 			var weaponPosition = transform.localPosition;
 			var weaponRotation = transform.localRotation;
 			player.character = other.GetComponent<Character>();
-			var transformWeapon = player.character.weapon.transform;
+            var transformWeapon = player.character.weapon.transform;
 			transformWeapon.localPosition = weaponPosition;
 			transformWeapon.localRotation = weaponRotation;
 			
