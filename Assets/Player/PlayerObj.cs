@@ -4,11 +4,13 @@ using System.ComponentModel.Design;
 using System.Linq;
 using UnityEngine;
 using Game;
+using MainGameScripts;
 
 namespace Player
 {
     public class PlayerObj : MonoBehaviour
     {
+        public CameraController Camera;
         public Character character;
         public readonly List<Character> unlockedCharacters = new List<Character>();
         private PlayerController controller;
@@ -70,6 +72,7 @@ namespace Player
 
         private void ChangeCharacter(Character other)
         {
+            Camera.player = other;
             var transform = character.weapon.transform;
             var weaponPosition = transform.localPosition;
             var weaponRotation = transform.localRotation;
