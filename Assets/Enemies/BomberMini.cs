@@ -5,20 +5,17 @@ using System.Threading.Tasks;
 using Extensions;
 using Game;
 using GridTools;
-using Player;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Bomber : MonoBehaviour
+public class BomberMini : MonoBehaviour
 {
     public HealthObj Health;
     private Rigidbody2D Rb;
     private CircleCollider2D Collider;
     public GameObject healthObjPrefab;
-    public ParticleSystem Boom;
-    public ParticleSystem MiniBoom;
-    public BomberMini BomberMiniPrefab;
+    public ParticleSystem boom;
     private SpriteRenderer sprite;
 
     private Stage currentStage;
@@ -183,7 +180,7 @@ public class Bomber : MonoBehaviour
         var startGridPosition = Grid.WorldToGridPosition(startingPosition);
         var endGridPosition = Grid.WorldToGridPosition(roamPosition);
 
-        var maxDeep = (int) homeRadius;
+        var maxDeep = (int)homeRadius;
         var originalPath = await FindPath(startGridPosition, endGridPosition, maxDeep);
 
         if (originalPath is null)
@@ -284,22 +281,14 @@ public class Bomber : MonoBehaviour
 
         Debug.DrawLine(transform.position - sizeBoom / 2, transform.position + sizeBoom / 2, Color.blue, 10f);
 
-        Boom.transform.position = transform.position;
-        Boom.Play();
+        boom.transform.position = transform.position;
+        boom.Play();
         foreach (var obj in objectsToGetDamage)
         {
             var healthObj = obj.GetComponentInChildren<HealthObj>();
             if (healthObj != null && obj != Collider)
                 healthObj.Health.Damage(damage);
         }
-
-        for (var i = 0; i < Random.Range(3, 5); i++)
-        {
-            var miniBomber = Instantiate(BomberMiniPrefab, transform.position + Tools.GetRandomDir() * Random.Range(2, 4), transform.rotation);
-            miniBomber.Grid = Grid;
-            miniBomber.boom = MiniBoom;
-        }
-
         Destroy(gameObject);
     }
 
