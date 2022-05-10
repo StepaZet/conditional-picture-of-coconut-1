@@ -31,8 +31,7 @@ namespace Player
 			if (health.Health.CurrentHealthPoints <= 0) 
 				Die();
 			currentHealth = health.Health.CurrentHealthPoints;
-			UpdateEyeDirection();
-		}
+        }
 
 		private void FixedUpdate()
 		{

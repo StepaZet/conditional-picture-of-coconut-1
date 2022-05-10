@@ -17,6 +17,8 @@ public class Bomber : MonoBehaviour
     public SpriteRenderer RbSprite;
     public CircleCollider2D Collider;
     public GameObject healthObjPrefab;
+    public ParticleSystem boom;
+    private SpriteRenderer sprite;
 
     private Stage currentStage;
     private State state;
@@ -74,6 +76,7 @@ public class Bomber : MonoBehaviour
     {
         pathFinder = new PathFinding();
         Health = Instantiate(healthObjPrefab, transform).GetComponent<HealthObj>();
+        sprite = GetComponent<SpriteRenderer>();
 
         homePosition = transform.position;
         startingPosition = transform.position;
@@ -104,10 +107,12 @@ public class Bomber : MonoBehaviour
                     UpdateTarget(countFailSearch >= countFailSearchLimit
                         ? homePosition
                         : GetRandomPosition());
+                UpdateEyeDirection(nextTarget);
                 Move(roamPosition);
                 break;
             case State.ChasingPlayer:
                 UpdateTarget(GameData.player.GetPosition());
+                UpdateEyeDirection(GameData.player.GetPosition());
                 MoveWithTimer(roamPosition, followingTime);
                 break;
             case State.PrepareToDie:
@@ -253,6 +258,11 @@ public class Bomber : MonoBehaviour
         direction = (nextTarget - transform.position).normalized;
     }
 
+    private void UpdateEyeDirection(Vector3 target)
+    {
+        sprite.flipX = (int)Mathf.Sign(target.x - transform.position.x) == 1;
+    }
+
     private Vector3 GetRandomPosition()
         => homePosition + Tools.GetRandomDir() * Random.Range(10f, 15f);
 
@@ -271,6 +281,8 @@ public class Bomber : MonoBehaviour
 
         Debug.DrawLine(transform.position - sizeBoom / 2, transform.position + sizeBoom / 2, Color.blue, 10f);
 
+        boom.transform.position = transform.position;
+        boom.Play();
         foreach (var obj in objectsToGetDamage)
         {
             var healthObj = obj.GetComponentInChildren<HealthObj>();

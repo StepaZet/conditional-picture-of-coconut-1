@@ -110,6 +110,7 @@ namespace Player
 		private void Aim(PlayerObj player)
 		{
 			var aimDirection = cursorPosition - player.character.rb.position;
+			player.character.sprite.flipX = (int)Mathf.Sign(-aimDirection.x) == 1;
 			//weapon.weaponPrefab.transform.eulerAngles = aimDirection;
 			var aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
 			player.character.weapon.weaponPrefab.transform.RotateAround(player.character.rb.position, Vector3.forward, aimAngle - latestAimAngle);
@@ -151,6 +152,6 @@ namespace Player
 			player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
 		}
 
-        
-	}
+
+    }
 }

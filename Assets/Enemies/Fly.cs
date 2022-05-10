@@ -88,8 +88,6 @@ public class Fly : MonoBehaviour
         if (Health.Health.CurrentHealthPoints <= 0)
             Die();
 
-        UpdateEyeDirection();
-
         if (IsNearToPlayer(targetRange))
             UpdateAimFire(GameData.player.transform.position);
         else
@@ -107,10 +105,12 @@ public class Fly : MonoBehaviour
                     UpdateTarget(countFailSearch >= countFailSearchLimit
                         ? homePosition
                         : GetRandomPosition());
+                UpdateEyeDirection(nextTarget);
                 Move(roamPosition);
                 break;
             case State.ChasingPlayer:
                 UpdateTarget(GameData.player.GetPosition());
+                UpdateEyeDirection(GameData.player.GetPosition());
                 MoveWithTimer(roamPosition, followingTime);
                 break;
             default:
@@ -284,9 +284,9 @@ public class Fly : MonoBehaviour
         }
     }
 
-    private void UpdateEyeDirection()
+    private void UpdateEyeDirection(Vector3 target)
     {
-        sprite.flipX = (int) Mathf.Sign(Rb.velocity.x) == 1;
+        sprite.flipX = (int) Mathf.Sign(target.x - transform.position.x) == 1;
     }
 
     private void ChooseBehaviour()
