@@ -40,8 +40,8 @@ public class GridObj : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //if (Grid.pathsToDraw.Count > 0)
-        //    Grid.DrawPaths();
+        if (Grid.pathsToDraw.Count > 0)
+            Grid.DrawPaths();
 
         //if (Input.GetMouseButtonDown(1))
         //    CreateWall(Tools.GetMouseWordPosition());
@@ -58,7 +58,7 @@ public class GridObj : MonoBehaviour
 
     public void AddPathsToDraw(List<int2> pathToDraw)
     {
-        //Grid.AddPathsToDraw(pathToDraw);
+        Grid.AddPathsToDraw(pathToDraw);
     }
 
     public void FillCell(int2 gridPosition)

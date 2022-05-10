@@ -37,8 +37,8 @@ namespace Weapon
 
 		protected virtual void SetReloadingTime()
 		{
-			reloadingTime = 0.5f;
-		}
+            reloadingTime = 0.5f;
+        }
 		
 
         public virtual void Fire(bool isButtonPressed)

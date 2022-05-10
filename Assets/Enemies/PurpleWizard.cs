@@ -10,12 +10,21 @@ using Random = UnityEngine.Random;
 
 namespace Assets.Enemies
 {
-    public class Spawner : MonoBehaviour
+    public class PurpleWizard : MonoBehaviour
     {
+        // Start is called before the first frame update
+        public Weapon.Weapon Weapon;
+
+        private float latestAimAngle;
+
+        private Vector3 directionFire;
+
+        private float fireRange = 10f;
+
         public HealthObj Health;
         private Rigidbody2D Rb;
-        private CircleCollider2D Collider;
-        public Fly FlyBullet;
+        private Collider2D Collider;
+        private SpriteRenderer sprite;
         public GameObject healthObjPrefab;
 
         private Stage currentStage;
@@ -38,8 +47,6 @@ namespace Assets.Enemies
         private Vector3 direction;
 
         private List<int2> path;
-        private Fly[] flies;
-        private int maxCountFly = 5;
 
         private const float pauseTime = 1f;
         private const float followingTime = 6f;
@@ -48,7 +55,8 @@ namespace Assets.Enemies
         private float pauseStart;
         private float followingStartTime;
 
-        private float targetRange = 10f;
+        private float targetRange = 25f;
+        private float RunRange = 7f;
         private float moveSpeed;
 
         private enum Stage
@@ -62,6 +70,7 @@ namespace Assets.Enemies
         private enum State
         {
             Roaming,
+            RunToPlayer,
             RunFromPlayer
         }
 
@@ -69,9 +78,9 @@ namespace Assets.Enemies
         {
             pathFinder = new PathFinding();
             Health = Instantiate(healthObjPrefab, transform).GetComponent<HealthObj>();
+            sprite = GetComponent<SpriteRenderer>();
             Rb = GetComponent<Rigidbody2D>();
-            Collider = GetComponent<CircleCollider2D>();
-            flies = new Fly[maxCountFly];
+            Collider = GetComponent<Collider2D>();
 
             homePosition = transform.position;
             startingPosition = transform.position;
@@ -90,11 +99,13 @@ namespace Assets.Enemies
             if (Health.Health.CurrentHealthPoints <= 0)
                 Die();
 
-            UpdateFlies();
-            Fire();
+            if (IsNearToPlayer(targetRange))
+                UpdateAimFire(GameData.player.transform.position);
+            else
+                UpdateAimFire(nextTarget);
 
-            //if (flies.Length < maxCountFly)
-            //    Fire();
+            if (IsNearToPlayer(fireRange))
+                Fire();
 
             ChooseBehaviour();
 
@@ -105,16 +116,21 @@ namespace Assets.Enemies
                         UpdateTarget(countFailSearch >= countFailSearchLimit
                             ? homePosition
                             : GetRandomPosition());
+                    UpdateEyeDirection(nextTarget);
                     Move(roamPosition);
                     break;
                 case State.RunFromPlayer:
-                    var playerPosition= GameData.player.GetPosition();
-                    do
-                    {
-                        roamPosition = GetRandomPosition();
-                    } while (roamPosition.DistanceTo(playerPosition) < targetRange);
+                    var playerPosition = GameData.player.GetPosition();
+                    do roamPosition = GetRandomPosition();
+                    while (roamPosition.DistanceTo(playerPosition) < RunRange);
 
                     UpdateTarget(roamPosition);
+                    UpdateEyeDirection(nextTarget);
+                    MoveWithTimer(roamPosition, followingTime);
+                    break;
+                case State.RunToPlayer:
+                    UpdateTarget(GameData.player.GetPosition());
+                    UpdateEyeDirection(GameData.player.GetPosition());
                     MoveWithTimer(roamPosition, followingTime);
                     break;
                 default:
@@ -177,7 +193,7 @@ namespace Assets.Enemies
             var startGridPosition = Grid.WorldToGridPosition(startingPosition);
             var endGridPosition = Grid.WorldToGridPosition(roamPosition);
 
-            var maxDeep = (int) homeRadius;
+            var maxDeep = (int)homeRadius;
             var originalPath = await FindPath(startGridPosition, endGridPosition, maxDeep);
 
             if (originalPath is null)
@@ -226,7 +242,7 @@ namespace Assets.Enemies
                 var distance = currentPosition.DistanceTo(target);
                 var currentDirection = (target - currentPosition).normalized;
 
-                var ray = Physics2D.CircleCast(currentPosition.ToVector2(), Collider.radius, currentDirection.ToVector2(), distance, Grid.WallsLayerMask);
+                var ray = Physics2D.CircleCast(currentPosition.ToVector2(), transform.localScale.y, currentDirection.ToVector2(), distance, Grid.WallsLayerMask);
 
                 if (ray.collider != null)
                     continue;
@@ -258,11 +274,9 @@ namespace Assets.Enemies
         private Vector3 GetRandomPosition()
             => homePosition + Tools.GetRandomDir() * Random.Range(10f, 15f);
 
-        private void UpdateFlies()
+        private void UpdateEyeDirection(Vector3 target)
         {
-            foreach (var fly in flies)
-                if (fly != null)
-                    fly.homePosition = transform.position;
+            sprite.flipX = (int)Mathf.Sign(target.x - transform.position.x) == 1;
         }
 
         private void Fire()
@@ -270,28 +284,12 @@ namespace Assets.Enemies
             var difference = Time.time - reloadStart;
             if (difference < reloadTime)
                 return;
-            for (var i = 0; i < flies.Length; i++)
-            {
-                if (flies[i] == null)
-                {
-                    flies[i] = Instantiate(FlyBullet, transform.position, transform.rotation);
-                    flies[i].Grid = Grid;
-                    flies[i].homePosition = transform.position;
-                    reloadStart = Time.time;
-                    break;
-                }
-            
-            }
+            Weapon.Fire(true);
+            reloadStart = Time.time;
         }
 
         private void Die()
         {
-            for (var i = 0; i < flies.Length; i++)
-            {
-                var fly = Instantiate(FlyBullet, transform.position + Tools.GetRandomDir(), transform.rotation);
-                fly.Grid = Grid;
-                fly.homePosition = transform.position;
-            }
             Destroy(gameObject);
         }
 
@@ -307,16 +305,31 @@ namespace Assets.Enemies
             }
         }
 
+        private void UpdateAimFire(Vector3 target)
+        {
+            directionFire = (target - transform.position).normalized;
+            var aimAngle = Mathf.Atan2(directionFire.y, directionFire.x) * Mathf.Rad2Deg - 90f;
+            Weapon.weaponPrefab.transform.RotateAround(Rb.position, Vector3.forward, aimAngle - latestAimAngle);
+            latestAimAngle = aimAngle;
+        }
+
         private void ChooseBehaviour()
         {
             if (homePosition.DistanceTo(transform.position) > homeRadius)
                 UpdateTarget(homePosition);
+
             if (IsNearToPlayer(targetRange))
             {
-                if (state != State.RunFromPlayer)
-                    followingStartTime = int.MinValue;
-                state = State.RunFromPlayer;
+                if (IsNearToPlayer(RunRange))
+                {
+                    if (state != State.RunFromPlayer)
+                        followingStartTime = int.MinValue;
+                    state = State.RunFromPlayer;
+                }
+                else
+                    state = State.RunToPlayer;
             }
+
             else
                 state = State.Roaming;
         }
