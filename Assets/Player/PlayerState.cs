@@ -5,7 +5,6 @@
 		Normal,
 		//Moving,
 		//Dashing,
-		//Shooting,
 		Rolling,
 		Dead
 	}
