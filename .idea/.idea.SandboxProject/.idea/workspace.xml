@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/Fireball.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Bullet/Fireball.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapon/FireballLauncher.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapon/FireballLauncher.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Pistol.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Pistol.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerObj.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerObj.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/Bullet.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
