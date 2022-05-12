@@ -35,7 +35,7 @@ namespace Bullet
             }
             Boom();
             if (collision.collider.GetComponentInChildren<HealthObj>())
-                collision.collider.GetComponentInChildren<HealthObj>().Health.Damage(damageAmount);
+                collision.collider.GetComponentInChildren<HealthObj>().Damage(damageAmount);
         }
     }
 }

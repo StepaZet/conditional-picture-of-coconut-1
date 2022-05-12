@@ -13,6 +13,7 @@ namespace Assets.Enemies
     public class Spawner : MonoBehaviour
     {
         public HealthObj Health;
+        [SerializeField] private int maxHealth;
         private Rigidbody2D Rb;
         private CircleCollider2D Collider;
         public Fly FlyBullet;
@@ -69,6 +70,7 @@ namespace Assets.Enemies
         {
             pathFinder = new PathFinding();
             Health = Instantiate(healthObjPrefab, transform).GetComponent<HealthObj>();
+            Health.maxHealthPoints = maxHealth;
             Rb = GetComponent<Rigidbody2D>();
             Collider = GetComponent<CircleCollider2D>();
             flies = new Fly[maxCountFly];
@@ -87,7 +89,7 @@ namespace Assets.Enemies
 
         private void FixedUpdate()
         {
-            if (Health.Health.CurrentHealthPoints <= 0)
+            if (Health.CurrentHealthPoints <= 0)
                 Die();
 
             UpdateFlies();

@@ -14,6 +14,7 @@ namespace Assets.Enemies
     {
         // Start is called before the first frame update
         public HealthObj Health;
+        [SerializeField] private int maxHealth;
         private Rigidbody2D Rb;
         private CircleCollider2D Collider;
         private SpriteRenderer sprite;
@@ -71,6 +72,7 @@ namespace Assets.Enemies
         {
             pathFinder = new PathFinding();
             Health = Instantiate(healthObjPrefab, transform).GetComponent<HealthObj>();
+            Health.maxHealthPoints = maxHealth;
             sprite = GetComponent<SpriteRenderer>();
             Rb = GetComponent<Rigidbody2D>();
             Collider = GetComponent<CircleCollider2D>();
@@ -88,7 +90,7 @@ namespace Assets.Enemies
 
         private void FixedUpdate()
         {
-            if (Health.Health.CurrentHealthPoints <= 0)
+            if (Health.CurrentHealthPoints <= 0)
                 Die();
 
             if (IsNearToPlayer(targetRange))

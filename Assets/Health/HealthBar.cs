@@ -4,15 +4,15 @@ namespace Health
 {
 	public class HealthBar : MonoBehaviour
 	{
-		private HealthSystem healthSystem;
-		public void SetUp(HealthSystem healthSystem)
+		private HealthObj health;
+		public void SetUp(HealthObj health)
 		{
-			this.healthSystem = healthSystem;
+			this.health = health;
 		}
 
 		private void Update()
 		{
-			transform.Find("Bar").localScale = new Vector3(healthSystem.GetHealthPercentage(), 1);
+			transform.Find("Bar").localScale = new Vector3(health.GetHealthPercentage(), 1);
 		}
 	}
 }

@@ -7,10 +7,10 @@ namespace Player
 {
 	public class Character : MonoBehaviour
 	{
-		public int currentHealth = 0;
 		//public GameObject healthObjPrefab;
 		public Weapon.Weapon weapon;
 		public HealthObj health;
+		[SerializeField] private int maxHealth;
 		public Rigidbody2D rb;
 		public SpriteRenderer sprite;
 		[SerializeField] protected GameObject weaponPrefab;
@@ -19,6 +19,7 @@ namespace Player
         
 		private void Awake()
 		{
+			health.maxHealthPoints = maxHealth;
 			//health = Instantiate(healthObjPrefab, transform).GetComponent<HealthObj>();
 			State = PlayerState.Normal;
 			sprite = rb.GetComponent<SpriteRenderer>();
@@ -28,9 +29,8 @@ namespace Player
 		{
 			if (health == null)
 				return;
-			if (health.Health.CurrentHealthPoints <= 0) 
+			if (health.CurrentHealthPoints <= 0) 
 				Die();
-			currentHealth = health.Health.CurrentHealthPoints;
         }
 
 		private void FixedUpdate()

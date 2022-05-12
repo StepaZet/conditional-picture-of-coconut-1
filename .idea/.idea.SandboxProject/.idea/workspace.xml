@@ -5,7 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/Bullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet/BulletPurpleWizard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/BulletPurpleWizard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet/BulletShotgun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/BulletShotgun.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Bomber mini.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Bomber mini.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Bomber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Bomber.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Bomber.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Bomber.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/BomberMini.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/BomberMini.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Fly.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Fly.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Fly.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Fly.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/PurpleWizard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/PurpleWizard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/SimpleEnemyAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/SimpleEnemyAI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Spawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Spawner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Spawner.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Health/HealthBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/HealthBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Health/HealthObj.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/HealthObj.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Health/HealthObj.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/HealthObj.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Health/HealthSystem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Health/HealthSystem.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Health/MedKit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/MedKit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Pistol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Pistol.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Laser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Laser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Laser.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Laser.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Pistol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Pistol.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Shotgun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Shotgun.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Weapon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,13 +53,13 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Health/HealthObj.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Bullet/LaserAmmoPickUp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cafb29d5233847fbb4edcf8d7c32b1e3299c90/93/b519fe6a/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/76/d8bbeefb/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Bullet/ShotgunBullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/81/706e3a9d/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0d2eba3ab4724e709ab1d40ddbd9cb073800/9b/3e8e818c/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Bullet/PistolAmmoPickUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerObj.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cafb29d5233847fbb4edcf8d7c32b1e3299c90/93/b519fe6a/List`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/76/d8bbeefb/Object.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/81/706e3a9d/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Health/HealthBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/17/4cf72f64/Transform.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -52,6 +79,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../Desktop/Игра\SandboxProject.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\hp\Desktop\Игра" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -62,10 +97,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="31916">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="31916" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -94,6 +129,8 @@
       <workItem from="1650962048154" duration="4743000" />
       <workItem from="1651071609022" duration="12779000" />
       <workItem from="1651728190929" duration="5950000" />
+      <workItem from="1652205357086" duration="885000" />
+      <workItem from="1652335845335" duration="4091000" />
     </task>
     <servers />
   </component>
@@ -158,19 +195,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Player/Character.cs</url>
-          <line>42</line>
-          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\Character.cs" initialLine="40" containingFunctionPresentation="method 'Die'">
-            <startOffsets>
-              <option value="1024" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1025" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Weapon/Laser.cs</url>

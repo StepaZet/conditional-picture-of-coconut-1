@@ -24,8 +24,6 @@ namespace Weapon
 
 		public void Awake()
 		{
-			SetReloadingTime();
-			SetMaxBulletAmount();
 			ammoState = AmmoState.Full;
 			currentAmmoAmount = maxAmmoAmount;
 		}

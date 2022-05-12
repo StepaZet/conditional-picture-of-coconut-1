@@ -136,9 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c296d64fd11c6646aa06abb273a2190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
   weapon: {fileID: 2599156437058345564}
   health: {fileID: 3096776040906591965}
+  maxHealth: 0
   rb: {fileID: 7605132891047785644}
   sprite: {fileID: 7605132891047785642}
   weaponPrefab: {fileID: 6229293765169583505}
@@ -154,6 +154,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7605132891047785643}
     m_Modifications:
+    - target: {fileID: 2115143502353147416, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
+      propertyPath: maxHealthPoints
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4810428442765776644, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
       propertyPath: m_Name
       value: HealthObj

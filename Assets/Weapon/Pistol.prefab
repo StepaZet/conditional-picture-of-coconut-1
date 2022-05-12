@@ -102,11 +102,11 @@ MonoBehaviour:
   fireForce: 20
   state: 0
   ammoState: 0
-  reloadingTime: 0
+  reloadingTime: 0.2
   reloadStart: 0
   timeDifference: 0
-  maxAmmoAmount: 0
-  currentAmmoAmount: 0
+  maxAmmoAmount: 10
+  currentAmmoAmount: 10
 --- !u!1 &4609497710704196863
 GameObject:
   m_ObjectHideFlags: 0

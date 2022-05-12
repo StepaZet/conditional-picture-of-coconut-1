@@ -13,6 +13,7 @@ namespace Assets.Enemies
     public class Bomber : MonoBehaviour
     {
         public HealthObj Health;
+        [SerializeField] private int maxHealth;
         private Rigidbody2D Rb;
         private CircleCollider2D Collider;
         public GameObject healthObjPrefab;
@@ -77,6 +78,7 @@ namespace Assets.Enemies
         {
             pathFinder = new PathFinding();
             Health = Instantiate(healthObjPrefab, transform).GetComponent<HealthObj>();
+            Health.maxHealthPoints = maxHealth;
             sprite = GetComponent<SpriteRenderer>();
             Rb = GetComponent<Rigidbody2D>();
             Collider = GetComponent<CircleCollider2D>();
@@ -94,7 +96,7 @@ namespace Assets.Enemies
 
         private void FixedUpdate()
         {
-            if (Health.Health.CurrentHealthPoints <= 0)
+            if (Health.CurrentHealthPoints <= 0)
                 Die();
 
             if (IsNearToPlayer(fireRange) && state != State.PrepareToDie)
@@ -290,7 +292,7 @@ namespace Assets.Enemies
 
                 var healthObj = obj.GetComponentInChildren<HealthObj>();
                 if (healthObj != null && obj != Collider)
-                    healthObj.Health.Damage(damage);
+                    healthObj.Damage(damage);
             }
 
             for (var i = 0; i < Random.Range(3, 5); i++)

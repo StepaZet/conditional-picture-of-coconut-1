@@ -15,6 +15,7 @@ using Vector3 = UnityEngine.Vector3;
 public class SimpleEnemyAI : MonoBehaviour
 {
     public HealthObj Health;
+    [SerializeField] private int maxHealth;
     public Rigidbody2D Rb;
     public CircleCollider2D Collider;
     public Weapon.Weapon Weapon;
@@ -75,6 +76,7 @@ public class SimpleEnemyAI : MonoBehaviour
     {
         pathFinder = new PathFinding();
         Health = gameObject.AddComponent<HealthObj>();
+        Health.maxHealthPoints = maxHealth;
         
         homePosition = transform.position;
         startingPosition = transform.position;
@@ -89,7 +91,7 @@ public class SimpleEnemyAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Health.Health.CurrentHealthPoints <= 0)
+        if (Health.CurrentHealthPoints <= 0)
             Die();
 
 

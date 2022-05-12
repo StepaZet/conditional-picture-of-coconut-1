@@ -16,10 +16,10 @@ namespace Health
 			if (!other.GetComponentInChildren<HealthObj>())
 				return;
 			var healthObj = other.GetComponentInChildren<HealthObj>(); 
-			if (healthObj.Health.CurrentHealthPoints == healthObj.Health.MaxHealthPoints)
+			if (healthObj.CurrentHealthPoints == healthObj.maxHealthPoints)
 				return;
 
-			GameData.player.character.health.Health.Heal(healthPoints);
+			GameData.player.character.health.Heal(healthPoints);
 				
 			Destroy(gameObject);
 		}

@@ -121,7 +121,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &2801450463643824592
 MonoBehaviour:
@@ -136,9 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 0}
-  Rb: {fileID: 2801450463643824593}
-  Collider: {fileID: 2801450463643824594}
-  sprite: {fileID: 2801450463643824595}
+  maxHealth: 1
   Weapon: {fileID: 283079390750425876}
   healthObjPrefab: {fileID: 4810428442765776644, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
   Grid: {fileID: 0}
