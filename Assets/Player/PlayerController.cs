@@ -25,7 +25,7 @@ namespace Player
 		{
 			moveDirection = player.input.MovementInput.normalized;
 			cursorPosition = Camera.main.ScreenToWorldPoint(player.input.AimingInput);
-			if (moveDirection != Vector2.zero) 
+			if (moveDirection != Vector2.zero)
 				latestMoveDirection = moveDirection.normalized;
 			switch (player.character.State)
 			{
@@ -113,7 +113,7 @@ namespace Player
 			player.character.sprite.flipX = (int)Mathf.Sign(-aimDirection.x) == 1;
 			//weapon.weaponPrefab.transform.eulerAngles = aimDirection;
 			var aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
-			player.character.weapon.weaponPrefab.transform.RotateAround(player.character.rb.position, Vector3.forward, aimAngle - latestAimAngle);
+			player.character.weapon.weaponPrefab.transform.RotateAround(player.character.transform.position, Vector3.forward, aimAngle - latestAimAngle);
 			latestAimAngle = aimAngle;
 		}
 		private static void Fire(PlayerObj player)
