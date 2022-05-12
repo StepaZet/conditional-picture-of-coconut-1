@@ -209,9 +209,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2242158577312080093, guid: 0577980d499df3743b444ec79f539ad5, type: 3}
+      propertyPath: reloadStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2242158577312080093, guid: 0577980d499df3743b444ec79f539ad5, type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 8052464146724152406, guid: 45c6f7f8d1a52674eac180c2f1ecc7d8, type: 3}
+    - target: {fileID: 2242158577312080093, guid: 0577980d499df3743b444ec79f539ad5, type: 3}
+      propertyPath: maxAmmoAmount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2242158577312080093, guid: 0577980d499df3743b444ec79f539ad5, type: 3}
+      propertyPath: reloadingTime
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0577980d499df3743b444ec79f539ad5, type: 3}
 --- !u!4 &942542809693151003 stripped
