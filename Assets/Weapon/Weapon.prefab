@@ -13,11 +13,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4609497709624225612, guid: 43d2b22cde19bf84381161004e36e384, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 48.92173
       objectReference: {fileID: 0}
     - target: {fileID: 4609497709624225612, guid: 43d2b22cde19bf84381161004e36e384, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9
+      value: 69.681145
       objectReference: {fileID: 0}
     - target: {fileID: 4609497709624225612, guid: 43d2b22cde19bf84381161004e36e384, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25,19 +25,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4609497709624225612, guid: 43d2b22cde19bf84381161004e36e384, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.7252142
       objectReference: {fileID: 0}
     - target: {fileID: 4609497709624225612, guid: 43d2b22cde19bf84381161004e36e384, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4609497709624225612, guid: 43d2b22cde19bf84381161004e36e384, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4609497709624225612, guid: 43d2b22cde19bf84381161004e36e384, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.68852335
       objectReference: {fileID: 0}
     - target: {fileID: 4609497709624225612, guid: 43d2b22cde19bf84381161004e36e384, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -93,7 +93,7 @@ MonoBehaviour:
   firePoint: {fileID: 1289324568726810464}
   fireForce: 20
   state: 0
-  ammoState: 0
+  ammoState: 1
   reloadingTime: 0
   reloadStart: 0
   timeDifference: 0

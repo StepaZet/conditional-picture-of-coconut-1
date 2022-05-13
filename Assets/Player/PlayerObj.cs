@@ -83,8 +83,7 @@ namespace Player
 			
             if (!unlockedCharacters.Contains(character))
                 unlockedCharacters.Add(character);
-            
-			
+
             ui.UpdateAmmoText(character.weapon.CurrentAmmoAmount, character.weapon.MaxAmmoAmount);
         }
 
