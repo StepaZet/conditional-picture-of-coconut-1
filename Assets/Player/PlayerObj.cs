@@ -79,7 +79,8 @@ namespace Player
             character = other;
             var transformWeapon = character.weapon.transform;
             transformWeapon.localPosition = weaponPosition;
-            transformWeapon.localRotation = weaponRotation;
+            var weaponEulerAngles = weaponRotation.eulerAngles;
+            transformWeapon.localRotation = Quaternion.Euler(weaponEulerAngles.x, weaponEulerAngles.y, controller.latestAimAngle);
 			
             if (!unlockedCharacters.Contains(character))
                 unlockedCharacters.Add(character);

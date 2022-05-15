@@ -14,7 +14,7 @@ namespace Player
 		private Vector2 cursorPosition;
 		private Vector2 moveDirection;
 		private Vector2 latestMoveDirection;
-		private float latestAimAngle;
+		public float latestAimAngle;
 
 		public PlayerController(LayerMask dashLayerMask)
 		{
@@ -133,25 +133,5 @@ namespace Player
 			player.character.weapon.FireReleased(player.input.IsFireInputReleased);
 			player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
 		}
-
-		public void ChangeCharacter(PlayerObj player, Collider2D other)
-		{
-			if (!other.GetComponent<Character>() || other == player.collider)
-				return;
-
-			if (!player.input.IsChangeCharacter)
-				return;
-			var transform = player.character.weapon.transform;
-			var weaponPosition = transform.localPosition;
-			var weaponRotation = transform.localRotation;
-			player.character = other.GetComponent<Character>();
-            var transformWeapon = player.character.weapon.transform;
-			transformWeapon.localPosition = weaponPosition;
-			transformWeapon.localRotation = weaponRotation;
-			
-			player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
-		}
-
-
     }
 }
