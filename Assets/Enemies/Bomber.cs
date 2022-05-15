@@ -89,7 +89,8 @@ namespace Assets.Enemies
 
             homeRadius = 20;
 
-            currentStage = Stage.None;
+            currentStage = Stage.Pause;
+            pauseStart = Time.time;
             moveSpeed = 3f;
             followingStartTime = Time.time;
         }
@@ -187,7 +188,6 @@ namespace Assets.Enemies
 
             var maxDeep = (int) homeRadius;
             var originalPath = await FindPath(startGridPosition, endGridPosition, maxDeep);
-
             if (originalPath is null)
             {
                 currentStage = Stage.None;
@@ -197,6 +197,7 @@ namespace Assets.Enemies
             {
                 countFailSearch = 0;
                 path = PathFinding.GetClearPath(originalPath);
+
                 Grid.AddPathsToDraw(path);
 
                 nextTargetIndex = 0;
@@ -301,8 +302,8 @@ namespace Assets.Enemies
                 miniBomber.Grid = Grid;
                 miniBomber.boom = MiniBoom;
             }
-            Destroy(gameObject);
-
+            if (gameObject != null)
+                Destroy(gameObject);
         }
 
         private bool IsNearToPlayer(float distance)

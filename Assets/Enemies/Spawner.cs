@@ -73,7 +73,7 @@ namespace Assets.Enemies
             Health.maxHealthPoints = maxHealth;
             Rb = GetComponent<Rigidbody2D>();
             Collider = GetComponent<CircleCollider2D>();
-            flies = new Fly[maxCountFly];
+            flies = new Fly[maxCountFly + Random.Range(-1, 1)];
 
             homePosition = transform.position;
             startingPosition = transform.position;

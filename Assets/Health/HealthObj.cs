@@ -9,6 +9,7 @@ public class HealthObj : MonoBehaviour
 {
     private HealthBar healthBar;
     public GameObject healthBarPrefab;
+    public bool IsImmortal = false;
     public void Start()
     {
         CurrentHealthPoints = maxHealthPoints;
@@ -30,6 +31,8 @@ public class HealthObj : MonoBehaviour
 
     public void Damage(int points)
     {
+        if (IsImmortal)
+            return;
         CurrentHealthPoints = ToHealthInBounds(CurrentHealthPoints - Math.Abs(points));
         OnHealthChanged?.Invoke(this, EventArgs.Empty);
     }

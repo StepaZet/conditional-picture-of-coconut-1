@@ -361,7 +361,8 @@ public class Mimic : MonoBehaviour
         else
         {
             state = State.Roaming;
-            ClearTransformation();
+            if (state != State.Roaming)
+                ClearTransformation();
         }
             
     }

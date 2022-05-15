@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 0}
-  maxHealth: 0
+  maxHealth: 10
   healthObjPrefab: {fileID: 4810428442765776644, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
   Boom: {fileID: 8379217461617278015, guid: 8fd5b8e1e1072f24db416e75f37af566, type: 3}
   MiniBoom: {fileID: 7884765147642207814, guid: af27ae7c4ef7a4542964910386e38e19, type: 3}

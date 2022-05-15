@@ -185,7 +185,6 @@ namespace Assets.Enemies
 
             var maxDeep = (int)homeRadius;
             var originalPath = await FindPath(startGridPosition, endGridPosition, maxDeep);
-
             if (originalPath is null)
             {
                 currentStage = Stage.None;
@@ -292,7 +291,9 @@ namespace Assets.Enemies
                 if (healthObj != null && obj != Collider)
                     healthObj.Damage(damage);
             }
-            Destroy(gameObject);
+
+            if (gameObject != null)
+                Destroy(gameObject);
         }
 
         private bool IsNearToPlayer(float distance)
