@@ -11,22 +11,18 @@ using Random = UnityEngine.Random;
 
 namespace Assets.Enemies
 {
-    public class CuteDemon : MonoBehaviour
+    public class CuteDemon : Enemy
     {
-        public HealthObj Health;
         [SerializeField] private int maxHealth;
         private Rigidbody2D Rb;
         private Collider2D Collider;
-        public GameObject healthObjPrefab;
-
         private SpriteRenderer sprite;
+        public ParticleSystem Death;
 
         private Stage currentStage;
         private State state;
 
-        public GridObj Grid;
-        private PathFinding pathFinder;
-
+        
         private Vector3 homePosition;
         private float homeRadius;
 
@@ -43,7 +39,7 @@ namespace Assets.Enemies
         private List<int2> path;
 
         private const float pauseTime = 1f;
-        private const float followingTime = 0.2f;
+        public float followingTime = 0.2f;
 
         private const float reloadTime = 0.5f;
         private float reloadStart;
@@ -54,8 +50,6 @@ namespace Assets.Enemies
         private float targetRange = 30f;
         private float fireRange = 2f;
         private int damage = 6;
-
-        private float moveSpeed;
 
         private enum Stage
         {
@@ -71,11 +65,9 @@ namespace Assets.Enemies
             ChasingPlayer
         }
 
-        private void Start()
+        private void OnEnable()
         {
             pathFinder = new PathFinding();
-            Health = Instantiate(healthObjPrefab, transform).GetComponent<HealthObj>();
-            Health.maxHealthPoints = maxHealth;
             sprite = GetComponent<SpriteRenderer>();
             Rb = GetComponent<Rigidbody2D>();
             Collider = GetComponent<Collider2D>();
@@ -85,9 +77,9 @@ namespace Assets.Enemies
             UpdateTarget(GetRandomPosition());
 
             homeRadius = 20;
+            MoveSpeed = 10f;
 
             currentStage = Stage.None;
-            moveSpeed = 10f;
             followingStartTime = Time.time;
             reloadStart = Time.time;
         }
@@ -198,11 +190,11 @@ namespace Assets.Enemies
         private void MoveToNextTarget()
         {
             UpdateDirection(nextTarget);
-            var distanceToNextTarget = transform.position.DistanceTo(nextTarget);
+            var distanceToNextTarget = nextTarget.DistanceTo(transform.position.ToVector2());
 
-            Rb.velocity = direction * moveSpeed;
+            Rb.velocity = direction * MoveSpeed;
 
-            if (distanceToNextTarget >= moveSpeed * Time.fixedDeltaTime)
+            if (distanceToNextTarget >= MoveSpeed * Time.fixedDeltaTime)
                 return;
 
             if (nextTargetIndex == path.Count - 1)
@@ -268,21 +260,22 @@ namespace Assets.Enemies
             if (difference < reloadTime)
                 return;
             reloadStart = Time.time;
+            GameData.player.character.health.Damage(damage);
+            //var objectsToGetDamage = Physics2D.OverlapCircleAll(transform.position, fireRange);
+            //foreach (var obj in objectsToGetDamage)
+            //{
+            //    if (!obj.GetComponentInChildren<Character>())
+            //        continue;
 
-            var objectsToGetDamage = Physics2D.OverlapCircleAll(transform.position, fireRange);
-            foreach (var obj in objectsToGetDamage)
-            {
-                if (!obj.GetComponentInChildren<Character>())
-                    continue;
-
-                var healthObj = obj.GetComponentInChildren<HealthObj>();
-                if (healthObj != null)
-                    healthObj.Damage(damage);
-            }
+            //    var healthObj = obj.GetComponentInChildren<HealthObj>();
+            //    if (healthObj != null)
+            //        healthObj.Damage(damage);
+            //}
         }
 
         private void Die()
         {
+            Instantiate(Death, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 

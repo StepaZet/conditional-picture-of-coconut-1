@@ -1,39 +1,33 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Assets.Bullet;
 using Extensions;
 using Game;
 using GridTools;
-using Player;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.SearchService;
 using Random = UnityEngine.Random;
 
 namespace Assets.Enemies
 {
-    public class YellowBoss : MonoBehaviour
+    public class MimicBoss : Enemy
     {
-        private float latestAimAngle;
+        //private float latestAimAngle;
 
-        public HealthObj Health;
-        public ParticleSystem boom;
         [SerializeField] private int maxHealth;
-        [SerializeField] protected BulletYellowBoss FireBallPrefab;
+        [SerializeField] protected BulletMimicBoss EvilBallPrefab;
         private Rigidbody2D Rb;
-
+        [SerializeField] protected Sprite[] sprites;
+        [SerializeField] protected CuteDemon CuteDemonPrefab;
+        [SerializeField] protected PurpleWizard PurpleWizardPrefab;
+        private Enemy[] children;
         private SpriteRenderer sprite;
-        
-        public GameObject ForceField;
+    
+        //public GameObject ForceField;
 
         private Stage currentStage;
         private State state;
         [SerializeField] private AttackStage attackStage;
-
-        public GridObj Grid;
-        private PathFinding pathFinder;
 
         private Vector3 homePosition;
         private float homeRadius;
@@ -50,38 +44,38 @@ namespace Assets.Enemies
 
         private List<int2> path;
 
-        //private float followingStartTime;
-        //private const float followingTime = 6f;
+        private float followingStartTime;
+        private const float followingTime = 1f;
 
-        private float reloadBoomStart;
-        private float boomReloadTime = 1f;
+        private float reloadBiteStart;
+        private float biteReloadTime = 0.5f;
 
         private float attackPauseStart;
         private const float attackPauseTime = 2f;
-        
+
         private float pauseStart;
         private const float pauseTime = 1f;
 
-        private float? startWeak;
-        private const float weakTime = 5f;
+        private float? startTransformation;
+        private const float transformationTime = 5f;
 
         private float reloadStart;
         //private float reloadTime = 0.3f;
-        
+
         private float targetRange = 25f;
         private float fireRange;
-        private float moveSpeed;
+        private float NativeMoveSpeed;
 
-        private int boomDamage = 20;
+        private int biteDamage = 15;
 
         private Queue<AttackStage> attackStrategy;
-        public Bomber BomberPrefab;
-        private List<Bomber> bombers;
+        //public Bomber BomberPrefab;
+        //private List<Bomber> bombers;
 
-        private int maxBombers = 20;
-        private int maxFireBalls = 100;
-        private int currentFireBalls = 0;
-        private Vector3 dashTarget;
+        //private int maxBombers = 20;
+        private int maxEvilBallWaves = 10;
+        private int currentEvilBallWaves = 0;
+        //private Vector3 dashTarget;
 
         private enum Stage
         {
@@ -93,25 +87,31 @@ namespace Assets.Enemies
 
         private enum State
         {
-            Roaming
+            Roaming,
+            RunToPlayer,
+            RunFromPlayer
         }
 
         private enum AttackStage
         {
             None,
             Pause,
-            SpawnBombers,
-            FireBalls,
-            Weak,
-            Dash
+            SpawnMobs,
+            EvilBalls,
+            WizardSpy,
+            CuteDemon
+        }
+
+        private enum SpritesEnum
+        {
+            Native,
+            CuteDemon
         }
 
         private void Start()
         {
             pathFinder = new PathFinding();
-            
-            Health.IsImmortal = true;
-
+        
             sprite = GetComponent<SpriteRenderer>();
             Rb = GetComponent<Rigidbody2D>();
             fireRange = Rb.transform.localScale.x * 2f;
@@ -124,22 +124,21 @@ namespace Assets.Enemies
 
             currentStage = Stage.None;
             attackStage = AttackStage.None;
-            moveSpeed = 6f;
-            //followingStartTime = Time.time;
-            reloadBoomStart = Time.time;
-            startWeak = null;
+            NativeMoveSpeed = MoveSpeed = 6f;
+            followingStartTime = Time.time;
+            //reloadBoomStart = Time.time;
+            startTransformation = null;
 
             attackStrategy = new Queue<AttackStage>(
                 new[]
                 {
                     AttackStage.None,
-                    AttackStage.SpawnBombers,
-                    AttackStage.FireBalls,
-                    AttackStage.Dash,
-                    AttackStage.Dash,
-                    AttackStage.Dash,
-                    AttackStage.FireBalls,
-                    AttackStage.Weak
+                    //AttackStage.EvilBalls,
+                    //AttackStage.SpawnMobs,
+                    //AttackStage.EvilBalls,
+                    AttackStage.CuteDemon,
+                    //AttackStage.EvilBalls,
+                    AttackStage.WizardSpy
                 }
             );
 
@@ -151,15 +150,17 @@ namespace Assets.Enemies
                 Die();
 
 
-            var target = IsNearToPlayer(targetRange) 
-                ? GameData.player.transform.position 
+            var target = IsNearToPlayer(targetRange)
+                ? GameData.player.transform.position
                 : nextTarget;
-            
+
+            ChooseBehaviour();
+
             UpdateAimFire(target);
             UpdateEyeDirection(target);
 
             if (IsNearToPlayer(fireRange))
-                Fire(boomReloadTime);
+                Fire(biteReloadTime);
 
             switch (attackStage)
             {
@@ -172,18 +173,17 @@ namespace Assets.Enemies
                     if (difference >= attackPauseTime)
                         UpdateAttackStage();
                     break;
-                case AttackStage.SpawnBombers:
-                    SpawnBombers();
+                case AttackStage.SpawnMobs:
+                    EndStage();
                     break;
-                case AttackStage.FireBalls:
-                    CreateFireBalls();
+                case AttackStage.EvilBalls:
+                    CreateEvilBall();
                     break;
-                case AttackStage.Weak:
-                    BeWeak();
+                case AttackStage.WizardSpy:
+                    EndStage();
                     break;
-                case AttackStage.Dash:
-                    dashTarget = dashTarget == Vector3.zero ? GameData.player.transform.position : dashTarget;
-                    DoDash(dashTarget);
+                case AttackStage.CuteDemon:
+                    BeCuteDemon();
                     return;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -203,7 +203,7 @@ namespace Assets.Enemies
             }
         }
 
-        private void Move(Vector3 target)
+        private void Move(Vector3 target, bool dashMode = false)
         {
             switch (currentStage)
             {
@@ -214,7 +214,7 @@ namespace Assets.Enemies
                 case Stage.SearchingPath:
                     break;
                 case Stage.Moving:
-                    MoveToNextTarget();
+                    MoveToNextTarget(dashMode);
                     break;
                 case Stage.Pause:
                     var difference = Time.time - pauseStart;
@@ -229,18 +229,18 @@ namespace Assets.Enemies
             }
         }
 
-        //private void MoveWithTimer(Vector3 target, float timeFollow)
-        //{
-        //    var timeFollowing = Time.time - followingStartTime;
-        //    if (timeFollowing >= timeFollow && currentStage != Stage.SearchingPath)
-        //    {
-        //        currentStage = Stage.None;
-        //        followingStartTime = Time.time;
-        //        return;
-        //    }
+        private void MoveWithTimer(Vector3 target, float timeFollow, bool dashMode=false)
+        {
+            var timeFollowing = Time.time - followingStartTime;
+            if (timeFollowing >= timeFollow && currentStage != Stage.SearchingPath)
+            {
+                currentStage = Stage.None;
+                followingStartTime = Time.time;
+                return;
+            }
 
-        //    Move(target);
-        //}
+            Move(target, dashMode);
+        }
 
         private Task<List<int2>> FindPath(int2 startGridPosition, int2 endGridPosition, int maxDeep)
         {
@@ -277,14 +277,14 @@ namespace Assets.Enemies
             }
         }
 
-        private void MoveToNextTarget()
+        private void MoveToNextTarget(bool dashMode = false)
         {
             UpdateDirection(nextTarget);
             var distanceToNextTarget = nextTarget.DistanceTo(transform.position.ToVector2());
 
-            Rb.velocity = direction * moveSpeed;
+            Rb.velocity = direction * MoveSpeed;
 
-            if (distanceToNextTarget >= moveSpeed * Time.fixedDeltaTime)
+            if (distanceToNextTarget >= MoveSpeed * Time.fixedDeltaTime)
                 return;
 
             if (nextTargetIndex == path.Count - 1)
@@ -346,28 +346,12 @@ namespace Assets.Enemies
 
         private void Fire(float reloadTime)
         {
-            var difference = Time.time - reloadBoomStart;
+            var difference = Time.time - reloadBiteStart;
             if (difference < reloadTime)
                 return;
-            reloadBoomStart = Time.time;
+            reloadBiteStart = Time.time;
 
-            var objectsToGetDamage = Physics2D.OverlapCircleAll(transform.position, fireRange);
-
-            for (var angle = 0f; angle < Mathf.PI * 2; angle += Mathf.PI / 3)
-            {
-                Instantiate(boom, transform.position + new Vector3(fireRange * Mathf.Cos(angle), fireRange * Mathf.Sin(angle)), Quaternion.identity);
-            }
-
-            foreach (var obj in objectsToGetDamage)
-            {
-                if (!obj.GetComponentInChildren<Character>())
-                    continue;
-
-                var healthObj = obj.GetComponentInChildren<HealthObj>();
-                //obj.GetComponent<Rigidbody2D>().AddForce((obj.transform.position - transform.position).normalized * 10, ForceMode2D.Impulse);
-                if (healthObj != null)
-                    healthObj.Damage(boomDamage);
-            }
+            GameData.player.character.health.Damage(biteDamage);
         }
 
         private bool CheckReload(float reloadTime)
@@ -384,83 +368,125 @@ namespace Assets.Enemies
             const float reloadTime = 0.2f;
             if (!CheckReload(reloadTime))
                 return;
-            
-            bombers ??= new List<Bomber>();
 
-            if (bombers.Count < maxBombers)
-            {
-                var dir = (GameData.player.transform.position - transform.position).normalized;
-                var bomber = Instantiate(BomberPrefab, transform.position + dir,
-                    Quaternion.identity);
-                bomber.GetComponent<Rigidbody2D>().AddForce(dir * 20f, ForceMode2D.Impulse);
-                bomber.Grid = Grid;
-                bombers.Add(bomber);
-            }
-               
-            else if(bombers.All(obj => obj == null))
-            {
-                bombers.Clear();
-                EndStage();
-            }
+            //bombers ??= new List<Bomber>();
+
+            //if (bombers.Count < maxBombers)
+            //{
+            //    var dir = (GameData.player.transform.position - transform.position).normalized;
+            //    var bomber = Instantiate(BomberPrefab, transform.position + dir,
+            //        Quaternion.identity);
+            //    bomber.GetComponent<Rigidbody2D>().AddForce(dir * 20f, ForceMode2D.Impulse);
+            //    bomber.Grid = Grid;
+            //    bombers.Add(bomber);
+            //}
+
+            //else if (bombers.All(obj => obj == null))
+            //{
+            //    bombers.Clear();
+            //    EndStage();
+            //}
         }
 
-        private void CreateFireBalls()
+        private void CreateEvilBall()
         {
-            const float reloadTime = 0.05f;
+            const float reloadTime = 0.2f;
             if (!CheckReload(reloadTime))
                 return;
 
-            currentFireBalls++;
-            if (currentFireBalls > maxFireBalls)
+            currentEvilBallWaves++;
+            if (currentEvilBallWaves > maxEvilBallWaves)
             {
-                currentFireBalls = 0;
+                currentEvilBallWaves = 0;
                 EndStage();
             }
 
-            var direction = (GameData.player.transform.position - transform.position).normalized 
-                            + new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f));
-            var fireball = Instantiate(
-                FireBallPrefab, 
-                transform.position + direction * transform.localScale.x * 1.5f, 
-                Quaternion.identity);
-            fireball.GetComponent<Rigidbody2D>().AddForce(direction * 17, ForceMode2D.Impulse);
+            for (var angle = 0f; angle < Mathf.PI * 2; angle += Mathf.PI / 24)
+            {
+                var position = transform.position + new Vector3(fireRange * Mathf.Cos(angle), fireRange * Mathf.Sin(angle));
+                var dir = (position - transform.position).normalized;
+                var ball = Instantiate(EvilBallPrefab, position, Quaternion.identity);
+                ball.GetComponent<Rigidbody2D>().AddForce(dir * 30, ForceMode2D.Impulse);
+            }
         }
 
-        private void DoDash(Vector2 target)
+        //private void DoDash(Vector2 target)
+        //{
+        //    const float reloadTime = 0.1f;
+        //    Fire(reloadTime);
+
+        //    var dir = target - transform.position.ToVector2();
+        //    Rb.AddForce(dir / 2, ForceMode2D.Impulse);
+
+        //    if (transform.position.DistanceTo(target) < fireRange)
+        //    {
+        //        Fire(0);
+        //        dashTarget = Vector3.zero;
+        //        currentStage = Stage.Pause;
+        //        pauseStart = Time.time;
+        //        EndStage();
+        //    }
+
+        //}
+
+        private void BeCuteDemon()
         {
-            UpdateEyeDirection(target);
-            const float reloadTime = 0.1f;
-            Fire(reloadTime);
-
-            var dir = target - transform.position.ToVector2();
-            Rb.AddForce(dir / 2, ForceMode2D.Impulse);
-
-            if (transform.position.DistanceTo(target) < fireRange)
+            if (!startTransformation.HasValue)
             {
-                Fire(0);
-                dashTarget = Vector3.zero;
-                currentStage = Stage.Pause;
-                pauseStart = Time.time;
-                EndStage();
-            }
-                
-        }
+                sprite.sprite = sprites[(int) SpritesEnum.CuteDemon];
+                children = new Enemy[4];
+                for (var i = 0; i < children.Length; i++)
+                {
+                    children[i] = Instantiate(CuteDemonPrefab, transform.position, Quaternion.identity);
+                    children[i].Grid = Grid;
 
-        private void BeWeak()
-        {
-            if (!startWeak.HasValue)
-            {
-                ForceField.SetActive(false);
-                startWeak = Time.time;
+                }
+
+                MoveSpeed = children[0].MoveSpeed;
+                startTransformation = Time.time;
             }
-                
-            Health.IsImmortal = false;
-            var difference = Time.time - startWeak.Value;
-            if (difference < weakTime)
+            //Health.IsImmortal = false;
+            var difference = Time.time - startTransformation.Value;
+        
+            MoveWithTimer(GameData.player.transform.position, followingTime);
+
+            if (difference < transformationTime)
                 return;
-            Health.IsImmortal = true;
-            startWeak = null;
-            ForceField.SetActive(true);
+            MoveSpeed = NativeMoveSpeed;
+            //Health.IsImmortal = true;
+            startTransformation = null;
+            sprite.sprite = sprites[(int)SpritesEnum.Native];
+            foreach (var demon in children)
+                if (demon != null)
+                    demon.Health.Damage(int.MaxValue);
+            children = null;
+            EndStage();
+        }
+
+        private void BeWizard()
+        {
+            if (children == null)
+            {
+                children = new Enemy[4];
+                for (var i = 0; i < children.Length; i++)
+                {
+                    children[i] = Instantiate(PurpleWizardPrefab, transform.position, Quaternion.identity);
+                    children[i].Grid = Grid;
+                }
+
+                MoveSpeed = children[0].MoveSpeed;
+            }
+
+            //Health.IsImmortal = false;
+            MoveWithTimer(GameData.player.transform.position, followingTime);
+
+            MoveSpeed = NativeMoveSpeed;
+            //Health.IsImmortal = true;
+            startTransformation = null;
+            sprite.sprite = sprites[(int)SpritesEnum.Native];
+            foreach (var demon in children)
+                if (demon != null)
+                    demon.Health.Damage(int.MaxValue);
             EndStage();
         }
 
@@ -496,7 +522,7 @@ namespace Assets.Enemies
             attackPauseStart = Time.time;
             attackStage = AttackStage.Pause;
         }
-        
+
         private void UpdateAttackStage()
         {
             var nextStage = attackStrategy.Dequeue();
@@ -509,33 +535,22 @@ namespace Assets.Enemies
             if (homePosition.DistanceTo(transform.position) > homeRadius)
                 UpdateTarget(homePosition);
 
-            state = State.Roaming;
-
-            //if (IsNearToPlayer(targetRange))
+            //if (attackStage == AttackStage.WizardSpy)
             //{
-            //    if (IsNearToPlayer(RunRange))
+            //    if (IsNearToPlayer(targetRange))
             //    {
-            //        if (state != State.RunFromPlayer)
+            //        if (IsNearToPlayer(RunRange))
             //        {
-            //            followingStartTime = int.MinValue;
-            //            ClearTransformation();
+            //            if (state != State.RunFromPlayer)
+            //                followingStartTime = int.MinValue;
+            //            state = State.RunFromPlayer;
             //        }
-            //        state = State.RunFromPlayer;
+            //        else
+            //            state = State.RunToPlayer;
+            //        return;
             //    }
-            //    else
-            //    {
-            //        if (state != State.RunToPlayer)
-            //            GetTransformation();
-            //        state = State.RunToPlayer;
-            //    }
-
             //}
-            //else
-            //{
-            //    state = State.Roaming;
-            //    if (state != State.Roaming)
-            //        ClearTransformation();
-            //}
+            state = State.Roaming;
 
         }
     }

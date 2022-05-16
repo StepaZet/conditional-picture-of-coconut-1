@@ -10,9 +10,8 @@ using Random = UnityEngine.Random;
 
 namespace Assets.Enemies
 {
-    public class BomberMini : MonoBehaviour
+    public class BomberMini : Enemy
     {
-        public HealthObj Health;
         [SerializeField] private int maxHealth;
         private Rigidbody2D Rb;
         private CircleCollider2D Collider;
@@ -22,9 +21,6 @@ namespace Assets.Enemies
 
         private Stage currentStage;
         private State state;
-
-        public GridObj Grid;
-        private PathFinding pathFinder;
 
         private Vector3 homePosition;
         private float homeRadius;
@@ -54,8 +50,6 @@ namespace Assets.Enemies
         private float fireRange = 2f;
         private float BoomRadius = 2f;
         private int damage = 5;
-
-        private float moveSpeed;
 
         private enum Stage
         {
@@ -88,7 +82,7 @@ namespace Assets.Enemies
             homeRadius = 20;
 
             currentStage = Stage.None;
-            moveSpeed = 3f;
+            MoveSpeed = 3f;
             followingStartTime = Time.time;
         }
 
@@ -206,9 +200,9 @@ namespace Assets.Enemies
             UpdateDirection(nextTarget);
             var distanceToNextTarget = transform.position.DistanceTo(nextTarget);
 
-            Rb.velocity = direction * moveSpeed;
+            Rb.velocity = direction * MoveSpeed;
 
-            if (distanceToNextTarget >= moveSpeed * Time.fixedDeltaTime)
+            if (distanceToNextTarget >= MoveSpeed * Time.fixedDeltaTime)
                 return;
 
             if (nextTargetIndex == path.Count - 1)
