@@ -38,6 +38,7 @@ namespace Assets.Enemies
         public Weapon.Weapon Weapon;
         protected float latestAimAngle;
         protected Vector3 directionFire;
+        protected int damage;
 
         protected Stage currentStage;
         protected State state;

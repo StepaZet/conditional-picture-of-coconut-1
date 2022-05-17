@@ -8,15 +8,14 @@ namespace Assets.Enemies
     public class Spawner : Enemy
     {
         public Fly FlyBullet;
-
         private Fly[] flies;
-        private const int maxCountFly = 5;
+        private const int MaxCountFly = 5;
 
         private void Start()
         {
             SetStartDefaults();
 
-            flies = new Fly[maxCountFly + Random.Range(-1, 1)];
+            flies = new Fly[MaxCountFly + Random.Range(-1, 1)];
             
             homeRadius = 25;
             targetRange = 10f;
