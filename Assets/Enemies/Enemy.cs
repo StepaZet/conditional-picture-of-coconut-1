@@ -31,9 +31,9 @@ namespace Assets.Enemies
         public GridObj Grid;
         public HealthObj Health;
         public float MoveSpeed;
+        public SpriteRenderer sprite;
+        public Rigidbody2D Rb;
         protected PathFinding pathFinder;
-        protected SpriteRenderer sprite;
-        protected Rigidbody2D Rb;
         protected Collider2D Collider;
 
         public Weapon.Weapon Weapon;
@@ -65,14 +65,14 @@ namespace Assets.Enemies
         protected float pauseTime;
 
         protected float followingStartTime;
-        protected float followingTime;
+        public float followingTime;
 
         protected float reloadStart;
         protected float reloadTime;
 
         protected float targetRange;
         protected float fireRange;
-        protected float runRange;
+        public float runRange;
 
         protected void SetStartDefaults()
         {
@@ -84,6 +84,8 @@ namespace Assets.Enemies
             homePosition = transform.position;
             startingPosition = transform.position;
             UpdateTarget(GetRandomPosition());
+
+            Health.healthBarPrefab.SetActive(true);
 
             followingStartTime = Time.time;
             reloadStart = Time.time;

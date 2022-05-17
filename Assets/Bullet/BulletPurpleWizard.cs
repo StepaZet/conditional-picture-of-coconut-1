@@ -1,3 +1,4 @@
+using Assets.Enemies;
 using UnityEngine;
 
 namespace Bullet
@@ -33,7 +34,11 @@ namespace Bullet
                 Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
                 return;
             }
+
             Boom();
+            if (collision.gameObject.GetComponent<PurpleWizard>() || collision.gameObject.GetComponent<MimicBoss>())
+                return;
+
             if (collision.collider.GetComponentInChildren<HealthObj>())
                 collision.collider.GetComponentInChildren<HealthObj>().Damage(damageAmount);
         }

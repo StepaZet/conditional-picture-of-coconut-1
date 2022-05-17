@@ -126,7 +126,7 @@ namespace Assets.Enemies
                     throw new ArgumentOutOfRangeException();
             }
 
-            ChooseBehaviour();
+            ChooseState();
             DoStateAction();
         }
 
@@ -250,7 +250,7 @@ namespace Assets.Enemies
             EndStage();
         }
 
-        protected  override void Die()
+        protected override void Die()
         {
             DieDefault();
         }
@@ -268,7 +268,7 @@ namespace Assets.Enemies
             attackStage = nextStage;
         }
 
-        private void ChooseBehaviour()
+        private void ChooseState()
         {
             if (homePosition.DistanceTo(transform.position) > homeRadius)
                 UpdateTarget(homePosition);

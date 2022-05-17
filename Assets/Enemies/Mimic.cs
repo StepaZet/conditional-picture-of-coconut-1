@@ -13,6 +13,7 @@ namespace Assets.Enemies
     public class Mimic : Enemy
     {
         private Sprite nativeSprite;
+        private bool isNative;
 
         private void Start()
         {
@@ -29,6 +30,7 @@ namespace Assets.Enemies
 
             MoveSpeed = 6f;
 
+            isNative = true;
             nativeSprite = sprite.sprite;
         }
 
@@ -71,8 +73,9 @@ namespace Assets.Enemies
         private void ClearTransformation()
         {
             sprite.sprite = nativeSprite;
-            Destroy(Weapon.weaponPrefab);
+            Destroy(Weapon.gameObject);
             latestAimAngle = 0;
+            isNative = true;
         }
 
         private void GetTransformation()
@@ -80,6 +83,7 @@ namespace Assets.Enemies
             sprite.sprite = GameData.player.character.sprite.sprite;
             Weapon = Instantiate(GameData.player.character.weapon, transform.position + new Vector3(0, 1), Quaternion.identity);
             Weapon.transform.parent = transform;
+            isNative = false;
         }
 
         private void ChooseState()
@@ -91,19 +95,19 @@ namespace Assets.Enemies
             {
                 if (IsNearToPlayer(runRange))
                 {
-                    if (state != State.RunFromPlayer)
-                    {
+                    if (state == State.RunToPlayer)
                         followingStartTime = int.MinValue;
+
+                    if (!isNative)
                         ClearTransformation();
-                    }
+
                     state = State.RunFromPlayer;
                 }
                 else
                 {
-                    if (state != State.RunToPlayer)
-                    {
+                    if (isNative)
                         GetTransformation();
-                    }
+
                     state = State.RunToPlayer;
                 }
                 
@@ -111,10 +115,8 @@ namespace Assets.Enemies
             else
             {
                 state = State.Roaming;
-                if (state != State.Roaming)
-                {
+                if (!isNative)
                     ClearTransformation();
-                }
             }
         }
     }

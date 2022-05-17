@@ -38,7 +38,7 @@ namespace Assets.Enemies
                 Fire();
 
             if (state != State.PrepareToDie)
-                ChooseBehaviour();
+                ChooseState();
 
             DoStateAction();
         }
@@ -77,7 +77,7 @@ namespace Assets.Enemies
             DieDefault();
         }
 
-        private void ChooseBehaviour()
+        private void ChooseState()
         {
             if (Distance2D(transform.position, homePosition) > homeRadius)
                 UpdateTarget(homePosition);
