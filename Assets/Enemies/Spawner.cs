@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Extensions;
-using Game;
 using GridTools;
-using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -19,29 +14,18 @@ namespace Assets.Enemies
 
         private void Start()
         {
-            pathFinder = new PathFinding();
-            Rb = GetComponent<Rigidbody2D>();
-            Collider = GetComponent<CircleCollider2D>();
+            SetStartDefaults();
+
             flies = new Fly[maxCountFly + Random.Range(-1, 1)];
-
-            homePosition = transform.position;
-            startingPosition = transform.position;
-            UpdateTarget(GetRandomPosition());
-
+            
             homeRadius = 25;
-
-            pauseTime = 1f;
-
-            followingTime = 6f;
-
-            reloadTime = 1f;
-
             targetRange = 10f;
 
-            currentStage = Stage.None;
+            pauseTime = 1f;
+            followingTime = 6f;
+            reloadTime = 1f;
+
             MoveSpeed = 3f;
-            followingStartTime = Time.time;
-            reloadStart = Time.time;
         }
 
         private void FixedUpdate()
@@ -52,28 +36,9 @@ namespace Assets.Enemies
             UpdateFlies();
             Fire();
 
-            ChooseBehaviour();
+            ChooseState();
 
-            switch (state)
-            {
-                case State.Roaming:
-                    if (countFailSearch > 0)
-                        UpdateTarget(countFailSearch >= countFailSearchLimit
-                            ? homePosition
-                            : GetRandomPosition());
-                    Move(roamPosition);
-                    break;
-                case State.RunFromPlayer:
-                    var playerPosition= GameData.player.GetPosition();
-                    do
-                    {
-                        roamPosition = GetRandomPosition();
-                    } while (roamPosition.DistanceTo(playerPosition) < targetRange);
-
-                    UpdateTarget(roamPosition);
-                    MoveWithTimer(roamPosition, followingTime);
-                    break;
-            }
+            DoStateAction();
         }
 
         private void UpdateFlies()
@@ -113,7 +78,7 @@ namespace Assets.Enemies
             Destroy(gameObject);
         }
 
-        private void ChooseBehaviour()
+        private void ChooseState()
         {
             if (homePosition.DistanceTo(transform.position) > homeRadius)
                 UpdateTarget(homePosition);

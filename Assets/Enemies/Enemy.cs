@@ -45,7 +45,8 @@ namespace Assets.Enemies
         public Vector3 homePosition;
         protected float homeRadius;
 
-        protected Vector3 direction;
+        protected bool isEyeDirectionInverse;
+        protected Vector3 moveDirection;
         protected Vector3 startingPosition;
         protected Vector3 roamPosition;
         protected Vector3 nextTarget;
@@ -67,6 +68,54 @@ namespace Assets.Enemies
         protected float targetRange;
         protected float fireRange;
         protected float runRange;
+
+        protected void SetStartDefaults()
+        {
+            pathFinder = new PathFinding();
+            Rb = GetComponent<Rigidbody2D>();
+            sprite = GetComponent<SpriteRenderer>();
+            Collider = GetComponent<CircleCollider2D>();
+
+            homePosition = transform.position;
+            startingPosition = transform.position;
+            UpdateTarget(GetRandomPosition());
+
+            followingStartTime = Time.time;
+            reloadStart = Time.time;
+
+            currentStage = Stage.None;
+        }
+
+        protected void DoStateAction()
+        {
+            switch (state)
+            {
+                case State.Roaming:
+                    if (countFailSearch > 0)
+                        UpdateTarget(countFailSearch >= countFailSearchLimit
+                            ? homePosition
+                            : GetRandomPosition());
+                    UpdateEyeDirection(nextTarget);
+                    Move(roamPosition);
+                    break;
+                case State.RunFromPlayer:
+                    var playerPosition = GameData.player.GetPosition();
+                    do roamPosition = GetRandomPosition();
+                    while (roamPosition.DistanceTo(playerPosition) < runRange);
+
+                    UpdateTarget(roamPosition);
+                    UpdateEyeDirection(nextTarget);
+                    MoveWithTimer(roamPosition, followingTime);
+                    break;
+                case State.RunToPlayer:
+                    UpdateTarget(GameData.player.GetPosition());
+                    UpdateEyeDirection(GameData.player.GetPosition());
+                    MoveWithTimer(roamPosition, followingTime);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
 
         protected void Move(Vector3 target)
         {
@@ -143,10 +192,10 @@ namespace Assets.Enemies
 
         protected void MoveToNextTarget()
         {
-            UpdateDirection(nextTarget);
+            UpdateMoveDirection(nextTarget);
             var distanceToNextTarget = transform.position.DistanceTo(nextTarget);
 
-            Rb.velocity = direction * MoveSpeed;
+            Rb.velocity = moveDirection * MoveSpeed;
 
             if (distanceToNextTarget >= MoveSpeed * Time.fixedDeltaTime)
                 return;
@@ -195,9 +244,22 @@ namespace Assets.Enemies
                 : target;
         }
 
-        protected void UpdateDirection(Vector3 target)
+        protected void UpdateFireDirection(Vector3 target)
         {
-            direction = (nextTarget - transform.position).normalized;
+            directionFire = (target - transform.position).normalized;
+            var aimAngle = Mathf.Atan2(directionFire.y, directionFire.x) * Mathf.Rad2Deg - 90f;
+            Weapon.weaponPrefab.transform.RotateAround(Rb.position, Vector3.forward, aimAngle - latestAimAngle);
+            latestAimAngle = aimAngle;
+        }
+
+        protected void UpdateEyeDirection(Vector3 target)
+        {
+            sprite.flipX = (int)Mathf.Sign(target.x - transform.position.x) == (isEyeDirectionInverse ? 0 : 1);
+        }
+
+        protected void UpdateMoveDirection(Vector3 target)
+        {
+            moveDirection = (nextTarget - transform.position).normalized;
         }
 
         protected Vector3 GetRandomPosition()
