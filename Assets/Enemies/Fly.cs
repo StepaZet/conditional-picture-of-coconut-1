@@ -42,7 +42,7 @@ namespace Assets.Enemies
             Weapon.Fire(true);
         }
 
-        protected void Die()
+        protected override void Die()
         {
             DieDefault();
         }

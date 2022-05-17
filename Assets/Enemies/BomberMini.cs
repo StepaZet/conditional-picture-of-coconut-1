@@ -23,7 +23,7 @@ namespace Assets.Enemies
             followingTime = 0.5f;
             deathTime = 0.7f;
 
-            MoveSpeed = 3f;
+            MoveSpeed = 10f;
         }
 
         private void FixedUpdate()
@@ -47,7 +47,7 @@ namespace Assets.Enemies
             deathStart = Time.time;
         }
 
-        protected void Die()
+        protected override void Die()
         {
             var objectsToGetDamage = Physics2D.OverlapCircleAll(transform.position, BoomRadius);
 

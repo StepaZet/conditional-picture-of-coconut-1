@@ -259,7 +259,7 @@ namespace Assets.Enemies
             if (Weapon == null)
                 return;
             
-            directionFire = (target - transform.position).normalized;
+            directionFire = Direction2D(target, transform.position).normalized;
             var aimAngle = Mathf.Atan2(directionFire.y, directionFire.x) * Mathf.Rad2Deg - 90f;
             Weapon.weaponPrefab.transform.RotateAround(Rb.position, Vector3.forward, aimAngle - latestAimAngle);
             latestAimAngle = aimAngle;
@@ -272,7 +272,7 @@ namespace Assets.Enemies
 
         protected void UpdateMoveDirection(Vector3 target)
         {
-            moveDirection = (nextTarget - transform.position).normalized;
+            moveDirection = Direction2D(nextTarget, transform.position).normalized;
         }
 
         protected Vector3 GetRandomPosition()
@@ -290,7 +290,14 @@ namespace Assets.Enemies
             return Vector3.Distance(v1.ToVector2(), v2.ToVector2());
         }
 
-        protected void Die()
+        protected Vector3 Direction2D(Vector3 vectorTo, Vector3 vectorFrom)
+        {
+            var result = vectorTo - vectorFrom;
+            result.z = 0;
+            return result;
+        }
+
+        protected virtual void Die()
         {
             throw new InvalidOperationException("Не переопределена смерть!");
         }

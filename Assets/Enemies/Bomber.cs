@@ -274,7 +274,7 @@ namespace Assets.Enemies
             Rb.velocity = Vector2.zero;
         }
 
-        private void Die()
+        protected override void Die()
         {
             var objectsToGetDamage = Physics2D.OverlapCircleAll(transform.position, BoomRadius);
 

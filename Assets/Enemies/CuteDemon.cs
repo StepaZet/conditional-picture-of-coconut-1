@@ -46,7 +46,7 @@ namespace Assets.Enemies
             GameData.player.character.health.Damage(damage);
         }
 
-        protected void Die()
+        protected override void Die()
         {
             Instantiate(Death, transform.position, Quaternion.identity);
             DieDefault();

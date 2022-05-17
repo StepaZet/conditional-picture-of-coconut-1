@@ -66,7 +66,7 @@ namespace Assets.Enemies
             }
         }
 
-        protected void Die()
+        protected override void Die()
         {
             for (var i = 0; i < flies.Length; i++)
             {

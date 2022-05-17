@@ -47,7 +47,7 @@ namespace Assets.Enemies
             reloadStart = Time.time;
         }
 
-        protected void Die()
+        protected override void Die()
         {
             DieDefault();
         }
