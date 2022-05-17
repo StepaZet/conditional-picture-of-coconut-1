@@ -33,7 +33,7 @@ namespace Assets.Enemies
         protected PathFinding pathFinder;
         protected SpriteRenderer sprite;
         protected Rigidbody2D Rb;
-        protected CircleCollider2D Collider;
+        protected Collider2D Collider;
 
         public Weapon.Weapon Weapon;
         protected float latestAimAngle;
@@ -74,7 +74,7 @@ namespace Assets.Enemies
             pathFinder = new PathFinding();
             Rb = GetComponent<Rigidbody2D>();
             sprite = GetComponent<SpriteRenderer>();
-            Collider = GetComponent<CircleCollider2D>();
+            Collider = GetComponent<Collider2D>();
 
             homePosition = transform.position;
             startingPosition = transform.position;
@@ -220,7 +220,7 @@ namespace Assets.Enemies
                 var distance = currentPosition.DistanceTo(target);
                 var currentDirection = (target - currentPosition).normalized;
 
-                var ray = Physics2D.CircleCast(currentPosition.ToVector2(), Collider.radius, currentDirection.ToVector2(), distance, Grid.WallsLayerMask);
+                var ray = Physics2D.CircleCast(currentPosition.ToVector2(), transform.localScale.y, currentDirection.ToVector2(), distance, Grid.WallsLayerMask);
 
                 if (ray.collider != null)
                     continue;
@@ -246,6 +246,9 @@ namespace Assets.Enemies
 
         protected void UpdateFireDirection(Vector3 target)
         {
+            if (Weapon == null)
+                return;
+            
             directionFire = (target - transform.position).normalized;
             var aimAngle = Mathf.Atan2(directionFire.y, directionFire.x) * Mathf.Rad2Deg - 90f;
             Weapon.weaponPrefab.transform.RotateAround(Rb.position, Vector3.forward, aimAngle - latestAimAngle);
@@ -270,6 +273,10 @@ namespace Assets.Enemies
         protected bool IsNearToPlayer(float distance)
         {
             return Vector3.Distance(transform.position, GameData.player.transform.position) < distance;
+        }
+        protected void DieDefault()
+        {
+            Destroy(gameObject);
         }
     }
 }

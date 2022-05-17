@@ -75,7 +75,8 @@ namespace Assets.Enemies
                 fly.Grid = Grid;
                 fly.homePosition = transform.position;
             }
-            Destroy(gameObject);
+
+            DieDefault();
         }
 
         private void ChooseState()

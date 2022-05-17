@@ -49,7 +49,7 @@ namespace Assets.Enemies
 
         private void Die()
         {
-            Destroy(gameObject);
+            DieDefault();
         }
 
         private void ChooseState()
