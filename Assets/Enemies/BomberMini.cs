@@ -1,4 +1,5 @@
 using Extensions;
+using Game;
 using UnityEngine;
 
 namespace Assets.Enemies
@@ -7,7 +8,7 @@ namespace Assets.Enemies
     {
         public ParticleSystem boom;
 
-        private const float BoomRadius = 2f;
+        private const float BoomRadius = 3f;
 
         private void Start()
         {
@@ -15,7 +16,7 @@ namespace Assets.Enemies
 
             homeRadius = 20;
             targetRange = 20f;
-            fireRange = 2f;
+            fireRange = 5;
 
             damage = 5;
 
@@ -45,6 +46,8 @@ namespace Assets.Enemies
             sprite.color = Color.red;
             state = State.PrepareToDie;
             deathStart = Time.time;
+            Rb.velocity = Vector2.zero;
+            Rb.AddForce(Direction2D(GameData.player.GetPosition(), transform.position).normalized * 20, ForceMode2D.Impulse);
         }
 
         protected override void Die()

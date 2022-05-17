@@ -3205,6 +3205,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bomber mini
       objectReference: {fileID: 0}
+    - target: {fileID: 5313380754587076023, guid: 5e5a2372f7dd3aa4d814fb1947299eda, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5313380754587076027, guid: 5e5a2372f7dd3aa4d814fb1947299eda, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4921,11 +4925,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7605132891047785643, guid: 3da68e4f452e2bd4cb726ddb15c40c08, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -61.7
+      value: -69.33
       objectReference: {fileID: 0}
     - target: {fileID: 7605132891047785643, guid: 3da68e4f452e2bd4cb726ddb15c40c08, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.1
+      value: -7.95
       objectReference: {fileID: 0}
     - target: {fileID: 7605132891047785643, guid: 3da68e4f452e2bd4cb726ddb15c40c08, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6221,7 +6225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1820380050
 Transform:
   m_ObjectHideFlags: 0
