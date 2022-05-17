@@ -33,7 +33,7 @@ namespace Assets.Enemies
             if (IsNearToPlayer(fireRange))
                 Fire();
 
-            ChooseBehaviour();
+            ChooseState();
             DoStateAction();
         }
 
@@ -46,15 +46,15 @@ namespace Assets.Enemies
             GameData.player.character.health.Damage(damage);
         }
 
-        private void Die()
+        protected void Die()
         {
             Instantiate(Death, transform.position, Quaternion.identity);
             DieDefault();
         }
 
-        private void ChooseBehaviour()
+        private void ChooseState()
         {
-            if (homePosition.DistanceTo(transform.position) > homeRadius)
+            if (Distance2D(transform.position, homePosition)> homeRadius)
                 UpdateTarget(homePosition);
 
             if (IsNearToPlayer(targetRange))

@@ -63,7 +63,7 @@ namespace Assets.Enemies
             Weapon.Fire(true);
         }
 
-        private void Die()
+        protected void Die()
         {
             DieDefault();
         }
@@ -84,7 +84,7 @@ namespace Assets.Enemies
 
         private void ChooseState()
         {
-            if (homePosition.DistanceTo(transform.position) > homeRadius)
+            if (Distance2D(transform.position, homePosition) > homeRadius)
                 UpdateTarget(homePosition);
 
             if (IsNearToPlayer(targetRange))

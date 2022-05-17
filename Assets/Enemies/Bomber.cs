@@ -314,7 +314,7 @@ namespace Assets.Enemies
 
         private void ChooseBehaviour()
         {
-            if (homePosition.DistanceTo(transform.position) > homeRadius)
+            if (Distance2D(transform.position, homePosition) > homeRadius)
                 UpdateTarget(homePosition);
 
             state = IsNearToPlayer(targetRange)

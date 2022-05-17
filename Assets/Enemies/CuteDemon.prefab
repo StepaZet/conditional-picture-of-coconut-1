@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Grid: {fileID: 0}
   Health: {fileID: 9051430322146102034}
-  MoveSpeed: 0
+  MoveSpeed: 10
   Weapon: {fileID: 0}
   homePosition: {x: 0, y: 0, z: 0}
   Death: {fileID: 4540342610652310283, guid: 3cf875c138f146c4f918be0fcc680131, type: 3}

@@ -66,7 +66,7 @@ namespace Assets.Enemies
             }
         }
 
-        private void Die()
+        protected void Die()
         {
             for (var i = 0; i < flies.Length; i++)
             {
@@ -80,8 +80,9 @@ namespace Assets.Enemies
 
         private void ChooseState()
         {
-            if (homePosition.DistanceTo(transform.position) > homeRadius)
+            if (Distance2D(transform.position, homePosition) > homeRadius)
                 UpdateTarget(homePosition);
+
             if (IsNearToPlayer(targetRange))
             {
                 if (state != State.RunFromPlayer)

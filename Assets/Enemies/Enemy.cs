@@ -24,7 +24,8 @@ namespace Assets.Enemies
         {
             Roaming,
             RunFromPlayer,
-            RunToPlayer
+            RunToPlayer,
+            PrepareToDie
         }
 
         public GridObj Grid;
@@ -57,6 +58,9 @@ namespace Assets.Enemies
         protected int countFailSearch;
         protected const int countFailSearchLimit = 5;
         
+        protected float deathStart;
+        protected float deathTime;
+
         protected float pauseStart;
         protected float pauseTime;
 
@@ -102,7 +106,7 @@ namespace Assets.Enemies
                 case State.RunFromPlayer:
                     var playerPosition = GameData.player.GetPosition();
                     do roamPosition = GetRandomPosition();
-                    while (roamPosition.DistanceTo(playerPosition) < runRange);
+                    while (Distance2D(roamPosition, playerPosition) < runRange);
 
                     UpdateTarget(roamPosition);
                     UpdateEyeDirection(nextTarget);
@@ -112,6 +116,11 @@ namespace Assets.Enemies
                     UpdateTarget(GameData.player.GetPosition());
                     UpdateEyeDirection(GameData.player.GetPosition());
                     MoveWithTimer(roamPosition, followingTime);
+                    break;
+                case State.PrepareToDie:
+                    var timeFromStartDeath = Time.time - deathStart;
+                    if (timeFromStartDeath >= deathTime)
+                        Die();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -194,7 +203,7 @@ namespace Assets.Enemies
         protected void MoveToNextTarget()
         {
             UpdateMoveDirection(nextTarget);
-            var distanceToNextTarget = transform.position.DistanceTo(nextTarget);
+            var distanceToNextTarget = Distance2D(transform.position, nextTarget);
 
             Rb.velocity = moveDirection * MoveSpeed;
 
@@ -218,7 +227,7 @@ namespace Assets.Enemies
             {
                 var target = Grid.GridToWorldPosition(path[i]).ToVector3() + new Vector3(Grid.Grid.CellSize, Grid.Grid.CellSize) / 2;
                 var currentPosition = transform.position;
-                var distance = currentPosition.DistanceTo(target);
+                var distance = Distance2D(currentPosition, target);
                 var currentDirection = (target - currentPosition).normalized;
 
                 var ray = Physics2D.CircleCast(currentPosition.ToVector2(), transform.localScale.y, currentDirection.ToVector2(), distance, Grid.WallsLayerMask);
@@ -240,7 +249,7 @@ namespace Assets.Enemies
         protected void UpdateTarget(Vector3 target)
         {
             startingPosition = transform.position;
-            roamPosition = homePosition.DistanceTo(target) > homeRadius
+            roamPosition = Distance2D(homePosition, target) > homeRadius
                 ? homePosition
                 : target;
         }
@@ -273,8 +282,19 @@ namespace Assets.Enemies
 
         protected bool IsNearToPlayer(float distance)
         {
-            return Vector3.Distance(transform.position, GameData.player.transform.position) < distance;
+            return Distance2D(transform.position, GameData.player.transform.position) < distance;
         }
+
+        protected float Distance2D(Vector3 v1, Vector3 v2)
+        {
+            return Vector3.Distance(v1.ToVector2(), v2.ToVector2());
+        }
+
+        protected void Die()
+        {
+            throw new InvalidOperationException("Не переопределена смерть!");
+        }
+
         protected void DieDefault()
         {
             Destroy(gameObject);

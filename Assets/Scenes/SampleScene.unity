@@ -692,6 +692,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CuteDemon (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 609087455462908440, guid: 7f13c059b32650149843996b7d3565e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 609087455462908441, guid: 7f13c059b32650149843996b7d3565e9, type: 3}
       propertyPath: Grid
       value: 
@@ -4295,6 +4299,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CuteDemon (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 609087455462908440, guid: 7f13c059b32650149843996b7d3565e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 609087455462908441, guid: 7f13c059b32650149843996b7d3565e9, type: 3}
       propertyPath: Grid
       value: 
@@ -4355,6 +4363,10 @@ PrefabInstance:
     - target: {fileID: 609087455462908440, guid: 7f13c059b32650149843996b7d3565e9, type: 3}
       propertyPath: m_Name
       value: CuteDemon (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 609087455462908440, guid: 7f13c059b32650149843996b7d3565e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 609087455462908441, guid: 7f13c059b32650149843996b7d3565e9, type: 3}
       propertyPath: Grid
@@ -5632,6 +5644,10 @@ PrefabInstance:
     - target: {fileID: 609087455462908440, guid: 7f13c059b32650149843996b7d3565e9, type: 3}
       propertyPath: m_Name
       value: CuteDemon (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 609087455462908440, guid: 7f13c059b32650149843996b7d3565e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 609087455462908441, guid: 7f13c059b32650149843996b7d3565e9, type: 3}
       propertyPath: Grid
@@ -7047,6 +7063,10 @@ PrefabInstance:
       propertyPath: Grid
       value: 
       objectReference: {fileID: 746151396}
+    - target: {fileID: 609087455462908441, guid: 7f13c059b32650149843996b7d3565e9, type: 3}
+      propertyPath: MoveSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f13c059b32650149843996b7d3565e9, type: 3}
 --- !u!1001 &2315394912380723734
