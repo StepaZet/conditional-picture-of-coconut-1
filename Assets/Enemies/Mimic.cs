@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Extensions;
@@ -9,361 +8,116 @@ using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Mimic : MonoBehaviour
+namespace Assets.Enemies
 {
-    // Start is called before the first frame update
-    public Weapon.Weapon Weapon;
-
-    private float latestAimAngle;
-
-    private Vector3 directionFire;
-
-    private float fireRange = 20f;
-
-    public HealthObj Health;
-    [SerializeField] private int maxHealth;
-    private Rigidbody2D Rb;
-    private Collider2D Collider;
-    private SpriteRenderer sprite;
-    private Sprite nativeSprite;
-    public GameObject healthObjPrefab;
-
-    private Stage currentStage;
-    private State state;
-
-    public GridObj Grid;
-    private PathFinding pathFinder;
-
-    private Vector3 homePosition;
-    private float homeRadius;
-
-    private Vector3 startingPosition;
-    private Vector3 roamPosition;
-    private Vector3 nextTarget;
-    private int nextTargetIndex;
-
-    private int countFailSearch;
-    private const int countFailSearchLimit = 5;
-
-    private Vector3 direction;
-
-    private List<int2> path;
-
-    private const float pauseTime = 1f;
-    private const float followingTime = 6f;
-    private const float reloadTime = 0.3f;
-    private float reloadStart;
-    private float pauseStart;
-    private float followingStartTime;
-
-    private float targetRange = 25f;
-    private float RunRange = 5f;
-    private float moveSpeed;
-
-    private enum Stage
+    public class Mimic : Enemy
     {
-        None,
-        SearchingPath,
-        Moving,
-        Pause
-    }
+        private Sprite nativeSprite;
+        private bool isNative;
 
-    private enum State
-    {
-        Roaming,
-        RunToPlayer,
-        RunFromPlayer
-    }
-
-    private void Start()
-    {
-        pathFinder = new PathFinding();
-        Health = Instantiate(healthObjPrefab, transform).GetComponent<HealthObj>();
-        Health.maxHealthPoints = maxHealth;
-        nativeSprite = GetComponent<SpriteRenderer>().sprite;
-        sprite = GetComponent<SpriteRenderer>();
-        Rb = GetComponent<Rigidbody2D>();
-        Collider = GetComponent<Collider2D>();
-
-        homePosition = transform.position;
-        startingPosition = transform.position;
-        UpdateTarget(GetRandomPosition());
-
-        homeRadius = 25;
-
-        currentStage = Stage.None;
-        moveSpeed = 6f;
-        followingStartTime = Time.time;
-        reloadStart = Time.time;
-    }
-
-    private void FixedUpdate()
-    {
-        if (Health.CurrentHealthPoints <= 0)
-            Die();
-
-        if (IsNearToPlayer(targetRange))
-            UpdateAimFire(GameData.player.transform.position);
-        else
-            UpdateAimFire(nextTarget);
-
-        if (IsNearToPlayer(fireRange))
-            Fire();
-
-        ChooseBehaviour();
-
-        switch (state)
+        private void Start()
         {
-            case State.Roaming:
-                if (countFailSearch > 0)
-                    UpdateTarget(countFailSearch >= countFailSearchLimit
-                        ? homePosition
-                        : GetRandomPosition());
-                UpdateEyeDirection(nextTarget);
-                Move(roamPosition);
-                break;
-            case State.RunFromPlayer:
-                var playerPosition = GameData.player.GetPosition();
-                do roamPosition = GetRandomPosition();
-                while (roamPosition.DistanceTo(playerPosition) < RunRange);
-                UpdateTarget(roamPosition);
-                UpdateEyeDirection(nextTarget);
-                MoveWithTimer(roamPosition, followingTime);
-                break;
-            case State.RunToPlayer:
-                UpdateTarget(GameData.player.GetPosition());
-                UpdateEyeDirection(GameData.player.GetPosition());
-                MoveWithTimer(roamPosition, followingTime);
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    }
+            SetStartDefaults();
 
-    private void Move(Vector3 target)
-    {
-        switch (currentStage)
-        {
-            case Stage.None:
-                currentStage = Stage.SearchingPath;
-                StartSearchNextTarget(target);
-                break;
-            case Stage.SearchingPath:
-                break;
-            case Stage.Moving:
-                MoveToNextTarget();
-                break;
-            case Stage.Pause:
-                var difference = Time.time - pauseStart;
-                if (difference >= pauseTime)
-                {
-                    UpdateTarget(GetRandomPosition());
-                    currentStage = Stage.None;
-                }
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    }
+            homeRadius = 25;
+            targetRange = 25f;
+            fireRange = 20f;
+            runRange = 5f;
 
-    private void MoveWithTimer(Vector3 target, float timeFollow)
-    {
-        var timeFollowing = Time.time - followingStartTime;
-        if (timeFollowing >= timeFollow && currentStage != Stage.SearchingPath)
-        {
-            currentStage = Stage.None;
-            followingStartTime = Time.time;
-            return;
+            reloadTime = 0.3f;
+            pauseTime = 1f;
+            followingTime = 6f;
+
+            MoveSpeed = 6f;
+
+            isNative = true;
+            nativeSprite = sprite.sprite;
         }
 
-        Move(target);
-    }
-
-    private Task<List<int2>> FindPath(int2 startGridPosition, int2 endGridPosition, int maxDeep)
-    {
-        var task = new Task<List<int2>>(() =>
-            pathFinder.FindPathAStar(Grid.Grid, startGridPosition, endGridPosition, maxDeep));
-
-        task.Start();
-        return task;
-    }
-
-    private async void StartSearchNextTarget(Vector3 target)
-    {
-        UpdateTarget(target);
-
-        var startGridPosition = Grid.WorldToGridPosition(startingPosition);
-        var endGridPosition = Grid.WorldToGridPosition(roamPosition);
-
-        var maxDeep = (int)homeRadius;
-        var originalPath = await FindPath(startGridPosition, endGridPosition, maxDeep);
-
-        if (originalPath is null)
+        private void FixedUpdate()
         {
-            currentStage = Stage.None;
-            countFailSearch++;
-        }
-        else
-        {
-            countFailSearch = 0;
-            path = PathFinding.GetClearPath(originalPath);
-            Grid.AddPathsToDraw(path);
+            if (Health.CurrentHealthPoints <= 0)
+                Die();
 
-            nextTargetIndex = 0;
-            UpdateNextTarget();
-        }
-    }
+            UpdateFireDirection(
+                IsNearToPlayer(targetRange)
+                    ? GameData.player.transform.position
+                    : nextTarget);
 
-    private void MoveToNextTarget()
-    {
-        UpdateDirection(nextTarget);
-        var distanceToNextTarget = transform.position.DistanceTo(nextTarget);
+            if (IsNearToPlayer(fireRange))
+                Fire();
 
-        Rb.velocity = direction * moveSpeed;
+            ChooseState();
 
-        if (distanceToNextTarget >= moveSpeed * Time.fixedDeltaTime)
-            return;
-
-        if (nextTargetIndex == path.Count - 1)
-        {
-            Rb.velocity = Vector2.zero;
-            currentStage = Stage.Pause;
-            pauseStart = Time.time;
-            return;
+            DoStateAction();
         }
 
-        UpdateNextTarget();
-    }
-
-    private void UpdateNextTarget()
-    {
-        for (var i = path.Count - 1; i > nextTargetIndex; i--)
+        private void Fire()
         {
-            var target = Grid.GridToWorldPosition(path[i]).ToVector3() + new Vector3(Grid.Grid.CellSize, Grid.Grid.CellSize) / 2;
-            var currentPosition = transform.position;
-            var distance = currentPosition.DistanceTo(target);
-            var currentDirection = (target - currentPosition).normalized;
+            if (Weapon == null)
+                return;
 
-            var ray = Physics2D.CircleCast(currentPosition.ToVector2(), transform.localScale.y, currentDirection.ToVector2(), distance, Grid.WallsLayerMask);
+            var difference = Time.time - reloadStart;
+            if (difference < reloadTime)
+                return;
+            reloadStart = Time.time;
 
-            if (ray.collider != null)
-                continue;
-
-            nextTargetIndex = i;
-            nextTarget = target;
-            currentStage = Stage.Moving;
-            return;
+            Weapon.Fire(true);
         }
 
-        nextTargetIndex++;
-        nextTarget = Grid.GridToWorldPosition(path[nextTargetIndex]).ToVector3() + new Vector3(Grid.Grid.CellSize, Grid.Grid.CellSize) / 2;
-        currentStage = Stage.Moving;
-    }
-
-    private void UpdateTarget(Vector3 target)
-    {
-        startingPosition = transform.position;
-        roamPosition = homePosition.DistanceTo(target) > homeRadius
-            ? homePosition
-            : target;
-    }
-
-    private void UpdateDirection(Vector3 target)
-    {
-        direction = (nextTarget - transform.position).normalized;
-    }
-
-    private Vector3 GetRandomPosition()
-        => homePosition + Tools.GetRandomDir() * Random.Range(10f, 15f);
-
-    private void UpdateEyeDirection(Vector3 target)
-    {
-        sprite.flipX = (int)Mathf.Sign(target.x - transform.position.x) == 1;
-    }
-
-    private void Fire()
-    {
-        if (Weapon == null)
-            return;
-
-        var difference = Time.time - reloadStart;
-        if (difference < reloadTime)
-            return;
-        Weapon.Fire(true);
-        reloadStart = Time.time;
-    }
-
-    private void Die()
-    {
-        Destroy(gameObject);
-    }
-
-    private bool IsNearToPlayer(float distance)
-    {
-        try
+        protected override void Die()
         {
-            return Vector3.Distance(transform.position, GameData.player.transform.position) < distance;
+            DieDefault();
         }
-        catch
+
+        private void ClearTransformation()
         {
-            return false;
+            sprite.sprite = nativeSprite;
+            Destroy(Weapon.gameObject);
+            latestAimAngle = 0;
+            isNative = true;
         }
-    }
 
-    private void UpdateAimFire(Vector3 target)
-    {
-        if (Weapon == null)
-            return;
-        directionFire = (target - transform.position).normalized;
-        var aimAngle = Mathf.Atan2(directionFire.y, directionFire.x) * Mathf.Rad2Deg - 90f;
-        Weapon.weaponPrefab.transform.RotateAround(Rb.position, Vector3.forward, aimAngle - latestAimAngle);
-        latestAimAngle = aimAngle;
-    }
-
-    private void ClearTransformation()
-    {
-        sprite.sprite = nativeSprite;
-        Destroy(Weapon.weaponPrefab);
-        latestAimAngle = 0;
-    }
-
-    private void GetTransformation()
-    {
-        sprite.sprite = GameData.player.character.sprite.sprite;
-        Weapon = Instantiate(GameData.player.character.weapon, transform.position + new Vector3(0, 1), Quaternion.identity);
-        Weapon.transform.parent = transform;
-    }
-
-    private void ChooseBehaviour()
-    {
-        if (homePosition.DistanceTo(transform.position) > homeRadius)
-            UpdateTarget(homePosition);
-
-        if (IsNearToPlayer(targetRange))
+        private void GetTransformation()
         {
-            if (IsNearToPlayer(RunRange))
+            sprite.sprite = GameData.player.character.sprite.sprite;
+            Weapon = Instantiate(GameData.player.character.weapon, transform.position + new Vector3(0, 1), Quaternion.identity);
+            Weapon.transform.parent = transform;
+            isNative = false;
+        }
+
+        private void ChooseState()
+        {
+            if (Distance2D(transform.position, homePosition) > homeRadius)
+                UpdateTarget(homePosition);
+
+            if (IsNearToPlayer(targetRange))
             {
-                if (state != State.RunFromPlayer)
+                if (IsNearToPlayer(runRange))
                 {
-                    followingStartTime = int.MinValue;
-                    ClearTransformation();
+                    if (state == State.RunToPlayer)
+                        followingStartTime = int.MinValue;
+
+                    if (!isNative)
+                        ClearTransformation();
+
+                    state = State.RunFromPlayer;
                 }
-                state = State.RunFromPlayer;
+                else
+                {
+                    if (isNative)
+                        GetTransformation();
+
+                    state = State.RunToPlayer;
+                }
+                
             }
             else
             {
-                if (state != State.RunToPlayer)
-                    GetTransformation();
-                state = State.RunToPlayer;
+                state = State.Roaming;
+                if (!isNative)
+                    ClearTransformation();
             }
-                
         }
-        else
-        {
-            state = State.Roaming;
-            if (state != State.Roaming)
-                ClearTransformation();
-        }
-            
     }
 }

@@ -1,101 +1,40 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Assets.Bullet;
 using Extensions;
 using Game;
-using GridTools;
 using Player;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.SearchService;
 using Random = UnityEngine.Random;
 
 namespace Assets.Enemies
 {
-    public class YellowBoss : MonoBehaviour
+    public class YellowBoss : Enemy
     {
-        private float latestAimAngle;
-
-        public HealthObj Health;
-        public ParticleSystem boom;
-        [SerializeField] private int maxHealth;
+        [SerializeField] protected ParticleSystem boom;
         [SerializeField] protected BulletYellowBoss FireBallPrefab;
-        private Rigidbody2D Rb;
-
-        private SpriteRenderer sprite;
-        public GameObject healthObjPrefab;
-
-        public GameObject ForceField;
-
-        private Stage currentStage;
-        private State state;
+        [SerializeField] protected Bomber BomberPrefab;
+        [SerializeField] protected GameObject ForceField;
         [SerializeField] private AttackStage attackStage;
 
-        public GridObj Grid;
-        private PathFinding pathFinder;
-
-        private Vector3 homePosition;
-        private float homeRadius;
-
-        private Vector3 startingPosition;
-        private Vector3 roamPosition;
-        private Vector3 nextTarget;
-        private int nextTargetIndex;
-
-        private int countFailSearch;
-        private const int countFailSearchLimit = 5;
-
-        private Vector3 direction;
-
-        private List<int2> path;
-
-        private float followingStartTime;
-        private const float followingTime = 6f;
-
         private float reloadBoomStart;
-        private float boomReloadTime = 1f;
+        private const float boomReloadTime = 1f;
 
         private float attackPauseStart;
         private const float attackPauseTime = 2f;
-        
-        private float pauseStart;
-        private const float pauseTime = 1f;
 
         private float? startWeak;
         private const float weakTime = 5f;
 
-        private float reloadStart;
-        //private float reloadTime = 0.3f;
-        
-        private float targetRange = 25f;
-        private float fireRange;
-        private float moveSpeed;
-
-        private int boomDamage = 20;
-
         private Queue<AttackStage> attackStrategy;
-        public Bomber BomberPrefab;
+        
         private List<Bomber> bombers;
 
-        private int maxBombers = 20;
-        private int maxFireBalls = 100;
-        private int currentFireBalls = 0;
+        private const int maxBombers = 20;
+        private const int maxFireBalls = 100;
+        private int currentFireBalls;
         private Vector3 dashTarget;
-
-        private enum Stage
-        {
-            None,
-            SearchingPath,
-            Moving,
-            Pause
-        }
-
-        private enum State
-        {
-            Roaming
-        }
 
         private enum AttackStage
         {
@@ -109,31 +48,28 @@ namespace Assets.Enemies
 
         private void Start()
         {
-            pathFinder = new PathFinding();
-            Health = Instantiate(healthObjPrefab, transform).GetComponent<HealthObj>();
-            Health.maxHealthPoints = maxHealth;
-            Health.IsImmortal = true;
-
-            sprite = GetComponent<SpriteRenderer>();
-            Rb = GetComponent<Rigidbody2D>();
-            fireRange = Rb.transform.localScale.x * 2f;
-
-            homePosition = transform.position;
-            startingPosition = transform.position;
-            UpdateTarget(GetRandomPosition());
+            SetStartDefaults();
 
             homeRadius = 25;
+            targetRange = 25f;
+            fireRange = Rb.transform.localScale.x * 2f;
 
-            currentStage = Stage.None;
-            attackStage = AttackStage.None;
-            moveSpeed = 6f;
-            followingStartTime = Time.time;
-            reloadBoomStart = Time.time;
+            damage = 20;
+
+            pauseTime = 1f;
+
+            MoveSpeed = 6f;
+
+            Health.IsImmortal = true;
             startWeak = null;
+            attackStage = AttackStage.None;
+            attackPauseStart = Time.time;
+            reloadBoomStart = Time.time;
 
             attackStrategy = new Queue<AttackStage>(
                 new[]
                 {
+                    AttackStage.None,
                     AttackStage.SpawnBombers,
                     AttackStage.FireBalls,
                     AttackStage.Dash,
@@ -156,7 +92,7 @@ namespace Assets.Enemies
                 ? GameData.player.transform.position 
                 : nextTarget;
             
-            UpdateAimFire(target);
+            UpdateFireDirection(target);
             UpdateEyeDirection(target);
 
             if (IsNearToPlayer(fireRange))
@@ -166,11 +102,7 @@ namespace Assets.Enemies
             {
                 case AttackStage.None:
                     if (IsNearToPlayer(targetRange))
-                    {
                         EndStage();
-                    }
-                    else
-                        sprite.color = Color.white;
                     break;
                 case AttackStage.Pause:
                     var difference = Time.time - attackPauseStart;
@@ -194,159 +126,8 @@ namespace Assets.Enemies
                     throw new ArgumentOutOfRangeException();
             }
 
-            switch (state)
-            {
-                case State.Roaming:
-                    if (countFailSearch > 0)
-                        UpdateTarget(countFailSearch >= countFailSearchLimit
-                            ? homePosition
-                            : GetRandomPosition());
-                    Move(roamPosition);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-
-        private void Move(Vector3 target)
-        {
-            switch (currentStage)
-            {
-                case Stage.None:
-                    currentStage = Stage.SearchingPath;
-                    StartSearchNextTarget(target);
-                    break;
-                case Stage.SearchingPath:
-                    break;
-                case Stage.Moving:
-                    MoveToNextTarget();
-                    break;
-                case Stage.Pause:
-                    var difference = Time.time - pauseStart;
-                    if (difference >= pauseTime)
-                    {
-                        UpdateTarget(GetRandomPosition());
-                        currentStage = Stage.None;
-                    }
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-
-        private void MoveWithTimer(Vector3 target, float timeFollow)
-        {
-            var timeFollowing = Time.time - followingStartTime;
-            if (timeFollowing >= timeFollow && currentStage != Stage.SearchingPath)
-            {
-                currentStage = Stage.None;
-                followingStartTime = Time.time;
-                return;
-            }
-
-            Move(target);
-        }
-
-        private Task<List<int2>> FindPath(int2 startGridPosition, int2 endGridPosition, int maxDeep)
-        {
-            var task = new Task<List<int2>>(() =>
-                pathFinder.FindPathAStar(Grid.Grid, startGridPosition, endGridPosition, maxDeep));
-
-            task.Start();
-            return task;
-        }
-
-        private async void StartSearchNextTarget(Vector3 target)
-        {
-            UpdateTarget(target);
-
-            var startGridPosition = Grid.WorldToGridPosition(startingPosition);
-            var endGridPosition = Grid.WorldToGridPosition(roamPosition);
-
-            var maxDeep = (int)homeRadius;
-            var originalPath = await FindPath(startGridPosition, endGridPosition, maxDeep);
-
-            if (originalPath is null)
-            {
-                currentStage = Stage.None;
-                countFailSearch++;
-            }
-            else
-            {
-                countFailSearch = 0;
-                path = PathFinding.GetClearPath(originalPath);
-                Grid.AddPathsToDraw(path);
-
-                nextTargetIndex = 0;
-                UpdateNextTarget();
-            }
-        }
-
-        private void MoveToNextTarget()
-        {
-            UpdateDirection(nextTarget);
-            var distanceToNextTarget = transform.position.DistanceTo(nextTarget);
-
-            Rb.velocity = direction * moveSpeed;
-
-            if (distanceToNextTarget >= moveSpeed * Time.fixedDeltaTime)
-                return;
-
-            if (nextTargetIndex == path.Count - 1)
-            {
-                Rb.velocity = Vector2.zero;
-                currentStage = Stage.Pause;
-                pauseStart = Time.time;
-                return;
-            }
-
-            UpdateNextTarget();
-        }
-
-        private void UpdateNextTarget()
-        {
-            for (var i = path.Count - 1; i > nextTargetIndex; i--)
-            {
-                var target = Grid.GridToWorldPosition(path[i]).ToVector3() + new Vector3(Grid.Grid.CellSize, Grid.Grid.CellSize) / 2;
-                var currentPosition = transform.position;
-                var distance = currentPosition.DistanceTo(target);
-                var currentDirection = (target - currentPosition).normalized;
-
-                var ray = Physics2D.CircleCast(currentPosition.ToVector2(), transform.localScale.y, currentDirection.ToVector2(), distance, Grid.WallsLayerMask);
-
-                if (ray.collider != null)
-                    continue;
-
-                nextTargetIndex = i;
-                nextTarget = target;
-                currentStage = Stage.Moving;
-                return;
-            }
-
-            nextTargetIndex++;
-            nextTarget = Grid.GridToWorldPosition(path[nextTargetIndex]).ToVector3() + new Vector3(Grid.Grid.CellSize, Grid.Grid.CellSize) / 2;
-            currentStage = Stage.Moving;
-        }
-
-        private void UpdateTarget(Vector3 target)
-        {
-            startingPosition = transform.position;
-            roamPosition = homePosition.DistanceTo(target) > homeRadius
-                ? homePosition
-                : target;
-        }
-
-        private void UpdateDirection(Vector3 target)
-        {
-            direction = (nextTarget - transform.position).normalized;
-        }
-
-        private Vector3 GetRandomPosition()
-            => homePosition + Tools.GetRandomDir() * Random.Range(10f, 15f);
-
-        private void UpdateEyeDirection(Vector3 target)
-        {
-            sprite.flipX = (int)Mathf.Sign(target.x - transform.position.x) == 1;
+            ChooseState();
+            DoStateAction();
         }
 
         private void Fire(float reloadTime)
@@ -371,7 +152,7 @@ namespace Assets.Enemies
                 var healthObj = obj.GetComponentInChildren<HealthObj>();
                 //obj.GetComponent<Rigidbody2D>().AddForce((obj.transform.position - transform.position).normalized * 10, ForceMode2D.Impulse);
                 if (healthObj != null)
-                    healthObj.Damage(boomDamage);
+                    healthObj.Damage(damage);
             }
         }
 
@@ -386,7 +167,7 @@ namespace Assets.Enemies
 
         private void SpawnBombers()
         {
-            const float reloadTime = 0.2f;
+            reloadTime = 0.2f;
             if (!CheckReload(reloadTime))
                 return;
             
@@ -411,7 +192,7 @@ namespace Assets.Enemies
 
         private void CreateFireBalls()
         {
-            const float reloadTime = 0.05f;
+            reloadTime = 0.05f;
             if (!CheckReload(reloadTime))
                 return;
 
@@ -433,7 +214,8 @@ namespace Assets.Enemies
 
         private void DoDash(Vector2 target)
         {
-            const float reloadTime = 0.1f;
+            UpdateEyeDirection(target);
+            reloadTime = 0.1f;
             Fire(reloadTime);
 
             var dir = target - transform.position.ToVector2();
@@ -468,31 +250,9 @@ namespace Assets.Enemies
             EndStage();
         }
 
-        private void Die()
+        protected override void Die()
         {
-            Destroy(gameObject);
-        }
-
-        private bool IsNearToPlayer(float distance)
-        {
-            try
-            {
-                return Vector3.Distance(transform.position, GameData.player.transform.position) < distance;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private void UpdateAimFire(Vector3 target)
-        {
-            //if (Weapon == null)
-            //    return;
-            //directionFire = (target - transform.position).normalized;
-            //var aimAngle = Mathf.Atan2(directionFire.y, directionFire.x) * Mathf.Rad2Deg - 90f;
-            //Weapon.weaponPrefab.transform.RotateAround(Rb.position, Vector3.forward, aimAngle - latestAimAngle);
-            //latestAimAngle = aimAngle;
+            DieDefault();
         }
 
         private void EndStage()
@@ -508,39 +268,12 @@ namespace Assets.Enemies
             attackStage = nextStage;
         }
 
-        private void ChooseBehaviour()
+        private void ChooseState()
         {
             if (homePosition.DistanceTo(transform.position) > homeRadius)
                 UpdateTarget(homePosition);
 
             state = State.Roaming;
-
-            //if (IsNearToPlayer(targetRange))
-            //{
-            //    if (IsNearToPlayer(RunRange))
-            //    {
-            //        if (state != State.RunFromPlayer)
-            //        {
-            //            followingStartTime = int.MinValue;
-            //            ClearTransformation();
-            //        }
-            //        state = State.RunFromPlayer;
-            //    }
-            //    else
-            //    {
-            //        if (state != State.RunToPlayer)
-            //            GetTransformation();
-            //        state = State.RunToPlayer;
-            //    }
-
-            //}
-            //else
-            //{
-            //    state = State.Roaming;
-            //    if (state != State.Roaming)
-            //        ClearTransformation();
-            //}
-
         }
     }
 }

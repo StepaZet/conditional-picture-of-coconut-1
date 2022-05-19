@@ -36,9 +36,10 @@ namespace Assets.Bullet
 
             if (collision.collider.GetComponent<BulletYellowBoss>())
                 return;
-            Boom();
             if (collision.collider.GetComponentInChildren<HealthObj>())
                 collision.collider.GetComponentInChildren<HealthObj>().Damage(damageAmount);
+            Boom();
+            
         }
     }
 }
