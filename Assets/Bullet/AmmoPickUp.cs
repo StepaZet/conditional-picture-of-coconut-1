@@ -21,6 +21,7 @@ namespace Bullet
 				return;
 			
 			weapon.AddBullets(bulletsAmount);
+			GameData.player.ui.UpdateAmmoText(weapon.CurrentAmmoAmount, weapon.MaxAmmoAmount);
 			
 			UnityEngine.Object.Destroy(gameObject);
 		}

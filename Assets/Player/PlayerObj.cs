@@ -27,6 +27,7 @@ namespace Player
             controller = new PlayerController(dashLayerMask);
             if (!unlockedCharacters.Contains(character))
                 unlockedCharacters.Add(character);
+            ui.UpdateAmmoText(character.weapon.CurrentAmmoAmount, character.weapon.MaxAmmoAmount);
         }
 
         private void Update()
@@ -86,6 +87,7 @@ namespace Player
                 unlockedCharacters.Add(character);
 
             ui.UpdateAmmoText(character.weapon.CurrentAmmoAmount, character.weapon.MaxAmmoAmount);
+            ui.ChangeHealthBar();
         }
 
 

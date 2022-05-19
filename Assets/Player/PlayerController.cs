@@ -119,19 +119,22 @@ namespace Player
 		private static void Fire(PlayerObj player)
 		{
 			player.character.weapon.Fire(player.input.IsFireInput);
-			player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
+			if (player.input.IsFireInput)
+				player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
 		}
 	
 		private static void FireHeld(PlayerObj player)
 		{
 			player.character.weapon.FireHeld(player.input.IsFireInputHeld);
-			player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
+			if (player.input.IsFireInputHeld)
+				player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
 		}
 
 		private static void FireReleased(PlayerObj player)
 		{
 			player.character.weapon.FireReleased(player.input.IsFireInputReleased);
-			player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
+			if (player.input.IsFireInputReleased)
+				player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
 		}
     }
 }

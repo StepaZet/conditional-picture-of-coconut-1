@@ -206,6 +206,10 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 7605132891047785647}
+    - target: {fileID: 5745663770239988370, guid: b4df8b4ef37ebd049b4a1bd0580f597b, type: 3}
+      propertyPath: reloadingTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6760772517993629507, guid: b4df8b4ef37ebd049b4a1bd0580f597b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
