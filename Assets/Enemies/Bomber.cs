@@ -72,6 +72,7 @@ namespace Assets.Enemies
             {
                 var miniBomber = Instantiate(BomberMiniPrefab, transform.position + Tools.GetRandomDir() * Random.Range(2, 4), transform.rotation);
                 miniBomber.Grid = Grid;
+                miniBomber.gameObject.layer = LayerMask.NameToLayer("Enemy");
             }
 
             DieDefault();

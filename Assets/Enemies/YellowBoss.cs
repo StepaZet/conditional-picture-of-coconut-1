@@ -178,6 +178,7 @@ namespace Assets.Enemies
                 var dir = (GameData.player.transform.position - transform.position).normalized;
                 var bomber = Instantiate(BomberPrefab, transform.position + dir,
                     Quaternion.identity);
+                bomber.gameObject.layer = LayerMask.NameToLayer("Enemy");
                 bomber.GetComponent<Rigidbody2D>().AddForce(dir * 20f, ForceMode2D.Impulse);
                 bomber.Grid = Grid;
                 bombers.Add(bomber);

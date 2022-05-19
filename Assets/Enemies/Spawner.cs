@@ -59,6 +59,7 @@ namespace Assets.Enemies
                     flies[i] = Instantiate(FlyBullet, transform.position, transform.rotation);
                     flies[i].Grid = Grid;
                     flies[i].homePosition = transform.position;
+                    flies[i].gameObject.layer = LayerMask.NameToLayer("Enemy");
                     reloadStart = Time.time;
                     break;
                 }
@@ -73,6 +74,7 @@ namespace Assets.Enemies
                 var fly = Instantiate(FlyBullet, transform.position + Tools.GetRandomDir(), transform.rotation);
                 fly.Grid = Grid;
                 fly.homePosition = transform.position;
+                fly.gameObject.layer = LayerMask.NameToLayer("Enemy");
             }
 
             DieDefault();

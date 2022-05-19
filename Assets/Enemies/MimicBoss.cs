@@ -206,11 +206,13 @@ namespace Assets.Enemies
             {
                 var mimic = Instantiate(Enemies[(int)enemiesOrder.Mimic], transform.position, Quaternion.identity);
                 mimic.Grid = Grid;
+                mimic.gameObject.layer = LayerMask.NameToLayer("Enemy");
                 mobs.Add(mimic);
             }
             else if (mobs.Count < maxMimicCount)
             {
                 var cuteDemon = Instantiate(Enemies[(int)enemiesOrder.CuteDemon], transform.position, Quaternion.identity);
+                cuteDemon.gameObject.layer = LayerMask.NameToLayer("Enemy");
                 cuteDemon.Grid = Grid;
                 mobs.Add(cuteDemon);
             }
@@ -253,6 +255,7 @@ namespace Assets.Enemies
                 for (var i = 0; i < children.Length; i++)
                 {
                     children[i] = Instantiate(Enemies[(int) enemiesOrder.CuteDemon], transform.position, Quaternion.identity);
+                    children[i].gameObject.layer = LayerMask.NameToLayer("Enemy");
                     children[i].Grid = Grid;
                 }
                 sprite.sprite = children[0].sprite.sprite;
@@ -293,6 +296,7 @@ namespace Assets.Enemies
                 {
                     var position = GetRandomPosition();
                     children[i] = Instantiate(Enemies[(int)enemiesOrder.Wizard], position, Quaternion.identity);
+                    children[i].gameObject.layer = LayerMask.NameToLayer("Enemy");
                     children[i].Grid = Grid;
                     children[i].Health.healthBarPrefab.SetActive(false);
                 }

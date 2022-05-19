@@ -33,7 +33,9 @@ public class BulletMimicBoss : MonoBehaviour
         
         foreach (var obj in objectsToGetDamage)
         {
-            if (!obj.GetComponentInChildren<HealthObj>() || obj.GetComponent<MimicBoss>() || obj.GetComponentInParent<MimicBoss>())
+            if (obj.gameObject.layer != LayerMask.NameToLayer("Enemy") && obj.gameObject.layer != LayerMask.NameToLayer("Character"))
+                continue;
+            if (obj.GetComponent<MimicBoss>())
                 continue;
 
             var healthObj = obj.GetComponentInChildren<HealthObj>();
@@ -51,6 +53,18 @@ public class BulletMimicBoss : MonoBehaviour
             Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
             return;
         }
+
+        if (collision.gameObject.GetComponent<MimicBoss>() || collision.gameObject.GetComponentInParent<MimicBoss>())
+        {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+            return;
+        }
+
+        if (collision.gameObject.layer != LayerMask.NameToLayer("Walls") 
+            && collision.gameObject.layer != LayerMask.NameToLayer("Enemy") 
+            && collision.gameObject.layer != LayerMask.NameToLayer("Character"))
+            return;
+
         if (collision.collider.GetComponent<BulletMimicBoss>() || !collision.collider.GetComponent<HealthObj>())
             return;
         
