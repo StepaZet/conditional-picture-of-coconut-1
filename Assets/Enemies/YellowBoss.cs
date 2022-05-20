@@ -222,7 +222,7 @@ namespace Assets.Enemies
             var dir = target - transform.position.ToVector2();
             Rb.AddForce(dir / 2, ForceMode2D.Impulse);
 
-            if (transform.position.DistanceTo(target) < fireRange)
+            if (Distance2D(transform.position, target) < fireRange)
             {
                 Fire(0);
                 dashTarget = Vector3.zero;
