@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1154816277846106352}
   - component: {fileID: 5784103201167120297}
   - component: {fileID: 6121126127863394761}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bullet fly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,3 +134,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370bfce5372c0a64498044b82c707828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageAmount: 1

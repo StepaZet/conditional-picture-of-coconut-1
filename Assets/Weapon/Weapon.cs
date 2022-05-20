@@ -20,13 +20,15 @@ namespace Weapon
 		[SerializeField] protected int currentAmmoAmount;
 		public int MaxAmmoAmount => maxAmmoAmount;
 		public int CurrentAmmoAmount => currentAmmoAmount;
-		
+        protected int WallsLayerMask;
+
 
 		public void Awake()
 		{
 			ammoState = AmmoState.Full;
 			currentAmmoAmount = maxAmmoAmount;
-		}
+            WallsLayerMask = LayerMask.GetMask("Walls");
+        }
 
 		protected virtual void SetMaxBulletAmount()
 		{

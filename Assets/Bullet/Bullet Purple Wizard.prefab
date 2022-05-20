@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4869254877834477682}
   - component: {fileID: 274976851686242091}
   - component: {fileID: -3475585955386740981}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bullet Purple Wizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}

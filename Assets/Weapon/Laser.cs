@@ -1,8 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Assets.Enemies;
 using Player;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace Weapon
 {
@@ -12,7 +15,8 @@ namespace Weapon
 		private float maxDistance = 100;
 		public Character character;
 		private int damageAmount = 1;
-		private RaycastHit2D hit;
+		//private List<RaycastHit2D> hits = new List<RaycastHit2D>();
+        
 
 		protected override void SetMaxBulletAmount()
 		{
@@ -47,8 +51,7 @@ namespace Weapon
 						case AmmoState.Normal:
 							ammoState = AmmoState.Normal;
 							CastRay();
-							Damage();
-							currentAmmoAmount--;
+                            currentAmmoAmount--;
 
 							if (currentAmmoAmount <= 0)
 								ammoState = AmmoState.Empty;
@@ -72,16 +75,23 @@ namespace Weapon
 		private void CastRay()
 		{
 			lineRenderer.enabled = true;
-			var position = firePoint.position;
-			if (Physics2D.Raycast(position, firePoint.up))
-			{
-				hit = Physics2D.Raycast(position, transform.up);
-				DrawRay(position, hit.point);
-			}
-			else
-			{
-				DrawRay(position, firePoint.transform.up * maxDistance);
-			}
+            
+            var position = firePoint.position;
+            var endLaser = firePoint.up * maxDistance;
+            var collisions = Physics2D.RaycastAll(position, firePoint.up);
+            foreach (var hit2D in collisions)
+            {
+                if (hit2D.transform.gameObject.GetComponent<TilemapCollider2D>())
+                {
+                    endLaser = hit2D.point;
+					break;
+                }
+
+                if (state == WeaponState.Ready)
+                    Damage(hit2D);
+            }
+
+            DrawRay(position, endLaser);
 		}
 
 		private void DrawRay(Vector2 startPosition, Vector2 endPosition)
@@ -102,13 +112,11 @@ namespace Weapon
 			lineRenderer.enabled = false;
 		}
 
-		private void Damage()
-		{
-			if (hit.collider == null)
-				return;
+        private void Damage(RaycastHit2D hit)
+        {
 			if (hit.collider.GetComponentInChildren<HealthObj>())
-				hit.collider.GetComponentInChildren<HealthObj>().Damage(damageAmount);
+                hit.collider.GetComponentInChildren<HealthObj>().Damage(damageAmount);
 		}
-	}
+    }
 }
 

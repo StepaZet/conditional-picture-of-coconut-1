@@ -12,7 +12,7 @@ public class Room : MonoBehaviour
     private bool isActive;
     private Stage currentStage;
     private float pauseStart;
-    private float pauseTime = 2f;
+    private float pauseTime = 1f;
 
     private enum Stage
     {
