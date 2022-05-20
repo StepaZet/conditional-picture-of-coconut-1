@@ -186,6 +186,12 @@ namespace Assets.Enemies
             var maxDeep = (int)homeRadius;
             var originalPath = await FindPath(startGridPosition, endGridPosition, maxDeep);
 
+
+            // Не удалять!! Решарпер врет про всегда false
+            // Это единственный способ решить проблему ассинхронности и destroy
+            if (this == null)
+                return;
+
             if (originalPath is null)
             {
                 currentStage = Stage.None;
@@ -306,6 +312,11 @@ namespace Assets.Enemies
 
         protected void DieDefault()
         {
+            while (currentStage == Stage.SearchingPath)
+            {
+                var a = 1 + 1;
+            }
+
             Destroy(gameObject);
         }
     }
