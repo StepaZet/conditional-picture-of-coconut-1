@@ -4,6 +4,7 @@
 	{
 		Empty,
 		Full,
-		Normal
+		Normal,
+		Unlimited
 	}
 }
