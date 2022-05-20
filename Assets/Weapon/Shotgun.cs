@@ -18,11 +18,11 @@ namespace Weapon
 		{
 			var spreadAngle = 4;
 			var maxBulletsFired = 5;
-			var bulletsFired = currentAmmoAmount >= maxBulletsFired ? maxBulletsFired : currentAmmoAmount;
+			var bulletsFired = CurrentAmmoAmount >= maxBulletsFired ? maxBulletsFired : CurrentAmmoAmount;
 			for (var i = 0; i < bulletsFired; i++)
 			{
 				var bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-				currentAmmoAmount--;
+				DecrementAmmo();
 				var spread = firePoint.up * fireForce;
 				spread.x += Random.Range(-spreadAngle, spreadAngle);
 				spread.y += Random.Range(-spreadAngle, spreadAngle);

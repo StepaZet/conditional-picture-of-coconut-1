@@ -16,6 +16,8 @@ public class HealthObj : MonoBehaviour
         healthBar = Instantiate(healthBarPrefab, transform).GetComponent<HealthBar>();
         healthBar.transform.position += Vector3.down;
         healthBar.SetUp(this);
+        
+        OnHealthChanged?.Invoke(this, EventArgs.Empty);
     }
     public event EventHandler OnHealthChanged;
 

@@ -5,17 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Bullet/AmmoPickUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/AmmoPickUp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Health/HealthBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/HealthBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Health/HealthBar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/HealthBar.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Sword.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Sword.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Health/HealthObj.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/HealthObj.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Health/MedKit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/MedKit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerObj.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerObj.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerObj.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerObj.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/UI.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Laser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Laser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Shotgun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Shotgun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Sword.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Sword.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Weapon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +56,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.21755253" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.21751025" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -145,16 +148,29 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Player/PlayerUI.cs</url>
-          <line>14</line>
-          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\PlayerUI.cs" initialLine="10" containingFunctionPresentation="method 'UpdateAmmoText'">
+          <line>24</line>
+          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\PlayerUI.cs" initialLine="24" containingFunctionPresentation="method 'ChangeHealthBar'">
             <startOffsets>
-              <option value="317" />
+              <option value="738" />
             </startOffsets>
             <endOffsets>
-              <option value="318" />
+              <option value="739" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Player/PlayerObj.cs</url>
+          <line>75</line>
+          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\PlayerObj.cs" initialLine="75" containingFunctionPresentation="method 'ChangeCharacter'">
+            <startOffsets>
+              <option value="2312" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2313" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

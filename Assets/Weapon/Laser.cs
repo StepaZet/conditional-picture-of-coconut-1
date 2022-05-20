@@ -48,9 +48,9 @@ namespace Weapon
 							ammoState = AmmoState.Normal;
 							CastRay();
 							Damage();
-							currentAmmoAmount--;
+							DecrementAmmo();
 
-							if (currentAmmoAmount <= 0)
+							if (CurrentAmmoAmount <= 0)
 								ammoState = AmmoState.Empty;
 							
 							reloadStart = Time.time;

@@ -16,6 +16,7 @@ namespace Player
 		[SerializeField] protected GameObject weaponPrefab;
 		[SerializeField] public Collider2D characterCollider;
 		public PlayerState State { get; set; }
+		public static event EventHandler OnDeath;
         
 		private void Awake()
 		{
@@ -41,6 +42,7 @@ namespace Player
 		private void Die()
 		{
 			State = PlayerState.Dead;
+			OnDeath?.Invoke(this, EventArgs.Empty);
 		}
         
 		private void UpdateEyeDirection()

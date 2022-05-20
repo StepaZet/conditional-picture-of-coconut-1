@@ -49,8 +49,7 @@ namespace Player
 
 		public void FixedUpdate(PlayerObj player)
         {
-
-            switch (player.character.State)
+	        switch (player.character.State)
 			{
 				case PlayerState.Normal:
 					Move(player);
@@ -119,22 +118,16 @@ namespace Player
 		private static void Fire(PlayerObj player)
 		{
 			player.character.weapon.Fire(player.input.IsFireInput);
-			if (player.input.IsFireInput)
-				player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
 		}
 	
 		private static void FireHeld(PlayerObj player)
 		{
 			player.character.weapon.FireHeld(player.input.IsFireInputHeld);
-			if (player.input.IsFireInputHeld)
-				player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
 		}
 
 		private static void FireReleased(PlayerObj player)
 		{
 			player.character.weapon.FireReleased(player.input.IsFireInputReleased);
-			if (player.input.IsFireInputReleased)
-				player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
 		}
     }
 }

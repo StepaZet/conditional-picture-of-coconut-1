@@ -13,10 +13,11 @@ namespace Player
         public CameraController Camera;
         public Character character;
         public readonly List<Character> unlockedCharacters = new List<Character>();
-        private PlayerController controller;
-        public PlayerUI ui;
+        public PlayerController controller;
+        private PlayerUI ui;
         public readonly PlayerInput input = new PlayerInput();
         public Collider2D collider;
+        public event EventHandler OnCharacterChange;
 
         [SerializeField] private LayerMask dashLayerMask;
 
@@ -27,7 +28,7 @@ namespace Player
             controller = new PlayerController(dashLayerMask);
             if (!unlockedCharacters.Contains(character))
                 unlockedCharacters.Add(character);
-            ui.UpdateAmmoText(character.weapon.CurrentAmmoAmount, character.weapon.MaxAmmoAmount);
+            OnCharacterChange?.Invoke(this, EventArgs.Empty);
         }
 
         private void Update()
@@ -85,9 +86,8 @@ namespace Player
 			
             if (!unlockedCharacters.Contains(character))
                 unlockedCharacters.Add(character);
-
-            ui.UpdateAmmoText(character.weapon.CurrentAmmoAmount, character.weapon.MaxAmmoAmount);
-            ui.ChangeHealthBar();
+            
+            OnCharacterChange?.Invoke(this, EventArgs.Empty);
         }
 
 
