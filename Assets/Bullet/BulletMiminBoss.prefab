@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3272112064912000486}
   - component: {fileID: 4738252755304424726}
   - component: {fileID: -6042465353202320947}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletMiminBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5449108318089106307}
   - component: {fileID: 854812407427294426}
   - component: {fileID: 5172439537228217594}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bullet Evil Wizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}

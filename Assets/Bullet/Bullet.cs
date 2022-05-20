@@ -7,6 +7,12 @@ namespace Bullet
     public class Bullet : MonoBehaviour
     {
         [SerializeField]protected int damageAmount = 1;
+
+        private void Awake()
+        {
+            Physics2D.IgnoreLayerCollision(8, 8); //Bullets Layer
+        }
+
         private void Update()
         {
             Destroy(gameObject, 5);

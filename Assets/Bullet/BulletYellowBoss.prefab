@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1570394378332582342}
   - component: {fileID: 416524614803882963}
   - component: {fileID: 8746674428495958326}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletYellowBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
