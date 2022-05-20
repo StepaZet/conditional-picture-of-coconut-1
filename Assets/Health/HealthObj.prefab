@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 7350887286572905497, guid: 02dbaa7f0750b0c4890d36ea7ec8e30c, type: 3}
+  IsImmortal: 0
   CurrentHealthPoints: 50
   maxHealthPoints: 50
