@@ -132,6 +132,7 @@ MonoBehaviour:
   healthBar: {fileID: 598136204629373985}
   openCharactersCanvas: {fileID: 7313030473547085937}
   openCharactersImages: []
+  OutlineMaterial: {fileID: 2100000, guid: 98d24f31669bd414ab32ad1ba1033969, type: 2}
 --- !u!1 &598136206549620961
 GameObject:
   m_ObjectHideFlags: 0

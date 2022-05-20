@@ -84,10 +84,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="35592">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="35592" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -146,19 +146,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Player/PlayerUI.cs</url>
-          <line>24</line>
-          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\PlayerUI.cs" initialLine="24" containingFunctionPresentation="method 'ChangeHealthBar'">
-            <startOffsets>
-              <option value="738" />
-            </startOffsets>
-            <endOffsets>
-              <option value="739" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Player/PlayerObj.cs</url>
           <line>75</line>
