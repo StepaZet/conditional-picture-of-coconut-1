@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6249973790074061379}
   - component: {fileID: 6249973790074061380}
   - component: {fileID: 8315918739851143630}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EvilWizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,6 +125,11 @@ MonoBehaviour:
   MoveSpeed: 0
   sprite: {fileID: 0}
   Rb: {fileID: 0}
+  loots:
+  - {fileID: 8608925394555097359, guid: ebd00d11bfd436b48bb7c60c435e54aa, type: 3}
+  - {fileID: 6601491950550988755, guid: e1e4e02095689084a806b26916802d45, type: 3}
+  - {fileID: 1132537084652561686, guid: 42b3d614bab6aea4191534858f4cd438, type: 3}
+  lootProbability: 30
   Weapon: {fileID: 1955843290012242782}
   homePosition: {x: 0, y: 0, z: 0}
   followingTime: 0

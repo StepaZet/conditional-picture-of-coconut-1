@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3631024420637960785}
   - component: {fileID: 3631024420637960784}
   - component: {fileID: 3631024420637960796}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mimic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,8 +148,15 @@ MonoBehaviour:
   Grid: {fileID: 0}
   Health: {fileID: 4825695452607854093}
   MoveSpeed: 0
+  sprite: {fileID: 0}
+  Rb: {fileID: 0}
+  loots:
+  - {fileID: 1363951712721860121, guid: be3601fcd58db174680b2b8b8f80644f, type: 3}
+  lootProbability: 50
   Weapon: {fileID: 0}
   homePosition: {x: 0, y: 0, z: 0}
+  followingTime: 0
+  runRange: 0
 --- !u!1001 &6891122870174650389
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -167,7 +167,7 @@ namespace Assets.Enemies
 
         private void SpawnBombers()
         {
-            reloadTime = 0.2f;
+            reloadTime = 0.5f;
             if (!CheckReload(reloadTime))
                 return;
             
@@ -175,12 +175,12 @@ namespace Assets.Enemies
 
             if (bombers.Count < maxBombers)
             {
-                var dir = (GameData.player.transform.position - transform.position).normalized;
+                var dir = Direction2D(GameData.player.transform.position, transform.position).normalized;
                 var bomber = Instantiate(BomberPrefab, transform.position + dir,
                     Quaternion.identity);
                 bomber.gameObject.layer = LayerMask.NameToLayer("Enemy");
-                bomber.GetComponent<Rigidbody2D>().AddForce(dir * 20f, ForceMode2D.Impulse);
                 bomber.Grid = Grid;
+                bomber.GetComponent<Rigidbody2D>().AddForce(dir * 30f, ForceMode2D.Impulse);
                 bombers.Add(bomber);
             }
                

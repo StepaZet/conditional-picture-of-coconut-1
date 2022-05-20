@@ -70,7 +70,20 @@ namespace Assets.Enemies
 
             for (var i = 0; i < Random.Range(3, 5); i++)
             {
-                var miniBomber = Instantiate(BomberMiniPrefab, transform.position + Tools.GetRandomDir() * Random.Range(2, 4), transform.rotation);
+                Vector3 position;
+                while (true)
+                {
+                    position = transform.position + Tools.GetRandomDir() * Random.Range(2, 4);
+                    var ray = Physics2D.Raycast(
+                        transform.position, 
+                        Direction2D(position, transform.position).normalized, 
+                        Distance2D(position, transform.position)*2f, 
+                        Grid.WallsLayerMask);
+                    if (ray.collider == null)
+                        break;
+                }
+
+                var miniBomber = Instantiate(BomberMiniPrefab, position, transform.rotation);
                 miniBomber.Grid = Grid;
                 miniBomber.gameObject.layer = LayerMask.NameToLayer("Enemy");
             }

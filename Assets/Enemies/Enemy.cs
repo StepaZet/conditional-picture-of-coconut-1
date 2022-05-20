@@ -33,6 +33,10 @@ namespace Assets.Enemies
         public float MoveSpeed;
         public SpriteRenderer sprite;
         public Rigidbody2D Rb;
+
+        public GameObject[] loots;
+        public float lootProbability;
+
         protected PathFinding pathFinder;
         protected Collider2D Collider;
 
@@ -90,7 +94,7 @@ namespace Assets.Enemies
             followingStartTime = Time.time;
             reloadStart = Time.time;
 
-            currentStage = Stage.None;
+            currentStage = Stage.Pause;
         }
 
         protected void DoStateAction()
@@ -312,10 +316,8 @@ namespace Assets.Enemies
 
         protected void DieDefault()
         {
-            while (currentStage == Stage.SearchingPath)
-            {
-                var a = 1 + 1;
-            }
+            if (loots.Length != 0 && Random.Range(0, 100) <= lootProbability)
+                Instantiate(loots[Random.Range(0, loots.Length)], transform.position, Quaternion.identity);
 
             Destroy(gameObject);
         }

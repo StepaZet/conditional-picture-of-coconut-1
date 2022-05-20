@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8622540354149946116}
   - component: {fileID: 8622540354149946115}
   - component: {fileID: 6380344389540088776}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MimicBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,6 +140,7 @@ MonoBehaviour:
   MoveSpeed: 5
   sprite: {fileID: 0}
   Rb: {fileID: 0}
+  loots: []
   Weapon: {fileID: 0}
   homePosition: {x: 0, y: 0, z: 0}
   followingTime: 0

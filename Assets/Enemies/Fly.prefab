@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2801450463643824594}
   - component: {fileID: 2801450463643824593}
   - component: {fileID: 2801450463643824592}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Fly
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -139,8 +139,17 @@ MonoBehaviour:
   Grid: {fileID: 0}
   Health: {fileID: 7832524097097189502}
   MoveSpeed: 5
+  sprite: {fileID: 0}
+  Rb: {fileID: 0}
+  loots:
+  - {fileID: 1132537084652561686, guid: 42b3d614bab6aea4191534858f4cd438, type: 3}
+  - {fileID: 6601491950550988755, guid: e1e4e02095689084a806b26916802d45, type: 3}
+  - {fileID: 8608925394555097359, guid: ebd00d11bfd436b48bb7c60c435e54aa, type: 3}
+  lootProbability: 5
   Weapon: {fileID: 283079390750425876}
   homePosition: {x: 0, y: 0, z: 0}
+  followingTime: 0
+  runRange: 0
 --- !u!1001 &2085180287517582281
 PrefabInstance:
   m_ObjectHideFlags: 0

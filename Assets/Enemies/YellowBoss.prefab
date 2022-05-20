@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3396527407159941322}
   - component: {fileID: 3396527407159941325}
   - component: {fileID: 3396527407159941324}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: YellowBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,14 +218,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99a718c4902386439766351cd876590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Grid: {fileID: 0}
   Health: {fileID: 8131605625859998533}
+  MoveSpeed: 0
+  sprite: {fileID: 0}
+  Rb: {fileID: 0}
+  loots: []
+  Weapon: {fileID: 0}
+  homePosition: {x: 0, y: 0, z: 0}
+  followingTime: 0
+  runRange: 0
   boom: {fileID: 7884765147642207814, guid: af27ae7c4ef7a4542964910386e38e19, type: 3}
-  maxHealth: 50
   FireBallPrefab: {fileID: 416524614803882963, guid: dc08c5340bc14844bb9404b9b1e736de, type: 3}
+  BomberPrefab: {fileID: 1836116479694523381, guid: ce1b06acabdf9074fbd5f0b86aa35f2b, type: 3}
   ForceField: {fileID: 3396527406168985192}
   attackStage: 0
-  Grid: {fileID: 0}
-  BomberPrefab: {fileID: 1836116479694523381, guid: ce1b06acabdf9074fbd5f0b86aa35f2b, type: 3}
 --- !u!1001 &7891216894937015645
 PrefabInstance:
   m_ObjectHideFlags: 0

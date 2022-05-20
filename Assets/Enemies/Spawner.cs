@@ -71,7 +71,20 @@ namespace Assets.Enemies
         {
             for (var i = 0; i < flies.Length; i++)
             {
-                var fly = Instantiate(FlyBullet, transform.position + Tools.GetRandomDir(), transform.rotation);
+                Vector3 position;
+                while (true)
+                {
+                    position = transform.position + Tools.GetRandomDir();
+                    var ray = Physics2D.Raycast(
+                        transform.position,
+                        Direction2D(position, transform.position).normalized,
+                        Distance2D(position, transform.position) * 2f,
+                        Grid.WallsLayerMask);
+                    if (ray.collider == null)
+                        break;
+                }
+
+                var fly = Instantiate(FlyBullet, position, transform.rotation);
                 fly.Grid = Grid;
                 fly.homePosition = transform.position;
                 fly.gameObject.layer = LayerMask.NameToLayer("Enemy");
