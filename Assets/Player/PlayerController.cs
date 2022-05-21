@@ -73,6 +73,8 @@ namespace Player
 		{
 			if (!player.input.IsDash)
 				return;
+			
+			player.character.stamina.Damage(30);
 		
 			var dashAmount = 3f;
 			var position = player.transform.position;
@@ -100,10 +102,7 @@ namespace Player
 			if (!player.input.IsRoll)
 				return;
 			player.character.State = PlayerState.Rolling;
-		
-
 			rollSpeed = 20f;
-
 		}
 	
 		private void Aim(PlayerObj player)

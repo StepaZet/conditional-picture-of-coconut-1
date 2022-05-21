@@ -5,9 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Health/StaminaObj.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Health/StaminaObj.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet/BulletEvilWizard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/BulletEvilWizard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet/BulletMimicBoss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/BulletMimicBoss.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet/BulletPurpleWizard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/BulletPurpleWizard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet/BulletYellowBoss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/BulletYellowBoss.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet/Fireball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/Fireball.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Bomber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Bomber.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/BomberMini.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/BomberMini.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/SimpleEnemyAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/SimpleEnemyAI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/YellowBoss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/YellowBoss.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Health/HealthObj.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/HealthObj.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Pistol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Pistol.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/UI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Laser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Laser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/SwordColliderHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/SwordColliderHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,10 +85,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="5844">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="5844" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -140,40 +159,27 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Health/HealthObj.cs</url>
-          <line>51</line>
-          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Health\HealthObj.cs" initialLine="51" containingFunctionPresentation="method 'ToHealthInBounds'">
-            <startOffsets>
-              <option value="1463" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1464" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Player/Character.cs</url>
-          <line>43</line>
+          <line>45</line>
           <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\Character.cs" initialLine="43" containingFunctionPresentation="method 'Die'">
             <startOffsets>
-              <option value="1125" />
+              <option value="1168" />
             </startOffsets>
             <endOffsets>
-              <option value="1126" />
+              <option value="1169" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Player/PlayerUI.cs</url>
-          <line>41</line>
+          <line>42</line>
           <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\PlayerUI.cs" initialLine="41" containingFunctionPresentation="method 'UpdateCharacters'">
             <startOffsets>
-              <option value="1334" />
+              <option value="1382" />
             </startOffsets>
             <endOffsets>
-              <option value="1335" />
+              <option value="1383" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="10" />

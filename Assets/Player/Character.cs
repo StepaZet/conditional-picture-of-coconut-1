@@ -1,4 +1,5 @@
 using System;
+using Health;
 using Unity.Mathematics;
 using UnityEngine;
 using Weapon;
@@ -10,6 +11,7 @@ namespace Player
 		//public GameObject healthObjPrefab;
 		public Weapon.Weapon weapon;
 		public HealthObj health;
+		public StaminaObj stamina;
 		[SerializeField] private int maxHealth;
 		public Rigidbody2D rb;
 		public SpriteRenderer sprite;

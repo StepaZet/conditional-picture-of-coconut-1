@@ -15,6 +15,7 @@ namespace Player
 		[SerializeField]private Text ammoText;
 		[SerializeField]private PlayerObj player;
 		[SerializeField]private HealthBar healthBar;
+		[SerializeField]private HealthBar staminaBar;
 		[SerializeField]private Canvas openCharactersCanvas;
 		[SerializeField]private List<Image> openCharactersImages = new List<Image>();
 		[SerializeField]private GameObject smallVerticalHealthBarPrefab;
@@ -136,6 +137,7 @@ namespace Player
 			player.OnCharacterChange += UpdateWeaponImage;
 			Weapon.Weapon.OnAmmoChanged += UpdateAmmoText;
 			healthBar.SetUp(player.character.health);
+			staminaBar.SetUp(player.character.stamina);
 		}
 	}
 }
