@@ -37,37 +37,51 @@ namespace Player
 			openCharactersImages.Clear();
 
 			var yNextPosition = 0f;
+			var backgroundColor = new Color(0, 0, 0, 0.5f);
 			foreach (var character in player.unlockedCharacters)
 			{
+				var backgroundImage = CreateImage(yNextPosition, 150, 150, "BackgroundImage");
+				backgroundImage.color = backgroundColor;
+				openCharactersImages.Add(backgroundImage);
+				
 				var characterImage = CreateImage(character, yNextPosition);
 				openCharactersImages.Add(characterImage);
 				
 				if (character != player.character)
 				{
 					var shadeImage = CreateImage(character, yNextPosition);
-					shadeImage.color = new Color(0, 0, 0, 0.5f);
+					shadeImage.color = backgroundColor;
 					openCharactersImages.Add(shadeImage);
 				}
 
-				var offset = characterImage.sprite.rect.height * 0.2f;
-				yNextPosition -= (characterImage.sprite.rect.height + offset) * 0.5f;
+				var offset = 0;
+				yNextPosition -= 150 + offset;
 			}
+		}
+
+		private Image CreateImage(float yNextPosition, float width, float height, string imageName)
+		{
+			var imageObj = new GameObject(imageName);
+
+			var rectTransform = imageObj.AddComponent<RectTransform>();
+			rectTransform.transform.SetParent(openCharactersCanvas.transform);
+			rectTransform.localScale = Vector3.one;
+			rectTransform.anchoredPosition = new Vector2(0, yNextPosition);
+			rectTransform.sizeDelta= new Vector2(width, height);
+
+			var image = imageObj.AddComponent<Image>();
+			imageObj.transform.SetParent(openCharactersCanvas.transform);
+			
+			return image;
 		}
 
 		private Image CreateImage(Character character, float yNextPosition)
 		{
-			var characterImageObj = new GameObject("CharacterImage");
-
-			var rectTransform = characterImageObj.AddComponent<RectTransform>();
-			rectTransform.transform.SetParent(openCharactersCanvas.transform);
-			rectTransform.localScale = Vector3.one;
-			rectTransform.anchoredPosition = new Vector2(0, yNextPosition);
 			var sprite = character.sprite.sprite;
-			rectTransform.sizeDelta= new Vector2(sprite.textureRect.width * 0.5f, sprite.textureRect.height * 0.5f);
+			var image = CreateImage(yNextPosition, sprite.textureRect.width * 0.8f, sprite.textureRect.height * 0.8f,
+				"CharacterImage");
 
-			var image = characterImageObj.AddComponent<Image>();
 			image.sprite = character.sprite.sprite;
-			characterImageObj.transform.SetParent(openCharactersCanvas.transform);
 
 			return image;
 		}
