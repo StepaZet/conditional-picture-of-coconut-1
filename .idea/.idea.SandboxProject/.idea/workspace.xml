@@ -5,28 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Health/StaminaObj.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Health/StaminaObj.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/Bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet/BulletEvilWizard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/BulletEvilWizard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet/BulletMimicBoss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/BulletMimicBoss.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet/BulletPurpleWizard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/BulletPurpleWizard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet/BulletYellowBoss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/BulletYellowBoss.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet/Fireball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/Fireball.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Bomber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Bomber.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemies/BomberMini.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/BomberMini.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemies/SimpleEnemyAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/SimpleEnemyAI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemies/YellowBoss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/YellowBoss.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Health/HealthObj.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/HealthObj.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Fireball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Fireball.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Grenade (1).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Grenade (1).prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Grenade.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Grenade.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Laser.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Laser.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Character Pistol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Pistol.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Shotgun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Shotgun.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Sword.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Sword.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/UI.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Laser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Laser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapon/SwordColliderHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/SwordColliderHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,26 +150,26 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Player/Character.cs</url>
-          <line>45</line>
+          <line>48</line>
           <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\Character.cs" initialLine="43" containingFunctionPresentation="method 'Die'">
             <startOffsets>
-              <option value="1168" />
+              <option value="1324" />
             </startOffsets>
             <endOffsets>
-              <option value="1169" />
+              <option value="1325" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Player/PlayerUI.cs</url>
-          <line>42</line>
+          <line>44</line>
           <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\PlayerUI.cs" initialLine="41" containingFunctionPresentation="method 'UpdateCharacters'">
             <startOffsets>
-              <option value="1382" />
+              <option value="1461" />
             </startOffsets>
             <endOffsets>
-              <option value="1383" />
+              <option value="1462" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="10" />

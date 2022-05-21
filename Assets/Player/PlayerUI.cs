@@ -27,9 +27,10 @@ namespace Player
 			ammoText.text = $"{weapon.CurrentAmmoAmount}/{weapon.MaxAmmoAmount}";
 		}
 
-		private void ChangeHealthBar(object sender, System.EventArgs eventArgs)
+		private void ChangeBars(object sender, System.EventArgs eventArgs)
 		{
 			healthBar.ChangeHealthObj(player.character.health);
+			staminaBar.ChangeHealthObj(player.character.stamina);
 		}
 
 		private void FixedUpdate()
@@ -37,6 +38,7 @@ namespace Player
 			foreach (var smallHealthBar in smallHealthBars) 
 				smallHealthBar.UpdateBar();
 			healthBar.UpdateBar();	//Иначе не обновляет при первой смене персонажа
+			staminaBar.UpdateBar();
 		}
 
 		private void UpdateCharacters(object sender, System.EventArgs eventArgs)
@@ -132,7 +134,7 @@ namespace Player
 			UpdateAmmoText(this, EventArgs.Empty);
 			Character.OnDeath += UpdateCharacters;
 			player.OnCharacterChange += UpdateCharacters;
-			player.OnCharacterChange += ChangeHealthBar;
+			player.OnCharacterChange += ChangeBars;
 			player.OnCharacterChange += UpdateAmmoText;
 			player.OnCharacterChange += UpdateWeaponImage;
 			Weapon.Weapon.OnAmmoChanged += UpdateAmmoText;
