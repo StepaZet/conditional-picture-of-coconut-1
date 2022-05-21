@@ -28,7 +28,7 @@ namespace Player
             controller = new PlayerController(dashLayerMask);
             if (!unlockedCharacters.Contains(character))
                 unlockedCharacters.Add(character);
-            OnCharacterChange?.Invoke(this, EventArgs.Empty);
+            //OnCharacterChange?.Invoke(this, EventArgs.Empty);
         }
 
         private void Update()
@@ -65,7 +65,7 @@ namespace Player
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            if (!other.GetComponent<Character>() || other == collider)
+            if (!other.GetComponent<Character>() || other.gameObject == character.gameObject)
                 return;
             if (!input.IsChangeCharacter)
                 return;
