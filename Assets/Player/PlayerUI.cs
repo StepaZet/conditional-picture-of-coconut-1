@@ -19,6 +19,7 @@ namespace Player
 		[SerializeField]private List<Image> openCharactersImages = new List<Image>();
 		[SerializeField]private GameObject smallVerticalHealthBarPrefab;
 		[SerializeField]private List<HealthBar> smallHealthBars = new List<HealthBar>();
+		[SerializeField]private Image WeaponImage;
 		private void UpdateAmmoText(object sender, System.EventArgs eventArgs)
 		{
 			var weapon = player.character.weapon;
@@ -51,7 +52,7 @@ namespace Player
 			var backgroundColor = new Color(0, 0, 0, 0.5f);
 			foreach (var character in player.unlockedCharacters)
 			{
-				var smallHealthBarBackgroundImage = CreateImage(150, yNextPosition, 150, 150, "BackgroundImage");
+				var smallHealthBarBackgroundImage = CreateImage(150, yNextPosition, 150, 150, "SmallHealthBarBackgroundImage");
 				smallHealthBarBackgroundImage.color = backgroundColor;
 				openCharactersImages.Add(smallHealthBarBackgroundImage);
 				
@@ -117,19 +118,22 @@ namespace Player
 			return image;
 		}
 
-		
+		private void UpdateWeaponImage(object sender, System.EventArgs eventArgs)
+		{
+			if (player.character.weapon.BulletTypeSprite == null)
+				return;
+			WeaponImage.sprite = player.character.weapon.BulletTypeSprite;
+		}
 
 		public void Start()
 		{
 			UpdateCharacters(this, EventArgs.Empty);
-			//healthBar.enabled = true;
-			//healthBar.UpdateBar();
-			//ChangeHealthBar(this, EventArgs.Empty);
 			UpdateAmmoText(this, EventArgs.Empty);
 			Character.OnDeath += UpdateCharacters;
 			player.OnCharacterChange += UpdateCharacters;
 			player.OnCharacterChange += ChangeHealthBar;
 			player.OnCharacterChange += UpdateAmmoText;
+			player.OnCharacterChange += UpdateWeaponImage;
 			Weapon.Weapon.OnAmmoChanged += UpdateAmmoText;
 			healthBar.SetUp(player.character.health);
 		}
