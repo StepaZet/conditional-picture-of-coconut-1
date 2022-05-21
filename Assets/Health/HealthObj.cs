@@ -20,6 +20,7 @@ public class HealthObj : MonoBehaviour
         OnHealthChanged?.Invoke(this, EventArgs.Empty);
     }
     public event EventHandler OnHealthChanged;
+    public event EventHandler OnDeath;
 
     public int CurrentHealthPoints;
     public int maxHealthPoints;
@@ -47,10 +48,12 @@ public class HealthObj : MonoBehaviour
 
     private int ToHealthInBounds(int healthPoints)
     {
-        if (healthPoints < 0)
+        if (healthPoints <= 0)
+        {
+            OnDeath?.Invoke(this, EventArgs.Empty);
             return 0;
-        if (healthPoints > maxHealthPoints)
-            return maxHealthPoints;
-        return healthPoints;
+        }
+
+        return healthPoints > maxHealthPoints ? maxHealthPoints : healthPoints;
     }
 }

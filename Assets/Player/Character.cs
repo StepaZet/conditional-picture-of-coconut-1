@@ -25,13 +25,14 @@ namespace Player
 			State = PlayerState.Normal;
 			sprite = rb.GetComponent<SpriteRenderer>();
 			grid = GameObject.Find("GridActualUnity").GetComponent<GridObj>();
+			health.OnDeath += Die;
 		}
 		public void Update()
 		{
 			if (health == null)
 				return;
 			if (health.CurrentHealthPoints <= 0) 
-				Die();
+				Die(this, EventArgs.Empty);
         }
 
 		private void FixedUpdate()
@@ -39,9 +40,10 @@ namespace Player
 			UpdateGrid();
 		}
 
-		private void Die()
+		private void Die(object sender, System.EventArgs eventArgs)
 		{
 			State = PlayerState.Dead;
+			Game.GameData.player.unlockedCharacters.Remove(this);
 			OnDeath?.Invoke(this, EventArgs.Empty);
 		}
         
