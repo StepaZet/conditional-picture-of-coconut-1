@@ -6744,6 +6744,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 554942488}
+    - target: {fileID: 598136205359888054, guid: 6305c7b18434b5f4592053b9c2a9c603, type: 3}
+      propertyPath: smallHealthBarPrefab
+      value: 
+      objectReference: {fileID: 5129325371606149272, guid: b9b8400cbd0e4094fa54c79e90e8258c, type: 3}
+    - target: {fileID: 598136205359888054, guid: 6305c7b18434b5f4592053b9c2a9c603, type: 3}
+      propertyPath: smallVerticalHealthBarPrefab
+      value: 
+      objectReference: {fileID: 5129325371606149272, guid: b9b8400cbd0e4094fa54c79e90e8258c, type: 3}
     - target: {fileID: 598136206549620960, guid: 6305c7b18434b5f4592053b9c2a9c603, type: 3}
       propertyPath: m_Pivot.x
       value: 0
