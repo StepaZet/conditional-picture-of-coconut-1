@@ -3652,7 +3652,7 @@ TextureImporter:
         height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 40, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -3985,7 +3985,7 @@ TextureImporter:
         x: 768
         y: 768
         width: 128
-        height: 128
+        height: 168
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5621,9 +5621,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1792
-        y: 128
+        y: 160
         width: 128
-        height: 128
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5642,9 +5642,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1920
-        y: 128
+        y: 159
         width: 128
-        height: 128
+        height: 97
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5830,10 +5830,10 @@ TextureImporter:
       name: Tiles-1_244
       rect:
         serializedVersion: 2
-        x: 1792
+        x: 1793
         y: 0
         width: 128
-        height: 128
+        height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5854,7 +5854,7 @@ TextureImporter:
         x: 1920
         y: 0
         width: 128
-        height: 128
+        height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

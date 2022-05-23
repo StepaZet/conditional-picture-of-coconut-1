@@ -96,7 +96,7 @@ namespace Weapon
 
 		private void DrawRay(Vector2 startPosition, Vector2 endPosition)
 		{
-			lineRenderer.widthMultiplier = 0.1f;
+			//lineRenderer.widthMultiplier = 0.1f;
 			lineRenderer.SetPosition(0, startPosition);
 			lineRenderer.SetPosition(1, endPosition);
 		}

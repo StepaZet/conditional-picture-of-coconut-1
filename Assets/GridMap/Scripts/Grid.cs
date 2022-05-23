@@ -65,7 +65,7 @@ public class Grid
     {
         if (!IsInGrid(gridPosition)) return;
         gridArray[gridPosition.x, gridPosition.y] = Grid.GridCell.Wall;
-        DrawCell(gridPosition, Color.red);
+        //DrawCell(gridPosition, Color.red);
     }
 
     public void CreateWall(Vector3 worldPosition)
@@ -73,7 +73,7 @@ public class Grid
         var gridPosition = WorldToGridPosition(worldPosition);
         if (!IsInGrid(gridPosition)) return;
         gridArray[gridPosition.x, gridPosition.y] = Grid.GridCell.Wall;
-        DrawCell(gridPosition, Color.red);
+        //DrawCell(gridPosition, Color.red);
     }
 
     // visualization 
@@ -117,39 +117,39 @@ public class Grid
         });
     }
 
-    public void AddPathsToDraw(List<int2> pathToDraw)
-    {
-        lock (pathsToDraw)
-        {
-            pathsToDraw.Add(pathToDraw);
-        }
-    }
+    //public void AddPathsToDraw(List<int2> pathToDraw)
+    //{
+    //    lock (pathsToDraw)
+    //    {
+    //        pathsToDraw.Add(pathToDraw);
+    //    }
+    //}
 
-    public void DrawPaths()
-    {
-        lock (pathsToDraw)
-        {
-            foreach (var path in pathsToDraw)
-                for (var i = 0; i < path.Count - 1; i++)
-                {
-                    Debug.DrawLine(
-                        GridToWorldPosition(path[i]).ToVector3() + new Vector3(CellSize / 2, CellSize / 2),
-                        GridToWorldPosition(path[i+1]).ToVector3() + new Vector3(CellSize / 2, CellSize / 2), Color.green, 100f);
-                }
-            pathsToDraw.Clear();
-        }
-    }
+    //public void DrawPaths()
+    //{
+    //    lock (pathsToDraw)
+    //    {
+    //        foreach (var path in pathsToDraw)
+    //            for (var i = 0; i < path.Count - 1; i++)
+    //            {
+    //                Debug.DrawLine(
+    //                    GridToWorldPosition(path[i]).ToVector3() + new Vector3(CellSize / 2, CellSize / 2),
+    //                    GridToWorldPosition(path[i+1]).ToVector3() + new Vector3(CellSize / 2, CellSize / 2), Color.green, 100f);
+    //            }
+    //        pathsToDraw.Clear();
+    //    }
+    //}
 
-    public void FillCell(int2 gridPosition)
-    {
-        if (IsInGrid(gridPosition))
-            DrawCell(gridPosition, Color.green, 100f);
-    }
+    //public void FillCell(int2 gridPosition)
+    //{
+    //    if (IsInGrid(gridPosition))
+    //        DrawCell(gridPosition, Color.green, 100f);
+    //}
 
-    public void UnFillCell(int2 gridPosition)
-    {
-        if (IsInGrid(gridPosition))
-            DrawCell(gridPosition, gridArray[gridPosition.x, gridPosition.y] == GridCell.Walkable
-                ? Color.white : Color.red);
-    }
+    //public void UnFillCell(int2 gridPosition)
+    //{
+    //    if (IsInGrid(gridPosition))
+    //        DrawCell(gridPosition, gridArray[gridPosition.x, gridPosition.y] == GridCell.Walkable
+    //            ? Color.white : Color.red);
+    //}
 }

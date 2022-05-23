@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fa82d62adbfc7fb4787bda1726a38220, type: 3}
+  m_Sprite: {fileID: 6945424464031441130, guid: 4a8f7b2ed9f66c84c9db5a7f33b123b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -144,9 +144,6 @@ MonoBehaviour:
   weaponPrefab: {fileID: 0}
   characterCollider: {fileID: 7605132891047785645}
   grid: {fileID: 0}
-  gridPosition:
-    x: 0
-    y: 0
 --- !u!1001 &3035561691537084061
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -14,6 +14,11 @@ using Vector3 = UnityEngine.Vector3;
 
 public class SimpleEnemyAI : MonoBehaviour
 {
+    /*
+     * Внимание! Это уже легаси, которое имеет смысл удалить,
+     * тут куча плохого кода, который не буду рефакторить, т.к. файл все равно идет на удаление
+     */
+
     public HealthObj Health;
     [SerializeField] private int maxHealth;
     public Rigidbody2D Rb;
@@ -190,7 +195,7 @@ public class SimpleEnemyAI : MonoBehaviour
         {
             countFailSearch = 0;
             path = PathFinding.GetClearPath(originalPath);
-            Grid.AddPathsToDraw(path);
+            //Grid.AddPathsToDraw(path);
 
             nextTargetIndex = 0;
             UpdateNextTarget();

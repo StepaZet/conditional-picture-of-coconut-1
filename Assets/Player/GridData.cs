@@ -18,8 +18,8 @@ namespace Player
 		{
 			var newGridPosition = grid.WorldToGridPosition(character.transform.position);
 			if (newGridPosition.x == gridPosition.x && newGridPosition.y == gridPosition.y) return;
-			grid.UnFillCell(gridPosition);
-			grid.FillCell(newGridPosition);
+			//grid.UnFillCell(gridPosition);
+			//grid.FillCell(newGridPosition);
 			gridPosition = newGridPosition;
 			grid.PlayerPosition = character.transform.position;
 		}

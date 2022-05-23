@@ -35,7 +35,7 @@ namespace Player
 
 		private void FixedUpdate()
 		{
-			UpdateGrid();
+			//UpdateGrid();
 		}
 
 		private void Die()
@@ -50,18 +50,18 @@ namespace Player
 		
 		
 		public GridObj grid;
-		public int2 gridPosition;
+		//public int2 gridPosition;
 
 
-		public void UpdateGrid()
-		{
-			var newGridPosition = grid.WorldToGridPosition(transform.position);
-			if (newGridPosition.x == gridPosition.x && newGridPosition.y == gridPosition.y) return;
-			grid.UnFillCell(gridPosition);
-			grid.FillCell(newGridPosition);
-			gridPosition = newGridPosition;
-			grid.PlayerPosition = transform.position;
-		}
+		//public void UpdateGrid()
+		//{
+		//	var newGridPosition = grid.WorldToGridPosition(transform.position);
+		//	if (newGridPosition.x == gridPosition.x && newGridPosition.y == gridPosition.y) return;
+		//	//grid.UnFillCell(gridPosition);
+		//	//grid.FillCell(newGridPosition);
+		//	gridPosition = newGridPosition;
+		//	grid.PlayerPosition = transform.position;
+		//}
 
 	}
 }

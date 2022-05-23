@@ -41,8 +41,8 @@ public class GridObj : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Grid.pathsToDraw.Count > 0)
-            Grid.DrawPaths();
+        //if (Grid.pathsToDraw.Count > 0)
+        //    Grid.DrawPaths();
 
         //if (Input.GetMouseButtonDown(1))
         //    CreateWall(Tools.GetMouseWordPosition());
@@ -57,16 +57,16 @@ public class GridObj : MonoBehaviour
     public void CreateWall(Vector3 worldPosition)
         => Grid.CreateWall(worldPosition);
 
-    public void AddPathsToDraw(List<int2> pathToDraw)
-    {
-        Grid.AddPathsToDraw(pathToDraw);
-    }
+    //public void AddPathsToDraw(List<int2> pathToDraw)
+    //{
+    //    Grid.AddPathsToDraw(pathToDraw);
+    //}
 
-    public void FillCell(int2 gridPosition)
-        => Grid.FillCell(gridPosition);
+    //public void FillCell(int2 gridPosition)
+    //    => Grid.FillCell(gridPosition);
 
-    public void UnFillCell(int2 gridPosition)
-        => Grid.UnFillCell(gridPosition);
+    //public void UnFillCell(int2 gridPosition)
+    //    => Grid.UnFillCell(gridPosition);
 
     public void CreateWall(Vector3 startWorldWall, Vector3 endWorldWall)
         => Grid.CreateWall(startWorldWall, endWorldWall);
