@@ -70,7 +70,7 @@ namespace Assets.Enemies
                 new[]
                 {
                     AttackStage.None,
-                    AttackStage.SpawnBombers,
+                    //AttackStage.SpawnBombers,
                     AttackStage.FireBalls,
                     AttackStage.Dash,
                     AttackStage.Dash,
@@ -204,7 +204,7 @@ namespace Assets.Enemies
                 EndStage();
             }
 
-            var direction = (GameData.player.transform.position - transform.position).normalized 
+            var direction = Direction2D(GameData.player.transform.position, transform.position).normalized 
                             + new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f));
             var fireball = Instantiate(
                 FireBallPrefab, 

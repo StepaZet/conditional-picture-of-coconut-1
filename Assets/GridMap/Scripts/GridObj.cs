@@ -36,7 +36,7 @@ public class GridObj : MonoBehaviour
             }
         }
 
-        Grid.DrawGrid();
+        //Grid.DrawGrid();
     }
 
     private void FixedUpdate()

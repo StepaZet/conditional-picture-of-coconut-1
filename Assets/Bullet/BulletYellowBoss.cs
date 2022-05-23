@@ -1,3 +1,4 @@
+using Assets.Enemies;
 using UnityEngine;
 
 namespace Assets.Bullet
@@ -28,14 +29,14 @@ namespace Assets.Bullet
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.collider.GetComponent<global::Bullet.Bullet>())
+            if (collision.gameObject.GetComponent<BulletYellowBoss>() 
+                || collision.gameObject.GetComponent<YellowBoss>() 
+                || collision.gameObject.GetComponentInParent<YellowBoss>())
             {
                 Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
                 return;
             }
 
-            if (collision.collider.GetComponent<BulletYellowBoss>())
-                return;
             if (collision.collider.GetComponentInChildren<HealthObj>())
                 collision.collider.GetComponentInChildren<HealthObj>().Damage(damageAmount);
             Boom();
