@@ -327,7 +327,7 @@ namespace Assets.Enemies
 
         protected void DieDefault()
         {
-            Instantiate(DieAnimation, transform.position + new Vector3(0, 0, -2), Quaternion.identity);
+            Instantiate(DieAnimation, transform.position + new Vector3(0, 0, -4), Quaternion.identity);
             if (loots.Length != 0 && Random.Range(0, 100) <= lootProbability)
                 Instantiate(loots[Random.Range(0, loots.Length)], transform.position, Quaternion.identity);
 

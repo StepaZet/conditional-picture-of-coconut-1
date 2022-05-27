@@ -7,6 +7,12 @@ public class Chest : MonoBehaviour
 {
     [SerializeField] protected Sprite emptySprite;
     private bool isEmpty;
+    public ParticleSystem SpawnAnimation;
+
+    private void Start()
+    {
+        Instantiate(SpawnAnimation, transform.position + new Vector3(0, 0, -2), Quaternion.identity);
+    }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {

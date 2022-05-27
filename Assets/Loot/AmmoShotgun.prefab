@@ -122,3 +122,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b8125ac210f484f8155004fb1ac770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnAnimation: {fileID: 9001825545824494449, guid: e24580a3aad9865469e681ed0a929da9, type: 3}

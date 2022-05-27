@@ -123,3 +123,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptySprite: {fileID: 3721454760421535183, guid: 4a8f7b2ed9f66c84c9db5a7f33b123b1, type: 3}
+  SpawnAnimation: {fileID: 2416404387269831898, guid: 223067cc2d419df46a5fc14391ab5ffb, type: 3}
