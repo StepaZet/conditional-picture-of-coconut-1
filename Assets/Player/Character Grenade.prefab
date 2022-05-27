@@ -117,7 +117,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -235,8 +235,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2289296668477395805, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 5507430852813502637, guid: fa5d2e8b37706c14fba037fe1c88d326, type: 3}
+    - target: {fileID: 2289296668477395805, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
       propertyPath: timeDifference
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900964793020963981, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900964793020963981, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.23065291
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900964793020963981, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
+      propertyPath: m_Color.r
+      value: 0.49019608
       objectReference: {fileID: 0}
     - target: {fileID: 7900964793020963982, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
       propertyPath: m_RootOrder

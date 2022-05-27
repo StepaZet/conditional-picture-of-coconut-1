@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b1c7c5948a4a2439cd9c4bf4fe0a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnAnimation: {fileID: 8966355666237352137, guid: c9c1faeccccd17d449fda747c85964ce, type: 3}
+  DieAnimation: {fileID: 3372620246045449236, guid: 76844dd712d312c42a574464c0d0cde5, type: 3}
   Grid: {fileID: 0}
   Health: {fileID: 2678553733638646196}
   MoveSpeed: 0

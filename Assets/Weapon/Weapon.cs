@@ -17,7 +17,7 @@ namespace Weapon
 		[SerializeField]protected float reloadStart;
 		[SerializeField]protected float timeDifference;
 		[SerializeField] protected int maxAmmoAmount;
-		[SerializeField] private bool hasUnlimitedBullets;
+		[SerializeField] protected bool hasUnlimitedBullets;
 		public Sprite BulletTypeSprite;
 		public int CurrentAmmoAmount { get; private set; }
 		public static event EventHandler OnAmmoChanged;
@@ -68,7 +68,9 @@ namespace Weapon
 							CreateBullets();
 							reloadStart = Time.time;
 							state = WeaponState.Reloading;
-							break;
+                            if (CurrentAmmoAmount <= 0)
+                                CurrentAmmoAmount = maxAmmoAmount;
+                            break;
 						default:
 							throw new ArgumentOutOfRangeException();
 					}

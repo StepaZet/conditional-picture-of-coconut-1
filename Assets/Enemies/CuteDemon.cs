@@ -8,8 +8,9 @@ namespace Assets.Enemies
     {
         public ParticleSystem Death;
         
-        private void OnEnable()
+        private void Start()
         {
+            //Instantiate(SpawnAnimation, transform.position + new Vector3(0, 0, -2), Quaternion.identity);
             SetStartDefaults();
 
             homeRadius = 20;
@@ -48,7 +49,7 @@ namespace Assets.Enemies
 
         protected override void Die()
         {
-            Instantiate(Death, transform.position, Quaternion.identity);
+            //Instantiate(Death, transform.position, Quaternion.identity);
             DieDefault();
         }
 

@@ -218,12 +218,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99a718c4902386439766351cd876590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnAnimation: {fileID: 0}
+  DieAnimation: {fileID: 7581847485357837658, guid: baf9fff9b31f15c428fa1f8f9e4a8450, type: 3}
   Grid: {fileID: 0}
   Health: {fileID: 8131605625859998533}
   MoveSpeed: 0
   sprite: {fileID: 0}
   Rb: {fileID: 0}
   loots: []
+  lootProbability: 0
   Weapon: {fileID: 0}
   homePosition: {x: 0, y: 0, z: 0}
   followingTime: 0

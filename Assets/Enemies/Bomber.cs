@@ -8,7 +8,7 @@ namespace Assets.Enemies
 {
     public class Bomber : Enemy
     {
-        public ParticleSystem Boom;
+        //public ParticleSystem Boom;
         public BomberMini BomberMiniPrefab;
 
         private float BoomRadius = 4f;
@@ -57,7 +57,7 @@ namespace Assets.Enemies
         {
             var objectsToGetDamage = Physics2D.OverlapCircleAll(transform.position, BoomRadius);
 
-            Instantiate(Boom, transform.position, Quaternion.identity);
+            //Instantiate(Boom, transform.position, Quaternion.identity);
 
             foreach (var obj in objectsToGetDamage)
             {

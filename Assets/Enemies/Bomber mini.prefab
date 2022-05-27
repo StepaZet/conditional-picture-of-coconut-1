@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48233eb93097ff34abebab9bdacd8fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnAnimation: {fileID: 4452948361985936173, guid: c1616e98483bb814b80d459dc77b54e1, type: 3}
+  DieAnimation: {fileID: 7884765147642207814, guid: af27ae7c4ef7a4542964910386e38e19, type: 3}
   Grid: {fileID: 0}
   Health: {fileID: 3346005717709266741}
   MoveSpeed: 2
@@ -147,7 +149,6 @@ MonoBehaviour:
   homePosition: {x: 0, y: 0, z: 0}
   followingTime: 0
   runRange: 0
-  boom: {fileID: 7884765147642207814, guid: af27ae7c4ef7a4542964910386e38e19, type: 3}
 --- !u!1001 &3689883747743742253
 PrefabInstance:
   m_ObjectHideFlags: 0

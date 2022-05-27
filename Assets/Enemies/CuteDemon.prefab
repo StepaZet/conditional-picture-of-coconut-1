@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c34bf517f8c7db45b7013198619a47e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnAnimation: {fileID: 3790376893375084695, guid: 77c843c8e07384a43bce1d1e75e7596b, type: 3}
+  DieAnimation: {fileID: 4540342610652310283, guid: 3cf875c138f146c4f918be0fcc680131, type: 3}
   Grid: {fileID: 0}
   Health: {fileID: 9051430322146102034}
   MoveSpeed: 10
@@ -129,7 +131,7 @@ MonoBehaviour:
   lootProbability: 50
   Weapon: {fileID: 0}
   homePosition: {x: 0, y: 0, z: 0}
-  followingTime: 0
+  followingTime: 0.2
   runRange: 0
   Death: {fileID: 4540342610652310283, guid: 3cf875c138f146c4f918be0fcc680131, type: 3}
 --- !u!58 &6806625243763099877

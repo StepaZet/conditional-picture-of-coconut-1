@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 10
-  boom: {fileID: 8379217461617278015, guid: 8fd5b8e1e1072f24db416e75f37af566, type: 3}
+  boom: {fileID: 3890593823356423014, guid: 28a1ccbab4ffdef4091dff1478de5644, type: 3}
   boomRadius: 5
 --- !u!58 &2889152899138172841
 CircleCollider2D:

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3982728948997675951}
   - component: {fileID: 3982728948997675950}
   - component: {fileID: 3982728948997675949}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Character Gold
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

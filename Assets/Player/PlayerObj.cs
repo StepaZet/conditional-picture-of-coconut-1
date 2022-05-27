@@ -50,6 +50,11 @@ namespace Player
         private void FixedUpdate()
         {
             controller.FixedUpdate(this);
+            if (input.IsChangeCharacter)
+            {
+                input.DropIsChangeCharacter();
+                TryChangeCharacter();
+            }
         }
 
         public Vector3 GetPosition()
@@ -57,21 +62,21 @@ namespace Player
             return transform.position;
         }
         
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.gameObject.GetComponent<Rigidbody2D>()) 
-                other.gameObject.GetComponent<Rigidbody2D>().WakeUp();
-        }
+        //private void OnTriggerEnter2D(Collider2D other)
+        //{
+        //    if (other.gameObject.GetComponent<Rigidbody2D>()) 
+        //        other.gameObject.GetComponent<Rigidbody2D>().WakeUp();
+        //}
 
-        private void OnTriggerStay2D(Collider2D other)
-        {
-            if (!other.GetComponent<Character>() || other.gameObject == character.gameObject)
-                return;
-            if (!input.IsChangeCharacter)
-                return;
-            input.DropIsChangeCharacter();
-            ChangeCharacter(other.GetComponent<Character>());
-        }
+        //private void OnTriggerStay2D(Collider2D other)
+        //{
+        //    if (!other.GetComponent<Character>() || other.gameObject == character.gameObject)
+        //        return;
+        //    if (!input.IsChangeCharacter)
+        //        return;
+        //    input.DropIsChangeCharacter();
+        //    ChangeCharacter(other.GetComponent<Character>());
+        //}
 
         private void ChangeCharacter(Character other)
         {
@@ -89,6 +94,21 @@ namespace Player
                 unlockedCharacters.Add(character);
             
             OnCharacterChange?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void TryChangeCharacter()
+        {
+            var radius = 5f;
+            var objects = Physics2D.OverlapCircleAll(transform.position, radius, LayerMask.GetMask("Character"));
+            foreach (var obj in objects)
+            {
+                if (obj.gameObject != GameData.player.character.gameObject)
+                {
+                    ChangeCharacter(obj.GetComponent<Character>());
+                    return;
+                }
+            }
+
         }
 
 

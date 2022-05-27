@@ -29,6 +29,9 @@ namespace Assets.Enemies
             PrepareToDie
         }
 
+        public ParticleSystem SpawnAnimation;
+        public ParticleSystem DieAnimation;
+
         public GridObj Grid;
         public HealthObj Health;
         public float MoveSpeed;
@@ -79,8 +82,15 @@ namespace Assets.Enemies
         protected float fireRange;
         public float runRange;
 
+        //private void OnEnable()
+        //{
+            
+        //    SetStartDefaults();
+        //}
+
         protected void SetStartDefaults()
         {
+            Instantiate(SpawnAnimation, transform.position + new Vector3(0, 0, -2), Quaternion.identity);
             pathFinder = new PathFinding();
             Rb = GetComponent<Rigidbody2D>();
             sprite = GetComponent<SpriteRenderer>();
@@ -317,6 +327,7 @@ namespace Assets.Enemies
 
         protected void DieDefault()
         {
+            Instantiate(DieAnimation, transform.position + new Vector3(0, 0, -2), Quaternion.identity);
             if (loots.Length != 0 && Random.Range(0, 100) <= lootProbability)
                 Instantiate(loots[Random.Range(0, loots.Length)], transform.position, Quaternion.identity);
 
