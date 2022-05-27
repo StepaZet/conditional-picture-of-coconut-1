@@ -18,8 +18,8 @@ namespace Health
 			var healthObj = other.GetComponentInChildren<HealthObj>(); 
 			if (healthObj.CurrentHealthPoints == healthObj.maxHealthPoints)
 				return;
-
-			GameData.player.character.health.Heal(healthPoints);
+			
+			healthObj.Heal(healthPoints);
 				
 			Destroy(gameObject);
 		}

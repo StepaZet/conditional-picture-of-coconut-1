@@ -17,18 +17,21 @@ namespace Weapon
 		[SerializeField]protected float reloadStart;
 		[SerializeField]protected float timeDifference;
 		[SerializeField] protected int maxAmmoAmount;
-		[SerializeField] protected int currentAmmoAmount;
+		[SerializeField] private bool hasUnlimitedBullets;
+		public Sprite BulletTypeSprite;
+		public int CurrentAmmoAmount { get; private set; }
+		public static event EventHandler OnAmmoChanged;
 		public int MaxAmmoAmount => maxAmmoAmount;
-		public int CurrentAmmoAmount => currentAmmoAmount;
         protected int WallsLayerMask;
 
 
 		public void Awake()
 		{
 			ammoState = AmmoState.Full;
-			currentAmmoAmount = maxAmmoAmount;
-            WallsLayerMask = LayerMask.GetMask("Walls");
-        }
+			CurrentAmmoAmount = maxAmmoAmount;
+			WallsLayerMask = LayerMask.GetMask("Walls");
+			OnAmmoChanged?.Invoke(this, EventArgs.Empty);
+		}
 
 		protected virtual void SetMaxBulletAmount()
 		{
@@ -42,7 +45,9 @@ namespace Weapon
 		
 
         public virtual void Fire(bool isButtonPressed)
-		{
+        {
+	        if (hasUnlimitedBullets)
+		        ammoState = AmmoState.Unlimited;
 			switch (state)
 			{
 				case WeaponState.Ready when isButtonPressed:
@@ -56,8 +61,13 @@ namespace Weapon
 							ammoState = AmmoState.Normal;
 							reloadStart = Time.time;
 							state = WeaponState.Reloading;
-							if (currentAmmoAmount <= 0)
+							if (CurrentAmmoAmount <= 0)
 								ammoState = AmmoState.Empty;
+							break;
+						case AmmoState.Unlimited:
+							CreateBullets();
+							reloadStart = Time.time;
+							state = WeaponState.Reloading;
 							break;
 						default:
 							throw new ArgumentOutOfRangeException();
@@ -83,27 +93,37 @@ namespace Weapon
 
 		protected virtual void CreateBullets()
 		{
-			if (currentAmmoAmount == 0)
+			if (ammoState == AmmoState.Empty)
 				return;
+			
 			var bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 			bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
-			currentAmmoAmount--;
+			DecrementAmmo();
 		}
 
 		public void AddBullets(int amount)
 		{
-			var temporary = currentAmmoAmount;
+			var temporary = CurrentAmmoAmount;
 			temporary += amount;
 			if (temporary > maxAmmoAmount)
 			{
-				currentAmmoAmount = maxAmmoAmount;
+				CurrentAmmoAmount = maxAmmoAmount;
 				ammoState = AmmoState.Full;
 			}
 			else
 			{
-				currentAmmoAmount = temporary;
+				CurrentAmmoAmount = temporary;
 				ammoState = AmmoState.Normal;
 			}
+			
+			OnAmmoChanged?.Invoke(this, EventArgs.Empty);
+		}
+
+
+		protected void DecrementAmmo()
+		{
+			CurrentAmmoAmount--;
+			OnAmmoChanged?.Invoke(this, EventArgs.Empty);
 		}
 	}
 }

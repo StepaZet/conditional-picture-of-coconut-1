@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Enemies;
+using Health;
 using Player;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -51,9 +52,8 @@ namespace Weapon
 						case AmmoState.Normal:
 							ammoState = AmmoState.Normal;
 							CastRay();
-                            currentAmmoAmount--;
-
-							if (currentAmmoAmount <= 0)
+							DecrementAmmo();
+							if (CurrentAmmoAmount <= 0)
 								ammoState = AmmoState.Empty;
 							
 							reloadStart = Time.time;

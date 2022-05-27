@@ -49,8 +49,7 @@ namespace Player
 
 		public void FixedUpdate(PlayerObj player)
         {
-
-            switch (player.character.State)
+	        switch (player.character.State)
 			{
 				case PlayerState.Normal:
 					Move(player);
@@ -74,7 +73,11 @@ namespace Player
 		{
 			if (!player.input.IsDash)
 				return;
-		
+			if (player.character.stamina.CurrentHealthPoints <= 0)
+				return;
+			
+			player.character.stamina.Damage(30);
+
 			var dashAmount = 3f;
 			var position = player.transform.position;
 			var dashPosition = position + (Vector3) latestMoveDirection.normalized * dashAmount;
@@ -101,10 +104,7 @@ namespace Player
 			if (!player.input.IsRoll)
 				return;
 			player.character.State = PlayerState.Rolling;
-		
-
 			rollSpeed = 20f;
-
 		}
 	
 		private void Aim(PlayerObj player)
@@ -119,19 +119,16 @@ namespace Player
 		private static void Fire(PlayerObj player)
 		{
 			player.character.weapon.Fire(player.input.IsFireInput);
-			player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
 		}
 	
 		private static void FireHeld(PlayerObj player)
 		{
 			player.character.weapon.FireHeld(player.input.IsFireInputHeld);
-			player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
 		}
 
 		private static void FireReleased(PlayerObj player)
 		{
 			player.character.weapon.FireReleased(player.input.IsFireInputReleased);
-			player.ui.UpdateAmmoText(player.character.weapon.CurrentAmmoAmount, player.character.weapon.MaxAmmoAmount);
 		}
     }
 }

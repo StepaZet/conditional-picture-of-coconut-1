@@ -74,7 +74,7 @@ namespace Weapon
 					ammoState = AmmoState.Normal;
 					reloadStart = Time.time;
 					state = WeaponState.Reloading;
-					if (currentAmmoAmount <= 0)
+					if (CurrentAmmoAmount <= 0)
 						ammoState = AmmoState.Empty;
 					break;
 

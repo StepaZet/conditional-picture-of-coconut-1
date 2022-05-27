@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Enemies;
+using Health;
 using UnityEngine;
 
 public class BulletEvilWizard : MonoBehaviour
