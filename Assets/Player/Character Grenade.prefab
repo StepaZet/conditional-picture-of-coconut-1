@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8949487065852733426}
   - component: {fileID: 8949487065852733427}
   - component: {fileID: 8949487065852733424}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Character Grenade
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -146,9 +146,6 @@ MonoBehaviour:
   weaponPrefab: {fileID: 8072742337922860524}
   characterCollider: {fileID: 8949487065852733426}
   grid: {fileID: 0}
-  gridPosition:
-    x: 0
-    y: 0
 --- !u!1001 &103190852129078360
 PrefabInstance:
   m_ObjectHideFlags: 0

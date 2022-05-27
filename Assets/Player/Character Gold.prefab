@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3982728948997675950}
   - component: {fileID: 3982728948997675949}
   m_Layer: 0
-  m_Name: Character Grenade (1)
+  m_Name: Character Gold
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,9 +146,6 @@ MonoBehaviour:
   weaponPrefab: {fileID: 4287336220584262065}
   characterCollider: {fileID: 3982728948997675951}
   grid: {fileID: 0}
-  gridPosition:
-    x: 0
-    y: 0
 --- !u!1001 &4096422377206230886
 PrefabInstance:
   m_ObjectHideFlags: 0

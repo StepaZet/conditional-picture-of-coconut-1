@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3942349395538536923}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.09, y: 29.890003, z: -1}
+  m_LocalPosition: {x: 0.66, y: 31.18, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2554816390471293771}
@@ -146,9 +146,6 @@ MonoBehaviour:
   weaponPrefab: {fileID: 2436298638021110791}
   characterCollider: {fileID: 3942349395538536920}
   grid: {fileID: 0}
-  gridPosition:
-    x: 0
-    y: 0
 --- !u!1001 &2348830300765038124
 PrefabInstance:
   m_ObjectHideFlags: 0

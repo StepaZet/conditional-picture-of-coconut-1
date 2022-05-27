@@ -69,6 +69,7 @@ namespace Player
                 return;
             if (!input.IsChangeCharacter)
                 return;
+            input.DropIsChangeCharacter();
             ChangeCharacter(other.GetComponent<Character>());
         }
 
