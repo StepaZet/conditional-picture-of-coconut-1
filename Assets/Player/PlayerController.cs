@@ -73,9 +73,11 @@ namespace Player
 		{
 			if (!player.input.IsDash)
 				return;
+			if (player.character.stamina.CurrentHealthPoints <= 0)
+				return;
 			
 			player.character.stamina.Damage(30);
-		
+
 			var dashAmount = 3f;
 			var position = player.transform.position;
 			var dashPosition = position + (Vector3) latestMoveDirection.normalized * dashAmount;
