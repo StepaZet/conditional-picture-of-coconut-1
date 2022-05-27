@@ -30,7 +30,8 @@ public class BulletEvilWizard : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.GetComponent<Bullet.Bullet>())
+        if (collision.gameObject.GetComponent<MimicBoss>()
+            || collision.gameObject.GetComponentInParent<MimicBoss>())
         {
             Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
             return;

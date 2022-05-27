@@ -49,7 +49,10 @@ public class BulletMimicBoss : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.GetComponent<global::Bullet.Bullet>())
+
+        if (collision.gameObject.GetComponent<BulletMimicBoss>()
+            || collision.gameObject.GetComponent<MimicBoss>()
+            || collision.gameObject.GetComponentInParent<MimicBoss>())
         {
             Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
             return;
@@ -61,13 +64,8 @@ public class BulletMimicBoss : MonoBehaviour
             return;
         }
 
-        if (collision.gameObject.layer != LayerMask.NameToLayer("Walls") 
-            && collision.gameObject.layer != LayerMask.NameToLayer("Enemy") 
-            && collision.gameObject.layer != LayerMask.NameToLayer("Character"))
-            return;
-
-        if (collision.collider.GetComponent<BulletMimicBoss>() || !collision.collider.GetComponent<HealthObj>())
-            return;
+        //if (!collision.collider.GetComponent<HealthObj>())
+        //    return;
         
         Boom();
     }

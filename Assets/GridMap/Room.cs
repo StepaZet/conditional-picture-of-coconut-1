@@ -10,6 +10,7 @@ public class Room : MonoBehaviour
     [SerializeField] private List<GameObject> Enemies;
     private int waveNumber;
     private bool isActive;
+    private bool isWin;
     private Stage currentStage;
     private float pauseStart;
     private float pauseTime = 1f;
@@ -37,6 +38,9 @@ public class Room : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isWin)
+            return;
+
         switch (currentStage)
         {
             case Stage.None:
@@ -105,6 +109,7 @@ public class Room : MonoBehaviour
     private void WinRoom()
     {
         Doors.SetActive(false);
-        Destroy(gameObject);
+        isWin = true;
+        //Destroy(gameObject);
     }
 }

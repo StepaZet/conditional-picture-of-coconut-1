@@ -22,7 +22,7 @@ namespace Assets.Enemies
 
             pauseTime = 1f;
             followingTime = 6f;
-            reloadTime = 1f;
+            reloadTime = 0.3f;
 
             MoveSpeed = 3f;
         }
