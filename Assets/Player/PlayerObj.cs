@@ -43,7 +43,7 @@ namespace Player
             {
                 unlockedCharacters.Remove(character);
                 if (unlockedCharacters.Count > 0)
-                    ChangeCharacter(unlockedCharacters[0]);
+                    ChangeCharacterOnSamePosition(unlockedCharacters[0]);
             }
         }
 
@@ -87,7 +87,9 @@ namespace Player
             var transform = character.weapon.transform;
             var weaponPosition = transform.localPosition;
             var weaponRotation = transform.localRotation;
+            character.gameObject.SetActive(false);
             character = other;
+            character.gameObject.SetActive(true);
             var transformWeapon = character.weapon.transform;
             transformWeapon.localPosition = weaponPosition;
             var weaponEulerAngles = weaponRotation.eulerAngles;
@@ -116,8 +118,15 @@ namespace Player
 
         private void ChangeCharacterWithNumbers()
         {
-            if (input.ChosenCharacterIndex < unlockedCharacters.Count)
-                ChangeCharacter(unlockedCharacters[input.ChosenCharacterIndex]); 
+            if (input.ChosenCharacterIndex < unlockedCharacters.Count) 
+                ChangeCharacterOnSamePosition(unlockedCharacters[input.ChosenCharacterIndex]);
+        }
+
+        private void ChangeCharacterOnSamePosition(Character other)
+        {
+            var position = character.transform.position;
+            ChangeCharacter(other);
+            character.transform.position = position;
         }
 
 
