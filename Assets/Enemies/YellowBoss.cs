@@ -71,7 +71,7 @@ namespace Assets.Enemies
                 new[]
                 {
                     AttackStage.None,
-                    //AttackStage.SpawnBombers,
+                    AttackStage.SpawnBombers,
                     AttackStage.FireBalls,
                     AttackStage.Dash,
                     AttackStage.Dash,
