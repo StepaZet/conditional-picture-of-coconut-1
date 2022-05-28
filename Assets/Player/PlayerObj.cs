@@ -24,7 +24,7 @@ namespace Player
         private void Awake()
         {
             GameData.Players.Add(this);
-            GameData.player = this; //Временно
+            GameData.player = this; 
             controller = new PlayerController(dashLayerMask);
             if (!unlockedCharacters.Contains(character))
                 unlockedCharacters.Add(character);
@@ -55,6 +55,9 @@ namespace Player
                 input.DropIsChangeCharacter();
                 TryChangeCharacter();
             }
+            if (input.IsChooseCharacter)
+                ChangeCharacterWithNumbers();
+                
         }
 
         public Vector3 GetPosition()
@@ -109,6 +112,12 @@ namespace Player
                 }
             }
 
+        }
+
+        private void ChangeCharacterWithNumbers()
+        {
+            if (input.ChosenCharacterIndex < unlockedCharacters.Count)
+                ChangeCharacter(unlockedCharacters[input.ChosenCharacterIndex]); 
         }
 
 
