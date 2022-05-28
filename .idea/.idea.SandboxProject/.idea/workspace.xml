@@ -150,19 +150,6 @@
           </properties>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Player/PlayerUI.cs</url>
-          <line>50</line>
-          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Player\PlayerUI.cs" initialLine="41" containingFunctionPresentation="method 'UpdateCharacters'">
-            <startOffsets>
-              <option value="1634" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1635" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

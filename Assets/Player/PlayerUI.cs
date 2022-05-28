@@ -59,23 +59,34 @@ namespace Player
 
 			var yNextPosition = 0f;
 			var backgroundColor = new Color(0, 0, 0, 0.5f);
-			foreach (var character in player.unlockedCharacters)
+			for (var index = 0; index < player.unlockedCharacters.Count; index++)
 			{
-				var smallHealthBarBackgroundImage = CreateImage(150, yNextPosition, 150, 150, "SmallHealthBarBackgroundImage");
+				var character = player.unlockedCharacters[index];
+				var smallHealthBarBackgroundImage =
+					CreateImage(150, yNextPosition, 150, 150, "SmallHealthBarBackgroundImage");
 				smallHealthBarBackgroundImage.color = backgroundColor;
 				openCharactersImages.Add(smallHealthBarBackgroundImage);
-				
+
 				var smallHealthBar = CreateSmallHealthBar(character, yNextPosition);
 				smallHealthBars.Add(smallHealthBar);
-				
+
 
 				var backgroundImage = CreateImage(0, yNextPosition, 150, 150, "BackgroundImage");
 				backgroundImage.color = backgroundColor;
 				openCharactersImages.Add(backgroundImage);
-				
+
 				var characterImage = CreateImage(character, yNextPosition);
 				openCharactersImages.Add(characterImage);
-				
+
+				var numberTextObj = new GameObject();
+				numberTextObj.transform.SetParent(openCharactersCanvas.transform);
+				numberTextObj.transform.localPosition = new Vector3(100, yNextPosition - 100);
+				var numberText = numberTextObj.AddComponent<Text>();
+				numberText.text = (index + 1).ToString();
+				numberText.font = ammoText.font;
+				numberText.fontSize = ammoText.fontSize / 2;
+
+
 				if (character != player.character)
 				{
 					var shadeImage = CreateImage(character, yNextPosition);
