@@ -78,14 +78,7 @@ namespace Player
 				var characterImage = CreateImage(character, yNextPosition);
 				openCharactersImages.Add(characterImage);
 
-				var numberTextObj = new GameObject();
-				numberTextObj.transform.SetParent(openCharactersCanvas.transform);
-				numberTextObj.transform.localPosition = new Vector3(100, yNextPosition - 100);
-				var numberText = numberTextObj.AddComponent<Text>();
-				numberText.text = (index + 1).ToString();
-				numberText.font = ammoText.font;
-				numberText.fontSize = ammoText.fontSize / 2;
-
+				CreateCharacterNumber(index, yNextPosition);
 
 				if (character != player.character)
 				{
@@ -111,6 +104,20 @@ namespace Player
 			smallHealthBar.SetUp(character.health);
 
 			return smallHealthBar;
+		}
+
+		private Text CreateCharacterNumber(int index, float yNextPosition)
+		{
+			var numberTextObj = new GameObject("CharacterNumber");
+			numberTextObj.transform.SetParent(openCharactersCanvas.transform);
+			numberTextObj.transform.localPosition = new Vector3(100, yNextPosition - 100);
+			var numberText = numberTextObj.AddComponent<Text>();
+			numberText.text = (index + 1).ToString();
+			numberText.font = ammoText.font;
+			numberText.fontSize = ammoText.fontSize / 2;
+
+
+			return numberText;
 		}
 
 		private Image CreateImage(float x, float y, float width, float height, string imageName)
