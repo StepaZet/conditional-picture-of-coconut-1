@@ -95,6 +95,8 @@ namespace Player
 			smallHealthBar.UpdateBar();
 			smallHealthBar.transform.SetParent(openCharactersCanvas.transform);
 			smallHealthBar.transform.localPosition = new Vector3(100, yNextPosition);
+			smallHealthBar.transform.localScale = smallHealthBar.transform.localScale.normalized * 2;
+			
 			smallHealthBar.SetUp(character.health);
 
 			return smallHealthBar;
