@@ -14,7 +14,22 @@ namespace Player
 		public bool IsDash { get; private set; }
 		public bool IsRoll { get; private set; }
 		public bool IsChangeCharacter { get; private set; }
-	
+		public bool IsChooseCharacter { get; private set; }
+		public int ChosenCharacterIndex { get; private set;}
+		
+		private readonly KeyCode[] numberKeyCodes = 
+		{
+			KeyCode.Alpha1,
+			KeyCode.Alpha2,
+			KeyCode.Alpha3,
+			KeyCode.Alpha4,
+			KeyCode.Alpha5,
+			KeyCode.Alpha6,
+			KeyCode.Alpha7,
+			KeyCode.Alpha8,
+			KeyCode.Alpha9,
+		};
+
 
 		public void Update()
 		{
@@ -26,11 +41,19 @@ namespace Player
 			IsFireInputReleased = Input.GetMouseButtonUp(0);
 			IsDash = Input.GetKeyDown(KeyCode.Space);
 			IsRoll = Input.GetKeyDown(KeyCode.LeftShift);
-            if (!IsChangeCharacter)
-                IsChangeCharacter = Input.GetKeyDown(KeyCode.Tab);
-        }
+			if (!IsChangeCharacter)
+				IsChangeCharacter = Input.GetKeyDown(KeyCode.Tab);
 
-        public void DropIsChangeCharacter()
+			IsChooseCharacter = false;
+			for (var i = 0; i < numberKeyCodes.Length; i++)
+				if (Input.GetKeyDown(numberKeyCodes[i]))
+				{
+					ChosenCharacterIndex = i;
+					IsChooseCharacter = true;
+				}
+		}
+
+		public void DropIsChangeCharacter()
         {
             IsChangeCharacter = false;
         }
