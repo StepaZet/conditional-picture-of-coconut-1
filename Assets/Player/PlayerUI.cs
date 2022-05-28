@@ -13,6 +13,7 @@ namespace Player
 	public class PlayerUI : MonoBehaviour
 	{
 		[SerializeField]private Text ammoText;
+		[SerializeField]private Text scoreText;
 		[SerializeField]private PlayerObj player;
 		[SerializeField]private HealthBar healthBar;
 		[SerializeField]private HealthBar staminaBar;
@@ -25,6 +26,11 @@ namespace Player
 		{
 			var weapon = player.character.weapon;
 			ammoText.text = $"{weapon.CurrentAmmoAmount}/{weapon.MaxAmmoAmount}";
+		}
+
+		private void UpdateScoresText(object sender, System.EventArgs eventArgs)
+		{
+			scoreText.text = GameData.Score.ToString();
 		}
 
 		private void ChangeBars(object sender, System.EventArgs eventArgs)
@@ -131,6 +137,7 @@ namespace Player
 		public void Start()
 		{
 			UpdateCharacters(this, EventArgs.Empty);
+			UpdateScoresText(this, EventArgs.Empty);
 			UpdateAmmoText(this, EventArgs.Empty);
 			Character.OnDeath += UpdateCharacters;
 			player.OnCharacterChange += UpdateCharacters;
@@ -138,6 +145,7 @@ namespace Player
 			player.OnCharacterChange += UpdateAmmoText;
 			player.OnCharacterChange += UpdateWeaponImage;
 			Weapon.Weapon.OnAmmoChanged += UpdateAmmoText;
+			Chest.OnScoreChanged += UpdateScoresText;
 			healthBar.SetUp(player.character.health);
 			staminaBar.SetUp(player.character.stamina);
 		}
