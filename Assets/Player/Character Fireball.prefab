@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c296d64fd11c6646aa06abb273a2190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 7287708977357258913}
+  weapon: {fileID: 3079411832525795600}
   health: {fileID: 914803677267503445}
   stamina: {fileID: 2191147030742199065}
   maxHealth: 50
@@ -286,7 +286,8 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 2356023520135298345, guid: 4a8f7b2ed9f66c84c9db5a7f33b123b1, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2515440232173996718, guid: 10b838214174e8f4ea834955ce77be2b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 10b838214174e8f4ea834955ce77be2b, type: 3}
 --- !u!1 &1676410110751756140 stripped
 GameObject:
@@ -298,15 +299,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5802968653666207101, guid: 10b838214174e8f4ea834955ce77be2b, type: 3}
   m_PrefabInstance: {fileID: 5173377184072141327}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7287708977357258913 stripped
+--- !u!114 &3079411832525795600 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2515440232173996718, guid: 10b838214174e8f4ea834955ce77be2b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7887988350021188383, guid: 10b838214174e8f4ea834955ce77be2b, type: 3}
   m_PrefabInstance: {fileID: 5173377184072141327}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676410110751756140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdacd5f1dea4498aa4da0a6ebca9e76a, type: 3}
+  m_Script: {fileID: 11500000, guid: 816c36fb049a47fe8635886cc8520f00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6096990959679349860

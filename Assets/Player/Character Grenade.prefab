@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c296d64fd11c6646aa06abb273a2190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 173615963366967841}
+  weapon: {fileID: 3918858194475647061}
   health: {fileID: 4558168823949008258}
   stamina: {fileID: 5447882119672492837}
   maxHealth: 100
@@ -254,6 +254,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.49019608
       objectReference: {fileID: 0}
+    - target: {fileID: 7900964793020963981, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7900964793020963982, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -302,7 +306,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrenadeLauncher
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2289296668477395805, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
 --- !u!1 &8072742337922860524 stripped
 GameObject:
@@ -314,17 +319,35 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7900964793020963982, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
   m_PrefabInstance: {fileID: 2138640261646375292}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &173615963366967841 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2289296668477395805, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
+--- !u!4 &8072742339002046016 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7900964794092408636, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
   m_PrefabInstance: {fileID: 2138640261646375292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3918858194475647061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8072742337922860524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdacd5f1dea4498aa4da0a6ebca9e76a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a4f8c930e23482e82471d3e143b44af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 2056446416529901126, guid: 751aa470285a75f4aa36ad02078105be, type: 3}
+  weaponPrefab: {fileID: 8072742337922860524}
+  firePoint: {fileID: 8072742339002046016}
+  fireForce: 20
+  state: 0
+  ammoState: 0
+  reloadingTime: 0.2
+  reloadStart: 0
+  timeDifference: 0
+  maxAmmoAmount: 200
+  hasUnlimitedBullets: 0
+  BulletTypeSprite: {fileID: 0}
 --- !u!1001 &2457735774167219098
 PrefabInstance:
   m_ObjectHideFlags: 0

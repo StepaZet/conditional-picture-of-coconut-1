@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5802968653666207101}
   - component: {fileID: 5802968653666207102}
   - component: {fileID: 2515440232173996718}
+  - component: {fileID: 7887988350021188383}
   m_Layer: 0
   m_Name: FireballLauncher
   m_TagString: Untagged
@@ -94,6 +95,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdacd5f1dea4498aa4da0a6ebca9e76a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 868749518281966976, guid: d0f8f61cc9cff234babe48e5ac83c192, type: 3}
+  weaponPrefab: {fileID: 5802968653666207075}
+  firePoint: {fileID: 5802968654746179279}
+  fireForce: 20
+  state: 0
+  ammoState: 0
+  reloadingTime: 0.2
+  reloadStart: 0
+  timeDifference: 0
+  maxAmmoAmount: 10
+  hasUnlimitedBullets: 0
+  BulletTypeSprite: {fileID: -3632005914189286589, guid: 4a8f7b2ed9f66c84c9db5a7f33b123b1, type: 3}
+--- !u!114 &7887988350021188383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5802968653666207075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 816c36fb049a47fe8635886cc8520f00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 868749518281966976, guid: d0f8f61cc9cff234babe48e5ac83c192, type: 3}
