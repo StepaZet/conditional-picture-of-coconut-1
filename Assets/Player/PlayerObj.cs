@@ -59,8 +59,13 @@ namespace Player
                 input.DropIsChangeCharacter();
                 TryChangeCharacter();
             }
+
             if (input.IsChooseCharacter)
+            {
+                input.DropIsChangeCharacter();
                 ChangeCharacterWithNumbers();
+            }
+                
                 
         }
 

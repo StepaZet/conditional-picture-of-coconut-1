@@ -43,8 +43,7 @@ namespace Player
 			IsRoll = Input.GetKeyDown(KeyCode.LeftShift);
 			if (!IsChangeCharacter)
 				IsChangeCharacter = Input.GetKeyDown(KeyCode.Tab);
-
-			IsChooseCharacter = false;
+			
 			for (var i = 0; i < numberKeyCodes.Length; i++)
 				if (Input.GetKeyDown(numberKeyCodes[i]))
 				{
@@ -56,6 +55,7 @@ namespace Player
 		public void DropIsChangeCharacter()
         {
             IsChangeCharacter = false;
+            IsChooseCharacter = false;
         }
 
 	}

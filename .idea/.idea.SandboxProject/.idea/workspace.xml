@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Menu/Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menu/Canvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Health/HealthBar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Health/HealthBar.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +114,7 @@
       <workItem from="1652975874909" duration="6616000" />
       <workItem from="1653120573640" duration="11499000" />
       <workItem from="1653737176478" duration="481000" />
-      <workItem from="1653834958153" duration="846000" />
+      <workItem from="1653834958153" duration="1385000" />
     </task>
     <servers />
   </component>
