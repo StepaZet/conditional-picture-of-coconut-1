@@ -13,6 +13,7 @@ namespace Assets.Enemies
             homeRadius = 25;
             targetRange = 25f;
             fireRange = 10f;
+            runRange = 10f;
 
             pauseTime = 1f;
             followingTime = 6f;

@@ -6,7 +6,10 @@ using UnityEngine;
 namespace Weapon
 {
 	public class Weapon : MonoBehaviour
-	{
+    {
+
+        [SerializeField] protected AudioSource shootSound;
+
 		[SerializeField]protected GameObject bulletPrefab;
 		public GameObject weaponPrefab;
 		[SerializeField]protected Transform firePoint;
@@ -24,6 +27,10 @@ namespace Weapon
 		public int MaxAmmoAmount => maxAmmoAmount;
         protected int WallsLayerMask;
 
+        public void Start()
+        {
+            shootSound = GetComponent<AudioSource>();
+        }
 
 		public void Awake()
 		{
@@ -42,7 +49,11 @@ namespace Weapon
 		{
             reloadingTime = 0.5f;
         }
-		
+
+        protected void MakeShootSound()
+        {
+            shootSound.Play();
+        }
 
         public virtual void Fire(bool isButtonPressed)
         {
@@ -57,6 +68,7 @@ namespace Weapon
 							break;
 						case AmmoState.Full:
 						case AmmoState.Normal:
+                            MakeShootSound();
 							CreateBullets();
 							ammoState = AmmoState.Normal;
 							reloadStart = Time.time;
@@ -65,6 +77,7 @@ namespace Weapon
 								ammoState = AmmoState.Empty;
 							break;
 						case AmmoState.Unlimited:
+                            MakeShootSound();
 							CreateBullets();
 							reloadStart = Time.time;
 							state = WeaponState.Reloading;
