@@ -21,6 +21,7 @@ namespace Player
 		[SerializeField]private List<Image> openCharactersImages = new List<Image>();
 		[SerializeField]private GameObject smallVerticalHealthBarPrefab;
 		[SerializeField]private List<HealthBar> smallHealthBars = new List<HealthBar>();
+		[SerializeField]private List<Text> smallTexts = new List<Text>();
 		[SerializeField]private Image WeaponImage;
 		private void UpdateAmmoText(object sender, System.EventArgs eventArgs)
 		{
@@ -53,7 +54,9 @@ namespace Player
 				Destroy(image.gameObject);
 			foreach (var image in smallHealthBars.Select(smallHealthBar => smallHealthBar.GetComponents<Image>()).SelectMany(images => images))
 				Destroy(image);
-			
+			foreach (var smallText in smallTexts) 
+				Destroy(smallText);
+
 			openCharactersImages.Clear();
 			smallHealthBars.Clear();
 
@@ -78,7 +81,8 @@ namespace Player
 				var characterImage = CreateImage(character, yNextPosition);
 				openCharactersImages.Add(characterImage);
 
-				CreateCharacterNumber(index, yNextPosition);
+				var characterNumber = CreateCharacterNumber(index, yNextPosition);
+				smallTexts.Add(characterNumber);
 
 				if (character != player.character)
 				{

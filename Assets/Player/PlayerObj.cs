@@ -18,6 +18,7 @@ namespace Player
         public readonly PlayerInput input = new PlayerInput();
         public Collider2D collider;
         public event EventHandler OnCharacterChange;
+        public static event EventHandler OnNoCharactersLeft;
 
         [SerializeField] private LayerMask dashLayerMask;
 
@@ -45,6 +46,9 @@ namespace Player
                 if (unlockedCharacters.Count > 0)
                     ChangeCharacterOnSamePosition(unlockedCharacters[0]);
             }
+
+            if (unlockedCharacters.Count <= 0) 
+                OnNoCharactersLeft?.Invoke(this, EventArgs.Empty);
         }
 
         private void FixedUpdate()
