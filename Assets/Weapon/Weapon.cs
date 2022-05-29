@@ -8,7 +8,8 @@ namespace Weapon
 	public class Weapon : MonoBehaviour
     {
 
-        [SerializeField] protected AudioSource shootSound;
+        public AudioSource[] shootSound;
+        private int shootSoundNumber;
 
 		[SerializeField]protected GameObject bulletPrefab;
 		public GameObject weaponPrefab;
@@ -27,12 +28,7 @@ namespace Weapon
 		public int MaxAmmoAmount => maxAmmoAmount;
         protected int WallsLayerMask;
 
-        public void Start()
-        {
-            shootSound = GetComponent<AudioSource>();
-        }
-
-		public void Awake()
+        public void Awake()
 		{
 			ammoState = AmmoState.Full;
 			CurrentAmmoAmount = maxAmmoAmount;
@@ -52,7 +48,8 @@ namespace Weapon
 
         protected void MakeShootSound()
         {
-            shootSound.Play();
+            shootSound[shootSoundNumber].Play();
+            shootSoundNumber = (shootSoundNumber + 1) % shootSound.Length;
         }
 
         public virtual void Fire(bool isButtonPressed)
