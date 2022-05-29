@@ -29,6 +29,8 @@ namespace Assets.Enemies
             PrepareToDie
         }
 
+        public AudioClip DieSound;
+
         public ParticleSystem SpawnAnimation;
         public ParticleSystem DieAnimation;
 
@@ -328,6 +330,11 @@ namespace Assets.Enemies
         protected void DieDefault()
         {
             Instantiate(DieAnimation, transform.position + new Vector3(0, 0, -4), Quaternion.identity);
+            if (DieSound != null)
+            {
+                AudioSource.PlayClipAtPoint(DieSound, transform.position);
+            }
+
             if (loots.Length != 0 && Random.Range(0, 100) <= lootProbability)
                 Instantiate(loots[Random.Range(0, loots.Length)], transform.position, Quaternion.identity);
 

@@ -6,24 +6,34 @@ namespace Assets.Bullet
 {
     public class BulletYellowBoss : MonoBehaviour
     {
+        public AudioClip DieSound;
+
         private int damageAmount = 5;
         //private ParticleSystem fly;
         //public ParticleSystem flyPrefab;
         public ParticleSystem BoomPrefab;
 
-        //private void Start()
-        //{
-        //    fly = Instantiate(flyPrefab, transform.position, Quaternion.identity);
-        //}
+        private void Start()
+        {
+            MakeBoomSound();
+        }
 
         //private void Update()
         //{
         //    fly.transform.position = transform.position;
         //}
 
+        private void MakeBoomSound()
+        {
+            if (DieSound != null)
+            {
+                AudioSource.PlayClipAtPoint(DieSound, transform.position);
+            }
+        }
+
         private void Boom()
         {
-            //Destroy(fly);
+            MakeBoomSound();
             Instantiate(BoomPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

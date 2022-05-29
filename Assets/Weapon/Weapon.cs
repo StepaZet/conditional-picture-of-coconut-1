@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel.Design;
 using Bullet;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Weapon
 {
@@ -54,7 +55,7 @@ namespace Weapon
 
         public virtual void Fire(bool isButtonPressed)
         {
-	        if (hasUnlimitedBullets)
+            if (hasUnlimitedBullets)
 		        ammoState = AmmoState.Unlimited;
 			switch (state)
 			{

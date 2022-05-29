@@ -16,6 +16,8 @@ namespace Weapon
 		private float maxDistance = 100;
 		public Character character;
 		private int damageAmount = 1;
+
+        private int falseCount;
 		//private List<RaycastHit2D> hits = new List<RaycastHit2D>();
         
 
@@ -37,10 +39,15 @@ namespace Weapon
 		
 		public override void Fire(bool isButtonPressed)
 		{
-			if (!isButtonPressed)
-				return;
 			
-			switch (state)
+            if (!isButtonPressed)
+            {
+                return;
+            }
+
+			
+
+            switch (state)
 			{
 				case WeaponState.Ready:
 					switch (ammoState)
@@ -74,6 +81,11 @@ namespace Weapon
 
 		private void CastRay()
 		{
+            if (!shootSound[0].isPlaying)
+            {
+                shootSound[0].Play();
+            }
+
 			lineRenderer.enabled = true;
             
             var position = firePoint.position;
@@ -110,7 +122,8 @@ namespace Weapon
 		private void TurnLaserOff()
 		{
 			lineRenderer.enabled = false;
-		}
+            shootSound[0].Stop();
+        }
 
         private void Damage(RaycastHit2D hit)
         {

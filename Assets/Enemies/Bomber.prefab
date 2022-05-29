@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e40108769ff411948985a590dc713d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DieSound: {fileID: 8300000, guid: 248d6638765d74c4189df8a02ad36c6a, type: 3}
   SpawnAnimation: {fileID: 2416404387269831898, guid: 223067cc2d419df46a5fc14391ab5ffb, type: 3}
   DieAnimation: {fileID: 8379217461617278015, guid: 8fd5b8e1e1072f24db416e75f37af566, type: 3}
   Grid: {fileID: 0}

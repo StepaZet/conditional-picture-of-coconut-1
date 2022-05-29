@@ -137,6 +137,7 @@ namespace Assets.Enemies
             if (difference < reloadTime)
                 return;
             reloadBoomStart = Time.time;
+            MakeBoomSound();
 
             var objectsToGetDamage = Physics2D.OverlapCircleAll(transform.position, fireRange);
 
@@ -232,6 +233,14 @@ namespace Assets.Enemies
                 EndStage();
             }
                 
+        }
+
+        private void MakeBoomSound()
+        {
+            if (DieSound != null)
+            {
+                AudioSource.PlayClipAtPoint(DieSound, transform.position);
+            }
         }
 
         private void BeWeak()

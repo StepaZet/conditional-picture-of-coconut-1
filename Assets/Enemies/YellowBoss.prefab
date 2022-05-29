@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99a718c4902386439766351cd876590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DieSound: {fileID: 8300000, guid: 248d6638765d74c4189df8a02ad36c6a, type: 3}
   SpawnAnimation: {fileID: 344867433058505187, guid: 43d0da067aa90944286837c22333e95c, type: 3}
   DieAnimation: {fileID: 7581847485357837658, guid: baf9fff9b31f15c428fa1f8f9e4a8450, type: 3}
   Grid: {fileID: 0}
