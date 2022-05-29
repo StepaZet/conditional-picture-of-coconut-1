@@ -1,4 +1,5 @@
 using System;
+using Game;
 using MainGameScripts;
 using Unity.Mathematics;
 using UnityEngine;
@@ -22,7 +23,7 @@ namespace Player
         }
     
 		public void Update(PlayerObj player)
-		{
+		{ 
 			moveDirection = player.input.MovementInput.normalized;
 			cursorPosition = Camera.main.ScreenToWorldPoint(player.input.AimingInput);
 			if (moveDirection != Vector2.zero)
@@ -31,6 +32,8 @@ namespace Player
 			{
 				case PlayerState.Normal:
 					Aim(player);
+					if (GameData.IsPaused)
+						return;
 					Fire(player);
 					FireHeld(player);
 					FireReleased(player);

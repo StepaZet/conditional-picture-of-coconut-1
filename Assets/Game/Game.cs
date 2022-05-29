@@ -9,5 +9,6 @@ namespace Game
 		public static List<PlayerObj> Players = new List<PlayerObj>();
 		public static PlayerObj player; //Временно
 		public static int Score;
+		public static bool IsPaused { get; set; }
 	}
 }
