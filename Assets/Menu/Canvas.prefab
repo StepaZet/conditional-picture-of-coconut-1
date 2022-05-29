@@ -477,6 +477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 2764260631503302260, guid: 41ece719f7cfdea4ba8e88ae09b5eb69, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7732340967963438998, guid: 41ece719f7cfdea4ba8e88ae09b5eb69, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
