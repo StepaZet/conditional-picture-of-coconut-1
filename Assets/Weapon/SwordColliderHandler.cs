@@ -5,6 +5,10 @@ namespace Weapon
 {
     public class SwordColliderHandler : MonoBehaviour
     {
+        public void Start()
+        {
+            Physics2D.IgnoreLayerCollision(8, 8);
+        }
         private HealthObj target;
         [SerializeField] private int damageAmount;
         [SerializeField] private Sword sword;
