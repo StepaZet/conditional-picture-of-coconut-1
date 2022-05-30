@@ -10,7 +10,7 @@ namespace Weapon
     {
 
         public AudioSource[] shootSounds;
-        private int shootSoundNumber;
+        protected int shootSoundNumber;
 
 		[SerializeField]protected GameObject bulletPrefab;
 		public GameObject weaponPrefab;

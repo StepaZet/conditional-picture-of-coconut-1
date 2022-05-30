@@ -22,7 +22,7 @@ namespace Weapon
 		private readonly float rotSpeed = 1000;
 		private float timeWhenAttackStart;
 
-		public State SwordState { get; private set; }
+        public State SwordState { get; private set; }
 
 		private void OnDisable()
 		{
@@ -70,6 +70,10 @@ namespace Weapon
 			switch (state)
 			{
 				case WeaponState.Ready when isButtonPressed:
+					if (!shootSounds[(shootSounds.Length + shootSoundNumber - 1) % shootSounds.Length].isPlaying)
+                    {
+                        MakeShootSound();
+                    }
 					Attack();
 					ammoState = AmmoState.Normal;
 					reloadStart = Time.time;
@@ -79,7 +83,7 @@ namespace Weapon
 					break;
 
 				case WeaponState.Reloading:
-					timeDifference = Time.time - reloadStart;
+                    timeDifference = Time.time - reloadStart;
 					if (timeDifference >= reloadingTime)
 						state = WeaponState.Ready;
 					break;
