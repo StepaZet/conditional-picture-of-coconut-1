@@ -17,6 +17,7 @@ namespace Player
 		public SpriteRenderer sprite;
 		[SerializeField] protected GameObject weaponPrefab;
 		[SerializeField] public Collider2D characterCollider;
+		public Sprite BulletTypeSprite;
 		public PlayerState State { get; set; }
 		public static event EventHandler OnDeath;
         

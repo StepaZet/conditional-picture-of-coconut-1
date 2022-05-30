@@ -18,7 +18,6 @@ namespace Weapon
 		[SerializeField]protected float timeDifference;
 		[SerializeField] protected int maxAmmoAmount;
 		[SerializeField] protected bool hasUnlimitedBullets;
-		public Sprite BulletTypeSprite;
 		public int CurrentAmmoAmount { get; private set; }
 		public static event EventHandler OnAmmoChanged;
 		public int MaxAmmoAmount => maxAmmoAmount;

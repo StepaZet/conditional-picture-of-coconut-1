@@ -156,9 +156,9 @@ namespace Player
 
 		private void UpdateWeaponImage(object sender, System.EventArgs eventArgs)
 		{
-			if (player.character.weapon.BulletTypeSprite == null)
+			if (player.character.BulletTypeSprite == null)
 				return;
-			WeaponImage.sprite = player.character.weapon.BulletTypeSprite;
+			WeaponImage.sprite = player.character.BulletTypeSprite;
 		}
 
 		public void Start()
@@ -168,6 +168,7 @@ namespace Player
 			UpdateCharacters(this, EventArgs.Empty);
 			UpdateScoresText(this, EventArgs.Empty);
 			UpdateAmmoText(this, EventArgs.Empty);
+			UpdateWeaponImage(this, EventArgs.Empty);
 			Character.OnDeath += UpdateCharacters;
 			player.OnCharacterChange += UpdateCharacters;
 			player.OnCharacterChange += ChangeBars;

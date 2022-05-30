@@ -6,10 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Menu/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menu/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Grenade.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Grenade.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Laser.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Laser.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Pistol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Pistol.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Shotgun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Shotgun.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/UI.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Weapon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
