@@ -145,6 +145,7 @@ MonoBehaviour:
   sprite: {fileID: 5746910248760202018}
   weaponPrefab: {fileID: 1676410110751756140}
   characterCollider: {fileID: 5746910248760202021}
+  BulletTypeSprite: {fileID: 0}
   grid: {fileID: 0}
 --- !u!1001 &1290411962999246669
 PrefabInstance:
@@ -298,6 +299,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 2356023520135298345, guid: 4a8f7b2ed9f66c84c9db5a7f33b123b1, type: 3}
+    - target: {fileID: 7887988350021188383, guid: 10b838214174e8f4ea834955ce77be2b, type: 3}
+      propertyPath: shootSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887988350021188383, guid: 10b838214174e8f4ea834955ce77be2b, type: 3}
+      propertyPath: shootSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 516553241089214467}
+    - target: {fileID: 7887988350021188383, guid: 10b838214174e8f4ea834955ce77be2b, type: 3}
+      propertyPath: shootSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 5177571356571290541}
     m_RemovedComponents:
     - {fileID: 2515440232173996718, guid: 10b838214174e8f4ea834955ce77be2b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 10b838214174e8f4ea834955ce77be2b, type: 3}

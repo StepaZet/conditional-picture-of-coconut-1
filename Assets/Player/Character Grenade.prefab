@@ -255,6 +255,22 @@ PrefabInstance:
       propertyPath: shootSounds.Array.data[1]
       value: 
       objectReference: {fileID: 8988197007008039220}
+    - target: {fileID: 7239139468768071372, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239139468768071372, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
+      propertyPath: shootSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239139468768071372, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
+      propertyPath: shootSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 2089136105859172076}
+    - target: {fileID: 7239139468768071372, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
+      propertyPath: shootSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8988197007008039220}
     - target: {fileID: 7900964793020963981, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -273,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7900964793020963981, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7900964793020963981, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -345,18 +361,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7900964794092408636, guid: b8975cb222529f544af6f7e9c5ce689f, type: 3}
   m_PrefabInstance: {fileID: 2138640261646375292}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3918858194475647061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8072742337922860524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a4f8c930e23482e82471d3e143b44af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &2089136105859172076
 AudioSource:
   m_ObjectHideFlags: 0
@@ -549,6 +553,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3918858194475647061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8072742337922860524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4f8c930e23482e82471d3e143b44af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootSounds:
+  - {fileID: 2089136105859172076}
+  - {fileID: 8988197007008039220}
+  bulletPrefab: {fileID: 2056446416529901126, guid: 751aa470285a75f4aa36ad02078105be, type: 3}
+  weaponPrefab: {fileID: 8072742337922860524}
+  firePoint: {fileID: 8072742339002046016}
+  fireForce: 20
+  state: 0
+  ammoState: 0
+  reloadingTime: 1
+  reloadStart: 0
+  timeDifference: 0
+  maxAmmoAmount: 30
+  hasUnlimitedBullets: 0
 --- !u!1001 &2457735774167219098
 PrefabInstance:
   m_ObjectHideFlags: 0

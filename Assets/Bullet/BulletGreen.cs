@@ -6,8 +6,9 @@ using UnityEngine;
 
 public class BulletGreen : MonoBehaviour
 {
-    private int damageAmount = 6;
 
+    public AudioClip DieSound;
+    private int damageAmount = 6;
     private float boomRadius = 4;
     private float spawnTime;
     private float lifeTime = 0.5f;
@@ -16,6 +17,11 @@ public class BulletGreen : MonoBehaviour
     private void Start()
     {
         spawnTime = Time.time;
+    }
+
+    private void MakeBoomSound()
+    {
+        AudioSource.PlayClipAtPoint(DieSound, transform.position);
     }
 
     private void Update()
@@ -28,6 +34,7 @@ public class BulletGreen : MonoBehaviour
 
     private void Boom()
     {
+        MakeBoomSound();
         Instantiate(BoomPrefab, transform.position, Quaternion.identity);
 
         var objectsToGetDamage = Physics2D.OverlapCircleAll(transform.position, boomRadius);
