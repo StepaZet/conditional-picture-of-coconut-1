@@ -141,6 +141,7 @@ MonoBehaviour:
   Grid: {fileID: 0}
   Health: {fileID: 8000383949855841664}
   sprite: {fileID: 2315394912359582401}
+  Rb: {fileID: 2315394912359582403}
   loots:
   - {fileID: 6601491950550988755, guid: e1e4e02095689084a806b26916802d45, type: 3}
   lootProbability: 30

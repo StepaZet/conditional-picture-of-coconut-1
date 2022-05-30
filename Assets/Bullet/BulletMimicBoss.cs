@@ -30,13 +30,11 @@ public class BulletMimicBoss : MonoBehaviour
     {
         Instantiate(BoomPrefab, transform.position, Quaternion.identity);
         
-        var objectsToGetDamage = Physics2D.OverlapCircleAll(transform.position, boomRadius);
+        var objectsToGetDamage = Physics2D.OverlapCircleAll(transform.position, boomRadius, layerMask: 9);
         
         foreach (var obj in objectsToGetDamage)
         {
-            if (obj.gameObject.layer != LayerMask.NameToLayer("Enemy") && obj.gameObject.layer != LayerMask.NameToLayer("Character"))
-                continue;
-            if (obj.GetComponent<MimicBoss>())
+            if (obj.GetComponent<MimicBoss>() || obj.GetComponentInParent<MimicBoss>() || !obj.GetComponentInChildren<HealthObj>())
                 continue;
 
             var healthObj = obj.GetComponentInChildren<HealthObj>();
@@ -49,20 +47,13 @@ public class BulletMimicBoss : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        if (collision.gameObject.GetComponent<BulletMimicBoss>()
-            || collision.gameObject.GetComponent<MimicBoss>()
-            || collision.gameObject.GetComponentInParent<MimicBoss>())
-        {
-            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
-            return;
-        }
-
-        if (collision.gameObject.GetComponent<MimicBoss>() || collision.gameObject.GetComponentInParent<MimicBoss>())
-        {
-            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
-            return;
-        }
+        //if (collision.gameObject.GetComponent<BulletMimicBoss>()
+        //    || collision.gameObject.GetComponent<MimicBoss>()
+        //    || collision.gameObject.GetComponentInParent<MimicBoss>())
+        //{
+        //    Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        //    return;
+        //}
 
         //if (!collision.collider.GetComponent<HealthObj>())
         //    return;

@@ -37,7 +37,7 @@ namespace Assets.Enemies
         public GridObj Grid;
         public HealthObj Health;
         public float MoveSpeed { get; protected set; }
-        public SpriteRenderer sprite;
+        public SpriteRenderer sprite { get; protected set; }
         public Rigidbody2D Rb { get; protected set; }
 
         public GameObject[] loots;
@@ -95,7 +95,7 @@ namespace Assets.Enemies
             Instantiate(SpawnAnimation, transform.position + new Vector3(0, 0, -2), Quaternion.identity);
             pathFinder = new PathFinding();
             Rb = GetComponent<Rigidbody2D>();
-            //sprite = GetComponent<SpriteRenderer>();
+            sprite = GetComponent<SpriteRenderer>();
             Collider = GetComponent<Collider2D>();
 
             homePosition = transform.position;

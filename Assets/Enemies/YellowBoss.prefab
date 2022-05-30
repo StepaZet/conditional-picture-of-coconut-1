@@ -224,6 +224,7 @@ MonoBehaviour:
   Grid: {fileID: 0}
   Health: {fileID: 8131605625859998533}
   sprite: {fileID: 3396527407159941323}
+  Rb: {fileID: 3396527407159941325}
   loots: []
   lootProbability: 0
   Weapon: {fileID: 0}

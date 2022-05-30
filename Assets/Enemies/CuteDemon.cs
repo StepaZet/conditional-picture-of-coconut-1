@@ -7,8 +7,11 @@ namespace Assets.Enemies
     public class CuteDemon : Enemy
     {
         public ParticleSystem Death;
-        
-        private void Start()
+        public AudioSource[] BiteSounds;
+        private int BiteSoundNumber;
+
+
+        private void OnEnable()
         {
             //Instantiate(SpawnAnimation, transform.position + new Vector3(0, 0, -2), Quaternion.identity);
             SetStartDefaults();
@@ -38,11 +41,19 @@ namespace Assets.Enemies
             DoStateAction();
         }
 
+        private void MakeBiteSound()
+        {
+            BiteSounds[BiteSoundNumber].Play();
+            BiteSoundNumber = (BiteSoundNumber + 1) % BiteSounds.Length;
+        }
+
         private void Fire()
         {
             var difference = Time.time - reloadStart;
             if (difference < reloadTime)
                 return;
+
+            MakeBiteSound();
             reloadStart = Time.time;
             GameData.player.character.health.Damage(damage);
         }

@@ -140,7 +140,6 @@ MonoBehaviour:
   DieAnimation: {fileID: 2468789793094245550, guid: d963e4697a5e0384b98a6ff6f91994c4, type: 3}
   Grid: {fileID: 0}
   Health: {fileID: 6123873051166352554}
-  sprite: {fileID: 8622540354149946117}
   loots: []
   lootProbability: 0
   Weapon: {fileID: 0}
@@ -173,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4810428442765776644, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7755949400791767005, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
       propertyPath: m_RootOrder

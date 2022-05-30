@@ -15,7 +15,7 @@ namespace Assets.Enemies
         private Sprite nativeSprite;
         private bool isNative;
 
-        private void Start()
+        private void OnEnable()
         {
             SetStartDefaults();
 

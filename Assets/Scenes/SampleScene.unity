@@ -50957,7 +50957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5651315820281734652, guid: 3da68e4f452e2bd4cb726ddb15c40c08, type: 3}
       propertyPath: IsImmortal
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6229293764089873980, guid: 3da68e4f452e2bd4cb726ddb15c40c08, type: 3}
       propertyPath: m_Layer
@@ -50981,11 +50981,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7605132891047785643, guid: 3da68e4f452e2bd4cb726ddb15c40c08, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.9
+      value: -21.86
       objectReference: {fileID: 0}
     - target: {fileID: 7605132891047785643, guid: 3da68e4f452e2bd4cb726ddb15c40c08, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -56.9
+      value: 9.95
       objectReference: {fileID: 0}
     - target: {fileID: 7605132891047785643, guid: 3da68e4f452e2bd4cb726ddb15c40c08, type: 3}
       propertyPath: m_LocalPosition.z

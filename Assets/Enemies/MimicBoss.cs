@@ -240,7 +240,7 @@ namespace Assets.Enemies
 
             for (var angle = 0f; angle < Mathf.PI * 2; angle += Mathf.PI / 24)
             {
-                var position = transform.position + new Vector3(fireRange * Mathf.Cos(angle), fireRange * Mathf.Sin(angle));
+                var position = transform.position + new Vector3(fireRange * Mathf.Cos(angle), fireRange * Mathf.Sin(angle)) * 3;
                 var dir = (position - transform.position).normalized;
                 var ball = Instantiate(EvilBallPrefab, position, Quaternion.identity);
                 ball.GetComponent<Rigidbody2D>().AddForce(dir * 30, ForceMode2D.Impulse);
