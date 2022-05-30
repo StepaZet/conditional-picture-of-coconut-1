@@ -125,8 +125,6 @@ MonoBehaviour:
   DieAnimation: {fileID: 3372620246045449236, guid: 76844dd712d312c42a574464c0d0cde5, type: 3}
   Grid: {fileID: 0}
   Health: {fileID: 2678553733638646196}
-  sprite: {fileID: 7606883281575041523}
-  Rb: {fileID: 7606883281575041521}
   loots:
   - {fileID: 1132537084652561686, guid: 42b3d614bab6aea4191534858f4cd438, type: 3}
   - {fileID: 6601491950550988755, guid: e1e4e02095689084a806b26916802d45, type: 3}
@@ -193,11 +191,23 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3341637101209354232, guid: 15026393d4f9e58458249195f0c282f5, type: 3}
+      propertyPath: shootSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341637101209354232, guid: 15026393d4f9e58458249195f0c282f5, type: 3}
       propertyPath: shootSound.Array.data[0]
       value: 
       objectReference: {fileID: 6708771921945619568}
     - target: {fileID: 3341637101209354232, guid: 15026393d4f9e58458249195f0c282f5, type: 3}
       propertyPath: shootSound.Array.data[1]
+      value: 
+      objectReference: {fileID: 7634359598541403035}
+    - target: {fileID: 3341637101209354232, guid: 15026393d4f9e58458249195f0c282f5, type: 3}
+      propertyPath: shootSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 6708771921945619568}
+    - target: {fileID: 3341637101209354232, guid: 15026393d4f9e58458249195f0c282f5, type: 3}
+      propertyPath: shootSounds.Array.data[1]
       value: 
       objectReference: {fileID: 7634359598541403035}
     - target: {fileID: 6647044303316263833, guid: 15026393d4f9e58458249195f0c282f5, type: 3}
@@ -294,7 +304,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3977142852217330682, guid: 6d1491c929f80bd448a193b6b0909796, type: 2}
   m_audioClip: {fileID: 8300000, guid: 97d9875ab67a0c9488e071745926f17c, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.38
   m_Pitch: 1
   Loop: 0
