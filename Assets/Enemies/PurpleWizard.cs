@@ -6,7 +6,7 @@ namespace Assets.Enemies
 {
     public class PurpleWizard : Enemy
     {
-        private void OnEnable()
+        private void Start()
         {
             SetStartDefaults();
 

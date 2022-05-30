@@ -140,16 +140,12 @@ MonoBehaviour:
   DieAnimation: {fileID: 8379217461617278015, guid: 8fd5b8e1e1072f24db416e75f37af566, type: 3}
   Grid: {fileID: 0}
   Health: {fileID: 8000383949855841664}
-  MoveSpeed: 0
-  sprite: {fileID: 0}
-  Rb: {fileID: 0}
+  sprite: {fileID: 2315394912359582401}
   loots:
   - {fileID: 6601491950550988755, guid: e1e4e02095689084a806b26916802d45, type: 3}
   lootProbability: 30
   Weapon: {fileID: 0}
   homePosition: {x: 0, y: 0, z: 0}
-  followingTime: 0
-  runRange: 0
   BomberMiniPrefab: {fileID: 7610244180094209912, guid: 5e5a2372f7dd3aa4d814fb1947299eda, type: 3}
 --- !u!1001 &8240862875608480664
 PrefabInstance:

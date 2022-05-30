@@ -141,16 +141,12 @@ MonoBehaviour:
   DieAnimation: {fileID: 7884765147642207814, guid: af27ae7c4ef7a4542964910386e38e19, type: 3}
   Grid: {fileID: 0}
   Health: {fileID: 3346005717709266741}
-  MoveSpeed: 2
-  sprite: {fileID: 0}
-  Rb: {fileID: 0}
+  sprite: {fileID: 5313380754587076020}
   loots:
   - {fileID: 8636488345740695496, guid: 6e850568900eb9e4591b3d962ec49fc8, type: 3}
   lootProbability: 30
   Weapon: {fileID: 0}
   homePosition: {x: 0, y: 0, z: 0}
-  followingTime: 0
-  runRange: 0
 --- !u!82 &8662697077814926704
 AudioSource:
   m_ObjectHideFlags: 0

@@ -120,13 +120,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b1c7c5948a4a2439cd9c4bf4fe0a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DieSound: {fileID: 0}
   SpawnAnimation: {fileID: 8966355666237352137, guid: c9c1faeccccd17d449fda747c85964ce, type: 3}
   DieAnimation: {fileID: 3372620246045449236, guid: 76844dd712d312c42a574464c0d0cde5, type: 3}
   Grid: {fileID: 0}
   Health: {fileID: 2678553733638646196}
-  MoveSpeed: 0
-  sprite: {fileID: 0}
-  Rb: {fileID: 0}
+  sprite: {fileID: 7606883281575041523}
   loots:
   - {fileID: 1132537084652561686, guid: 42b3d614bab6aea4191534858f4cd438, type: 3}
   - {fileID: 6601491950550988755, guid: e1e4e02095689084a806b26916802d45, type: 3}
@@ -135,8 +134,6 @@ MonoBehaviour:
   lootProbability: 60
   Weapon: {fileID: 2596825578455451884}
   homePosition: {x: 0, y: 0, z: 0}
-  followingTime: 6
-  runRange: 10
 --- !u!61 &5495902335557825148
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -295,7 +292,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3977142852217330682, guid: 6d1491c929f80bd448a193b6b0909796, type: 2}
-  m_audioClip: {fileID: 8300000, guid: a798c31f574a2ee48a7781f662334c0c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 97d9875ab67a0c9488e071745926f17c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.38
   m_Pitch: 1
@@ -391,7 +388,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3977142852217330682, guid: 6d1491c929f80bd448a193b6b0909796, type: 2}
-  m_audioClip: {fileID: 8300000, guid: a798c31f574a2ee48a7781f662334c0c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 97d9875ab67a0c9488e071745926f17c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.38
   m_Pitch: 1

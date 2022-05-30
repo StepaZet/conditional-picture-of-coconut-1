@@ -223,15 +223,11 @@ MonoBehaviour:
   DieAnimation: {fileID: 7581847485357837658, guid: baf9fff9b31f15c428fa1f8f9e4a8450, type: 3}
   Grid: {fileID: 0}
   Health: {fileID: 8131605625859998533}
-  MoveSpeed: 0
-  sprite: {fileID: 0}
-  Rb: {fileID: 0}
+  sprite: {fileID: 3396527407159941323}
   loots: []
   lootProbability: 0
   Weapon: {fileID: 0}
   homePosition: {x: 0, y: 0, z: 0}
-  followingTime: 0
-  runRange: 0
   boom: {fileID: 7884765147642207814, guid: af27ae7c4ef7a4542964910386e38e19, type: 3}
   FireBallPrefab: {fileID: 416524614803882963, guid: dc08c5340bc14844bb9404b9b1e736de, type: 3}
   BomberPrefab: {fileID: 1836116479694523381, guid: ce1b06acabdf9074fbd5f0b86aa35f2b, type: 3}

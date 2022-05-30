@@ -36,9 +36,9 @@ namespace Assets.Enemies
 
         public GridObj Grid;
         public HealthObj Health;
-        public float MoveSpeed;
+        public float MoveSpeed { get; protected set; }
         public SpriteRenderer sprite;
-        public Rigidbody2D Rb;
+        public Rigidbody2D Rb { get; protected set; }
 
         public GameObject[] loots;
         public float lootProbability;
@@ -75,14 +75,14 @@ namespace Assets.Enemies
         protected float pauseTime;
 
         protected float followingStartTime;
-        public float followingTime;
+        public float followingTime { get; protected set; }
 
         protected float reloadStart;
         protected float reloadTime;
 
         protected float targetRange;
         protected float fireRange;
-        public float runRange;
+        public float runRange { get; protected set; }
 
         //private void OnEnable()
         //{
@@ -95,7 +95,7 @@ namespace Assets.Enemies
             Instantiate(SpawnAnimation, transform.position + new Vector3(0, 0, -2), Quaternion.identity);
             pathFinder = new PathFinding();
             Rb = GetComponent<Rigidbody2D>();
-            sprite = GetComponent<SpriteRenderer>();
+            //sprite = GetComponent<SpriteRenderer>();
             Collider = GetComponent<Collider2D>();
 
             homePosition = transform.position;

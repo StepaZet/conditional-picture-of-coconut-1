@@ -8,6 +8,7 @@ public class Chest : MonoBehaviour
     [SerializeField] protected Sprite emptySprite;
     private bool isEmpty;
     public ParticleSystem SpawnAnimation;
+    public AudioSource PickUpSound;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class Chest : MonoBehaviour
         if (!collider.GetComponent<Character>())
             return;
         isEmpty = true;
+        PickUpSound.Play();
         GetComponent<SpriteRenderer>().sprite = emptySprite;
     }
 }

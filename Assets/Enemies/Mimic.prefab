@@ -145,20 +145,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e226a9d10900340419c4c8eb97521ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DieSound: {fileID: 0}
   SpawnAnimation: {fileID: 3790376893375084695, guid: 77c843c8e07384a43bce1d1e75e7596b, type: 3}
   DieAnimation: {fileID: 4540342610652310283, guid: 3cf875c138f146c4f918be0fcc680131, type: 3}
   Grid: {fileID: 0}
   Health: {fileID: 4825695452607854093}
-  MoveSpeed: 0
-  sprite: {fileID: 0}
-  Rb: {fileID: 0}
+  sprite: {fileID: 3631024420637960798}
   loots:
   - {fileID: 1363951712721860121, guid: be3601fcd58db174680b2b8b8f80644f, type: 3}
   lootProbability: 50
   Weapon: {fileID: 0}
   homePosition: {x: 0, y: 0, z: 0}
-  followingTime: 0
-  runRange: 0
 --- !u!1001 &6891122870174650389
 PrefabInstance:
   m_ObjectHideFlags: 0

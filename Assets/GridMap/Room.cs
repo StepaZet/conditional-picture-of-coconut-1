@@ -8,6 +8,7 @@ public class Room : MonoBehaviour
     [SerializeField] protected GameObject Doors;
     [SerializeField] protected GameObject[] EnemyWaves;
     [SerializeField] private List<GameObject> Enemies;
+    [SerializeField] protected AudioSource WinSound;
     private int waveNumber;
     private bool isActive;
     private bool isWin;
@@ -110,6 +111,7 @@ public class Room : MonoBehaviour
     {
         Doors.SetActive(false);
         isWin = true;
+        WinSound.Play();
         //Destroy(gameObject);
     }
 }
