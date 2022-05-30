@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 661a382a7d67f934d9ca48a0a3d2a482, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptySprite: {fileID: -5363978341903657281, guid: 4a8f7b2ed9f66c84c9db5a7f33b123b1, type: 3}
+  score: 100
   SpawnAnimation: {fileID: 8966355666237352137, guid: c9c1faeccccd17d449fda747c85964ce, type: 3}
   PickUpSound: {fileID: 3214117498395211768}
 --- !u!82 &3214117498395211768

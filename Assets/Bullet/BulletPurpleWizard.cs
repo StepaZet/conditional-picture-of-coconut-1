@@ -36,12 +36,13 @@ namespace Bullet
                 return;
             }
 
-            Boom();
+            
             if (collision.gameObject.GetComponent<PurpleWizard>() || collision.gameObject.GetComponent<MimicBoss>())
                 return;
 
             if (collision.collider.GetComponentInChildren<HealthObj>())
                 collision.collider.GetComponentInChildren<HealthObj>().Damage(damageAmount);
+            Boom();
         }
     }
 }
