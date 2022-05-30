@@ -8,8 +8,9 @@ namespace Health
 	{
 		[SerializeField] private int healthPoints = 5;
         public ParticleSystem SpawnAnimation;
+        public AudioClip PickUpSound;
 
-        private void Start()
+		private void Start()
         {
             Instantiate(SpawnAnimation, transform.position + new Vector3(0, 0, -2), Quaternion.identity);
         }
@@ -26,7 +27,7 @@ namespace Health
 				return;
 			
 			healthObj.Heal(healthPoints);
-				
+            AudioSource.PlayClipAtPoint(PickUpSound, transform.position);
 			Destroy(gameObject);
 		}
 	}

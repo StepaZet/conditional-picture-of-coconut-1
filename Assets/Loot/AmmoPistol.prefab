@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnAnimation: {fileID: 9001825545824494449, guid: e24580a3aad9865469e681ed0a929da9, type: 3}
+  PickUpSound: {fileID: 8300000, guid: 36bd5b73266e5934ea3b9d0637a4e79e, type: 3}
 --- !u!61 &6601491950550988767
 BoxCollider2D:
   m_ObjectHideFlags: 0

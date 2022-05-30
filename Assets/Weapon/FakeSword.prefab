@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf55fbdff4c343a2816c414f38d790f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootSounds: []
   bulletPrefab: {fileID: 0}
   weaponPrefab: {fileID: 8528643442611714196}
   firePoint: {fileID: 2420654664954222880}
@@ -178,5 +179,6 @@ MonoBehaviour:
   reloadStart: 0
   timeDifference: 0
   maxAmmoAmount: 0
-  currentAmmoAmount: 0
+  hasUnlimitedBullets: 0
+  BulletTypeSprite: {fileID: 0}
   character: {fileID: 0}

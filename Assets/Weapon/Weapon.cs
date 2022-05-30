@@ -2,11 +2,16 @@ using System;
 using System.ComponentModel.Design;
 using Bullet;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Weapon
 {
 	public class Weapon : MonoBehaviour
-	{
+    {
+
+        public AudioSource[] shootSounds;
+        protected int shootSoundNumber;
+
 		[SerializeField]protected GameObject bulletPrefab;
 		public GameObject weaponPrefab;
 		[SerializeField]protected Transform firePoint;
@@ -23,8 +28,7 @@ namespace Weapon
 		public int MaxAmmoAmount => maxAmmoAmount;
         protected int WallsLayerMask;
 
-
-		public void Awake()
+        public void Awake()
 		{
 			ammoState = AmmoState.Full;
 			CurrentAmmoAmount = maxAmmoAmount;
@@ -41,11 +45,18 @@ namespace Weapon
 		{
             reloadingTime = 0.5f;
         }
-		
+
+        protected void MakeShootSound()
+        {
+            if (shootSounds.Length == 0)
+				return;
+            shootSounds[shootSoundNumber].Play();
+            shootSoundNumber = (shootSoundNumber + 1) % shootSounds.Length;
+        }
 
         public virtual void Fire(bool isButtonPressed)
         {
-	        if (hasUnlimitedBullets)
+            if (hasUnlimitedBullets)
 		        ammoState = AmmoState.Unlimited;
 			switch (state)
 			{
@@ -56,6 +67,7 @@ namespace Weapon
 							break;
 						case AmmoState.Full:
 						case AmmoState.Normal:
+                            MakeShootSound();
 							CreateBullets();
 							ammoState = AmmoState.Normal;
 							reloadStart = Time.time;
@@ -64,6 +76,7 @@ namespace Weapon
 								ammoState = AmmoState.Empty;
 							break;
 						case AmmoState.Unlimited:
+                            MakeShootSound();
 							CreateBullets();
 							reloadStart = Time.time;
 							state = WeaponState.Reloading;

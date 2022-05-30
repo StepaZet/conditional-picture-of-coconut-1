@@ -8,7 +8,7 @@ public class BulletGreen : MonoBehaviour
 {
     private int damageAmount = 6;
 
-    private float boomRadius = 2;
+    private float boomRadius = 4;
     private float spawnTime;
     private float lifeTime = 0.5f;
     public ParticleSystem BoomPrefab;
@@ -34,7 +34,7 @@ public class BulletGreen : MonoBehaviour
 
         foreach (var obj in objectsToGetDamage)
         {
-            if (!obj.GetComponent<HealthObj>() || obj.GetComponent<Character>())
+            if (!obj.GetComponentInChildren<HealthObj>() || obj.GetComponent<Character>())
                 continue;
 
             var healthObj = obj.GetComponentInChildren<HealthObj>();

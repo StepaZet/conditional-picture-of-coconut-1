@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf55fbdff4c343a2816c414f38d790f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootSounds: []
   bulletPrefab: {fileID: 0}
   weaponPrefab: {fileID: 729343830474827511}
   firePoint: {fileID: 6760772517993629507}
@@ -54,7 +55,8 @@ MonoBehaviour:
   reloadStart: 0
   timeDifference: 0
   maxAmmoAmount: 0
-  currentAmmoAmount: 0
+  hasUnlimitedBullets: 0
+  BulletTypeSprite: {fileID: 0}
   character: {fileID: 0}
 --- !u!1001 &6590329908594292144
 PrefabInstance:

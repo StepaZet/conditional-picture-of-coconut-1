@@ -8,15 +8,16 @@ namespace Bullet
 	{
 		private int bulletsAmount = 10;
         public ParticleSystem SpawnAnimation;
+        public AudioClip PickUpSound;
 
-        private void Start()
+		private void Start()
         {
             Instantiate(SpawnAnimation, transform.position + new Vector3(0, 0, -2), Quaternion.identity);
         }
 		public void OnTriggerEnter2D(Collider2D other)
 		{
 			var ammoPickup = new AmmoPickUp<Pistol>();
-			ammoPickup.PickUp(gameObject, other, bulletsAmount);
+			ammoPickup.PickUp(gameObject, other, bulletsAmount, PickUpSound);
 		}
 	}
 }

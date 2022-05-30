@@ -29,14 +29,16 @@ namespace Assets.Enemies
             PrepareToDie
         }
 
+        public AudioClip DieSound;
+
         public ParticleSystem SpawnAnimation;
         public ParticleSystem DieAnimation;
 
         public GridObj Grid;
         public HealthObj Health;
-        public float MoveSpeed;
-        public SpriteRenderer sprite;
-        public Rigidbody2D Rb;
+        public float MoveSpeed { get; protected set; }
+        public SpriteRenderer sprite { get; protected set; }
+        public Rigidbody2D Rb { get; protected set; }
 
         public GameObject[] loots;
         public float lootProbability;
@@ -73,14 +75,14 @@ namespace Assets.Enemies
         protected float pauseTime;
 
         protected float followingStartTime;
-        public float followingTime;
+        public float followingTime { get; protected set; }
 
         protected float reloadStart;
         protected float reloadTime;
 
         protected float targetRange;
         protected float fireRange;
-        public float runRange;
+        public float runRange { get; protected set; }
 
         //private void OnEnable()
         //{
@@ -328,6 +330,11 @@ namespace Assets.Enemies
         protected void DieDefault()
         {
             Instantiate(DieAnimation, transform.position + new Vector3(0, 0, -4), Quaternion.identity);
+            if (DieSound != null)
+            {
+                AudioSource.PlayClipAtPoint(DieSound, transform.position);
+            }
+
             if (loots.Length != 0 && Random.Range(0, 100) <= lootProbability)
                 Instantiate(loots[Random.Range(0, loots.Length)], transform.position, Quaternion.identity);
 

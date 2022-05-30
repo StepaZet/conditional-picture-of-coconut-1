@@ -11,6 +11,7 @@ public class Chest : MonoBehaviour
     private bool isEmpty;
     public ParticleSystem SpawnAnimation;
     public static event EventHandler OnScoreChanged;
+    public AudioSource PickUpSound;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class Chest : MonoBehaviour
         Game.GameData.Score += score;
         OnScoreChanged?.Invoke(this, EventArgs.Empty);
         isEmpty = true;
+        PickUpSound.Play();
         GetComponent<SpriteRenderer>().sprite = emptySprite;
     }
 }
