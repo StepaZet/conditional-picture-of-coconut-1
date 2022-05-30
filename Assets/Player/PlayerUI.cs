@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using Game;
 using Health;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -23,6 +24,8 @@ namespace Player
 		[SerializeField]private List<HealthBar> smallHealthBars = new List<HealthBar>();
 		[SerializeField]private List<Text> smallTexts = new List<Text>();
 		[SerializeField]private Image WeaponImage;
+		[SerializeField] private Texture2D crossCursor;
+		
 		private void UpdateAmmoText(object sender, System.EventArgs eventArgs)
 		{
 			var weapon = player.character.weapon;
@@ -160,6 +163,8 @@ namespace Player
 
 		public void Start()
 		{
+			Cursor.SetCursor(crossCursor, new Vector2(7,7), CursorMode.ForceSoftware);
+			
 			UpdateCharacters(this, EventArgs.Empty);
 			UpdateScoresText(this, EventArgs.Empty);
 			UpdateAmmoText(this, EventArgs.Empty);
