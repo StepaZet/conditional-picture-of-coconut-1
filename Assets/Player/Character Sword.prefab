@@ -145,6 +145,7 @@ MonoBehaviour:
   sprite: {fileID: 7605132891047785642}
   weaponPrefab: {fileID: 0}
   characterCollider: {fileID: 7605132891047785645}
+  BulletTypeSprite: {fileID: 21300000, guid: c1270046cbd48f44b83147aebd4ac83f, type: 3}
   grid: {fileID: 0}
 --- !u!1001 &3035561691537084061
 PrefabInstance:

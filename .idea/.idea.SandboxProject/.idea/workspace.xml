@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Weapon/SwordLauncher.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Weapon/SwordLauncher.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Loot/AmmoPickUp2.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Loot/AmmoPickUp2.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Loot/AmmoPickUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Loot/AmmoPickUp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Loot/ShotgunAmmoPickUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Loot/ShotgunAmmoPickUp.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Character Gold.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Gold.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapon/GrenadeLauncher.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/GrenadeLauncher.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Sword.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Sword.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Sword.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Sword.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

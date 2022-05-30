@@ -15,7 +15,7 @@ namespace Bullet
 
         public void OnTriggerEnter2D(Collider2D other)
         {   
-            var ammoPickup = new AmmoPickUp<Shotgun>();
+            var ammoPickup = new AmmoPickUp<Shotgun, FireballLauncher>();
             ammoPickup.PickUp(gameObject, other, bulletsAmount);
         }
     }
