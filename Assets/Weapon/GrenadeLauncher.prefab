@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7900964793020963982}
   - component: {fileID: 7900964793020963981}
-  - component: {fileID: 2289296668477395805}
+  - component: {fileID: 7239139468768071372}
   m_Layer: 0
   m_Name: GrenadeLauncher
   m_TagString: Untagged
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2289296668477395805
+--- !u!114 &7239139468768071372
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7900964793020963984}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdacd5f1dea4498aa4da0a6ebca9e76a, type: 3}
+  m_Script: {fileID: 11500000, guid: 28d349e8d2294e30a2081a60e308fd2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7046141133037293725, guid: 3f15915dd674eb6488c0394e66cbe3c9, type: 3}
@@ -102,12 +102,12 @@ MonoBehaviour:
   fireForce: 20
   state: 0
   ammoState: 0
-  reloadingTime: 0.2
-  reloadStart: 1.1737543
-  timeDifference: 0.20488381
-  maxAmmoAmount: 200
+  reloadingTime: 0
+  reloadStart: 0
+  timeDifference: 0
+  maxAmmoAmount: 0
   hasUnlimitedBullets: 1
-  BulletTypeSprite: {fileID: 0}
+  character: {fileID: 0}
 --- !u!1 &7900964794092408637
 GameObject:
   m_ObjectHideFlags: 0

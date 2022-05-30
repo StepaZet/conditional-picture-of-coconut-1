@@ -14,17 +14,17 @@ namespace Weapon
 			AttackRight
 		}
 
-		[SerializeField] private Character character;
+		[SerializeField] protected Character character;
 
-		private float desiredRot = 60;
+		protected float desiredRot = 60;
 
-		private readonly float rotationTime = 0.3f;
-		private readonly float rotSpeed = 1000;
-		private float timeWhenAttackStart;
+		protected readonly float rotationTime = 0.3f;
+		protected readonly float rotSpeed = 1000;
+		protected float timeWhenAttackStart;
 
-		public State SwordState { get; private set; }
+		public State SwordState { get; protected set; }
 
-		private void OnDisable()
+		protected void OnDisable()
 		{
 			SwordState = State.Normal;
 			desiredRot = 0;
@@ -32,7 +32,7 @@ namespace Weapon
 			transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotQ, rotSpeed * Time.deltaTime);
 		}
 
-		private void Update()
+		protected void Update()
 		{
 			switch (SwordState)
 			{
@@ -86,7 +86,7 @@ namespace Weapon
 			}
 		}
 
-		private void Attack()
+		protected void Attack()
 		{
 			timeWhenAttackStart = Time.time;
 			SwordState = Math.Sign(character.transform.position.x - transform.position.x) == 1
