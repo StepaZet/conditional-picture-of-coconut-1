@@ -9,6 +9,7 @@ public class Room : MonoBehaviour
     [SerializeField] protected GameObject[] EnemyWaves;
     [SerializeField] private List<GameObject> Enemies;
     [SerializeField] protected AudioSource WinSound;
+    [SerializeField] protected AudioSource WaveSound;
     private int waveNumber;
     private bool isActive;
     private bool isWin;
@@ -79,6 +80,8 @@ public class Room : MonoBehaviour
     private void OpenNextWave()
     {
         currentStage = Stage.Wave;
+        if (waveNumber != EnemyWaves.Length - 1)
+            WaveSound.Play();
         EnemyWaves[waveNumber].gameObject.SetActive(true);
         UpdateEnemiesList();
     }

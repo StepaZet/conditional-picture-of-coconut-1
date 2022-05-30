@@ -251,4 +251,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d957cda4ecae1d347bf219bfad9f6e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DieSound: {fileID: 8300000, guid: 1b0ec81e9c00d064bb06d6a1c25957a4, type: 3}
   BoomPrefab: {fileID: 4540342610652310283, guid: 3cf875c138f146c4f918be0fcc680131, type: 3}
