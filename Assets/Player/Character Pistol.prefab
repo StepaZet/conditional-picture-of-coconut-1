@@ -458,6 +458,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5591451004392808607, guid: 43d2b22cde19bf84381161004e36e384, type: 3}
+      propertyPath: shootSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5591451004392808607, guid: 43d2b22cde19bf84381161004e36e384, type: 3}
       propertyPath: shootSound.Array.data[0]
       value: 
       objectReference: {fileID: 6409713986686803320}
@@ -469,6 +473,14 @@ PrefabInstance:
       propertyPath: shootSound.Array.data[2]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5591451004392808607, guid: 43d2b22cde19bf84381161004e36e384, type: 3}
+      propertyPath: shootSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 2616510826600881803}
+    - target: {fileID: 5591451004392808607, guid: 43d2b22cde19bf84381161004e36e384, type: 3}
+      propertyPath: shootSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 6409713986686803320}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43d2b22cde19bf84381161004e36e384, type: 3}
 --- !u!1 &6229293765169583505 stripped
