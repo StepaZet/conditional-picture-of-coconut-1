@@ -8,6 +8,7 @@ namespace Bullet
 	{
 		private int bulletsAmount = 10;
 		public ParticleSystem SpawnAnimation;
+        public AudioClip PickUpSound;
 
 		private void Start()
 		{
@@ -16,7 +17,7 @@ namespace Bullet
 		public void OnTriggerEnter2D(Collider2D other)
 		{
 			var ammoPickup = new AmmoPickUp<GrenadeLauncher>();
-			ammoPickup.PickUp(gameObject, other, bulletsAmount);
+			ammoPickup.PickUp(gameObject, other, bulletsAmount, PickUpSound);
 		}
 	}
 }
