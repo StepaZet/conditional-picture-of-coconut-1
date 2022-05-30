@@ -81,9 +81,9 @@ namespace Weapon
 
 		private void CastRay()
 		{
-            if (!shootSound[0].isPlaying)
+            if (!shootSounds[0].isPlaying)
             {
-                shootSound[0].Play();
+                shootSounds[0].Play();
             }
 
 			lineRenderer.enabled = true;
@@ -122,7 +122,7 @@ namespace Weapon
 		private void TurnLaserOff()
 		{
 			lineRenderer.enabled = false;
-            shootSound[0].Stop();
+            shootSounds[0].Stop();
         }
 
         private void Damage(RaycastHit2D hit)

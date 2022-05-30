@@ -9,7 +9,7 @@ namespace Weapon
 	public class Weapon : MonoBehaviour
     {
 
-        public AudioSource[] shootSound;
+        public AudioSource[] shootSounds;
         private int shootSoundNumber;
 
 		[SerializeField]protected GameObject bulletPrefab;
@@ -49,8 +49,10 @@ namespace Weapon
 
         protected void MakeShootSound()
         {
-            shootSound[shootSoundNumber].Play();
-            shootSoundNumber = (shootSoundNumber + 1) % shootSound.Length;
+            if (shootSounds.Length == 0)
+				return;
+            shootSounds[shootSoundNumber].Play();
+            shootSoundNumber = (shootSoundNumber + 1) % shootSounds.Length;
         }
 
         public virtual void Fire(bool isButtonPressed)

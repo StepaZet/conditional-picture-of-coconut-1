@@ -6,12 +6,25 @@ namespace Assets.Bullet
 {
     public class BulletGold : MonoBehaviour
     {
+        public AudioClip DieSound;
         private int damageAmount = 5;
         private float boomRadius = 2;
         public ParticleSystem BoomPrefab;
 
+        private void Start()
+        {
+            MakeBoomSound();
+        }
+        private void MakeBoomSound()
+        {
+            if (DieSound != null)
+            {
+                AudioSource.PlayClipAtPoint(DieSound, transform.position);
+            }
+        }
         private void Boom()
         {
+            MakeBoomSound();
             Instantiate(BoomPrefab, transform.position, Quaternion.identity);
             var objectsToGetDamage = Physics2D.OverlapCircleAll(transform.position, boomRadius);
 

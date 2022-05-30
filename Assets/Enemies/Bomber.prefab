@@ -135,13 +135,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e40108769ff411948985a590dc713d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DieSound: {fileID: 8300000, guid: 248d6638765d74c4189df8a02ad36c6a, type: 3}
+  DieSound: {fileID: 8300000, guid: 7322ec5b70de5e2459a3efa48668bc28, type: 3}
   SpawnAnimation: {fileID: 2416404387269831898, guid: 223067cc2d419df46a5fc14391ab5ffb, type: 3}
   DieAnimation: {fileID: 8379217461617278015, guid: 8fd5b8e1e1072f24db416e75f37af566, type: 3}
   Grid: {fileID: 0}
   Health: {fileID: 8000383949855841664}
-  sprite: {fileID: 2315394912359582401}
-  Rb: {fileID: 2315394912359582403}
   loots:
   - {fileID: 6601491950550988755, guid: e1e4e02095689084a806b26916802d45, type: 3}
   lootProbability: 30
