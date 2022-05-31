@@ -16,6 +16,7 @@ public class Room : MonoBehaviour
     private Stage currentStage;
     private float pauseStart;
     private float pauseTime = 1f;
+    private int layerEnemy;
 
     private enum Stage
     {
@@ -31,7 +32,7 @@ public class Room : MonoBehaviour
 
         if (collider.gameObject.layer != LayerMask.NameToLayer("Character"))
             return;
-
+        layerEnemy = LayerMask.GetMask("Enemy");
         Doors.SetActive(true);
         isActive = true;
         Enemies = new List<GameObject>();
@@ -91,14 +92,15 @@ public class Room : MonoBehaviour
         Enemies.Clear();
         var newEnemies = Physics2D.OverlapAreaAll(
             transform.position - transform.localScale / 2,
-            transform.position + transform.localScale / 2);
+            transform.position + transform.localScale / 2, layerEnemy);
 
         foreach (var newEnemy in newEnemies)
         {
-            if (newEnemy.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-            {
-                Enemies.Add(newEnemy.gameObject);
-            }
+            Enemies.Add(newEnemy.gameObject);
+            //if (newEnemy.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            //{
+            //    Enemies.Add(newEnemy.gameObject);
+            //}
         }
     }
 

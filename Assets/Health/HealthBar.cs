@@ -26,10 +26,10 @@ namespace Health
 			bar.transform.localScale = new Vector3(Health.GetHealthPercentage(), 1);
 		}
 
-		private void Update()
-		{
-			//transform.Find("Bar").localScale = new Vector3(Health.GetHealthPercentage(), 1);
-		}
+		//private void Update()
+		//{
+		//	//transform.Find("Bar").localScale = new Vector3(Health.GetHealthPercentage(), 1);
+		//}
 
 		public void ChangeHealthObj(HealthObj health)
 		{

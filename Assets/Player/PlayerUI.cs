@@ -146,7 +146,7 @@ namespace Player
 		private Image CreateImage(Character character, float yNextPosition)
 		{
 			var sprite = character.sprite.sprite;
-			var image = CreateImage(0, yNextPosition, sprite.textureRect.width * 0.8f, sprite.textureRect.height * 0.8f,
+			var image = CreateImage(0, yNextPosition, 100, 100,
 				"CharacterImage");
 
 			image.sprite = character.sprite.sprite;

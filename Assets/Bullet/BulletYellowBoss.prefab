@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 661a382a7d67f934d9ca48a0a3d2a482, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DieSound: {fileID: 8300000, guid: 7322ec5b70de5e2459a3efa48668bc28, type: 3}
-  BoomPrefab: {fileID: 7884765147642207814, guid: af27ae7c4ef7a4542964910386e38e19, type: 3}
+  BoomPrefab: {fileID: 5225440918244507435, guid: bc6e8685212d46946abcb7e71c75c6cb, type: 3}
 --- !u!96 &8746674428495958326
 TrailRenderer:
   serializedVersion: 2
@@ -158,6 +158,7 @@ TrailRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0c665ed4d084ab84cb8ad32e3d1d95ef, type: 2}
+  - {fileID: 2100000, guid: 661a382a7d67f934d9ca48a0a3d2a482, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -226,10 +227,10 @@ TrailRenderer:
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 18697
-      ctime2: 32960
-      ctime3: 53006
-      ctime4: 65535
+      ctime1: 8096
+      ctime2: 16769
+      ctime3: 25636
+      ctime4: 36430
       ctime5: 65535
       ctime6: 0
       ctime7: 0
@@ -249,7 +250,7 @@ TrailRenderer:
     alignment: 0
     textureMode: 0
     shadowBias: 0.5
-    generateLightingData: 0
+    generateLightingData: 1
   m_MinVertexDistance: 1
   m_Autodestruct: 0
   m_Emitting: 1

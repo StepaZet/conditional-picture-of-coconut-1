@@ -313,12 +313,14 @@ MonoBehaviour:
     SPACE
     - DASH
 
+    LEFT SHIFT - SPRINT
+
     LEFT MOUSE BUTTON - SHOOT
 
-    TAB - ADD FOUND CHARACTER
+    TAB - ADD
+    FOUND CHARACTER
 
-    1..9
-    - PLAY AS CHARACTER 1..9'
+    1..9 - PLAY AS CHARACTER 1..9'
 --- !u!1 &8505007214078379091
 GameObject:
   m_ObjectHideFlags: 0

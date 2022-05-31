@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 661a382a7d67f934d9ca48a0a3d2a482, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -7082610186161081293, guid: 4a8f7b2ed9f66c84c9db5a7f33b123b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -150,8 +150,6 @@ MonoBehaviour:
   DieAnimation: {fileID: 4540342610652310283, guid: 3cf875c138f146c4f918be0fcc680131, type: 3}
   Grid: {fileID: 0}
   Health: {fileID: 4825695452607854093}
-  sprite: {fileID: 3631024420637960798}
-  Rb: {fileID: 3631024420637960784}
   loots:
   - {fileID: 1363951712721860121, guid: be3601fcd58db174680b2b8b8f80644f, type: 3}
   lootProbability: 50

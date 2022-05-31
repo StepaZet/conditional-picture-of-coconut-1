@@ -5,7 +5,7 @@
 		Normal,
 		//Moving,
 		//Dashing,
-		Rolling,
+		Running,
 		Dead
 	}
 }
