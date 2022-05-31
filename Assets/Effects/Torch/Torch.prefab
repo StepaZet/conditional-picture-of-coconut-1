@@ -31,8 +31,6 @@ Transform:
   m_Father: {fileID: 9205952982860426137}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!108 &6466125624302378376
 Light:
   m_ObjectHideFlags: 0
@@ -128,7 +126,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> fixes
 --- !u!212 &9205952982860426136
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -148,11 +145,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-<<<<<<< HEAD
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-=======
   - {fileID: 2100000, guid: 661a382a7d67f934d9ca48a0a3d2a482, type: 2}
->>>>>>> fixes
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -172,11 +165,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-<<<<<<< HEAD
-  m_SortingOrder: 0
-=======
   m_SortingOrder: -1
->>>>>>> fixes
   m_Sprite: {fileID: 8124569059107169859, guid: 4a8f7b2ed9f66c84c9db5a7f33b123b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
