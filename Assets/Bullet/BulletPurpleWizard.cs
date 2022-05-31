@@ -23,7 +23,8 @@ namespace Bullet
 
         private void Boom()
         {
-            Destroy(fly.gameObject);
+            if (fly != null && fly.gameObject != null)
+                Destroy(fly.gameObject);
             Instantiate(BoomPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

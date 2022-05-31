@@ -65,7 +65,7 @@ namespace Player
 					Move(player, moveSpeed);
 					break;
 				case PlayerState.Running:
-					runSpeed += 0.01f;
+					runSpeed += 0.1f;
 					player.character.stamina.Damage(1);
 					if (runSpeed > maxRunSpeed)
 						runSpeed = maxRunSpeed;
