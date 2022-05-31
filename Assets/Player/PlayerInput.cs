@@ -40,7 +40,7 @@ namespace Player
 			IsFireInputHeld = Input.GetMouseButton(0);
 			IsFireInputReleased = Input.GetMouseButtonUp(0);
 			IsDash = Input.GetKeyDown(KeyCode.Space);
-			IsRoll = Input.GetKeyDown(KeyCode.LeftShift);
+			IsRoll = Input.GetKey(KeyCode.LeftShift);
 			if (!IsChangeCharacter)
 				IsChangeCharacter = Input.GetKeyDown(KeyCode.Tab);
 			

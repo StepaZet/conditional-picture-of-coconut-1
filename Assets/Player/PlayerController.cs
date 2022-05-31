@@ -2,6 +2,7 @@ using System;
 using Game;
 using MainGameScripts;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 
 namespace Player
@@ -10,7 +11,9 @@ namespace Player
     {
         private readonly LayerMask dashLayerMask;
         private float moveSpeed = 10f;
-		private float rollSpeed = 20f;
+		private float maxRunSpeed = 13f;
+		private float minRunSpeed = 10f;
+		private float runSpeed = 10f;
 
 		private Vector2 cursorPosition;
 		private Vector2 moveDirection;
@@ -38,10 +41,14 @@ namespace Player
 					FireHeld(player);
 					FireReleased(player);
 					Dash(player);
-					Roll(player);
+					Run(player);
 					break;
-				case PlayerState.Rolling:
+				case PlayerState.Running:
+					Run(player);
 					Aim(player);
+					Fire(player);
+					FireHeld(player);
+					FireReleased(player);
 					break;
 				case PlayerState.Dead:
 					break;
@@ -55,10 +62,16 @@ namespace Player
 	        switch (player.character.State)
 			{
 				case PlayerState.Normal:
-					Move(player);
+					Move(player, moveSpeed);
 					break;
-				case PlayerState.Rolling:
-					SetVelocityForRoll(player);
+				case PlayerState.Running:
+					runSpeed += 0.01f;
+					player.character.stamina.Damage(1);
+					if (runSpeed > maxRunSpeed)
+						runSpeed = maxRunSpeed;
+					Move(player, runSpeed);
+					if (player.character.stamina.CurrentHealthPoints <= 0)
+						player.character.State = PlayerState.Normal;
 					break;
 				case PlayerState.Dead:
 					break;
@@ -67,9 +80,18 @@ namespace Player
 			}
 		}
 
-		private void Move(PlayerObj player)
+		private void Move(PlayerObj player, float multiplier)
 		{
-			player.character.rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+			player.character.rb.velocity = new Vector2(moveDirection.x * multiplier, moveDirection.y * multiplier);
+		}
+
+		private void Run(PlayerObj player)
+		{
+			if (player.character.State == PlayerState.Normal)
+				moveSpeed = minRunSpeed;
+			player.character.State = player.input.IsRoll && player.character.stamina.CurrentHealthPoints > 0
+				? PlayerState.Running
+				: PlayerState.Normal;
 		}
 
 		private void Dash(PlayerObj player)
@@ -90,26 +112,6 @@ namespace Player
 			player.character.rb.MovePosition(dashPosition);
 		}
 
-		private void SetVelocityForRoll(PlayerObj player)
-		{
-			var rollSpeedDropMultiplier = 2f;
-			rollSpeed -= rollSpeed * rollSpeedDropMultiplier * Time.deltaTime;
-		
-			var minimumRollSpeed = 4f;
-			if (rollSpeed < minimumRollSpeed) 
-				player.character.State = PlayerState.Normal;
-
-			player.character.rb.velocity = latestMoveDirection * rollSpeed;
-		}
-
-		private void Roll(PlayerObj player)
-		{
-			if (!player.input.IsRoll)
-				return;
-			player.character.State = PlayerState.Rolling;
-			rollSpeed = 20f;
-		}
-	
 		private void Aim(PlayerObj player)
 		{
 			var aimDirection = cursorPosition - player.character.rb.position;
