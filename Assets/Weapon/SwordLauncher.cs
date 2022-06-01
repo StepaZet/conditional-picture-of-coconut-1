@@ -24,7 +24,7 @@ namespace Weapon
 					reloadStart = Time.time;
 					state = WeaponState.Reloading;
 					if (CurrentAmmoAmount <= 0)
-						ammoState = AmmoState.Empty;
+						CurrentAmmoAmount = maxAmmoAmount;
 					break;
 
 				case WeaponState.Reloading:

@@ -145,7 +145,7 @@ MonoBehaviour:
   sprite: {fileID: 5746910248760202018}
   weaponPrefab: {fileID: 1676410110751756140}
   characterCollider: {fileID: 5746910248760202021}
-  BulletTypeSprite: {fileID: 0}
+  BulletTypeSprite: {fileID: -7224892479368909311, guid: a7ee00f08ceb50a4c8b4b8380b161416, type: 3}
   grid: {fileID: 0}
 --- !u!1001 &1290411962999246669
 PrefabInstance:
@@ -301,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 2356023520135298345, guid: 4a8f7b2ed9f66c84c9db5a7f33b123b1, type: 3}
     - target: {fileID: 7887988350021188383, guid: 10b838214174e8f4ea834955ce77be2b, type: 3}
       propertyPath: maxAmmoAmount
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7887988350021188383, guid: 10b838214174e8f4ea834955ce77be2b, type: 3}
       propertyPath: shootSounds.Array.size

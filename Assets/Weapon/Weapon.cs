@@ -23,7 +23,7 @@ namespace Weapon
 		[SerializeField]protected float timeDifference;
 		[SerializeField] protected int maxAmmoAmount;
 		[SerializeField] protected bool hasUnlimitedBullets;
-		public int CurrentAmmoAmount { get; private set; }
+		public int CurrentAmmoAmount { get; protected set; }
 		public static event EventHandler OnAmmoChanged;
 		public int MaxAmmoAmount => maxAmmoAmount;
         protected int WallsLayerMask;
