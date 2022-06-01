@@ -122,5 +122,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae11e6e619db864e81593fe90ab336a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 5
+  damageAmount: 10
   sword: {fileID: 0}

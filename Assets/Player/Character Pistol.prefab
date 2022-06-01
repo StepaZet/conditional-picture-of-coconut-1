@@ -321,6 +321,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7605132891047785643}
     m_Modifications:
+    - target: {fileID: 2115143502353147416, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
+      propertyPath: maxHealthPoints
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115143502353147416, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
+      propertyPath: CurrentHealthPoints
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 4810428442765776644, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
       propertyPath: m_Name
       value: HealthObj
@@ -446,6 +454,10 @@ PrefabInstance:
       propertyPath: shootSound
       value: 
       objectReference: {fileID: 6409713986686803320}
+    - target: {fileID: 5591451004392808607, guid: 43d2b22cde19bf84381161004e36e384, type: 3}
+      propertyPath: maxAmmoAmount
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5591451004392808607, guid: 43d2b22cde19bf84381161004e36e384, type: 3}
       propertyPath: reloadingTime
       value: 0.2

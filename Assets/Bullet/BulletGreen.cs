@@ -8,7 +8,7 @@ public class BulletGreen : MonoBehaviour
 {
 
     public AudioClip DieSound;
-    private int damageAmount = 6;
+    private int damageAmount = 10;
     private float boomRadius = 4;
     private float spawnTime;
     private float lifeTime = 0.5f;

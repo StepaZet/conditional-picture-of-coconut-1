@@ -7,16 +7,18 @@ using UnityEngine;
 public class BulletMimicBoss : MonoBehaviour
 {
     public AudioClip DieSound;
-    private int damageAmount = 6;
+    private int damageAmount = 3;
 
     private float boomRadius = 2;
     private float spawnTime;
     private float lifeTime = 0.5f;
+    private int layer;
     public ParticleSystem BoomPrefab;
 
     private void Start()
     {
         spawnTime = Time.time;
+        layer = LayerMask.GetMask("Character");
         MakeBoomSound();
     }
 
@@ -41,7 +43,7 @@ public class BulletMimicBoss : MonoBehaviour
         MakeBoomSound();
         Instantiate(BoomPrefab, transform.position, Quaternion.identity);
         
-        var objectsToGetDamage = Physics2D.OverlapCircleAll(transform.position, boomRadius, layerMask: 9);
+        var objectsToGetDamage = Physics2D.OverlapCircleAll(transform.position, boomRadius, layer);
         
         foreach (var obj in objectsToGetDamage)
         {

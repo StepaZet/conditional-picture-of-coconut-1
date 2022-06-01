@@ -223,6 +223,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3942349395538536922}
     - target: {fileID: 2022886683801264595, guid: 70f367d1b66b1a84486df48c7c2929b5, type: 3}
+      propertyPath: reloadingTime
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2022886683801264595, guid: 70f367d1b66b1a84486df48c7c2929b5, type: 3}
       propertyPath: shootSound.Array.size
       value: 1
       objectReference: {fileID: 0}

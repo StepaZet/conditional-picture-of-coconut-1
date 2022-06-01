@@ -303,6 +303,10 @@ PrefabInstance:
       propertyPath: sword
       value: 
       objectReference: {fileID: 209168265124521751}
+    - target: {fileID: 9002466694242444042, guid: b4df8b4ef37ebd049b4a1bd0580f597b, type: 3}
+      propertyPath: damageAmount
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 9116049384637136689, guid: b4df8b4ef37ebd049b4a1bd0580f597b, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.02

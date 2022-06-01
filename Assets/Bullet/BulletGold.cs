@@ -7,7 +7,7 @@ namespace Assets.Bullet
     public class BulletGold : MonoBehaviour
     {
         public AudioClip DieSound;
-        private int damageAmount = 5;
+        private int damageAmount = 8;
         private float boomRadius = 2;
         public ParticleSystem BoomPrefab;
 

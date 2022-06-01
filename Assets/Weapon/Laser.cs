@@ -15,7 +15,7 @@ namespace Weapon
 		public LineRenderer lineRenderer;
 		private float maxDistance = 100;
 		public Character character;
-		private int damageAmount = 1;
+		private int damageAmount = 6;
 
         private int falseCount;
 		//private List<RaycastHit2D> hits = new List<RaycastHit2D>();
@@ -28,7 +28,7 @@ namespace Weapon
 
 		protected override void SetReloadingTime()
 		{
-			reloadingTime = 0.2f;
+			reloadingTime = 0.1f;
 		}
 
 		public void Update()

@@ -300,6 +300,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2356023520135298345, guid: 4a8f7b2ed9f66c84c9db5a7f33b123b1, type: 3}
     - target: {fileID: 7887988350021188383, guid: 10b838214174e8f4ea834955ce77be2b, type: 3}
+      propertyPath: maxAmmoAmount
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887988350021188383, guid: 10b838214174e8f4ea834955ce77be2b, type: 3}
       propertyPath: shootSounds.Array.size
       value: 2
       objectReference: {fileID: 0}

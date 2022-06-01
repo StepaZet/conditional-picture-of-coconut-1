@@ -5,7 +5,7 @@ namespace Bullet
 {
     public class ShotgunAmmoPickUp : MonoBehaviour
     {
-        private int bulletsAmount = 10;
+        private int bulletsAmount = 25;
         public ParticleSystem SpawnAnimation;
         public AudioClip PickUpSound;
         

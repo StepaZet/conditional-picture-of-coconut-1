@@ -227,6 +227,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3163097871952830796}
     m_Modifications:
+    - target: {fileID: 2115143502353147416, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
+      propertyPath: maxHealthPoints
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115143502353147416, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
+      propertyPath: CurrentHealthPoints
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4810428442765776644, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
       propertyPath: m_Name
       value: HealthObj
@@ -364,6 +372,10 @@ PrefabInstance:
       propertyPath: weaponPrefab
       value: 
       objectReference: {fileID: 4329172113836715944}
+    - target: {fileID: 6940750454992922296, guid: 1232a3d5b493ccd4a94da436426e39ba, type: 3}
+      propertyPath: maxAmmoAmount
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 6940750454992922296, guid: 1232a3d5b493ccd4a94da436426e39ba, type: 3}
       propertyPath: hasUnlimitedBullets
       value: 0

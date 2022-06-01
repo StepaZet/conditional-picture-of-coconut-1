@@ -6,7 +6,7 @@ namespace Bullet
 {
     public class BulletPurpleWizard : MonoBehaviour
     {
-        private int damageAmount = 5;
+        private int damageAmount = 7;
         private ParticleSystem fly;
         public ParticleSystem flyPrefab;
         public ParticleSystem BoomPrefab;
