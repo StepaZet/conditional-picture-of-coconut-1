@@ -441,7 +441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2577875976825011240, guid: 735c4b82e1e4483408eb1c428d376d4c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2577875976890146109, guid: 735c4b82e1e4483408eb1c428d376d4c, type: 3}
       propertyPath: m_Text
@@ -566,6 +566,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 661425813388321324}
+    - target: {fileID: 7732340967963438998, guid: 41ece719f7cfdea4ba8e88ae09b5eb69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadCredits
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41ece719f7cfdea4ba8e88ae09b5eb69, type: 3}
 --- !u!1 &8516644808603038403 stripped
