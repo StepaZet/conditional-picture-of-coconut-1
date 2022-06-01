@@ -6141,6 +6141,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3176868209017352540, guid: 52c24c7979c4ca44790edc9dfaa7d018, type: 3}
+      propertyPath: m_Text
+      value: 'W  -  MOVE UP
+
+        A  -  MOVE LEFT
+
+        S  -  MOVE DOWN
+
+        D 
+        -  MOVE RIGHT
+
+        SPACE  -  DASH
+
+        LEFT  SHIFT  -  SPRINT
+
+        LEFT 
+        MOUSE  BUTTON  -  SHOOT
+
+        TAB  -  ADD  FOUND  CHARACTER
+
+        1..9 
+        -  PLAY  AS  CHARACTER  1..9'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3176868209017352540, guid: 52c24c7979c4ca44790edc9dfaa7d018, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 20
       objectReference: {fileID: 0}
