@@ -41,4 +41,11 @@ public class PauseMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void LoadCredits()
+    {
+        Time.timeScale = 1f;
+        Game.GameData.IsPaused = false;
+        SceneManager.LoadScene("Scenes/EndGame");
+    }
 }
