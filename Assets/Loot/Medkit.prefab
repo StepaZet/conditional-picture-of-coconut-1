@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879699a15f7ea634c9ecc51fb7d7c72f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 5
+  healthPoints: 10
   SpawnAnimation: {fileID: 7628889160986480692, guid: b4d9ba47ab00d944a96bc139a36ac257, type: 3}
   PickUpSound: {fileID: 8300000, guid: fe15ac1b07d0d2d49a44f9b02056b7c3, type: 3}
 --- !u!61 &8636488345740695499

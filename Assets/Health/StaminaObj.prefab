@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 4838556167026759799, guid: 25c4eb8adffee5649afeda1e31789553, type: 3}
   IsImmortal: 0
-  CurrentHealthPoints: 100
-  maxHealthPoints: 100
-  reloadingTime: 2
+  CurrentHealthPoints: 200
+  maxHealthPoints: 200
+  reloadingTime: 0.4
   reloadStart: 0
