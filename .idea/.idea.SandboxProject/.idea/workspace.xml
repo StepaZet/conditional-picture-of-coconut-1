@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Game/ObjectManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/ObjectManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Menu/Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menu/Canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Menu/PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menu/PauseMenu.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,6 +119,7 @@
       <workItem from="1653834958153" duration="2062000" />
       <workItem from="1653991348731" duration="5943000" />
       <workItem from="1654002040157" duration="1810000" />
+      <workItem from="1654028235245" duration="3225000" />
     </task>
     <servers />
   </component>

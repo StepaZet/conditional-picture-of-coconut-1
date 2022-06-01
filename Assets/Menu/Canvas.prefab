@@ -319,6 +319,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 661425813388321324}
+    - target: {fileID: 2577875975309434912, guid: 735c4b82e1e4483408eb1c428d376d4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadCredits
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577875975309434913, guid: 735c4b82e1e4483408eb1c428d376d4c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 284.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577875975309434913, guid: 735c4b82e1e4483408eb1c428d376d4c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.0010176
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577875975309434913, guid: 735c4b82e1e4483408eb1c428d376d4c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -73.973
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577875975309434914, guid: 735c4b82e1e4483408eb1c428d376d4c, type: 3}
+      propertyPath: m_Name
+      value: CreditsButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2577875975841374458, guid: 735c4b82e1e4483408eb1c428d376d4c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -327,6 +347,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 661425813388321324}
+    - target: {fileID: 2577875976355697927, guid: 735c4b82e1e4483408eb1c428d376d4c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -139
+      objectReference: {fileID: 0}
     - target: {fileID: 2577875976825011239, guid: 735c4b82e1e4483408eb1c428d376d4c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -417,7 +441,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2577875976825011240, guid: 735c4b82e1e4483408eb1c428d376d4c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577875976890146109, guid: 735c4b82e1e4483408eb1c428d376d4c, type: 3}
+      propertyPath: m_Text
+      value: Credits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735c4b82e1e4483408eb1c428d376d4c, type: 3}
