@@ -34,6 +34,8 @@ namespace Player
 
 		private void UpdateScoresText(object sender, System.EventArgs eventArgs)
 		{
+			if (scoreText == null)
+				scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
 			scoreText.text = GameData.Score.ToString();
 		}
 
