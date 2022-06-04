@@ -92,6 +92,8 @@ namespace Player
 
         private void ChangeCharacter(Character other)
         {
+            if (other == null)
+                return;
             Camera.player = other;
             var transform = character.weapon.transform;
             var weaponPosition = transform.localPosition;
