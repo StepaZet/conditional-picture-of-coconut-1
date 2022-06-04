@@ -15,7 +15,9 @@ namespace Player
 		public bool IsRoll { get; private set; }
 		public bool IsChangeCharacter { get; private set; }
 		public bool IsChooseCharacter { get; private set; }
-		public int ChosenCharacterIndex { get; private set;}
+		private int chosenCharacterIndex;
+		public int MouseScrollDelta { get; private set; }
+		private int previousScrollDelta;
 		
 		private readonly KeyCode[] numberKeyCodes = 
 		{
@@ -43,13 +45,22 @@ namespace Player
 			IsRoll = Input.GetKey(KeyCode.LeftShift);
 			if (!IsChangeCharacter)
 				IsChangeCharacter = Input.GetKeyDown(KeyCode.Tab);
+				
 			
 			for (var i = 0; i < numberKeyCodes.Length; i++)
 				if (Input.GetKeyDown(numberKeyCodes[i]))
 				{
-					ChosenCharacterIndex = i;
+					chosenCharacterIndex = i;
 					IsChooseCharacter = true;
 				}
+
+			MouseScrollDelta = (int) Input.mouseScrollDelta.y;
+
+			if (MouseScrollDelta != previousScrollDelta)
+			{
+				chosenCharacterIndex += MouseScrollDelta;
+				IsChooseCharacter = true;
+			}
 		}
 
 		public void DropIsChangeCharacter()
@@ -57,6 +68,16 @@ namespace Player
             IsChangeCharacter = false;
             IsChooseCharacter = false;
         }
+
+		public int GetCharacterIndex(int maxValue)
+		{
+			if (chosenCharacterIndex < 0)
+				chosenCharacterIndex = maxValue;
+			else if (chosenCharacterIndex > maxValue) 
+				chosenCharacterIndex = 0;
+
+			return chosenCharacterIndex;
+		}
 
 	}
 }

@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Character Fireball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Character Fireball.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapon/SwordLauncher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/SwordLauncher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerObj.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerObj.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +120,7 @@
       <workItem from="1653991348731" duration="5943000" />
       <workItem from="1654002040157" duration="1810000" />
       <workItem from="1654028235245" duration="3717000" />
+      <workItem from="1654380585730" duration="1945000" />
     </task>
     <servers />
   </component>

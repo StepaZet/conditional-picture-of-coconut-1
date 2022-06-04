@@ -64,6 +64,7 @@ namespace Player
             {
                 input.DropIsChangeCharacter();
                 ChangeCharacterWithNumbers();
+                ChangeCharacterWithScroll();
             }
                 
                 
@@ -129,8 +130,12 @@ namespace Player
 
         private void ChangeCharacterWithNumbers()
         {
-            if (input.ChosenCharacterIndex < unlockedCharacters.Count) 
-                ChangeCharacterOnSamePosition(unlockedCharacters[input.ChosenCharacterIndex]);
+            ChangeCharacterOnSamePosition(unlockedCharacters[input.GetCharacterIndex(unlockedCharacters.Count - 1)]);
+        }
+
+        private void ChangeCharacterWithScroll()
+        {
+            ChangeCharacterOnSamePosition(unlockedCharacters[input.GetCharacterIndex(unlockedCharacters.Count - 1)]);
         }
 
         private void ChangeCharacterOnSamePosition(Character other)
