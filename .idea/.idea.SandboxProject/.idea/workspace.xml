@@ -5,7 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/ListExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/ListExtensions.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GridMap/GridEndlessRooms.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GridMap/GridEndlessRooms.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/BlueGoodRoom.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/BlueGoodRoom.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/BoobRoom.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/BoobRoom.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/ExitRoom.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/ExitRoom.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/GutRoom.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/GutRoom.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/LaserRoom.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/LaserRoom.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/MiddleRoom.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/MiddleRoom.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/MimicRoom.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/MimicRoom.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/RedGoodRoom.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/RedGoodRoom.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/SpawnerRoom.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/SpawnerRoom.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/StartRoom.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/StartRoom.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/TriangleRoom.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/TriangleRoom.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/WizardRoom.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/WizardRoom.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/YellowBoss.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/YellowBoss.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/ZigZagRoom.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/ZigZagRoom.prefab.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +71,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/76/d8bbeefb/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/81/706e3a9d/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Menu/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Resources/Rooms/Room.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Menu/DeathMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/17/4cf72f64/Transform.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -119,6 +153,7 @@
       <workItem from="1654002040157" duration="1810000" />
       <workItem from="1654028235245" duration="3717000" />
       <workItem from="1654380585730" duration="1945000" />
+      <workItem from="1654526904665" duration="7701000" />
     </task>
     <servers />
   </component>
@@ -141,6 +176,25 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Resources/Rooms/MapGenerator.cs</url>
+          <line>20</line>
+          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\MapGenerator.cs" initialLine="12" containingFunctionPresentation="method 'Start'">
+            <startOffsets>
+              <option value="717" />
+            </startOffsets>
+            <endOffsets>
+              <option value="718" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -136,11 +136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7605132891047785643, guid: 3da68e4f452e2bd4cb726ddb15c40c08, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.830002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7605132891047785643, guid: 3da68e4f452e2bd4cb726ddb15c40c08, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 29.890003
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7605132891047785643, guid: 3da68e4f452e2bd4cb726ddb15c40c08, type: 3}
       propertyPath: m_LocalPosition.z
@@ -533,7 +533,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1026452993
 MonoBehaviour:
@@ -647,7 +647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 598136206549620960, guid: 6305c7b18434b5f4592053b9c2a9c603, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 598136206549620960, guid: 6305c7b18434b5f4592053b9c2a9c603, type: 3}
       propertyPath: m_AnchorMax.x
@@ -794,14 +794,151 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridActualUnity
       objectReference: {fileID: 0}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 372017889}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: gridObj
+      value: 
+      objectReference: {fileID: 1883180348}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: startRoom
+      value: 
+      objectReference: {fileID: 7147109716127582637, guid: ce29981167d6b714a9c6a63cbed57150, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsObjects.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsPrefabs.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 2320945310709748584, guid: 61828d467c84675469109efa2f180137, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 7091135430760512388, guid: 4cea507f6e2ee154887a13ba65408d76, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 5171997128057219784, guid: e9613711604d7cb4ba830a9e5856c519, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 521191639565212113, guid: e034b0697ca071e498c7dbd8242fc98a, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsObjects.Array.data[4]
+      value: 
+      objectReference: {fileID: 7147109716127582637, guid: ce29981167d6b714a9c6a63cbed57150, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsObjects.Array.data[5]
+      value: 
+      objectReference: {fileID: 5262293059468481901, guid: 88bd9a043b15ce947802348bd548cff5, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsObjects.Array.data[6]
+      value: 
+      objectReference: {fileID: 690882981729006680, guid: 2a08d5a65ffc4ed48a3a4c744f025e2d, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsObjects.Array.data[7]
+      value: 
+      objectReference: {fileID: 6022335593231484509, guid: cabae330171076c41b7a74a06745925a, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsObjects.Array.data[8]
+      value: 
+      objectReference: {fileID: 4364646813546247090, guid: bb62a26eeecc20441aeb5ed0ba3719f0, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsObjects.Array.data[9]
+      value: 
+      objectReference: {fileID: 5629665414830385156, guid: 8e611ab293a93954a96368bc893dfc04, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 2320945310709748584, guid: 61828d467c84675469109efa2f180137, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 7091135430760512388, guid: 4cea507f6e2ee154887a13ba65408d76, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 5171997128057219784, guid: e9613711604d7cb4ba830a9e5856c519, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 521191639565212113, guid: e034b0697ca071e498c7dbd8242fc98a, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 7147109716127582637, guid: ce29981167d6b714a9c6a63cbed57150, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 5262293059468481901, guid: 88bd9a043b15ce947802348bd548cff5, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsPrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 690882981729006680, guid: 2a08d5a65ffc4ed48a3a4c744f025e2d, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsPrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 6022335593231484509, guid: cabae330171076c41b7a74a06745925a, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsPrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 7256888429946965563, guid: 31581d453b940f64281337d930b4db3c, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsPrefabs.Array.data[9]
+      value: 
+      objectReference: {fileID: 4239886676750167850, guid: 1c3ca23ad7510d744a2cf23495b8899e, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsObjects.Array.data[10]
+      value: 
+      objectReference: {fileID: 9204290198583762798, guid: 5187b6d783416e74585206e88040b8ea, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsObjects.Array.data[11]
+      value: 
+      objectReference: {fileID: 8007773762883806726, guid: b269741c2f09acc4db34db9a29bc64d6, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsObjects.Array.data[12]
+      value: 
+      objectReference: {fileID: 4239886676750167850, guid: 1c3ca23ad7510d744a2cf23495b8899e, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsObjects.Array.data[13]
+      value: 
+      objectReference: {fileID: 7256888429946965563, guid: 31581d453b940f64281337d930b4db3c, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsPrefabs.Array.data[10]
+      value: 
+      objectReference: {fileID: 8007773762883806726, guid: b269741c2f09acc4db34db9a29bc64d6, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsPrefabs.Array.data[11]
+      value: 
+      objectReference: {fileID: 9204290198583762798, guid: 5187b6d783416e74585206e88040b8ea, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsPrefabs.Array.data[12]
+      value: 
+      objectReference: {fileID: 5629665414830385156, guid: 8e611ab293a93954a96368bc893dfc04, type: 3}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: roomsPrefabs.Array.data[13]
+      value: 
+      objectReference: {fileID: 4364646813546247090, guid: bb62a26eeecc20441aeb5ed0ba3719f0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+--- !u!1 &1883180348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 304140872379316426, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+  m_PrefabInstance: {fileID: 1256950158}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1883180349 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 304140872379316431, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
   m_PrefabInstance: {fileID: 1256950158}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1883180348}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58c674ff04c387d498c9d3b3388f7f3a, type: 3}
@@ -894,7 +1031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3046669150959693408, guid: 99fd7a7698e79364a8dfcd6df1d57219, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3046669150959693408, guid: 99fd7a7698e79364a8dfcd6df1d57219, type: 3}
       propertyPath: m_LocalPosition.x

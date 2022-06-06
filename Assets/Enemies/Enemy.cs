@@ -97,6 +97,7 @@ namespace Assets.Enemies
             Rb = GetComponent<Rigidbody2D>();
             sprite = GetComponent<SpriteRenderer>();
             Collider = GetComponent<Collider2D>();
+            Grid = GameObject.Find("GridActualUnity").GetComponent<GridObj>();
 
             homePosition = transform.position;
             startingPosition = transform.position;
