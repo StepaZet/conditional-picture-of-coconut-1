@@ -13,6 +13,7 @@ namespace Resources.Rooms
 		[SerializeField] private Collider2D collider2D;
 		private GridObj grid;
 		public bool isCorridor;
+		public bool isColliding;
 
 		public void Start()
 		{
@@ -31,9 +32,13 @@ namespace Resources.Rooms
 			GenerateAdjacentRooms(mapGenerator.roomsPrefabs);
 		}
 
-		private void OnTriggerStay2D(Collider2D other)
+		private void OnTriggerEnter2D(Collider2D other)
 		{
-			if (!other.GetComponent<Game.ObjectManager>())
+			if (other.GetComponentInChildren<RoomGenerator>())
+			{
+				isColliding = true;
+			}
+			if (!other.GetComponentInChildren<Game.ObjectManager>())
 				return;
 			GenerateAdjacentRooms();
 			//if(isCorridor)
@@ -66,10 +71,11 @@ namespace Resources.Rooms
 			}
 		}
 
-		private RoomGenerator GenerateRoom(Transform opening, GameObject roomPrefabObj)
+		public RoomGenerator GenerateRoom(Transform opening, GameObject roomPrefabObj)
 		{
-			Instantiate(roomPrefabObj, grid.transform);
-			var room = roomPrefabObj.GetComponent<RoomGenerator>();
+			var roomObj = Instantiate(roomPrefabObj, grid.transform);
+			roomObj.transform.position = new Vector3(roomObj.transform.position.x, roomObj.transform.position.y, 0);
+			var room = roomObj.GetComponent<RoomGenerator>();
 			var canFit = false;
 			foreach (var newOpening in room.openings)
 			{
@@ -85,7 +91,7 @@ namespace Resources.Rooms
 
 			if (canFit)
 				return room;
-			Destroy(roomPrefabObj);
+			Destroy(roomObj);
 			return null;
 		}
 	}

@@ -20,7 +20,17 @@ public class MapGenerator : MonoBehaviour
     private void Start()
     {
         var spawnedRoom = Instantiate(startRoom, gridObj.transform);
-        spawnedRoom.transform.position = Game.GameData.player.character.transform.position;
+        generatedRooms.Add(spawnedRoom.GetComponent<RoomGenerator>());
+        spawnedRoom.GetComponent<RoomGenerator>().GenerateAdjacentRooms();
+    }
+
+    public void Spawn()
+    {
+        for (var index = 0; index < generatedRooms.Count; index++)
+        {
+            var generatedRoom = generatedRooms[index];
+            generatedRoom.GenerateAdjacentRooms();
+        }
     }
 
     public GameObject InstantiateRandomRoom()
