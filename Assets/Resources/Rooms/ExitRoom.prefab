@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2737057647188118188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5639174127862012455}
+  m_Layer: 0
+  m_Name: Opening
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5639174127862012455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737057647188118188}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.99, y: 2.1, z: -8.6087055}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5171997128057219785}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5171997126838819169
 GameObject:
   m_ObjectHideFlags: 0
@@ -6511,6 +6541,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5171997128057219785}
+  - component: {fileID: 1284039609455829852}
   m_Layer: 3
   m_Name: ExitRoom
   m_TagString: Untagged
@@ -6542,9 +6573,27 @@ Transform:
   - {fileID: 5171997128808363903}
   - {fileID: 5171997128905896503}
   - {fileID: 5171997128842437127}
+  - {fileID: 5639174127862012455}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1284039609455829852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5171997128057219784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63619ff78bc01c449018a9f88da19ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openings:
+  - {fileID: 5639174127862012455}
+  mapGenerator: {fileID: 6153636832803079231, guid: a611f02d9c5671e478a26d02b3299452, type: 3}
+  collider2D: {fileID: 5171997128842437124}
+  isCorridor: 0
 --- !u!1 &5171997128074093621
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,40 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/ListExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/ListExtensions.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GridMap/GridEndlessRooms.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GridMap/GridEndlessRooms.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/BlueGoodRoom.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/BlueGoodRoom.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/BoobRoom.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/BoobRoom.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/ExitRoom.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/ExitRoom.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/GutRoom.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/GutRoom.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/LaserRoom.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/LaserRoom.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/MiddleRoom.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/MiddleRoom.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/MimicRoom.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/MimicRoom.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/RedGoodRoom.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/RedGoodRoom.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/SpawnerRoom.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/SpawnerRoom.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/StartRoom.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/StartRoom.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/TriangleRoom.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/TriangleRoom.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/WizardRoom.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/WizardRoom.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/YellowBoss.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/YellowBoss.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/ZigZagRoom.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/ZigZagRoom.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/BlueGoodRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/BlueGoodRoom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/BoobRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/BoobRoom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/ExitRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/ExitRoom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/GutRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/GutRoom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/LaserRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/LaserRoom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/MapGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/MiddleRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/MiddleRoom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/MimicRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/MimicRoom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/RedGoodRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/RedGoodRoom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/SpawnerRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/SpawnerRoom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/StartRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/StartRoom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/TriangleRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/TriangleRoom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/WizardRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/WizardRoom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/YellowBoss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/YellowBoss.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/ZigZagRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/ZigZagRoom.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +55,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/76/d8bbeefb/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/81/706e3a9d/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Menu/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Resources/Rooms/Room.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Menu/DeathMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/17/4cf72f64/Transform.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -81,7 +65,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.103283174" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.102971666" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -153,7 +137,8 @@
       <workItem from="1654002040157" duration="1810000" />
       <workItem from="1654028235245" duration="3717000" />
       <workItem from="1654380585730" duration="1945000" />
-      <workItem from="1654526904665" duration="7701000" />
+      <workItem from="1654526904665" duration="10627000" />
+      <workItem from="1654540615904" duration="948000" />
     </task>
     <servers />
   </component>
@@ -192,6 +177,45 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs</url>
+          <line>37</line>
+          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="36" containingFunctionPresentation="method 'OnTriggerEnter2D'">
+            <startOffsets>
+              <option value="924" />
+            </startOffsets>
+            <endOffsets>
+              <option value="948" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs</url>
+          <line>34</line>
+          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="33" containingFunctionPresentation="method 'OnTriggerEnter2D'">
+            <startOffsets>
+              <option value="857" />
+            </startOffsets>
+            <endOffsets>
+              <option value="858" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs</url>
+          <line>19</line>
+          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="19" containingFunctionPresentation="method 'Start'">
+            <startOffsets>
+              <option value="487" />
+            </startOffsets>
+            <endOffsets>
+              <option value="563" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

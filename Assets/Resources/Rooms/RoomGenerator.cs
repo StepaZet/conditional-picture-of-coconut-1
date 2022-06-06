@@ -11,8 +11,15 @@ namespace Resources.Rooms
 		public List<Transform> openings;
 		[SerializeField] private MapGenerator mapGenerator;
 		[SerializeField] private Collider2D collider2D;
+		private GridObj grid;
 		public bool isCorridor;
 
+		public void Start()
+		{
+			grid = GameObject.Find("GridActualUnity").GetComponent<GridObj>();
+			mapGenerator = GameObject.Find("MapGenerator").GetComponent<MapGenerator>();
+			//GenerateAdjacentRooms();
+		}
 
 		public void GenerateAdjacentCorridors()
 		{
@@ -24,14 +31,15 @@ namespace Resources.Rooms
 			GenerateAdjacentRooms(mapGenerator.roomsPrefabs);
 		}
 
-		private void OnTriggerEnter2D(Collider2D other)
+		private void OnTriggerStay2D(Collider2D other)
 		{
 			if (!other.GetComponent<Game.ObjectManager>())
 				return;
-			if(isCorridor)
-				GenerateAdjacentRooms();
-			else
-				GenerateAdjacentCorridors();
+			GenerateAdjacentRooms();
+			//if(isCorridor)
+			//	GenerateAdjacentRooms();
+			//else
+			//	GenerateAdjacentCorridors();
 		}
 
 		public void GenerateAdjacentRooms(List<GameObject> prefabs)
@@ -60,12 +68,12 @@ namespace Resources.Rooms
 
 		private RoomGenerator GenerateRoom(Transform opening, GameObject roomPrefabObj)
 		{
-			Instantiate(roomPrefabObj);
+			Instantiate(roomPrefabObj, grid.transform);
 			var room = roomPrefabObj.GetComponent<RoomGenerator>();
 			var canFit = false;
-			foreach (var newOpening in openings)
+			foreach (var newOpening in room.openings)
 			{
-				room.transform.position = opening.position - newOpening.position;
+				room.transform.position += opening.position - newOpening.position;
 				var hasCollidedWithOther = mapGenerator.generatedRooms
 					.Except(new[] {room})
 					.Any(roomObject => room.collider2D.IsTouching(roomObject.collider2D));

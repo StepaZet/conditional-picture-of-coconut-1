@@ -13615,6 +13615,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 521191639565212114}
+  - component: {fileID: 141335202719981596}
   m_Layer: 3
   m_Name: GutRoom
   m_TagString: Untagged
@@ -13630,7 +13631,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521191639565212113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 77.42, y: 46.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 521191639129425451}
@@ -13646,9 +13647,27 @@ Transform:
   - {fileID: 521191638462848833}
   - {fileID: 521191639383331971}
   - {fileID: 521191639567513881}
+  - {fileID: 5858247198614848858}
+  - {fileID: 8160800317286927618}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &141335202719981596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521191639565212113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63619ff78bc01c449018a9f88da19ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openings: []
+  mapGenerator: {fileID: 6153636832803079231, guid: a611f02d9c5671e478a26d02b3299452, type: 3}
+  collider2D: {fileID: 521191639567513882}
+  isCorridor: 0
 --- !u!1 &521191639567513880
 GameObject:
   m_ObjectHideFlags: 0
@@ -13674,7 +13693,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521191639567513880}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 128.39977, y: 75.90673, z: 0}
+  m_LocalPosition: {x: 102.7, y: 58.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 521191639042144685}
@@ -13705,7 +13724,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 56.8, y: 27.6}
+  m_Size: {x: 28, y: 20}
   m_EdgeRadius: 0
 --- !u!1 &521191639780045506
 GameObject:
@@ -13962,6 +13981,66 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!1 &3671962040765125979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5858247198614848858}
+  m_Layer: 0
+  m_Name: Opening1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5858247198614848858
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3671962040765125979}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 88.94, y: 53.11, z: -10.010475}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 521191639565212114}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5747568114442558134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8160800317286927618}
+  m_Layer: 0
+  m_Name: Opening2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8160800317286927618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5747568114442558134}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 116.04, y: 53.05, z: -10.010475}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 521191639565212114}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &521191637828725076
 PrefabInstance:
   m_ObjectHideFlags: 0

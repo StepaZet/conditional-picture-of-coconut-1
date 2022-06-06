@@ -19,7 +19,8 @@ public class MapGenerator : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        Instantiate(startRoom, gridObj.transform);
+        var spawnedRoom = Instantiate(startRoom, gridObj.transform);
+        spawnedRoom.transform.position = Game.GameData.player.character.transform.position;
     }
 
     public GameObject InstantiateRandomRoom()

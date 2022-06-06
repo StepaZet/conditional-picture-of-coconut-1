@@ -773,7 +773,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2320945310709748585}
-  - component: {fileID: -2760114973525081849}
+  - component: {fileID: 1691713212179297474}
   m_Layer: 3
   m_Name: BlueGoodRoom
   m_TagString: Untagged
@@ -789,7 +789,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2320945310709748584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 74.11, y: 52.9, z: -60.372547}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2320945310756444701}
@@ -810,7 +810,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-2760114973525081849
+--- !u!114 &1691713212179297474
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -822,9 +822,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63619ff78bc01c449018a9f88da19ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openings: []
-  mapGenerator: {fileID: 0}
-  collider2D: {fileID: 0}
+  openings:
+  - {fileID: 1222255632576952767}
+  - {fileID: 899673555341074320}
+  mapGenerator: {fileID: 6153636832803079231, guid: a611f02d9c5671e478a26d02b3299452, type: 3}
+  collider2D: {fileID: 2320945310756444699}
   isCorridor: 0
 --- !u!1 &2320945310715679299
 GameObject:
@@ -5647,7 +5649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2320945312147917444}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 66.99977, y: 106.30673, z: 0}
+  m_LocalPosition: {x: 52, y: 84.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2320945311807072568}
@@ -5678,7 +5680,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 24.5, y: 17.95}
+  m_Size: {x: 8, y: 10}
   m_EdgeRadius: 0
 --- !u!1 &2320945312164507345
 GameObject:
