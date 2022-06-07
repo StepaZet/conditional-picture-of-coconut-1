@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/MiddleRoom 1 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/MiddleRoom 1 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/MimicRoom 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/MimicRoom 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/RedGoodRoom 1 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/RedGoodRoom 1 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/SpawnerRoom 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/SpawnerRoom 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/StartRoom 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/StartRoom 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/TriangleRoom 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/TriangleRoom 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/WizardRoom 1 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/WizardRoom 1 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/YellowBoss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/YellowBoss.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/ZigZagRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/ZigZagRoom.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

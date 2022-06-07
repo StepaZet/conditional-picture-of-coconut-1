@@ -15301,6 +15301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5743805378618222259}
+  - component: {fileID: 1038419203612612354}
   m_Layer: 3
   m_Name: MimicRoom 1
   m_TagString: Untagged
@@ -15339,6 +15340,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1038419203612612354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5743805378618222258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63619ff78bc01c449018a9f88da19ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openings:
+  - {fileID: 981375392231745370}
+  - {fileID: 5805513118605235894}
+  mapGenerator: {fileID: 6153636832803079231, guid: a611f02d9c5671e478a26d02b3299452, type: 3}
+  collider2D: {fileID: 5743805379102268651}
+  leftDownPoint: {fileID: 4818133794965344456}
+  rightUpPoint: {fileID: 6917016728688902487}
 --- !u!1 &5743805378689220610
 GameObject:
   m_ObjectHideFlags: 0

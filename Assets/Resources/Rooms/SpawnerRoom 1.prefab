@@ -8137,6 +8137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7219504831242825323}
+  - component: {fileID: 3375468560150897432}
   m_Layer: 3
   m_Name: SpawnerRoom 1
   m_TagString: Untagged
@@ -8175,6 +8176,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3375468560150897432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7219504831242825324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63619ff78bc01c449018a9f88da19ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openings:
+  - {fileID: 974430131768352825}
+  - {fileID: 1612684900740132598}
+  mapGenerator: {fileID: 6153636832803079231, guid: a611f02d9c5671e478a26d02b3299452, type: 3}
+  collider2D: {fileID: 7219504830727594625}
+  leftDownPoint: {fileID: 2767301249942348554}
+  rightUpPoint: {fileID: 8935701460555095716}
 --- !u!1 &7219504831299509767
 GameObject:
   m_ObjectHideFlags: 0

@@ -7363,6 +7363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4717504575606284961}
+  - component: {fileID: 7934234083047669756}
   m_Layer: 3
   m_Name: RedGoodRoom 1 1
   m_TagString: Untagged
@@ -7401,6 +7402,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7934234083047669756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4717504575606284960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63619ff78bc01c449018a9f88da19ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openings:
+  - {fileID: 591189398642725726}
+  - {fileID: 1125384578917145515}
+  mapGenerator: {fileID: 6153636832803079231, guid: a611f02d9c5671e478a26d02b3299452, type: 3}
+  collider2D: {fileID: 4717504575917728695}
+  leftDownPoint: {fileID: 2894202584086495700}
+  rightUpPoint: {fileID: 3749914142663525280}
 --- !u!1 &4717504575642770416
 GameObject:
   m_ObjectHideFlags: 0

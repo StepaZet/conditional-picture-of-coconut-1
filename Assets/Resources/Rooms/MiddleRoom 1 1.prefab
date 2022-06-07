@@ -11784,6 +11784,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8446985701753609089}
+  - component: {fileID: 8762439740971599032}
   m_Layer: 3
   m_Name: MiddleRoom 1 1
   m_TagString: Untagged
@@ -11823,6 +11824,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8762439740971599032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8446985701753609088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63619ff78bc01c449018a9f88da19ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openings:
+  - {fileID: 7503516354421830477}
+  - {fileID: 6374214441671223996}
+  - {fileID: 8070207130899272299}
+  mapGenerator: {fileID: 6153636832803079231, guid: a611f02d9c5671e478a26d02b3299452, type: 3}
+  collider2D: {fileID: 8446985701092838276}
+  leftDownPoint: {fileID: 2154794473133842196}
+  rightUpPoint: {fileID: 7467892877034744060}
 --- !u!1 &8446985701775007662
 GameObject:
   m_ObjectHideFlags: 0

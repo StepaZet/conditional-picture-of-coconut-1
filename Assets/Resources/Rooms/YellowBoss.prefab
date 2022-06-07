@@ -16714,6 +16714,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4239886676750167849}
+  - component: {fileID: 2122928016096310963}
   m_Layer: 3
   m_Name: YellowBoss
   m_TagString: Untagged
@@ -16751,6 +16752,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2122928016096310963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4239886676750167850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63619ff78bc01c449018a9f88da19ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openings:
+  - {fileID: 7231382101290663457}
+  mapGenerator: {fileID: 6153636832803079231, guid: a611f02d9c5671e478a26d02b3299452, type: 3}
+  collider2D: {fileID: 4239886676373291907}
+  leftDownPoint: {fileID: 4628302016229303030}
+  rightUpPoint: {fileID: 6569460772197107014}
 --- !u!1 &4239886676782898563
 GameObject:
   m_ObjectHideFlags: 0

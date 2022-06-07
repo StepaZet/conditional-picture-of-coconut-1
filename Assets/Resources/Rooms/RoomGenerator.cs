@@ -99,8 +99,8 @@ namespace Resources.Rooms
 
 		private static bool IsBetween(Vector3 left, Vector3 center, Vector3 right)
 		{
-			return left.x < center.x && center.x < right.x
-				&& left.y < center.y && center.y < right.y;
+			return left.x <= center.x && center.x <= right.x
+				&& left.y <= center.y && center.y <= right.y;
 		}
 	}
 }

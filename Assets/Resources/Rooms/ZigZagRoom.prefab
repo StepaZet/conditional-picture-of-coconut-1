@@ -2460,6 +2460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7256888429946965564}
+  - component: {fileID: 3736105119039585074}
   m_Layer: 3
   m_Name: ZigZagRoom
   m_TagString: Untagged
@@ -2500,6 +2501,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3736105119039585074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7256888429946965563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63619ff78bc01c449018a9f88da19ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openings:
+  - {fileID: 5130136249866256379}
+  - {fileID: 8699538314200604410}
+  - {fileID: 6221804275791668700}
+  - {fileID: 1173618346167569166}
+  mapGenerator: {fileID: 0}
+  collider2D: {fileID: 0}
+  leftDownPoint: {fileID: 0}
+  rightUpPoint: {fileID: 0}
 --- !u!1 &7256888429965747869
 GameObject:
   m_ObjectHideFlags: 0
