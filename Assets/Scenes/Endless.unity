@@ -825,6 +825,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridActualUnity
       objectReference: {fileID: 0}
+    - target: {fileID: 521412072862671083, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: m_Name
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
       propertyPath: player
       value: 
@@ -888,11 +892,11 @@ PrefabInstance:
     - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
       propertyPath: roomsPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 2320945310709748584, guid: 61828d467c84675469109efa2f180137, type: 3}
+      objectReference: {fileID: 8194080075660282651, guid: a985f9cdc79e2554884a0d5813dbe1c9, type: 3}
     - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
       propertyPath: roomsPrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 7091135430760512388, guid: 4cea507f6e2ee154887a13ba65408d76, type: 3}
+      objectReference: {fileID: 8194080075660282651, guid: a985f9cdc79e2554884a0d5813dbe1c9, type: 3}
     - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
       propertyPath: roomsPrefabs.Array.data[2]
       value: 
@@ -900,11 +904,11 @@ PrefabInstance:
     - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
       propertyPath: roomsPrefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 521191639565212113, guid: e034b0697ca071e498c7dbd8242fc98a, type: 3}
+      objectReference: {fileID: 8194080075660282651, guid: a985f9cdc79e2554884a0d5813dbe1c9, type: 3}
     - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
       propertyPath: roomsPrefabs.Array.data[4]
       value: 
-      objectReference: {fileID: 7147109716127582637, guid: ce29981167d6b714a9c6a63cbed57150, type: 3}
+      objectReference: {fileID: 8194080075660282651, guid: a985f9cdc79e2554884a0d5813dbe1c9, type: 3}
     - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
       propertyPath: roomsPrefabs.Array.data[5]
       value: 
@@ -957,6 +961,34 @@ PrefabInstance:
       propertyPath: roomsPrefabs.Array.data[13]
       value: 
       objectReference: {fileID: 4364646813546247090, guid: bb62a26eeecc20441aeb5ed0ba3719f0, type: 3}
+    - target: {fileID: 2051684108202417550, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: m_Name
+      value: WallsCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 6954032301128970176, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: m_CellSize.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6954032301128970176, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: m_CellSize.y
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266214136529947583, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8606405173079803243, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156057558907528603, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156057558907528603, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
 --- !u!1 &1883180348 stripped
