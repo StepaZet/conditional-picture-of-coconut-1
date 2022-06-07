@@ -12,8 +12,8 @@ namespace Resources.Rooms
 		[SerializeField] private MapGenerator mapGenerator;
 		[SerializeField] private Collider2D collider2D;
 		private GridObj grid;
-		[SerializeField] private Vector3 leftDownPoint;
-		[SerializeField] private Vector3 rightUpPoint;
+		[SerializeField] private Transform leftDownPoint;
+		[SerializeField] private Transform rightUpPoint;
 
 		public void Start()
 		{
@@ -91,10 +91,10 @@ namespace Resources.Rooms
 
 		private static bool IsColliding(RoomGenerator room1, RoomGenerator room2)
 		{
-			return IsBetween(room1.leftDownPoint, room2.leftDownPoint, room1.rightUpPoint)
-			       || IsBetween(room2.leftDownPoint, room1.leftDownPoint, room2.rightUpPoint)
-			       || IsBetween(room1.leftDownPoint, room2.rightUpPoint, room1.rightUpPoint)
-			       || IsBetween(room2.leftDownPoint, room1.rightUpPoint, room2.rightUpPoint);
+			return IsBetween(room1.leftDownPoint.position, room2.leftDownPoint.position, room1.rightUpPoint.position)
+			       || IsBetween(room2.leftDownPoint.position, room1.leftDownPoint.position, room2.rightUpPoint.position)
+			       || IsBetween(room1.leftDownPoint.position, room2.rightUpPoint.position, room1.rightUpPoint.position)
+			       || IsBetween(room2.leftDownPoint.position, room1.rightUpPoint.position, room2.rightUpPoint.position);
 		}
 
 		private static bool IsBetween(Vector3 left, Vector3 center, Vector3 right)
