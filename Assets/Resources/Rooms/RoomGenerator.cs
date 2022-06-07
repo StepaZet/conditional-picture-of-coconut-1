@@ -12,8 +12,8 @@ namespace Resources.Rooms
 		[SerializeField] private MapGenerator mapGenerator;
 		[SerializeField] private Collider2D collider2D;
 		private GridObj grid;
-		public bool isCorridor;
-		public bool isColliding;
+		[SerializeField] private Vector3 leftDownPoint;
+		[SerializeField] private Vector3 rightUpPoint;
 
 		public void Start()
 		{
@@ -34,13 +34,7 @@ namespace Resources.Rooms
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			if (other.GetComponentInChildren<RoomGenerator>())
-			{
-				isColliding = true;
-			}
-			if (!other.GetComponentInChildren<Game.ObjectManager>())
-				return;
-			GenerateAdjacentRooms();
+			//GenerateAdjacentRooms();
 			//if(isCorridor)
 			//	GenerateAdjacentRooms();
 			//else
@@ -82,7 +76,7 @@ namespace Resources.Rooms
 				room.transform.position += opening.position - newOpening.position;
 				var hasCollidedWithOther = mapGenerator.generatedRooms
 					.Except(new[] {room})
-					.Any(roomObject => room.collider2D.IsTouching(roomObject.collider2D));
+					.Any(r => IsColliding(room, r));
 				if (hasCollidedWithOther)
 					continue;
 				canFit = true;
@@ -93,6 +87,20 @@ namespace Resources.Rooms
 				return room;
 			Destroy(roomObj);
 			return null;
+		}
+
+		private static bool IsColliding(RoomGenerator room1, RoomGenerator room2)
+		{
+			return IsBetween(room1.leftDownPoint, room2.leftDownPoint, room1.rightUpPoint)
+			       || IsBetween(room2.leftDownPoint, room1.leftDownPoint, room2.rightUpPoint)
+			       || IsBetween(room1.leftDownPoint, room2.rightUpPoint, room1.rightUpPoint)
+			       || IsBetween(room2.leftDownPoint, room1.rightUpPoint, room2.rightUpPoint);
+		}
+
+		private static bool IsBetween(Vector3 left, Vector3 center, Vector3 right)
+		{
+			return left.x < center.x && center.x < right.x
+				&& left.y < center.y && center.y < right.y;
 		}
 	}
 }

@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/BlueGoodRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/BlueGoodRoom.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/BoobRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/BoobRoom.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/ExitRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/ExitRoom.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/GutRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/GutRoom.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/LaserRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/LaserRoom.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/MapGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/MiddleRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/MiddleRoom.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/MimicRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/MimicRoom.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/RedGoodRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/RedGoodRoom.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/SpawnerRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/SpawnerRoom.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/TriangleRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/TriangleRoom.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/YellowBoss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/YellowBoss.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,10 +167,10 @@
           <line>42</line>
           <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="36" containingFunctionPresentation="method 'OnTriggerEnter2D'">
             <startOffsets>
-              <option value="1050" />
+              <option value="1046" />
             </startOffsets>
             <endOffsets>
-              <option value="1074" />
+              <option value="1070" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
@@ -193,10 +180,10 @@
           <line>35</line>
           <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="33" containingFunctionPresentation="method 'OnTriggerEnter2D'">
             <startOffsets>
-              <option value="885" />
+              <option value="881" />
             </startOffsets>
             <endOffsets>
-              <option value="886" />
+              <option value="882" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
@@ -206,10 +193,10 @@
           <line>20</line>
           <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="19" containingFunctionPresentation="method 'Start'">
             <startOffsets>
-              <option value="514" />
+              <option value="510" />
             </startOffsets>
             <endOffsets>
-              <option value="590" />
+              <option value="586" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
