@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/MiddleRoom 1 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/MiddleRoom 1 1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/MimicRoom 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/MimicRoom 1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/RedGoodRoom 1 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/RedGoodRoom 1 1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/SpawnerRoom 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/SpawnerRoom 1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/StartRoom 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/StartRoom 1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/TriangleRoom 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/TriangleRoom 1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/WizardRoom 1 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/WizardRoom 1 1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/YellowBoss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/YellowBoss.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/ZigZagRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/ZigZagRoom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/ZigZagRoom 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/ZigZagRoom 1.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,10 +69,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="25296">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="25296" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -158,19 +152,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Resources/Rooms/MapGenerator.cs</url>
-          <line>20</line>
-          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\MapGenerator.cs" initialLine="12" containingFunctionPresentation="method 'Start'">
-            <startOffsets>
-              <option value="717" />
-            </startOffsets>
-            <endOffsets>
-              <option value="718" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs</url>
           <line>42</line>
           <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="36" containingFunctionPresentation="method 'OnTriggerEnter2D'">
@@ -198,16 +179,29 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs</url>
-          <line>20</line>
-          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="19" containingFunctionPresentation="method 'Start'">
+          <line>68</line>
+          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="68" containingFunctionPresentation="method 'GenerateRoom'">
             <startOffsets>
-              <option value="510" />
+              <option value="1724" />
             </startOffsets>
             <endOffsets>
-              <option value="586" />
+              <option value="1725" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs</url>
+          <line>92</line>
+          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="92" containingFunctionPresentation="method 'IsColliding'">
+            <startOffsets>
+              <option value="2449" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2450" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

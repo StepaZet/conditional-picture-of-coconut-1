@@ -16557,10 +16557,10 @@ MonoBehaviour:
   - {fileID: 6613728629963510487}
   - {fileID: 8442592486723693041}
   - {fileID: 3691773627917567779}
-  mapGenerator: {fileID: 0}
-  collider2D: {fileID: 0}
-  leftDownPoint: {fileID: 0}
-  rightUpPoint: {fileID: 0}
+  mapGenerator: {fileID: 6153636832803079231, guid: a611f02d9c5671e478a26d02b3299452, type: 3}
+  collider2D: {fileID: 5172369538803701021}
+  leftDownPoint: {fileID: 3996763752635745386}
+  rightUpPoint: {fileID: 5100733312717601001}
 --- !u!1 &5172369538665127755
 GameObject:
   m_ObjectHideFlags: 0

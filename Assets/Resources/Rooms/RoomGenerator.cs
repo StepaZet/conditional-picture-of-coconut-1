@@ -91,10 +91,18 @@ namespace Resources.Rooms
 
 		private static bool IsColliding(RoomGenerator room1, RoomGenerator room2)
 		{
+			var leftUp1 = new Vector3(room1.leftDownPoint.position.x, room1.rightUpPoint.position.y, 0);
+			var leftUp2 = new Vector3(room2.leftDownPoint.position.x, room2.rightUpPoint.position.y, 0);
+			var rightDown1 = new Vector3(room1.rightUpPoint.position.x, room1.leftDownPoint.position.y, 0);
+			var rightDown2 = new Vector3(room2.rightUpPoint.position.x, room2.leftDownPoint.position.y, 0);
 			return IsBetween(room1.leftDownPoint.position, room2.leftDownPoint.position, room1.rightUpPoint.position)
 			       || IsBetween(room2.leftDownPoint.position, room1.leftDownPoint.position, room2.rightUpPoint.position)
 			       || IsBetween(room1.leftDownPoint.position, room2.rightUpPoint.position, room1.rightUpPoint.position)
-			       || IsBetween(room2.leftDownPoint.position, room1.rightUpPoint.position, room2.rightUpPoint.position);
+			       || IsBetween(room2.leftDownPoint.position, room1.rightUpPoint.position, room2.rightUpPoint.position)
+			       || IsBetween(room1.leftDownPoint.position, leftUp2, room1.rightUpPoint.position)
+			       || IsBetween(room2.leftDownPoint.position, leftUp1, room2.rightUpPoint.position)
+			       || IsBetween(room1.leftDownPoint.position, rightDown2, room1.rightUpPoint.position)
+			       || IsBetween(room2.leftDownPoint.position, rightDown1, room2.rightUpPoint.position);
 		}
 
 		private static bool IsBetween(Vector3 left, Vector3 center, Vector3 right)
