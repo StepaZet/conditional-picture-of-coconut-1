@@ -17,7 +17,7 @@ namespace Resources.Rooms
 		[SerializeField] private Transform rightUpPoint;
 		public bool noOpeningsLeft;
 
-		public void Start()
+		public void OnEnable()
 		{
 			foreach (var opening in openings) 
 				if (!isOpeningGenerated.ContainsKey(opening))
