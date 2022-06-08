@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GridMap/GridEndlessRooms.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GridMap/GridEndlessRooms.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/MiddleRoom 1 1 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/MiddleRoom 1 1 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/Piece/RightTop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/Piece/RightTop.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/ZigZagRoom 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/ZigZagRoom 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/SpawnerRoom 1 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/SpawnerRoom 1 1.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +35,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/Bullet/ShotgunBullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0d2eba3ab4724e709ab1d40ddbd9cb073800/9b/3e8e818c/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerObj.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Menu/WinMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Weapon/SwordColliderHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695d1cc93cca45069c528c15c9fdd7493e2800/9a/d91c074c/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Health/HealthBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cafb29d5233847fbb4edcf8d7c32b1e3299c90/93/b519fe6a/List`1.cs" root0="SKIP_HIGHLIGHTING" />
@@ -43,6 +48,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Menu/DeathMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/17/4cf72f64/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/351e49e2a5bf4fd6beabb458ce2255f3ff600/ca/7363510e/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="27EnJZhJ0yvWQwNVuM4aAeiyGSK" />
   <component name="ProjectViewState">
@@ -69,10 +75,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="25296">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="20704">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="25296" />
+      <option name="pid" value="20704" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -125,6 +131,7 @@
       <workItem from="1654526904665" duration="10627000" />
       <workItem from="1654540615904" duration="2250000" />
       <workItem from="1654545973760" duration="3518000" />
+      <workItem from="1654670746124" duration="8095000" />
     </task>
     <servers />
   </component>
@@ -153,55 +160,68 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs</url>
-          <line>42</line>
+          <line>47</line>
           <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="36" containingFunctionPresentation="method 'OnTriggerEnter2D'">
             <startOffsets>
-              <option value="1046" />
+              <option value="1706" />
             </startOffsets>
             <endOffsets>
-              <option value="1070" />
+              <option value="2053" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs</url>
-          <line>35</line>
+          <line>40</line>
           <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="33" containingFunctionPresentation="method 'OnTriggerEnter2D'">
             <startOffsets>
-              <option value="881" />
+              <option value="1335" />
             </startOffsets>
             <endOffsets>
-              <option value="882" />
+              <option value="1336" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs</url>
-          <line>68</line>
-          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="68" containingFunctionPresentation="method 'GenerateRoom'">
+          <line>114</line>
+          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="96" containingFunctionPresentation="method 'IsColliding'">
             <startOffsets>
-              <option value="1724" />
+              <option value="3509" />
             </startOffsets>
             <endOffsets>
-              <option value="1725" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs</url>
-          <line>92</line>
-          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="92" containingFunctionPresentation="method 'IsColliding'">
-            <startOffsets>
-              <option value="2449" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2450" />
+              <option value="3510" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs</url>
+          <line>50</line>
+          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="50" containingFunctionPresentation="method 'GenerateAdjacentRooms'">
+            <startOffsets>
+              <option value="1343" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1361" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs</url>
+          <line>70</line>
+          <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="70" containingFunctionPresentation="method 'GenerateAdjacentRooms'">
+            <startOffsets>
+              <option value="2216" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2242" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

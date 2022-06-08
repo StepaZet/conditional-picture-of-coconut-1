@@ -9,14 +9,19 @@ namespace Resources.Rooms
 	public class RoomGenerator : MonoBehaviour
 	{
 		public List<Transform> openings;
+		public Dictionary<Transform, bool> isOpeningGenerated = new Dictionary<Transform, bool>();
 		[SerializeField] private MapGenerator mapGenerator;
 		[SerializeField] private Collider2D collider2D;
 		private GridObj grid;
 		[SerializeField] private Transform leftDownPoint;
 		[SerializeField] private Transform rightUpPoint;
+		public bool noOpeningsLeft;
 
 		public void Start()
 		{
+			foreach (var opening in openings) 
+				isOpeningGenerated[opening] = false;
+			
 			grid = GameObject.Find("GridActualUnity").GetComponent<GridObj>();
 			mapGenerator = GameObject.Find("MapGenerator").GetComponent<MapGenerator>();
 			//GenerateAdjacentRooms();
@@ -43,66 +48,87 @@ namespace Resources.Rooms
 
 		public void GenerateAdjacentRooms(List<GameObject> prefabs)
 		{
-			foreach (var opening in openings)
+			prefabs.Shuffle();
+			var isSuccessful = false;
+			foreach (var prefab in prefabs)
 			{
-				prefabs.Shuffle();
-				var isRoomGenerated = false;
-				foreach (var roomPrefab in prefabs)
+				var roomObj = Instantiate(prefab, grid.transform);
+				foreach (var opening in isOpeningGenerated.Keys.Where(x => !isOpeningGenerated[x]))
 				{
-					var generatedRoom = GenerateRoom(opening, roomPrefab);
-					if (generatedRoom == null)
-						continue;
-					mapGenerator.generatedRooms.Add(generatedRoom);
-					isRoomGenerated = true;
-					break;
+					roomObj.transform.position = new Vector3(roomObj.transform.position.x, roomObj.transform.position.y, 0);
+					var room = roomObj.GetComponent<RoomGenerator>();
+			
+					if (room.isOpeningGenerated.Count == 0)
+						foreach (var roomOpening in room.openings) 
+							room.isOpeningGenerated[roomOpening] = false;
+
+					foreach (var newOpening in room.isOpeningGenerated.Keys.Where(x => !room.isOpeningGenerated[x]))
+					{
+						room.transform.position += opening.position - newOpening.position;
+						var hasCollidedWithOther = mapGenerator.generatedRooms
+							.Except(new[] {room})
+							.Any(r => IsColliding(room, r));
+						if (!hasCollidedWithOther)
+						{
+							isSuccessful = true;
+							room.isOpeningGenerated[newOpening] = true;
+							isOpeningGenerated[opening] = true;
+							mapGenerator.generatedRooms.Add(room);
+							break;
+						}
+					}
+
+					if (isSuccessful)
+						break;
 				}
 
-				if (!isRoomGenerated)
-				{
-					var deadEnd = Instantiate(mapGenerator.deadEnd);
-					deadEnd.transform.position = opening.position;
-				}
+				if (isSuccessful)
+					break;
+				Destroy(roomObj);
 			}
 		}
 
-		public RoomGenerator GenerateRoom(Transform opening, GameObject roomPrefabObj)
+		public (RoomGenerator room, bool isSuccessful) GenerateRoom(Transform opening, GameObject roomPrefabObj)
 		{
 			var roomObj = Instantiate(roomPrefabObj, grid.transform);
 			roomObj.transform.position = new Vector3(roomObj.transform.position.x, roomObj.transform.position.y, 0);
 			var room = roomObj.GetComponent<RoomGenerator>();
-			var canFit = false;
-			foreach (var newOpening in room.openings)
+			
+			if (room.isOpeningGenerated.Count == 0)
+				foreach (var roomOpening in room.openings) 
+					room.isOpeningGenerated[roomOpening] = false;
+
+			foreach (var newOpening in room.isOpeningGenerated.Keys.Where(x => !room.isOpeningGenerated[x]))
 			{
 				room.transform.position += opening.position - newOpening.position;
 				var hasCollidedWithOther = mapGenerator.generatedRooms
 					.Except(new[] {room})
 					.Any(r => IsColliding(room, r));
-				if (hasCollidedWithOther)
-					continue;
-				canFit = true;
-				break;
+				if (!hasCollidedWithOther)
+					return (room, true);
 			}
 
-			if (canFit)
-				return room;
-			Destroy(roomObj);
-			return null;
+			return (room, false);
 		}
 
 		private static bool IsColliding(RoomGenerator room1, RoomGenerator room2)
 		{
-			var leftUp1 = new Vector3(room1.leftDownPoint.position.x, room1.rightUpPoint.position.y, 0);
-			var leftUp2 = new Vector3(room2.leftDownPoint.position.x, room2.rightUpPoint.position.y, 0);
-			var rightDown1 = new Vector3(room1.rightUpPoint.position.x, room1.leftDownPoint.position.y, 0);
-			var rightDown2 = new Vector3(room2.rightUpPoint.position.x, room2.leftDownPoint.position.y, 0);
-			return IsBetween(room1.leftDownPoint.position, room2.leftDownPoint.position, room1.rightUpPoint.position)
-			       || IsBetween(room2.leftDownPoint.position, room1.leftDownPoint.position, room2.rightUpPoint.position)
-			       || IsBetween(room1.leftDownPoint.position, room2.rightUpPoint.position, room1.rightUpPoint.position)
-			       || IsBetween(room2.leftDownPoint.position, room1.rightUpPoint.position, room2.rightUpPoint.position)
-			       || IsBetween(room1.leftDownPoint.position, leftUp2, room1.rightUpPoint.position)
-			       || IsBetween(room2.leftDownPoint.position, leftUp1, room2.rightUpPoint.position)
-			       || IsBetween(room1.leftDownPoint.position, rightDown2, room1.rightUpPoint.position)
-			       || IsBetween(room2.leftDownPoint.position, rightDown1, room2.rightUpPoint.position);
+			var l1 = room1.leftDownPoint.position;
+			var r1 = room1.rightUpPoint.position;
+			var l2 = room2.leftDownPoint.position;
+			var r2 = room2.rightUpPoint.position;
+			var delta = 0.1f;
+			
+			if (l1.x + delta >= r2.x || l2.x + delta >= r1.x)
+			{
+				return false;
+			}
+ 
+			if (r1.y <= l2.y + delta || r2.y <= l1.y + delta)
+			{
+				return false;
+			}
+			return true;
 		}
 
 		private static bool IsBetween(Vector3 left, Vector3 center, Vector3 right)
