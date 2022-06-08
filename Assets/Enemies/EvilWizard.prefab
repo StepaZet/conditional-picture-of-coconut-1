@@ -167,15 +167,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2115143502353147416, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
       propertyPath: IsImmortal
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2115143502353147416, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
       propertyPath: maxHealthPoints
-      value: 30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2115143502353147416, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
       propertyPath: CurrentHealthPoints
-      value: 30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4810428442765776644, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
       propertyPath: m_Name
@@ -272,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341637101209354232, guid: 15026393d4f9e58458249195f0c282f5, type: 3}
       propertyPath: hasUnlimitedBullets
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3341637101209354232, guid: 15026393d4f9e58458249195f0c282f5, type: 3}
       propertyPath: shootSound.Array.size
