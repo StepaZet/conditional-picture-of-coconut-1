@@ -20,7 +20,8 @@ namespace Resources.Rooms
 		public void Start()
 		{
 			foreach (var opening in openings) 
-				isOpeningGenerated[opening] = false;
+				if (!isOpeningGenerated.ContainsKey(opening))
+					isOpeningGenerated[opening] = false;
 			
 			grid = GameObject.Find("GridActualUnity").GetComponent<GridObj>();
 			mapGenerator = GameObject.Find("MapGenerator").GetComponent<MapGenerator>();

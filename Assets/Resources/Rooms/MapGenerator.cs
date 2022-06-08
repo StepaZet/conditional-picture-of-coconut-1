@@ -19,8 +19,11 @@ public class MapGenerator : MonoBehaviour
     private List<(List<GameObject>, int)> prefabsGenerationChance;
 
     [SerializeField] public List<RoomGenerator> generatedRooms;
+    [SerializeField] public List<RoomGenerator> generatedRoomsWithoutCorridors;
     //[SerializeField] public GameObject deadEnd;
     [SerializeField]private GameObject startRoom;
+    [SerializeField] private int minNumberOfRoomsToBeGenerated;
+    [SerializeField] private int waitingTime;
     private static System.Random random = new System.Random();
 
     // Start is called before the first frame update
@@ -39,19 +42,29 @@ public class MapGenerator : MonoBehaviour
         spawnedRoom.GetComponent<RoomGenerator>().GenerateAdjacentRooms(corridorStraightPrefabs);
     }
 
+    public void Update()
+    {
+        while (generatedRoomsWithoutCorridors.Count < minNumberOfRoomsToBeGenerated && Time.timeSinceLevelLoad < waitingTime)
+        {
+            Spawn();
+        }
+    }
+
     public void Spawn()
     {
-        var (chosenPrefabs, chance) = prefabsGenerationChance.SelectItem();
-        for (var index = 0; index < generatedRooms.Count; index++)
-        {
-            var generatedRoom = generatedRooms[index];
-            var result = generatedRoom.GenerateAdjacentRooms(chosenPrefabs);
-            if (result == null || !result.Any())
+            var (chosenPrefabs, chance) = prefabsGenerationChance.SelectItem();
+            for (var index = 0; index < generatedRooms.Count; index++)
             {
-                var result2 = generatedRoom.GenerateAdjacentRooms(corridorStraightPrefabs);
-                // TODO Вставить метод для генерации тупика
+                var generatedRoom = generatedRooms[index];
+                var result = generatedRoom.GenerateAdjacentRooms(chosenPrefabs);
+                if (chosenPrefabs != corridorCornerPrefabs && chosenPrefabs != corridorStraightPrefabs)
+                    generatedRoomsWithoutCorridors.AddRange(result);
+                if (result == null || !result.Any())
+                {
+                    var result2 = generatedRoom.GenerateAdjacentRooms(corridorStraightPrefabs);
+                    // TODO Вставить метод для генерации тупика
+                }
             }
-        }
     }
 
     public GameObject InstantiateRandomRoom()
