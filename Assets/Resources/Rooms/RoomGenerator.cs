@@ -27,26 +27,7 @@ namespace Resources.Rooms
 			//GenerateAdjacentRooms();
 		}
 
-		public void GenerateAdjacentCorridors()
-		{
-			GenerateAdjacentRooms(mapGenerator.corridorPrefabs);
-		}
-
-		public void GenerateAdjacentRooms()
-		{
-			GenerateAdjacentRooms(mapGenerator.roomsPrefabs);
-		}
-
-		private void OnTriggerEnter2D(Collider2D other)
-		{
-			//GenerateAdjacentRooms();
-			//if(isCorridor)
-			//	GenerateAdjacentRooms();
-			//else
-			//	GenerateAdjacentCorridors();
-		}
-
-		public void GenerateAdjacentRooms(List<GameObject> prefabs)
+		public IEnumerable<RoomGenerator> GenerateAdjacentRooms(List<GameObject> prefabs)
 		{
 			prefabs.Shuffle();
 			var isSuccessful = false;
@@ -74,6 +55,7 @@ namespace Resources.Rooms
 							room.isOpeningGenerated[newOpening] = true;
 							isOpeningGenerated[opening] = true;
 							mapGenerator.generatedRooms.Add(room);
+							yield return room;
 							break;
 						}
 					}
@@ -129,12 +111,6 @@ namespace Resources.Rooms
 				return false;
 			}
 			return true;
-		}
-
-		private static bool IsBetween(Vector3 left, Vector3 center, Vector3 right)
-		{
-			return left.x <= center.x && center.x <= right.x
-				&& left.y <= center.y && center.y <= right.y;
 		}
 	}
 }
