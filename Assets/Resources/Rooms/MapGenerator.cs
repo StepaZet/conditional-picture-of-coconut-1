@@ -35,8 +35,8 @@ public class MapGenerator : MonoBehaviour
         {
             (roomsPrefabs, 5),
             (bossRoomsPrefabs, 1),
-            (corridorStraightPrefabs, 7),
-            (corridorCornerPrefabs, 3)
+            (corridorStraightPrefabs, 9),
+            (corridorCornerPrefabs, 1)
         };
         
         var spawnedRoom = Instantiate(startRoom, gridObj.transform);
@@ -46,9 +46,10 @@ public class MapGenerator : MonoBehaviour
 
     public void Spawn()
     {
-        var previousRoomsCount = 0;
-        while(generatedRoomsWithoutCorridors.Count <= 15)
+        var tries = 0;
+        while(generatedRoomsWithoutCorridors.Count <= 15 && tries < 8)
         {
+            tries++;
             for (var index = 0; index < generatedRooms.Count; index++)
             {
                 var generatedRoom = generatedRooms[index];
@@ -67,9 +68,6 @@ public class MapGenerator : MonoBehaviour
 
                 
             }
-            if (generatedRooms.Count == previousRoomsCount)
-                break;
-            previousRoomsCount = generatedRooms.Count;
         }
     }
 
