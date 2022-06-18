@@ -78,6 +78,7 @@ MonoBehaviour:
   collider2D: {fileID: 0}
   leftDownPoint: {fileID: 0}
   rightUpPoint: {fileID: 0}
+  noOpeningsLeft: 0
 --- !u!1001 &475226085851653517
 PrefabInstance:
   m_ObjectHideFlags: 0
