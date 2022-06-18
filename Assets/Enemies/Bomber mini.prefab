@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5313380754587076022}
   - component: {fileID: 7610244180094209912}
   - component: {fileID: 8662697077814926704}
+  - component: {fileID: -5610669553542885902}
   m_Layer: 10
   m_Name: Bomber mini
   m_TagString: Player
@@ -242,6 +243,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-5610669553542885902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5313380754587076023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 5313380754587076020}
+  mapRender: {fileID: 0}
 --- !u!1001 &3689883747743742253
 PrefabInstance:
   m_ObjectHideFlags: 0

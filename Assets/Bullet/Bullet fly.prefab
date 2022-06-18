@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1154816277846106352}
   - component: {fileID: 5784103201167120297}
   - component: {fileID: 6121126127863394761}
+  - component: {fileID: -6685515531053418551}
   m_Layer: 11
   m_Name: Bullet fly
   m_TagString: Untagged
@@ -135,3 +136,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 2
+--- !u!114 &-6685515531053418551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8052464146724152406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 2634937434681462013}
+  mapRender: {fileID: 0}

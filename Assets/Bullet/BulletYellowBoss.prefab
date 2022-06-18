@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1570394378332582342}
   - component: {fileID: 416524614803882963}
   - component: {fileID: 8746674428495958326}
+  - component: {fileID: 2484887261326198341}
   m_Layer: 12
   m_Name: BulletYellowBoss
   m_TagString: Untagged
@@ -254,3 +255,17 @@ TrailRenderer:
   m_MinVertexDistance: 1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &2484887261326198341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3048500514158494265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 6998391271544711826}
+  mapRender: {fileID: 0}

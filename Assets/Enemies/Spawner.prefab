@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2871010253409400419}
   - component: {fileID: 2871010253409400420}
   - component: {fileID: 2871010253409400416}
+  - component: {fileID: 9095172055986560782}
   m_Layer: 10
   m_Name: Spawner
   m_TagString: Player
@@ -146,6 +147,20 @@ MonoBehaviour:
   Weapon: {fileID: 0}
   homePosition: {x: 0, y: 0, z: 0}
   FlyBullet: {fileID: 2801450463643824592, guid: 9994c9b28d668c746a3832d1abbefc81, type: 3}
+--- !u!114 &9095172055986560782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2871010253409400421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 2871010253409400418}
+  mapRender: {fileID: 0}
 --- !u!1001 &2782022664559776072
 PrefabInstance:
   m_ObjectHideFlags: 0

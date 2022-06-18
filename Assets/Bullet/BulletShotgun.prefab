@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 268886305462014469}
   - component: {fileID: 4897874419455157596}
   - component: {fileID: -8455128391899367173}
+  - component: {fileID: -2846162931334312650}
   m_Layer: 11
   m_Name: BulletShotgun
   m_TagString: Untagged
@@ -135,3 +136,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 5
+--- !u!114 &-2846162931334312650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8970577376959469219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 3975781545168190984}
+  mapRender: {fileID: 0}

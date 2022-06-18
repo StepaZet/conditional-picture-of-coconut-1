@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5746910248760202021}
   - component: {fileID: 5746910248760202020}
   - component: {fileID: 5746910248760202023}
+  - component: {fileID: 5712502463244604925}
   m_Layer: 9
   m_Name: Character Fireball
   m_TagString: Player
@@ -147,6 +148,20 @@ MonoBehaviour:
   characterCollider: {fileID: 5746910248760202021}
   BulletTypeSprite: {fileID: -7224892479368909311, guid: a7ee00f08ceb50a4c8b4b8380b161416, type: 3}
   grid: {fileID: 0}
+--- !u!114 &5712502463244604925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5746910248760202022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 5746910248760202018}
+  mapRender: {fileID: 0}
 --- !u!1001 &1290411962999246669
 PrefabInstance:
   m_ObjectHideFlags: 0

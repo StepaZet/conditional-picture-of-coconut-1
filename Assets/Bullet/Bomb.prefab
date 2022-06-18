@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2525584066483860921}
   - component: {fileID: 5739250599507924297}
   - component: {fileID: 1016245859308043445}
+  - component: {fileID: 5152879573688793947}
   m_Layer: 11
   m_Name: Bomb
   m_TagString: Untagged
@@ -253,3 +254,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DieSound: {fileID: 8300000, guid: 3fbe0c7fc47c2004eb6fa528f4d78391, type: 3}
   BoomPrefab: {fileID: 7884765147642207814, guid: af27ae7c4ef7a4542964910386e38e19, type: 3}
+--- !u!114 &5152879573688793947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056446416529901126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 6330024533109337837}
+  mapRender: {fileID: 0}

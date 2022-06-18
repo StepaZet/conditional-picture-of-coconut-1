@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7605132891047785645}
   - component: {fileID: 7605132891047785644}
   - component: {fileID: 7605132891047785647}
+  - component: {fileID: 4591252502047457792}
   m_Layer: 9
   m_Name: Character Sword
   m_TagString: Player
@@ -147,6 +148,20 @@ MonoBehaviour:
   characterCollider: {fileID: 7605132891047785645}
   BulletTypeSprite: {fileID: 21300000, guid: c1270046cbd48f44b83147aebd4ac83f, type: 3}
   grid: {fileID: 0}
+--- !u!114 &4591252502047457792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605132891047785646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 7605132891047785642}
+  mapRender: {fileID: 0}
 --- !u!1001 &3035561691537084061
 PrefabInstance:
   m_ObjectHideFlags: 0

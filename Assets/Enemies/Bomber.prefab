@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2315394912359582400}
   - component: {fileID: 2315394912359582403}
   - component: {fileID: 1836116479694523381}
+  - component: {fileID: 4106621972640441206}
   m_Layer: 10
   m_Name: Bomber
   m_TagString: Player
@@ -146,6 +147,20 @@ MonoBehaviour:
   Weapon: {fileID: 0}
   homePosition: {x: 0, y: 0, z: 0}
   BomberMiniPrefab: {fileID: 7610244180094209912, guid: 5e5a2372f7dd3aa4d814fb1947299eda, type: 3}
+--- !u!114 &4106621972640441206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315394912359582402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 2315394912359582401}
+  mapRender: {fileID: 0}
 --- !u!1001 &8240862875608480664
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6806625243763099877}
   - component: {fileID: -3664370092620892830}
   - component: {fileID: 4036420309027935543}
+  - component: {fileID: 374959299830352395}
   m_Layer: 10
   m_Name: CuteDemon
   m_TagString: Untagged
@@ -343,6 +344,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &374959299830352395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609087455462908440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 609087455462908420}
+  mapRender: {fileID: 0}
 --- !u!1001 &6973643861823057162
 PrefabInstance:
   m_ObjectHideFlags: 0

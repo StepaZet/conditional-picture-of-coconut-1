@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6795287842894324578}
   - component: {fileID: 3667321093368644498}
   - component: {fileID: 5442212123607798438}
+  - component: {fileID: -7333342040959702299}
   m_Layer: 11
   m_Name: BulletGold
   m_TagString: Untagged
@@ -253,3 +254,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DieSound: {fileID: 8300000, guid: 3fbe0c7fc47c2004eb6fa528f4d78391, type: 3}
   BoomPrefab: {fileID: 7884765147642207814, guid: af27ae7c4ef7a4542964910386e38e19, type: 3}
+--- !u!114 &-7333342040959702299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7046141133037293725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 3069723077218302006}
+  mapRender: {fileID: 0}

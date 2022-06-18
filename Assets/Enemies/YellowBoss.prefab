@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 3396527407159941322}
   - component: {fileID: 3396527407159941325}
   - component: {fileID: 3396527407159941324}
+  - component: {fileID: 2491374736040504919}
   m_Layer: 10
   m_Name: YellowBoss
   m_TagString: Untagged
@@ -232,6 +233,20 @@ MonoBehaviour:
   BomberPrefab: {fileID: 1836116479694523381, guid: ce1b06acabdf9074fbd5f0b86aa35f2b, type: 3}
   ForceField: {fileID: 3396527406168985192}
   attackStage: 0
+--- !u!114 &2491374736040504919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3396527407159941327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 3396527407159941323}
+  mapRender: {fileID: 0}
 --- !u!1001 &7891216894937015645
 PrefabInstance:
   m_ObjectHideFlags: 0

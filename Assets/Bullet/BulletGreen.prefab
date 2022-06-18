@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8352780256158042962}
   - component: {fileID: 2252448747651099554}
   - component: {fileID: 6844849148988883550}
+  - component: {fileID: 10545088880998047}
   m_Layer: 11
   m_Name: BulletGreen
   m_TagString: Untagged
@@ -253,3 +254,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DieSound: {fileID: 0}
   BoomPrefab: {fileID: 7884765147642207814, guid: af27ae7c4ef7a4542964910386e38e19, type: 3}
+--- !u!114 &10545088880998047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5507430852813502637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 522250392242163718}
+  mapRender: {fileID: 0}

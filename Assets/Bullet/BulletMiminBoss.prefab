@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3272112064912000486}
   - component: {fileID: 4738252755304424726}
   - component: {fileID: -6042465353202320947}
+  - component: {fileID: 5383446678232455944}
   m_Layer: 12
   m_Name: BulletMiminBoss
   m_TagString: Untagged
@@ -253,3 +254,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DieSound: {fileID: 8300000, guid: 1b0ec81e9c00d064bb06d6a1c25957a4, type: 3}
   BoomPrefab: {fileID: 4540342610652310283, guid: 3cf875c138f146c4f918be0fcc680131, type: 3}
+--- !u!114 &5383446678232455944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363951712721860121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 6466199310681562802}
+  mapRender: {fileID: 0}
