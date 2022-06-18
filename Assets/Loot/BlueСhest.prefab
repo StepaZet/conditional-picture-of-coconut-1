@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5559066861912096586}
   - component: {fileID: 5559066861912096587}
   - component: {fileID: 3214117498395211768}
+  - component: {fileID: -5041214873285916955}
   m_Layer: 0
   m_Name: "Blue\u0421hest"
   m_TagString: Untagged
@@ -223,3 +224,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-5041214873285916955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559066861912096584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 5559066861912096589}
+  mapRender: {fileID: 0}
