@@ -10,5 +10,6 @@ namespace Game
 		public static PlayerObj player; //Временно
 		public static int Score;
 		public static bool IsPaused { get; set; }
+		public static bool IsLightOff { get; set; }
 	}
 }

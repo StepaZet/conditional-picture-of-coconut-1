@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/MapGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects/Torch/LightController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Torch/LightController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Menu/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menu/MainMenu.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,13 +37,13 @@
     <setting file="file://$PROJECT_DIR$/Assets/Menu/WinMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Weapon/SwordColliderHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695d1cc93cca45069c528c15c9fdd7493e2800/9a/d91c074c/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Health/HealthBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cafb29d5233847fbb4edcf8d7c32b1e3299c90/93/b519fe6a/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/76/d8bbeefb/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/81/706e3a9d/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Menu/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Resources/Rooms/RoomGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Menu/DeathMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3be1a7ff939c43f181c0a10b5a0189ac13c800/17/4cf72f64/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/351e49e2a5bf4fd6beabb458ce2255f3ff600/ca/7363510e/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
@@ -72,10 +73,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="20704">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="20704" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -129,6 +130,7 @@
       <workItem from="1654540615904" duration="2250000" />
       <workItem from="1654545973760" duration="3518000" />
       <workItem from="1654670746124" duration="14440000" />
+      <workItem from="1655743799005" duration="1150000" />
     </task>
     <servers />
   </component>
@@ -160,10 +162,10 @@
           <line>29</line>
           <properties documentPath="C:\Users\hp\SandboxProject\Assets\Resources\Rooms\RoomGenerator.cs" initialLine="36" containingFunctionPresentation="method 'OnTriggerEnter2D'">
             <startOffsets>
-              <option value="1706" />
+              <option value="1703" />
             </startOffsets>
             <endOffsets>
-              <option value="2053" />
+              <option value="2050" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
