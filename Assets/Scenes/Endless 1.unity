@@ -298,6 +298,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3732854250631117565, guid: 4a4bf2949495d754aa39222b217d0a08, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 220.4015
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732854250631117565, guid: 4a4bf2949495d754aa39222b217d0a08, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 192.85501
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097384112891679249, guid: 4a4bf2949495d754aa39222b217d0a08, type: 3}
+      propertyPath: m_Text
+      value: Next  Level
+      objectReference: {fileID: 0}
     - target: {fileID: 4261346524002628385, guid: 4a4bf2949495d754aa39222b217d0a08, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -309,6 +321,10 @@ PrefabInstance:
     - target: {fileID: 4261346524002628385, guid: 4a4bf2949495d754aa39222b217d0a08, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: MapGenerator, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217964075909872341, guid: 4a4bf2949495d754aa39222b217d0a08, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8516644808603038403, guid: 4a4bf2949495d754aa39222b217d0a08, type: 3}
       propertyPath: m_IsActive
@@ -829,6 +845,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
+      propertyPath: exit
+      value: 
+      objectReference: {fileID: 2918698543828107412, guid: 417d9203b5d667b4a8c3fd71c30ae489, type: 3}
     - target: {fileID: 1993469709013219731, guid: 7c30013fccca31444831ea1a531daf6e, type: 3}
       propertyPath: player
       value: 
