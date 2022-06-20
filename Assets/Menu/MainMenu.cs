@@ -23,6 +23,18 @@ namespace Menu
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
+        public void PlayRandomGenerated()
+        {
+            Cursor.SetCursor(crossCursor, new Vector2(7,7), CursorMode.ForceSoftware);
+            SceneManager.LoadScene("Endless 1");
+        }
+        
+        public void PlayTutorial()
+        {
+            Cursor.SetCursor(crossCursor, new Vector2(7,7), CursorMode.ForceSoftware);
+            SceneManager.LoadScene("Tutorial");
+        }
+
         public void QuitGame()
         {
             Debug.Log("QuitButtonHasBeenPressed");
