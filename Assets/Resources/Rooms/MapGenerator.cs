@@ -21,7 +21,7 @@ public class MapGenerator : MonoBehaviour
 
     [SerializeField] public List<RoomGenerator> generatedRooms;
     [SerializeField] public List<RoomGenerator> generatedRoomsWithoutCorridors;
-    //[SerializeField] public GameObject deadEnd;
+    [SerializeField] public GameObject deadEnd;
     [SerializeField]private GameObject startRoom;
     [SerializeField] private int minNumberOfRoomsToBeGenerated;
     [SerializeField] private int waitingTime;
@@ -67,6 +67,16 @@ public class MapGenerator : MonoBehaviour
                 }
 
                 
+            }
+        }
+
+        foreach (var openings in generatedRooms.Select(r => r.isOpeningGenerated.Where(o => !o.Value)))
+        {
+            foreach (var opening in openings)
+            {
+                var currentDeadEnd = Instantiate(deadEnd);
+                currentDeadEnd.transform.position = opening.Key.position;
+                currentDeadEnd.transform.localScale *= 2;
             }
         }
     }
