@@ -8,6 +8,7 @@ using Player;
 using Resources.Rooms;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = System.Random;
 
 public class MapGenerator : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] public List<RoomGenerator> generatedRooms;
     [SerializeField] public List<RoomGenerator> generatedRoomsWithoutCorridors;
     [SerializeField] public GameObject deadEnd;
+    [SerializeField] public GameObject exit;
     [SerializeField]private GameObject startRoom;
     [SerializeField] private int minNumberOfRoomsToBeGenerated;
     [SerializeField] private int waitingTime;
@@ -70,14 +72,26 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-        foreach (var openings in generatedRooms.Select(r => r.isOpeningGenerated.Where(o => !o.Value)))
+        var ends = generatedRooms.Select(r => r.isOpeningGenerated.Where(o => !o.Value)).SelectMany(x => x).ToArray();
+        foreach (var opening in ends)
         {
-            foreach (var opening in openings)
-            {
-                var currentDeadEnd = Instantiate(deadEnd);
-                currentDeadEnd.transform.position = opening.Key.position;
-                currentDeadEnd.transform.localScale *= 2;
-            }
+            var currentDeadEnd = Instantiate(deadEnd);
+            currentDeadEnd.transform.position = opening.Key.position;
+            currentDeadEnd.transform.localScale *= 2;
+        }
+
+        Instantiate(exit);
+        var randomOpeningIndex = 0;
+        if (ends.Length == 0)
+        {
+            var badEnds = generatedRooms.SelectMany(x => x.openings).ToArray();
+            randomOpeningIndex = random.Next(badEnds.Length);
+            exit.transform.position = badEnds[randomOpeningIndex].transform.position;
+        }
+        else
+        {
+            randomOpeningIndex = random.Next(ends.Length);
+            exit.transform.position = ends[randomOpeningIndex].Key.transform.position;
         }
     }
 
