@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2234180e-cf90-49dc-97cd-d22b8971c51c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SandboxProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Torch/LightController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Torch/LightController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Game.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Menu/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menu/MainMenu.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +127,7 @@
       <workItem from="1654540615904" duration="2250000" />
       <workItem from="1654545973760" duration="3518000" />
       <workItem from="1654670746124" duration="14440000" />
-      <workItem from="1655743799005" duration="1150000" />
+      <workItem from="1655743799005" duration="1549000" />
     </task>
     <servers />
   </component>

@@ -1,3 +1,4 @@
+using System;
 using Game;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +9,13 @@ namespace Menu
     public class MainMenu : MonoBehaviour
     {
         [SerializeField] private Texture2D crossCursor;
-        [SerializeField] private GameObject lightingToggle;
+        [SerializeField] private Toggle lightingToggle;
+
+        private void OnEnable()
+        {
+            SetLightToggleAccordingly();
+        }
+
         public void PlayGame()
         {
             Cursor.SetCursor(crossCursor, new Vector2(7,7), CursorMode.ForceSoftware);
@@ -24,7 +31,12 @@ namespace Menu
 
         public void ChangeLighting()
         {
-            GameData.IsLightOff = !lightingToggle.GetComponent<Toggle>().isOn;
+            GameData.IsLightOff = !lightingToggle.isOn;
+        }
+
+        public void SetLightToggleAccordingly()
+        {
+            lightingToggle.isOn = !GameData.IsLightOff;
         }
     }
 }
