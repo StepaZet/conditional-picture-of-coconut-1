@@ -79840,6 +79840,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3163097871952830792, guid: 9242899af8287684e84a40bb22c77b39, type: 3}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3163097871952830793, guid: 9242899af8287684e84a40bb22c77b39, type: 3}
       propertyPath: m_Name
       value: Character Shotgun
@@ -100966,7 +100970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2164075446583964650, guid: 927880ebe6763044c92d564eda846710, type: 3}
       propertyPath: IsLightOff
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2164075446583964651, guid: 927880ebe6763044c92d564eda846710, type: 3}
       propertyPath: m_Name
