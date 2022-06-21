@@ -7,17 +7,17 @@ using UnityEngine;
 
 public class GridObj : MonoBehaviour
 {
+    public static readonly float cellSize = 1.28f;
+    public static readonly float2 startPosition = new float2(cellSize * (-18), cellSize * (-40));
+    public static readonly int width = 170;
+    public static readonly int height = 130;
+
     public Grid Grid { get; private set; }
     public Vector3 PlayerPosition { get; set; }
     public LayerMask WallsLayerMask;
 
     public void OnEnable()
     {
-        const float cellSize = 1.28f;
-        var startPosition = new float2(cellSize * (-18), cellSize * (-40));
-        const int width = 170;
-        const int height = 130;
-        
         WallsLayerMask = LayerMask.GetMask("Walls");
 
         Grid = new Grid(startPosition, width, height, cellSize);
@@ -36,7 +36,7 @@ public class GridObj : MonoBehaviour
             }
         }
 
-        //Grid.DrawGrid();
+        Grid.DrawGrid();
     }
 
     private void FixedUpdate()
