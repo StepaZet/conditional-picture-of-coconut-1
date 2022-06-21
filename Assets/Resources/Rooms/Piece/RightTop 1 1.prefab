@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 2199526344303891}
   - component: {fileID: 2199526344303889}
   - component: {fileID: 2199526344303890}
+  - component: {fileID: 511680628008709736}
   m_Layer: 0
   m_Name: Bottom
   m_TagString: Untagged
@@ -344,6 +345,20 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &511680628008709736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2199526344303900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 2199526344303890}
 --- !u!1 &2199526363538747
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +370,7 @@ GameObject:
   - component: {fileID: 2199526363538746}
   - component: {fileID: 2199526363538744}
   - component: {fileID: 2199526363538745}
+  - component: {fileID: 6236277709843374943}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -578,6 +594,20 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &6236277709843374943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2199526363538747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 2199526344303890}
 --- !u!1 &2199526766440647
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,6 +620,7 @@ GameObject:
   - component: {fileID: 2199526766440699}
   - component: {fileID: 2199526766440644}
   - component: {fileID: 2199526766440645}
+  - component: {fileID: 7209985851309795435}
   m_Layer: 0
   m_Name: WallsColliderHelp
   m_TagString: Untagged
@@ -853,6 +884,20 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &7209985851309795435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2199526766440647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 2199526344303890}
 --- !u!1 &2199526892769299
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,6 +910,7 @@ GameObject:
   - component: {fileID: 2199526892769303}
   - component: {fileID: 2199526892769296}
   - component: {fileID: 2199526892769297}
+  - component: {fileID: 3920924518815880318}
   m_Layer: 0
   m_Name: WallsCollider
   m_TagString: Untagged
@@ -1061,7 +1107,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 661a382a7d67f934d9ca48a0a3d2a482, type: 2}
+  - {fileID: 2100000, guid: 274038ab3e40cf8489a8f8d56c2624f7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1106,6 +1152,20 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &3920924518815880318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2199526892769299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 2199526344303890}
 --- !u!1 &2199527376334784
 GameObject:
   m_ObjectHideFlags: 0

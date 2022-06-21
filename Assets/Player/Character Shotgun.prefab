@@ -147,6 +147,7 @@ MonoBehaviour:
   weaponPrefab: {fileID: 4329172113836715944}
   characterCollider: {fileID: 3163097871952830794}
   BulletTypeSprite: {fileID: -7224892479368909311, guid: a7ee00f08ceb50a4c8b4b8380b161416, type: 3}
+  StartShadow: {fileID: 8270856065255985178, guid: c109ff6309a420643888642bfd4c4f94, type: 3}
   grid: {fileID: 0}
 --- !u!114 &51729000035227415
 MonoBehaviour:

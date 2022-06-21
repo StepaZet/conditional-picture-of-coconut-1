@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 3060334247088055388}
   - component: {fileID: 3060334247088055391}
   - component: {fileID: 3060334247088055390}
+  - component: {fileID: 5904733004648893758}
   m_Layer: 0
   m_Name: DoorsSpawnerRoom
   m_TagString: Untagged
@@ -396,6 +397,20 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &5904733004648893758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334247088055376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334247163893061
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,6 +422,7 @@ GameObject:
   - component: {fileID: 3060334247163893058}
   - component: {fileID: 3060334247163893056}
   - component: {fileID: 3060334247163893059}
+  - component: {fileID: 559185954239005123}
   m_Layer: 0
   m_Name: FakeWizardRoom
   m_TagString: Untagged
@@ -558,6 +574,20 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &559185954239005123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334247163893061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334247187894677
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,7 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1144295b9a797e540b5e24fbcaa8695e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Doors: {fileID: 0}
+  Doors: {fileID: 3060334248601690966}
   EnemyWaves:
   - {fileID: 3060334247068519177}
   - {fileID: 3060334248644486246}
@@ -933,6 +963,7 @@ GameObject:
   - component: {fileID: 3060334247336733114}
   - component: {fileID: 3060334247336733112}
   - component: {fileID: 3060334247336733115}
+  - component: {fileID: 6540583406073583602}
   m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
@@ -9700,6 +9731,20 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &6540583406073583602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334247336733117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334247478527480
 GameObject:
   m_ObjectHideFlags: 0
@@ -9712,6 +9757,7 @@ GameObject:
   - component: {fileID: 3060334247478527428}
   - component: {fileID: 3060334247478527431}
   - component: {fileID: 3060334247478527430}
+  - component: {fileID: 8916777457252813628}
   m_Layer: 0
   m_Name: DoorsYellowBossArea
   m_TagString: Untagged
@@ -9901,6 +9947,20 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &8916777457252813628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334247478527480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334247503881099
 GameObject:
   m_ObjectHideFlags: 0
@@ -9912,6 +9972,7 @@ GameObject:
   - component: {fileID: 3060334247503881096}
   - component: {fileID: 3060334247503881110}
   - component: {fileID: 3060334247503881097}
+  - component: {fileID: 7830741031675689747}
   m_Layer: 3
   m_Name: TopWallsHelp
   m_TagString: Untagged
@@ -10463,6 +10524,20 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &7830741031675689747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334247503881099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334247510998079
 GameObject:
   m_ObjectHideFlags: 0
@@ -10508,6 +10583,7 @@ GameObject:
   - component: {fileID: 3060334247536385289}
   - component: {fileID: 3060334247536385303}
   - component: {fileID: 3060334247536385302}
+  - component: {fileID: 132278105424647578}
   m_Layer: 0
   m_Name: FakeSpawnerRoom
   m_TagString: Untagged
@@ -10659,6 +10735,20 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &132278105424647578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334247536385288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334247603185924
 GameObject:
   m_ObjectHideFlags: 0
@@ -10670,6 +10760,7 @@ GameObject:
   - component: {fileID: 3060334247603185925}
   - component: {fileID: 3060334247603185923}
   - component: {fileID: 3060334247603185922}
+  - component: {fileID: 3475479072481276183}
   m_Layer: 3
   m_Name: TopWalls
   m_TagString: Untagged
@@ -11621,6 +11712,20 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &3475479072481276183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334247603185924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334247660441093
 GameObject:
   m_ObjectHideFlags: 0
@@ -11725,6 +11830,7 @@ GameObject:
   - component: {fileID: 3060334247682186943}
   - component: {fileID: 3060334247682186941}
   - component: {fileID: 3060334247682186940}
+  - component: {fileID: 890069114968868065}
   m_Layer: 0
   m_Name: Cosmetic Second
   m_TagString: Untagged
@@ -12030,6 +12136,20 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &890069114968868065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334247682186942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334247709910808
 GameObject:
   m_ObjectHideFlags: 0
@@ -12042,6 +12162,7 @@ GameObject:
   - component: {fileID: 3060334247709910244}
   - component: {fileID: 3060334247709910247}
   - component: {fileID: 3060334247709910246}
+  - component: {fileID: 6883659378359421794}
   m_Layer: 0
   m_Name: DoorsTriangleRoom
   m_TagString: Untagged
@@ -12362,6 +12483,20 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &6883659378359421794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334247709910808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334247832638643
 GameObject:
   m_ObjectHideFlags: 0
@@ -12373,6 +12508,7 @@ GameObject:
   - component: {fileID: 3060334247832638640}
   - component: {fileID: 3060334247832638654}
   - component: {fileID: 3060334247832638641}
+  - component: {fileID: 3916424366081279507}
   m_Layer: 0
   m_Name: Cosmetics Top (1)
   m_TagString: Untagged
@@ -12898,6 +13034,20 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &3916424366081279507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334247832638643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334247937265609
 GameObject:
   m_ObjectHideFlags: 0
@@ -12909,6 +13059,7 @@ GameObject:
   - component: {fileID: 3060334247937265622}
   - component: {fileID: 3060334247937265620}
   - component: {fileID: 3060334247937265623}
+  - component: {fileID: 1508922568932054007}
   m_Layer: 0
   m_Name: FakeMimicArea
   m_TagString: Untagged
@@ -13060,6 +13211,20 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &1508922568932054007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334247937265609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334247952256965
 GameObject:
   m_ObjectHideFlags: 0
@@ -13109,6 +13274,7 @@ GameObject:
   - component: {fileID: 3060334247980032606}
   - component: {fileID: 3060334247980032604}
   - component: {fileID: 3060334247980032607}
+  - component: {fileID: 6402154001971405420}
   m_Layer: 0
   m_Name: Cosmetics Top (2)
   m_TagString: Untagged
@@ -13472,6 +13638,20 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &6402154001971405420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334247980032593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334248008426091
 GameObject:
   m_ObjectHideFlags: 0
@@ -13486,6 +13666,7 @@ GameObject:
   - component: {fileID: 3060334248008426103}
   - component: {fileID: 3060334248008426102}
   - component: {fileID: 3060334248008426089}
+  - component: {fileID: 7114023933084539583}
   m_Layer: 3
   m_Name: WallWithCollider
   m_TagString: Untagged
@@ -15706,6 +15887,20 @@ CompositeCollider2D:
     m_Paths: []
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!114 &7114023933084539583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334248008426091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334248041439537
 GameObject:
   m_ObjectHideFlags: 0
@@ -15718,6 +15913,7 @@ GameObject:
   - component: {fileID: 3060334248041439549}
   - component: {fileID: 3060334248041439548}
   - component: {fileID: 3060334248041439551}
+  - component: {fileID: 3625522597066652766}
   m_Layer: 0
   m_Name: RoorsBoobRoom
   m_TagString: Untagged
@@ -15967,6 +16163,20 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &3625522597066652766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334248041439537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334248079955758
 GameObject:
   m_ObjectHideFlags: 0
@@ -16071,6 +16281,7 @@ GameObject:
   - component: {fileID: 3060334248092255510}
   - component: {fileID: 3060334248092255508}
   - component: {fileID: 3060334248092255511}
+  - component: {fileID: 7215699904979008838}
   m_Layer: 0
   m_Name: FakeMiddleRoom
   m_TagString: Untagged
@@ -16222,6 +16433,20 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &7215699904979008838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334248092255497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334248153685925
 GameObject:
   m_ObjectHideFlags: 0
@@ -16284,6 +16509,7 @@ GameObject:
   - component: {fileID: 3060334248185822827}
   - component: {fileID: 3060334248185822825}
   - component: {fileID: 3060334248185822824}
+  - component: {fileID: 2886114193608768169}
   m_Layer: 0
   m_Name: Cosmetics
   m_TagString: Untagged
@@ -20367,6 +20593,20 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &2886114193608768169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334248185822826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334248223556327
 GameObject:
   m_ObjectHideFlags: 0
@@ -20379,6 +20619,7 @@ GameObject:
   - component: {fileID: 3060334248223556323}
   - component: {fileID: 3060334248223556322}
   - component: {fileID: 3060334248223556325}
+  - component: {fileID: 2456417164146441277}
   m_Layer: 0
   m_Name: DoorsMiddleRoom
   m_TagString: Untagged
@@ -20673,6 +20914,20 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &2456417164146441277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334248223556327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334248227190913
 GameObject:
   m_ObjectHideFlags: 0
@@ -20928,6 +21183,7 @@ GameObject:
   - component: {fileID: 3060334248346368493}
   - component: {fileID: 3060334248346368491}
   - component: {fileID: 3060334248346368490}
+  - component: {fileID: 968917948125936640}
   m_Layer: 3
   m_Name: BottomWalls
   m_TagString: Untagged
@@ -21799,6 +22055,20 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &968917948125936640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334248346368492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334248582214624
 GameObject:
   m_ObjectHideFlags: 0
@@ -21810,6 +22080,7 @@ GameObject:
   - component: {fileID: 3060334248582214625}
   - component: {fileID: 3060334248582214639}
   - component: {fileID: 3060334248582214638}
+  - component: {fileID: 4592843085472676111}
   m_Layer: 0
   m_Name: FakeTriangle
   m_TagString: Untagged
@@ -21961,6 +22232,20 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &4592843085472676111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334248582214624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334248601690966
 GameObject:
   m_ObjectHideFlags: 0
@@ -21973,6 +22258,7 @@ GameObject:
   - component: {fileID: 3060334248601690962}
   - component: {fileID: 3060334248601690965}
   - component: {fileID: 3060334248601690964}
+  - component: {fileID: 6624548497946212426}
   m_Layer: 3
   m_Name: DoorsMimicArea
   m_TagString: Untagged
@@ -22199,6 +22485,20 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &6624548497946212426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334248601690966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334248633159380
 GameObject:
   m_ObjectHideFlags: 0
@@ -22210,6 +22510,7 @@ GameObject:
   - component: {fileID: 3060334248633159381}
   - component: {fileID: 3060334248633159379}
   - component: {fileID: 3060334248633159378}
+  - component: {fileID: 3152899729597659258}
   m_Layer: 0
   m_Name: Cosmetics Top
   m_TagString: Untagged
@@ -22981,6 +23282,20 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &3152899729597659258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334248633159380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334248644486246
 GameObject:
   m_ObjectHideFlags: 0
@@ -23079,6 +23394,7 @@ MonoBehaviour:
   collider2D: {fileID: 3060334248227190927}
   leftDownPoint: {fileID: 2815618858283676844}
   rightUpPoint: {fileID: 4192934088593286451}
+  noOpeningsLeft: 0
 --- !u!1 &3060334248720964269
 GameObject:
   m_ObjectHideFlags: 0
@@ -23091,6 +23407,7 @@ GameObject:
   - component: {fileID: 3060334248720964265}
   - component: {fileID: 3060334248720964264}
   - component: {fileID: 3060334248720964267}
+  - component: {fileID: 4718797018784866748}
   m_Layer: 0
   m_Name: Pattern
   m_TagString: Untagged
@@ -23250,6 +23567,20 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &4718797018784866748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334248720964269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334248729884498
 GameObject:
   m_ObjectHideFlags: 0
@@ -23355,6 +23686,7 @@ GameObject:
   - component: {fileID: 3060334248773156823}
   - component: {fileID: 3060334248773156822}
   - component: {fileID: 3060334248773156809}
+  - component: {fileID: 8441277431828947746}
   m_Layer: 0
   m_Name: DoorsWizardRoom
   m_TagString: Untagged
@@ -23585,6 +23917,20 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &8441277431828947746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334248773156811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334248856244567
 GameObject:
   m_ObjectHideFlags: 0
@@ -23636,6 +23982,7 @@ GameObject:
   - component: {fileID: 3060334248899693011}
   - component: {fileID: 3060334248899693010}
   - component: {fileID: 3060334248899693013}
+  - component: {fileID: 2561461514760641089}
   m_Layer: 3
   m_Name: WallsWithColliderHelp
   m_TagString: Untagged
@@ -24972,7 +25319,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 661a382a7d67f934d9ca48a0a3d2a482, type: 2}
+  - {fileID: 2100000, guid: 274038ab3e40cf8489a8f8d56c2624f7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -25060,6 +25407,20 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &2561461514760641089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060334248899693015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aba548a8495bb48b3e5180ad0c5090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 0}
+  mapRender: {fileID: 3060334247088055391}
 --- !u!1 &3060334248920863803
 GameObject:
   m_ObjectHideFlags: 0

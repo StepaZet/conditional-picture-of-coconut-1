@@ -18,9 +18,19 @@ namespace Player
 		[SerializeField] protected GameObject weaponPrefab;
 		[SerializeField] public Collider2D characterCollider;
 		public Sprite BulletTypeSprite;
+        
+        public GameObject StartShadow;
 		public PlayerState State { get; set; }
 		public static event EventHandler OnDeath;
-        
+
+        private void OnEnable()
+        {
+            Instantiate(StartShadow, 
+                transform.position - 
+                new Vector3(0, sprite.size.y/2), 
+                Quaternion.identity);
+        }
+
 		private void Awake()
 		{
 			health.maxHealthPoints = maxHealth;
