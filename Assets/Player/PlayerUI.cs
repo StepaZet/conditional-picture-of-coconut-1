@@ -55,12 +55,15 @@ namespace Player
 
 		private void UpdateCharacters(object sender, System.EventArgs eventArgs)
 		{
+			foreach (Transform child in openCharactersCanvas.gameObject.transform) 
+				Destroy(child.gameObject);
 			foreach (var image in openCharactersImages) 
 				Destroy(image.gameObject);
 			foreach (var image in smallHealthBars.Select(smallHealthBar => smallHealthBar.GetComponents<Image>()).SelectMany(images => images))
 				Destroy(image);
 			foreach (var smallText in smallTexts) 
 				Destroy(smallText);
+			
 
 			openCharactersImages.Clear();
 			smallHealthBars.Clear();
