@@ -9,7 +9,7 @@ public class LightOff : MonoBehaviour
     public SpriteRenderer spriteRender;
     public TilemapRenderer mapRender;
 
-    private void OnEnable()
+    private void Start()
     {
         var lightTumbler = GameObject.Find("LightTumbler").GetComponent<LightController>();
         try
@@ -36,6 +36,13 @@ public class LightOff : MonoBehaviour
                 spriteRender.material = lightTumbler.material;
             if (mapRender != null)
                 mapRender.material = lightTumbler.material;
+        }
+        else
+        {
+            if (spriteRender != null)
+                spriteRender.material = lightTumbler.Difuse;
+            if (mapRender != null)
+                mapRender.material = lightTumbler.Difuse;
         }
     }
 }

@@ -1357,6 +1357,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2164075446583964650, guid: 927880ebe6763044c92d564eda846710, type: 3}
+      propertyPath: Difuse
+      value: 
+      objectReference: {fileID: 2100000, guid: 661a382a7d67f934d9ca48a0a3d2a482, type: 2}
+    - target: {fileID: 2164075446583964650, guid: 927880ebe6763044c92d564eda846710, type: 3}
       propertyPath: IsLightOff
       value: 1
       objectReference: {fileID: 0}

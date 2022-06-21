@@ -14,4 +14,5 @@ public class LightController : MonoBehaviour
 
     public bool IsLightOff;
     public Material material;
+    public Material Difuse;
 }
