@@ -42,9 +42,18 @@ public class MapGenerator : MonoBehaviour
         };
         
         var spawnedRoom = Instantiate(startRoom, gridObj.transform);
+        spawnCharactersInRoom(spawnedRoom);
         generatedRooms.Add(spawnedRoom.GetComponent<RoomGenerator>());
         spawnedRoom.GetComponent<RoomGenerator>().GenerateAdjacentRooms(corridorStraightPrefabs);
         Spawn();
+    }
+
+    public static void spawnCharactersInRoom(GameObject room)
+    {
+        if (room.GetComponent<CharacterGenerated>())
+        {
+            room.GetComponent<CharacterGenerated>().SpawnCharacters();
+        }
     }
 
     public void Spawn()

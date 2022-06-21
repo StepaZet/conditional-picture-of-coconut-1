@@ -20,7 +20,7 @@ namespace Resources.Rooms
 
 		public void OnEnable()
 		{
-			foreach (var opening in openings) 
+            foreach (var opening in openings) 
 				if (!isOpeningGenerated.ContainsKey(opening))
 					isOpeningGenerated[opening] = false;
 			
@@ -68,10 +68,7 @@ namespace Resources.Rooms
 
                 if (isSuccessful)
                 {
-                    if (roomObj.GetComponent<CharacterGenerated>())
-                    {
-                        roomObj.GetComponent<CharacterGenerated>().SpawnCharacters();
-                    }
+					MapGenerator.spawnCharactersInRoom(roomObj);
                     break;
 				}
 					

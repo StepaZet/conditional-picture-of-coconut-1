@@ -235,7 +235,7 @@ MonoBehaviour:
   weapon: {fileID: 2599156437058345564}
   health: {fileID: 5651315820281734652}
   stamina: {fileID: 8966218793922595131}
-  maxHealth: 0
+  maxHealth: 100
   rb: {fileID: 7605132891047785644}
   sprite: {fileID: 7605132891047785642}
   weaponPrefab: {fileID: 6229293765169583505}
@@ -339,7 +339,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2115143502353147416, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
       propertyPath: IsImmortal
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2115143502353147416, guid: 2aa0a8907c96b9b44b92d12fc372a90b, type: 3}
       propertyPath: maxHealthPoints

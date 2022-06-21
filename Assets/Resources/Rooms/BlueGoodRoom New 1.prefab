@@ -8552,7 +8552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRender: {fileID: 0}
-  mapRender: {fileID: 8430470840343731090}
+  mapRender: {fileID: 2102147130132776692}
 --- !u!1 &8096512939334620538
 GameObject:
   m_ObjectHideFlags: 0

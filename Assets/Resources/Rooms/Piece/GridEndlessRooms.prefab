@@ -61,6 +61,7 @@ MonoBehaviour:
   WallsLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  countFrames: 0
 --- !u!114 &7998779033013915283
 MonoBehaviour:
   m_ObjectHideFlags: 0

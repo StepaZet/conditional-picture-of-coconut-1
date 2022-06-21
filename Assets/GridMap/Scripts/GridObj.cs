@@ -4,12 +4,14 @@ using Extensions;
 using GridTools;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class GridObj : MonoBehaviour
 {
     public Grid Grid { get; private set; }
     public Vector3 PlayerPosition { get; set; }
     public LayerMask WallsLayerMask;
+    public int countFrames = 0;
 
     public void OnEnable()
     {
@@ -23,10 +25,13 @@ public class GridObj : MonoBehaviour
         Grid = new Grid(startPosition, width, height, cellSize);
 
         var sizeVector = new Vector2(Grid.CellSize, Grid.CellSize);
+        if (GameObject.Find("MapGenerator"))
+            return;
+
         for (var x = 0; x < width; x++)
         for (var y = 0; y < height; y++)   
         {
-
+            
             var position = Grid.GridToWorldPosition(new float2(x, y)).ToVector2() + sizeVector / 2;
             var checkBox = Physics2D.OverlapArea(position - sizeVector / 5, position + sizeVector / 5, WallsLayerMask);
 
@@ -39,8 +44,30 @@ public class GridObj : MonoBehaviour
         //Grid.DrawGrid();
     }
 
-    private void FixedUpdate()
+    public void UpdateWalls()
     {
+        var sizeVector = new Vector2(Grid.CellSize, Grid.CellSize);
+        for (var x = 0; x < Grid.Width; x++)
+        for (var y = 0; y < Grid.Height; y++)
+        {
+
+            var position = Grid.GridToWorldPosition(new float2(x, y)).ToVector2() + sizeVector / 2;
+            var checkBox = Physics2D.OverlapArea(position - sizeVector / 5, position + sizeVector / 5, WallsLayerMask);
+
+            if (checkBox != null)
+            {
+                Grid.CreateWall(new int2(x, y));
+            }
+        }
+        //Grid.DrawGrid();
+    }
+
+    private void Update()
+    {
+        if (countFrames > 10)
+            return;
+        countFrames++;
+        UpdateWalls();
         //if (Grid.pathsToDraw.Count > 0)
         //    Grid.DrawPaths();
 

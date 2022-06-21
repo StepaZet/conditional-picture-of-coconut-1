@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,24 @@ public class LightOff : MonoBehaviour
     private void OnEnable()
     {
         var lightTumbler = GameObject.Find("LightTumbler").GetComponent<LightController>();
+        try
+        {
+            spriteRender = GetComponent<SpriteRenderer>();
+        }
+        catch (Exception e)
+        {
+            
+        }
+        try
+        {
+            mapRender = GetComponent<TilemapRenderer>();
+        }
+        catch
+        {
+
+        }
+
+
         if (lightTumbler.IsLightOff)
         {
             if (spriteRender != null)
