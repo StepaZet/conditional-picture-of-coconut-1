@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Resources.Rooms
@@ -93,6 +94,7 @@ namespace Resources.Rooms
 				room.transform.position += opening.position - newOpening.position;
 				var hasCollidedWithOther = mapGenerator.generatedRooms
 					.Except(new[] {room})
+					.Where(x => IsInGridObj(room))
 					.Any(r => IsColliding(room, r));
 				if (!hasCollidedWithOther)
 					return (room, true);
@@ -108,6 +110,31 @@ namespace Resources.Rooms
 			var l2 = room2.leftDownPoint.position;
 			var r2 = room2.rightUpPoint.position;
 			var delta = 0.1f;
+
+			if (l1.x + delta >= r2.x || l2.x + delta >= r1.x)
+			{
+				return false;
+			}
+ 
+			if (r1.y <= l2.y + delta || r2.y <= l1.y + delta)
+			{
+				return false;
+			}
+			return true;
+		}
+
+		private static bool IsInGridObj(RoomGenerator room)
+		{
+			const float cellSize = 1.28f;
+			var startPosition = new float2(cellSize * (-18), cellSize * (-40));
+			const int width = 170;
+			const int height = 130;
+			var delta = 0.1f;
+			
+			var l1 = room.leftDownPoint.position;
+			var r1 = room.rightUpPoint.position;
+			var l2 = startPosition;
+			var r2 = new Vector3(l2.x + width*cellSize, l2.y + height*cellSize, 0);
 			
 			if (l1.x + delta >= r2.x || l2.x + delta >= r1.x)
 			{
