@@ -94,9 +94,8 @@ namespace Resources.Rooms
 				room.transform.position += opening.position - newOpening.position;
 				var hasCollidedWithOther = mapGenerator.generatedRooms
 					.Except(new[] {room})
-					.Where(x => IsInGridObj(room))
 					.Any(r => IsColliding(room, r));
-				if (!hasCollidedWithOther)
+				if (!hasCollidedWithOther && IsInGridObj(room))
 					return (room, true);
 			}
 
