@@ -26,8 +26,9 @@ namespace Health
 			if (healthObj.CurrentHealthPoints == healthObj.maxHealthPoints)
 				return;
 			
-			healthObj.Heal(healthPoints);
-            AudioSource.PlayClipAtPoint(PickUpSound, transform.position);
+			//healthObj.Heal(healthPoints);
+			GameData.player.character.health.Heal(healthPoints);
+			AudioSource.PlayClipAtPoint(PickUpSound, transform.position);
 			Destroy(gameObject);
 		}
 	}
