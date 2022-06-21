@@ -15,8 +15,10 @@ namespace Health
 		}
 
 		public void HealthSystemOnHealthChanged(object sender, System.EventArgs eventArgs)
-		{
-			UpdateBar();
+        {
+            if (this == null)
+                return;
+            UpdateBar();
 		}
 
 		public void UpdateBar()
