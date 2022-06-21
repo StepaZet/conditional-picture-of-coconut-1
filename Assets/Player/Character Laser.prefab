@@ -141,7 +141,7 @@ MonoBehaviour:
   weapon: {fileID: 4362303648883116031}
   health: {fileID: 6164393063348693646}
   stamina: {fileID: 2099135102576028076}
-  maxHealth: 0
+  maxHealth: 50
   rb: {fileID: 3942349395538536921}
   sprite: {fileID: 3942349395538536927}
   weaponPrefab: {fileID: 2436298638021110791}

@@ -20,11 +20,16 @@ namespace Player
 		public Sprite BulletTypeSprite;
         
         public GameObject StartShadow;
+        private bool isStartShadowSpawned;
+
 		public PlayerState State { get; set; }
 		public static event EventHandler OnDeath;
 
         private void OnEnable()
         {
+            if (isStartShadowSpawned)
+				return;
+            isStartShadowSpawned = true;
             Instantiate(StartShadow, 
                 transform.position - 
                 new Vector3(0, sprite.size.y/2), 

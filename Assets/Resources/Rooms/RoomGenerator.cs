@@ -65,8 +65,15 @@ namespace Resources.Rooms
 						break;
 				}
 
-				if (isSuccessful)
-					break;
+                if (isSuccessful)
+                {
+                    if (roomObj.GetComponent<CharacterGenerated>())
+                    {
+                        roomObj.GetComponent<CharacterGenerated>().SpawnCharacters();
+                    }
+                    break;
+				}
+					
 				Destroy(roomObj);
 			}
 		}
